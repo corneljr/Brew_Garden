@@ -1,0 +1,9 @@
+<h1><%= @project.title %></h1>
+<p><%= @project.goal %></p>
+<p><%= @project.description %></p>
+
+<h3>Rewards</h3>
+<% @rewards.each do |reward| %>
+	<%= reward.amount %>
+	<%= reward.description %>
+<% end %>

@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
 
 	def show
 		@project = Project.find(params[:id])
+		@rewards = @project.rewards
 	end
 
 	def new 
@@ -23,6 +24,7 @@ class ProjectsController < ApplicationController
 		@project = Project.find(params[:id])
 		@project.update(project_params)
 		@project.save
+		redirect_to @project
 	end
 
 	def destroy
@@ -31,6 +33,7 @@ class ProjectsController < ApplicationController
 
 	def edit
 		@project = Project.find(params[:id])
+		@rewards = @project.rewards
 	end
 
 private
