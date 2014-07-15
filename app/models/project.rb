@@ -5,5 +5,5 @@ class Project < ActiveRecord::Base
 
 	validates :title, :description, :goal, :end_date, presence: :true
 
-	accepts_nested_attributes_for :rewards, reject_if: :all_blank, allow_destroy: :true
+	accepts_nested_attributes_for :rewards, reject_if: :all_blank, allow_destroy: true
 end

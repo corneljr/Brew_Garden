@@ -17,7 +17,7 @@
 		<%= f.fields_for :rewards do |r| %>
 			<%= render 'reward_fields', :f => r %>
 		<% end %>
+		<%= link_to_add_association 'add reward', f, :rewards %>
 	</div>
-	<%= link_to_add_association 'add reward', f, :rewards %>
 	<%= f.submit 'Submit', class:'button tiny' %>
 <% end %>
