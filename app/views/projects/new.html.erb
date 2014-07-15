@@ -1,0 +1,13 @@
+<%= form_for @project do |f| %>
+	<%= f.text_field :title %>
+	<%= f.text_area :description %>
+	<%= f.date_field :end_date %>
+	<%= f.number_field :goal %>
+
+	<%= f.fields_for :rewards do |r| %>
+		<%= r.number_field :amount %>
+		<%= r.text_area :description %>
+	<% end %>
+
+	<%= f.submit 'Submit', class:'button tiny' %>
+<% end %>
