@@ -6,7 +6,6 @@ class CreateProjects < ActiveRecord::Migration
       t.datetime :start_date
       t.datetime :end_date
       t.integer :goal
-      t.integer :tilt
 
       t.timestamps
     end
