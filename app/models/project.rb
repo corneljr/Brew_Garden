@@ -4,13 +4,6 @@ class Project < ActiveRecord::Base
 	has_many :pledges, through: :rewards
 
 	validates :title, :description, :goal, :end_date, presence: :true
-	validate :end_date_in_the_future 
 
-	accepts_nested_attributes_for :rewards
-
-	def end_date_in_the_future
-		if date < Date.today
-			errors.add(:date, "Can't be in the past") 
-		end
-	end
+	accepts_nested_attributes_for :rewards, reject_if: :all_blank, allow_destroy: :true
 end

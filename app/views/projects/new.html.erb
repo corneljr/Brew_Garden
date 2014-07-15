@@ -1,13 +1,23 @@
 <%= form_for @project do |f| %>
-	<%= f.text_field :title %>
-	<%= f.text_area :description %>
-	<%= f.date_field :end_date %>
-	<%= f.number_field :goal %>
+	<div>
+		<%= f.text_field :title, placeholder: 'Title' %>	
+	</div>
+	<div>
+		<%= f.text_area :description, placeholder: 'Description' %>
+	</div>
+	<div>
+		<%= f.date_field :end_date %>
+	</div>
+	<div>
+		<%= f.number_field :goal, placeholder: 'Funding goal' %>
+	</div>
 
-	<%= f.fields_for :rewards do |r| %>
-		<%= r.number_field :amount %>
-		<%= r.text_area :description %>
-	<% end %>
-
+	<h3>Rewards</h3>
+	<div class='rewards'>
+		<%= f.fields_for :rewards do |r| %>
+			<%= render 'reward_fields', :f => r %>
+		<% end %>
+	</div>
+	<%= link_to_add_association 'add reward', f, :rewards %>
 	<%= f.submit 'Submit', class:'button tiny' %>
 <% end %>
