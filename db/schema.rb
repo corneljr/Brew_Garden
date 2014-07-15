@@ -15,18 +15,20 @@ ActiveRecord::Schema.define(version: 20140715183253) do
 
   create_table "pledges", force: true do |t|
     t.integer  "user_id"
+    t.integer  "project_id"
     t.integer  "reward_id"
-    t.integer  "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "projects", force: true do |t|
+    t.integer  "user_id"
     t.string   "title"
     t.text     "description"
     t.datetime "start_date"
     t.datetime "end_date"
     t.integer  "goal"
+    t.integer  "tilt"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,7 +36,6 @@ ActiveRecord::Schema.define(version: 20140715183253) do
   create_table "rewards", force: true do |t|
     t.integer  "project_id"
     t.integer  "amount"
-    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
