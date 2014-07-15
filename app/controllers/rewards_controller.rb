@@ -1,5 +1,6 @@
 class RewardsController < ApplicationController
   def create
+    @project = Project.find(params[:project_id])
   	@reward = @project.rewards.build(reward_params) 
 
   	if @reward.save

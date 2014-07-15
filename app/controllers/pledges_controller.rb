@@ -1,10 +1,11 @@
 class PledgesController < ApplicationController
-	def new
-		@pledge = Pledge.new
+	def show
+		@pledge = Pledge.find(params[:id])
 	end
 
   def create
-  	@pledge = @project.pledges.build(pledge_params)
+    @reward = Reward.find(params[:reward_id])
+  	@pledge = @reward.pledges.build(pledge_params)
   	@pledge.user_id = current_user
 
   	if @pledge.save
@@ -12,22 +13,6 @@ class PledgesController < ApplicationController
   	else 
   		render :new
   	end
-  end
-
-  def destroy
-  	@pledge = Pledge.find(params[:id])
-  	@pledge.destroy
-  end
-
-  def update
-  	@pledge = Pledge.find(params[:id])
-
-  	if @pledge.update_attributes(pledge_params)
-  		redirect_to project_path(@project)
-  	else
-  		redirect_to project_path(@project)
-  	end
-
   end
 
   private
