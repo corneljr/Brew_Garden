@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+
   resources :pledges
-  resources :users, :only => [:create, :show, :destroy]
+  resources :sessions, :only => [:new, :create, :destroy]
+	resources :users
   root to: "welcome#index"
 end
