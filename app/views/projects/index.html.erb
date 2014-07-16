@@ -5,5 +5,7 @@
 <%= link_to 'breweries', '#', class: 'sort' %></p>
 
 <div class='project-index'>
-	<%= render @projects %>
+	<div class='most_funded'>
+		<%= render partial: 'project', collection: @most_funded %>
+	</div>
 </div>

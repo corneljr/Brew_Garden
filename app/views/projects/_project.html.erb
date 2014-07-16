@@ -1,3 +1,4 @@
 <p><%= link_to project.title, project %></p>
 <p>Description: <%= project.description %></p>
 <p>Goal: <%= project.goal %></p>
+<p>Funded Amount: <%= number_to_currency(project.funded_amount / 10) %></p>

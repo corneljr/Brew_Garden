@@ -8,7 +8,8 @@ class ProjectsController < ApplicationController
 			Project.where(category: params[:type])
 		end
 
-		@most_funded = Project.all.order('funded_amount DESC')
+		@most_funded = Project.all.order('funded_amount DESC').limit(4)
+		@newest = Project.order('created_at DESC').limit(4)
 
 		respond_to do |format|
 			format.html
