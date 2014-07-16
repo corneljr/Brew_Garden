@@ -9,6 +9,7 @@ class PledgesController < ApplicationController
   	@pledge.user_id = current_user
 
   	if @pledge.save
+      @reward.project.update_funded_amount
   		redirect_to project_path
   	else 
   		render :new

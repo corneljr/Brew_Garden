@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
+	scope :most_funded, -> { pledges.order('')}
+
 	belongs_to :user
 	has_many :rewards
 	has_many :pledges, through: :rewards
@@ -14,4 +16,7 @@ class Project < ActiveRecord::Base
 		end
 	end 
 
+	def update_funded_amount
+		self.funded_amount = self.pledges.sum(:amount)
+	end
 end
