@@ -1,5 +1,9 @@
-<% @projects.each do |project| %>
-	<p><%= link_to project.title, project %></p>
-	<p>Description: <%= project.description %></p>
-	<p>Goal: <%= project.goal %></p>
-<% end %>
+<p><%= link_to 'all', '#', class: 'sort' %>
+<%= link_to 'pubs', '#', class: 'sort' %>
+<%= link_to 'distillaries', '#', class: 'sort' %>
+<%= link_to 'beers', '#', class: 'sort' %>
+<%= link_to 'breweries', '#', class: 'sort' %></p>
+
+<div class='project-index'>
+	<%= render @projects %>
+</div>
