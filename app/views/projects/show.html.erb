@@ -17,4 +17,20 @@
 	<br>
 	<br>
 
+
+
 <% end %>
+
+	<div data-lat=" <%= @project.latitude %>" data-long = "<%= @project.longitude %>" data-title="<%= @project.title %>" data-description="<%= @project.description %>" id='map'>
+
+	</div>
+
+ <style type="text/css">
+
+		#map {
+			width: 90%;
+			height: 400px;
+			margin: auto;
+		}
+
+ </style>
