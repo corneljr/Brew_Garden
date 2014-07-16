@@ -40,6 +40,8 @@ gem 'geocoder'
 
 gem 'ckeditor', '4.0.4'
 
+gem 'carrierwave'
+
 group :development  do
   gem 'spring'
   gem 'pry-rails'
