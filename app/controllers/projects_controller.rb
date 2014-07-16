@@ -8,6 +8,8 @@ class ProjectsController < ApplicationController
 			Project.where(category: params[:type])
 		end
 
+		@total_funding = Project.all.sum(:funded_amount)
+
 		@most_funded = Project.all.order('funded_amount DESC').limit(4)
 		@newest = Project.order('created_at DESC').limit(4)
 		@near = Project.near('Toronto, ontario, canada', 20).limit(4) 

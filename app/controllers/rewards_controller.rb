@@ -1,4 +1,5 @@
 class RewardsController < ApplicationController
+  before_action :require_login, only: [:create, :destroy, :update]
 
   def show
     @reward = Reward.find(params[:id])
