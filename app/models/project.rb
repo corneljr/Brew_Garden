@@ -19,4 +19,8 @@ class Project < ActiveRecord::Base
 	def update_funded_amount
 		self.funded_amount = self.pledges.sum(:amount)
 	end
+
+	def days_left
+		days = self.end_date - Date.today
+	end
 end

@@ -8,8 +8,6 @@ $(document).ready(function() {
 			url: '/projects',
 			dataType: 'script',
 			data: {type: text}
-		}).done( function(response){
-			console.log(response)
 		});
 	});
 
