@@ -1,5 +1,16 @@
 $(document).ready(function() {
-    $("#new_project a.add_fields").
-      data("association-insertion-method", 'append').
-      data("rewards", 'this');
+	$('.sort').on('click', function(ev){
+		ev.preventDefault();
+		var text = ev.currentTarget.textContent
+
+		$.ajax({
+			type: 'GET',
+			url: '/projects',
+			dataType: 'script',
+			data: {type: text}
+		}).done( function(response){
+			console.log(response)
+		});
+	});
+
 });

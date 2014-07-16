@@ -3,18 +3,13 @@
 <% end %>
 
 <%= form_for @project, method: 'post' do |f| %>
-	<div>
-		<%= f.text_field :title, placeholder: 'Title' %>	
-	</div>
-	<div>
+
+		<%= f.text_field :title, placeholder: 'Title' %>
+		<%= f.select :category, options_for_select(['beer', 'pub', 'distillery', 'brewery']), prompt: 'Category' %>
 		<%= f.text_area :description, placeholder: 'Description' %>
-	</div>
-	<div>
 		<%= f.date_field :end_date %>
-	</div>
-	<div>
 		<%= f.number_field :goal, placeholder: 'Funding goal' %>
-	</div>
+
 
 	<h3>Rewards</h3>
 	<div class='rewards'>

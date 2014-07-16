@@ -1,7 +1,17 @@
 class ProjectsController < ApplicationController
 
 	def index
-		@projects = Project.all
+		type = params[:type]
+		@projects = if !type || type == 'all'
+			Project.all
+		else
+			Project.where(category: params[:type])
+		end
+
+		respond_to do |format|
+			format.html
+			format.js
+		end
 	end
 
 	def show
