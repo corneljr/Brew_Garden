@@ -6,6 +6,12 @@
 
 <div class='project-index'>
 	<div class='most_funded'>
+		<h1>Most Funded</h1>
 		<%= render partial: 'project', collection: @most_funded %>
 	</div>
+	<div class='newest'>
+		<h1>Newest Campaigns</h1>
+		<%= render partial: 'project', collection: @newest %>
+	</div>
 </div>
+

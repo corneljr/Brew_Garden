@@ -1,9 +1,12 @@
 <h1><%= @project.title %></h1>
-<p><%= @project.goal %></p>
-<p><%= @project.description %></p>
+<p>Goal: <%= @project.goal %></p>
+<p>Funded amount: <%= number_to_currency(@project.funded_amount / 100) %></p>
+<p>Description: <%= @project.description %></p>
 
 <h3>Rewards</h3>
 <% @rewards.each do |reward| %>
-	<%= reward.amount %>
-	<%= reward.description %>
+	<div class='reward'></div>
+		<p><%= number_to_currency(reward.amount / 100) %></p>
+		<p><%= reward.description %></p>
+	</div>
 <% end %>
