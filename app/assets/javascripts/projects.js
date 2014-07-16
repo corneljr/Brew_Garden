@@ -1,10 +1,11 @@
 $(document).ready(function() {
 	// initalize for mapbox
-	var map = L.mapbox.map('map', 'dhurley99.ipn4bc66').setView([43.652, -79.396], 12);
 	var longitude = $('#map').data('long');
 	var latitude = $('#map').data('lat');
 	var title = $('#map').data('title');
 	var description = $('#map').data('description');
+	// 12 is the zoom
+	var map = L.mapbox.map('map', 'dhurley99.ipn4bc66').setView([latitude, longitude], 12);
 	// add pin to project show page
 	L.mapbox.featureLayer({
 	    // this feature is in the GeoJSON format: see geojson.org
