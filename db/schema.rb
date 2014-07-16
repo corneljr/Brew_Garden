@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716165943) do
+ActiveRecord::Schema.define(version: 20140716233241) do
 
   create_table "pledges", force: true do |t|
     t.integer  "user_id"
@@ -34,12 +34,21 @@ ActiveRecord::Schema.define(version: 20140716165943) do
     t.float    "longitude"
     t.string   "location"
     t.integer  "user_id"
+    t.string   "avatar"
   end
 
   create_table "rewards", force: true do |t|
     t.integer  "project_id"
     t.integer  "amount"
     t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "updates", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
