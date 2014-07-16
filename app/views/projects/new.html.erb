@@ -6,7 +6,7 @@
 
 		<%= f.text_field :title, placeholder: 'Title' %>
 		<%= f.text_field :location, placeholder: 'Address or Location' %>
-		<%= f.select :category, options_for_select(['beer', 'pub', 'distillery', 'brewery']), prompt: 'Category' %>
+		<%= f.select :category, options_for_select(['Brewpub', 'Contract Brewery', 'Craft Division', 'brewery']), prompt: 'Category' %>
 		<%= f.text_area :description, placeholder: 'Description' %>
 		<%= f.date_field :end_date %>
 		<%= f.number_field :goal, placeholder: 'Funding goal' %>
