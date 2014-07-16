@@ -6,13 +6,12 @@
 
 <h3>Rewards</h3>
 <% @rewards.each do |reward| %>
-
-	<a href="<%= project_reward_path(@project,reward) %>">
-		<div class='reward'>
-			<p><%= number_to_currency(reward.amount / 100) %></p>
-			<p><%= reward.description %></p>
-		</div>	
-	</a>
+	<div class='reward'>
+		<p>Backers: <%= reward.pledges.count %></p>
+		<p><%= number_to_currency(reward.amount / 100) %></p>
+		<p><%= reward.description %></p>
+		<p><%= link_to "View Reward", project_reward_path(@project, reward) %></p>
+	</div>	
 	<br>
 	<br>
 	<br>
