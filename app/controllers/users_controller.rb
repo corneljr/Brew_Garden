@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   	if @user.save
   		session[:user_id] = @user.id
+      WelcomeMailer.welcome_email(@user).deliver
   		redirect_to root_path
   	else
   		render "new"
@@ -40,7 +41,7 @@ class UsersController < ApplicationController
   	redirect_to root_path
   end
 
-  private 
+  private
 
   def user_params
   	params.require(:user).permit(:name, :email, :password, :password_confirmation)
