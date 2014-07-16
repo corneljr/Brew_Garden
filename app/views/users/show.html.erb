@@ -1,9 +1,24 @@
+<% if @projects.present? %>
+	<h3>Your Projects</h3>
+	<div class='user-project'>
+		<%= render @projects %>
+	</div>
+<% end %>
+
+
+
 <h3>Your Pledges</h3>
 
-<% @pledges.each do |pledge| %>
-	<div class='user-pledge'>
-		<h5><%= link_to pledge.project.title, pledge.project %></h5>
-		<p><%= number_to_currency(pledge.reward.amount) %></p>
-		<p><%= pledge.reward.description %></p>
-	</div>
+<% if @pledges.present? %>
+	<h3>You have backed <%= pluralize(@pledges.count, 'project') %> </h3>
+	<% @pledges.each do |pledge| %>
+		<div class='user-pledge'>
+			<h6><%= link_to pledge.project.title, pledge.project %></h6>
+			<p><%= number_to_currency(pledge.reward.amount) %></p>
+			<p><%= pledge.reward.description %></p>
+		</div>
+	<% end %>
+<% else %>
+	<h4>You haven't backed any projects yet! Let's change that.</h4>
+	<%= link_to 'Discover Projects', projects_path %>
 <% end %>

@@ -22,13 +22,13 @@ end
 end
 
 10.times do 
-	Project.create(title: Faker::Company.catch_phrase, description: Faker::Lorem.paragraph, goal: rand(1000..20000000), end_date: Date.today + rand(1..60).days, category: categories[rand(0..3)], location: addresses[rand(0..6)])
+	Project.create(user_id: rand(1..100), title: Faker::Company.catch_phrase, description: Faker::Lorem.paragraph, goal: rand(1000..20000000), end_date: Date.today + rand(1..60).days, category: categories[rand(0..3)], location: addresses[rand(0..6)])
 end
 
 sleep(20)
 
 10.times do 
-	Project.create(title: Faker::Company.catch_phrase, description: Faker::Lorem.paragraph, goal: rand(1000..20000000), end_date: Date.today + rand(1..60).days, category: categories[rand(0..3)], location: addresses[rand(0..6)])
+	Project.create(user_id: rand(1..100), title: Faker::Company.catch_phrase, description: Faker::Lorem.paragraph, goal: rand(1000..20000000), end_date: Date.today + rand(1..60).days, category: categories[rand(0..3)], location: addresses[rand(0..6)])
 end
 
 Project.all.each do |project|

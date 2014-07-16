@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716151300) do
+ActiveRecord::Schema.define(version: 20140716165943) do
 
   create_table "pledges", force: true do |t|
     t.integer  "user_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140716151300) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "location"
+    t.integer  "user_id"
   end
 
   create_table "rewards", force: true do |t|
