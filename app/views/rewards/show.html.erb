@@ -1,4 +1,4 @@
 <h1>Checkout</h1>
 <%= number_to_currency(@reward.amount / 100) %>
 <%= @reward.description %>
-<p><%= link_to "Select Reward", project_reward_pledges_path(@reward.project, @reward, current_user), class: 'button tiny' %></p>
+<p><%= link_to "Select Reward", project_reward_pledges_path(@reward.project, @reward, current_user), method: 'post',class: 'button tiny' %></p>
