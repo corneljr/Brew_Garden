@@ -8,6 +8,8 @@ class ProjectsController < ApplicationController
 			Project.where(category: params[:type])
 		end
 
+		@most_funded = Project.all.order('funded_amount DESC')
+
 		respond_to do |format|
 			format.html
 			format.js
