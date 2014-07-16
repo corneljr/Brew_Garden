@@ -36,6 +36,8 @@ gem 'foundation-rails'
 
 gem 'bcrypt'
 
+gem 'geocoder'
+
 group :development  do
   gem 'spring'
   gem 'pry-rails'

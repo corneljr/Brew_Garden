@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
 
 		@most_funded = Project.all.order('funded_amount DESC').limit(4)
 		@newest = Project.order('created_at DESC').limit(4)
+		@near = Project.near('Toronto, ontario, canada', 20).limit(4) 
 
 		respond_to do |format|
 			format.html

@@ -8,6 +8,9 @@ class Project < ActiveRecord::Base
 	validates :title, :description, :goal, :end_date, presence: :true
 	validate :date_check
 
+	geocoded_by :get_location
+	before_save :geocode
+
 	accepts_nested_attributes_for :rewards, reject_if: :all_blank, allow_destroy: true
 
 	def date_check 
@@ -22,5 +25,9 @@ class Project < ActiveRecord::Base
 
 	def days_left
 		days = self.end_date - Date.today
+	end
+
+	def get_location
+		self.location
 	end
 end
