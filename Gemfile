@@ -38,6 +38,8 @@ gem 'bcrypt'
 
 gem 'geocoder'
 
+gem 'ckeditor', '4.0.4'
+
 group :development  do
   gem 'spring'
   gem 'pry-rails'

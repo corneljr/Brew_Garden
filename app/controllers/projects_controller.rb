@@ -29,6 +29,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def create
+		binding.pry
 		@project = Project.new(project_params)
 		if @project.save
 			redirect_to @project

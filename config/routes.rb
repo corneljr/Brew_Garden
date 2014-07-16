@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   resources :pledges
   resources :sessions, :only => [:new, :create, :destroy]
 	resources :users
