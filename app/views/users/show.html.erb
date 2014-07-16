@@ -1,2 +1,9 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h3>Your Pledges</h3>
+
+<% @pledges.each do |pledge| %>
+	<div class='user-pledge'>
+		<h5><%= link_to pledge.project.title, pledge.project %></h5>
+		<p><%= number_to_currency(pledge.reward.amount) %></p>
+		<p><%= pledge.reward.description %></p>
+	</div>
+<% end %>
