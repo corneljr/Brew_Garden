@@ -30,6 +30,11 @@ $(document).ready(function() {
 	        'marker-symbol': 'beer'
 	    }
 	}).addTo(map);
+	
+	// center pin when pin is clicked
+  map.featureLayer.on('click', function(e) {
+      map.panTo(e.layer.getLatLng());
+  });
 
 	$('.sort').on('click', function(ev){
 		ev.preventDefault();
