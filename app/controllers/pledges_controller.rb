@@ -1,4 +1,6 @@
 class PledgesController < ApplicationController
+  before_action :require_login, only: [:create]
+
 	def show
 		@pledge = Pledge.find(params[:id])
 	end
