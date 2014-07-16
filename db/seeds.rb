@@ -13,7 +13,7 @@ categories = ['beers', 'pubs', 'distillaries', 'breweries']
 end
 
 200.times do 
-	Pledge.create(project_id: rand(1..20), user_id: rand(1..100), reward_id: rand(1..100), amount: rand(1000..100000))
+	Pledge.create(project_id: rand(1..20), user_id: rand(1..100), reward_id: rand(1..100))
 end
 
 100.times do 
