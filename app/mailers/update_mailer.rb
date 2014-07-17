@@ -1,4 +1,4 @@
-class Update < ActionMailer::Base
+class UpdateMailer < ActionMailer::Base
    default from: "\"Brew Garden\" <hello@brewgarden.com>"
 
 
