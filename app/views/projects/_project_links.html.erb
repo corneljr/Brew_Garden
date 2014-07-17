@@ -1,5 +1,5 @@
 <ul>
-	<li><%= link_to 'home', @project %></li>
+	<li><%= link_to 'project home', @project %></li>
 	<li><%= link_to "updates (#{@project.updates.count})", project_updates_path(@project) %></li>
 	<li><%= link_to "backers (#{@project.pledges.count})", project_backers_path(@project) %></li>
 </ul>
