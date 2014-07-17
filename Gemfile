@@ -42,6 +42,7 @@ gem 'ckeditor', '4.0.4'
 
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
+gem 'sorcery'
 
 group :development  do
   gem 'spring'

@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
 
 	before_action :load_project
 	before_action :load_user
+	before_filter :require_login, :only => [:create]
 
   def index
   	 @commentable = find_commentable
