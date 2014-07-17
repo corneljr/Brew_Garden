@@ -1,8 +1,13 @@
+<%= render 'projects/project_links' %>
+
+
 <h1><%= @project.title %></h1>
-<p>Total Backers: <%= @project.pledges.count %></p>
-<p>Goal: <%= @project.goal %></p>
-<p>Funded amount: <%= number_to_currency(@project.funded_amount / 100) %></p>
-<p>Description: <%= raw(@project.description) %></p>
+<div class='project-container'>
+	<p>Total Backers: <%= @project.pledges.count %></p>
+	<p>Goal: <%= @project.goal %></p>
+	<p>Funded amount: <%= number_to_currency(@project.funded_amount / 100) %></p>
+	<p>Description: <%= raw(@project.description) %></p>
+</div>
 
 <h3>Rewards</h3>
 <% @rewards.each do |reward| %>

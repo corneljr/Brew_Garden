@@ -56,6 +56,11 @@ class ProjectsController < ApplicationController
 		@rewards = @project.rewards
 	end
 
+	def backers
+		@project = Project.find(params[:project_id])
+		@pledges = @project.pledges
+	end
+
 private
 	
 	def project_params

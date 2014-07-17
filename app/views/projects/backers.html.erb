@@ -1,0 +1,7 @@
+<%= render 'projects/project_links' %>
+
+<ul>
+<% @pledges.each do |pledge| %>
+	<li><%= pledge.user.name %></li>
+	<% end %>
+</ul>

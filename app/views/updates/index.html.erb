@@ -1,0 +1,8 @@
+<%= render 'projects/project_links' %>
+
+<h1><%= @project.title %></h1>
+<h2>Updates</h2>
+<% @updates.each do |update| %>
+	<h3><%= update.title %></h3>
+	<p><%= update.body %></p>
+<% end %>
