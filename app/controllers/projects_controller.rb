@@ -61,11 +61,11 @@ class ProjectsController < ApplicationController
 		@pledges = @project.pledges
 	end
 
+	private
+
 	def load_project
 		@project = Project.find(params[:id])
 	end
-
-	private
 	
 	def project_params
 		params.require(:project).permit(:title, :description, :end_date, :goal, :image, rewards_attributes: [:amount, :description, :_destroy])
