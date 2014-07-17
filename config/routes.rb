@@ -15,6 +15,4 @@ Rails.application.routes.draw do
   	end
     resources :comments
   end
-
-  get 'search', to: 'projects#search', as: 'search'
 end
