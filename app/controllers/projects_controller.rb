@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
-		@project = Project.find(params[:id])
+		@project = Project.new(params[:id])
 		@rewards = @project.rewards
 		@commentable = find_commentable
   	@comments = @project.comments
@@ -50,7 +50,8 @@ class ProjectsController < ApplicationController
 	end
 
 	def destroy
-		Project.find(params[:id]).destroy
+		@project = Project.find(params[:id])
+		@project.destroy
 	end
 
 	def edit
@@ -59,7 +60,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def backers
-		@project = Project.find(params[:project_id])
+		@project = Project.find(params[:id])
 		@pledges = @project.pledges
 	end
 

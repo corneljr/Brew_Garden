@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140717021403) do
     t.float    "longitude"
     t.string   "location"
     t.integer  "user_id"
+    t.string   "avatar"
   end
 
   create_table "rewards", force: true do |t|
