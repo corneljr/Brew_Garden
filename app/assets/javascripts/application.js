@@ -10,12 +10,13 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// require turbolinks // not using turbolinks for this project
+// require foundation // This is the entire foundation core, definitely not needed.
+//
 //= require jquery
 //= require jquery_ujs
 //= require ckeditor/init
 //= require cocoon
-// require turbolinks
-// require foundation // This is the entire foundation core, definitely not needed.
 //= require foundation/foundation.js
 //= require foundation/foundation.topbar.js
 //= require foundation/foundation.reveal.js
