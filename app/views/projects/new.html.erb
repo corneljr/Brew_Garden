@@ -2,9 +2,10 @@
 	<p><%= message %></p>
 <% end %>
 
-<%= form_for @project, method: 'post' do |f| %>
+<%= form_for @project, html: {multipart: true} do |f| %>
 
 		<%= f.text_field :title, placeholder: 'Title' %>
+		<%= f.file_field :image %>
 		<%= f.text_field :location, placeholder: 'Address or Location' %>
 		<%= f.select :category, options_for_select(['Brewpub', 'Contract Brewery', 'Craft Division', 'brewery']), prompt: 'Category' %>
 		<%= f.text_area :description, placeholder: 'Description' %>
@@ -21,7 +22,3 @@
 	</div>
 	<%= f.submit 'Submit', class:'button tiny' %>
 <% end %>
-<script type="text/javascript">
-
-
-</script>

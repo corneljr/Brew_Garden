@@ -41,6 +41,7 @@ gem 'geocoder'
 gem 'ckeditor', '4.0.4'
 
 gem 'carrierwave'
+gem 'rmagick', :require => 'RMagick'
 
 group :development  do
   gem 'spring'

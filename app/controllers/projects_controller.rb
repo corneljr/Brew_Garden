@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
 
+	before_action :load_project, only: [:show, :update, :destroy, :edit]
+
 	def index
 		type = params[:type]
 		@projects = if !type || type == 'all'
@@ -21,7 +23,6 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
-		@project = Project.find(params[:id])
 		@rewards = @project.rewards
 		@commentable = find_commentable
   	@comments = @project.comments
@@ -43,18 +44,16 @@ class ProjectsController < ApplicationController
 	end
 
 	def update
-		@project = Project.find(params[:id])
 		@project.update(project_params)
 		@project.save
 		redirect_to @project
 	end
 
 	def destroy
-		Project.find(params[:id]).destroy
+		@project.destroy
 	end
 
 	def edit
-		@project = Project.find(params[:id])
 		@rewards = @project.rewards
 	end
 
@@ -64,9 +63,13 @@ class ProjectsController < ApplicationController
 	end
 
 	private
+
+	def load_project
+		@project = Project.find(params[:id])
+	end
 	
 	def project_params
-		params.require(:project).permit(:title, :description, :end_date, :goal, rewards_attributes: [:amount, :description, :_destroy])
+		params.require(:project).permit(:title, :description, :end_date, :goal, :image, rewards_attributes: [:amount, :description, :_destroy])
 	end
 
 	def find_commentable

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140717021403) do
+ActiveRecord::Schema.define(version: 20140717143705) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140717021403) do
     t.float    "longitude"
     t.string   "location"
     t.integer  "user_id"
+    t.string   "image"
   end
 
   create_table "rewards", force: true do |t|
