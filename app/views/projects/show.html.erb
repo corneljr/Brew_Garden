@@ -10,7 +10,7 @@
 	<%= image_tag @project.image.url %>
 	<p>Owner: <%= link_to @project.user.name, @project.user %></p>
 	<p>Total Backers: <%= @project.pledges.count %></p>
-	<p>Goal: <%= @project.goal %></p>
+	<p>Goal: <%= number_to_currency(@project.goal / 100) %></p>
 	<p>Funded amount: <%= number_to_currency(@project.funded_amount / 100) %></p>
 	<p>Description: <%= raw(@project.description) %></p>
 </div>
