@@ -1,5 +1,12 @@
 // import the CSS framework
-@import "foundation";
+// @import "foundation";
+@import "foundation/components/grid";
+@import "foundation/components/type";
+@import "foundation/components/panels";
+@import "foundation/components/reveal";
+@import "foundation/components/top-bar";
+@import "foundation/components/buttons";
+@import "foundation/components/inline-lists";
 
 // override for the 'Home' navigation link
 .top-bar .name {
@@ -40,9 +47,37 @@
 // to make views framework-neutral
 main {
   @include twelve-columns;
-  background-color: #eee;
+  margin: 0;
+  padding: 0;
+  background-color: #FCE9DE;
   }
 section {
   @extend .row;
   margin-top: 20px;
   }
+
+body {
+  background-color: #FCE9DE;
+}
+
+.beer-btn {
+  @include button-base;
+  @include single-transition;
+  $dark: #401E01;
+  $gold: #D97904;
+  $light: #F29F05;
+
+  &.dark {
+    @include button-style($dark, 5px, false);
+    color: white;
+  }
+  &.gold {
+    @include button-style($gold, 5px, false);
+    color: white;
+  }
+  &.light {
+    @include button-style($light, 5px, false);
+    color: white;
+  }
+
+}
