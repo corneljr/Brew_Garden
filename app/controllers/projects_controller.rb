@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
 
+	before_action :load_project, only: [:show, :update, :destroy, :edit, :backers]
+
 	def index
 		type = params[:type]
 		@projects = if !type || type == 'all'
@@ -21,7 +23,6 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
-		@project = Project.new(params[:id])
 		@rewards = @project.rewards
 		@commentable = find_commentable
   	@comments = @project.comments
@@ -43,25 +44,25 @@ class ProjectsController < ApplicationController
 	end
 
 	def update
-		@project = Project.find(params[:id])
 		@project.update(project_params)
 		@project.save
 		redirect_to @project
 	end
 
 	def destroy
-		@project = Project.find(params[:id])
 		@project.destroy
 	end
 
 	def edit
-		@project = Project.find(params[:id])
 		@rewards = @project.rewards
 	end
 
 	def backers
-		@project = Project.find(params[:id])
 		@pledges = @project.pledges
+	end
+
+	def load_project
+		@project = Project.find(params[:id])
 	end
 
 	private
