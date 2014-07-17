@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-	before_action :load_project, only: [:show, :update, :destroy, :edit, :backers]
+	before_action :load_project, only: [:show, :update, :destroy, :edit]
 
 	def index
 		type = params[:type]
@@ -58,6 +58,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def backers
+		@project = Project.find(params[:project_id])
 		@pledges = @project.pledges
 	end
 
