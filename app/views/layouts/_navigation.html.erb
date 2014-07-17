@@ -1,12 +1,48 @@
 <%# navigation styled for Zurb Foundation 5 %>
-<nav class="top-bar" data-topbar>
-  <ul class="title-area">
-    <li class="name"><%= link_to 'Home', root_path %></li>
-    <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-  </ul>
-  <div class="top-bar-section">
-    <ul>
-      <%= render 'layouts/navigation_links' %>
+<div class="contain-to-grid sticky">
+  <nav class="top-bar" data-topbar data-options="sticky_on: large">
+    <ul class="title-area">
+      <li class="name"><%= link_to 'Home', root_path %></li>
+      <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
     </ul>
+    <div class="top-bar-section">
+      <ul class="right">
+        <%= render 'layouts/navigation_links' %>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div id="login" class="reveal-modal small radius" data-reveal>
+  <%= form_tag sessions_path do %>
+  <h3 class="text-center">Log in</h3>
+  <hr>
+  <div class="row">
+    <div class="small-12">
+      <div class="row">
+        <div class="small-3 columns">
+          <%= label_tag :email, nil, class: 'right inline'  %>
+        </div>
+        <div class="small-9 columns">
+          <%= text_field_tag :email  %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-3 columns">
+          <%= label_tag :password, nil, class: 'right inline'  %>
+        </div>
+        <div class="small-9 columns">
+          <%= password_field_tag :password  %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 text-center columns">
+          <%= submit_tag "Log in", class: 'button small radius' %>
+        </div>
+      </div>
+    </div>
+    <a class="close-reveal-modal">&#215;</a>
+    <% end %>
   </div>
-</nav>
+</div>
+

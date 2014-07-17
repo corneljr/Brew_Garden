@@ -16,12 +16,33 @@
 
   </head>
   <body>
+
     <header>
       <%= render 'layouts/navigation' %>
     </header>
+
     <main role="main">
        <%= render 'layouts/messages' %>
        <%= yield %>
     </main>
+
+    <footer class="row">
+      <div class="large-12 columns">
+        <hr/>
+        <div class="row">
+          <div class="large-6 columns">
+            <p>&copy; 2014 | Brew Garden is coming for you...</p>
+          </div>
+          <div class="large-6 columns">
+            <ul class="inline-list right">
+              <li><a href="#">About</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Contact us</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
   </body>
 </html>

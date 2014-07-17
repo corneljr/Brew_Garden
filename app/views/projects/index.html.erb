@@ -1,5 +1,10 @@
 <h3>Total Funded To Date: <%= number_to_currency(@total_funding / 100) %></h3>
 
+<%= form_tag '#', remote: true, class: 'search', method: 'get' do  %>
+	<%= text_field_tag :q, nil, placeholder: 'Search by name..' %>
+	<%= submit_tag "submit", class: 'button tiny'%>
+<% end %>
+
 <h3>Categories</h3>
 <ul class='category-list'>
 	<li><%= link_to 'all', '#', class: 'sort' %></li>
