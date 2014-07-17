@@ -1,4 +1,5 @@
 <p><%= link_to project.title, project %></p>
+<p>Owner: <%= link_to project.user.name, project.user  %></p>
 <p>Days Left: <%= ((project.end_date - Time.now)/(60 * 60 * 24)).round %></p>
 <p>Goal: <%= number_to_currency(project.goal / 100) %></p>
 <p>Funded Amount: <%= number_to_currency(project.funded_amount / 100) %></p>
