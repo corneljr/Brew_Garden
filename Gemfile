@@ -40,6 +40,8 @@ gem 'geocoder'
 
 gem 'ckeditor', '4.0.4'
 
+gem 'faker'
+
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
 gem 'sorcery'
@@ -51,7 +53,6 @@ group :development  do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'rails_layout'
-  gem 'faker'
   gem 'sqlite3'
 end
 
