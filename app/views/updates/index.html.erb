@@ -3,6 +3,6 @@
 <h1><%= @project.title %></h1>
 <h2>Updates</h2>
 <% @updates.each do |update| %>
-	<h3><%= update.title %></h3>
-	<p><%= update.body %></p>
+	<h3><%= link_to @update.title, @update %></h3>
+	<p><%= raw(update.body) %></p>
 <% end %>
