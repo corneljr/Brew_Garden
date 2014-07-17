@@ -14,8 +14,11 @@
 //= require jquery_ujs
 //= require ckeditor/init
 //= require cocoon
-//= require turbolinks
-//= require foundation
+// require turbolinks
+// require foundation // This is the entire foundation core, definitely not needed.
+//= require foundation/foundation.js
+//= require foundation/foundation.topbar.js
+//= require foundation/foundation.reveal.js
 //= require_tree .
 
 
