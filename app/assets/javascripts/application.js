@@ -21,7 +21,6 @@
 //= require foundation/foundation.reveal.js
 //= require_tree .
 
-
 $(function() {
   $(document).foundation();
 });
