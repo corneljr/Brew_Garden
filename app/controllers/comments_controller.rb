@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+	include ActionController::Live
 
 	before_action :load_project
 	before_action :load_user
@@ -11,12 +12,15 @@ class CommentsController < ApplicationController
   def create
   	@commentable = find_commentable
   	@comment = @commentable.comments.build(comment_params)
-	  if @comment.save
-	    flash[:notice] = "Successfully created comment."
-	    redirect_to polymorphic_path(@commentable) 
-	  else
-	    render :action => 'new'
-	  end
+  	@comments = @commentable.comments
+	  respond_to do |format|
+      if @comment.save
+        format.js 
+      else
+        format.html { render 'projects/show', alert: 'There was an error.'  }
+        format.js 
+      end
+    end    
   end
 
   private

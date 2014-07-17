@@ -34,13 +34,13 @@
 <!-- Product Comments -->
 		
 	<div id="comments">
-		<%= render 'comments/comments'  %>
+		<%= render @comments  %>
 	</div>
 
 
 	<h2>New Comment</h2>
 
-	<%= form_for [@project, Comment.new] do |f| %>
+	<%= form_for [@project, @comment], remote: true do |f| %>
 	  <p>
 	    <%= f.label :body %><br />
 	    <%= f.text_area :body %>

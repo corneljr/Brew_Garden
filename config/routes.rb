@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'comments/index'
-
-  get 'comments/create'
-
   mount Ckeditor::Engine => '/ckeditor'
   resources :pledges
   resources :sessions, :only => [:new, :create, :destroy]

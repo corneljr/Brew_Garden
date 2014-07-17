@@ -25,6 +25,7 @@ class ProjectsController < ApplicationController
 		@rewards = @project.rewards
 		@commentable = find_commentable
   	@comments = @project.comments
+  	@comment = Comment.new
 	end
 
 	def new 
@@ -33,7 +34,6 @@ class ProjectsController < ApplicationController
 	end
 
 	def create
-		binding.pry
 		@project = Project.new(project_params)
 		if @project.save
 			redirect_to @project
