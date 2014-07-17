@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 
 # Use postgresql as the database for Active Record
-gem 'sqlite3'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -40,6 +40,8 @@ gem 'geocoder'
 
 gem 'ckeditor', '4.0.4'
 
+gem 'faker'
+
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
 gem 'sorcery'
@@ -51,12 +53,13 @@ group :development  do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'rails_layout'
-  gem 'faker'
+  gem 'sqlite3'
 end
 
 # used for heroku
 group :production, :staging do
   gem 'rails_12factor'
+  gem 'pg'
 end
 
 # Use ActiveModel has_secure_password

@@ -1,5 +1,17 @@
 $(document).ready(function() {
 
+		$('.sort').on('click', function(ev){
+			ev.preventDefault();
+			var text = ev.currentTarget.textContent
+
+			$.ajax({
+				type: 'GET',
+				url: '/projects',
+				dataType: 'script',
+				data: {type: text}
+			});
+		});
+
 	function initMapDisplay() {
 	 	// hide "add reward button after it's clicked 5 times"
 	  var rewardCount = 0;
@@ -41,20 +53,6 @@ $(document).ready(function() {
 		        'marker-symbol': 'beer'
 		    }
 		}).addTo(map);
-
-
-		$('.sort').on('submit', function(ev){
-			ev.preventDefault();
-			var text = ev.currentTarget.textContent
-
-			$.ajax({
-				type: 'GET',
-				url: '/projects',
-				dataType: 'script',
-				data: {type: text}
-			});
-		});
 	}
-
 
 });

@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
 	def index
 		type = params[:type]
 		@projects = if type && type != 'all'
-			Project.where(category: params[:type])
+			Project.where(category: type)
 		elsif params[:q]
 			Project.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%")
 		else
