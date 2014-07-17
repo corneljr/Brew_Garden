@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.1'
 
 # Use postgresql as the database for Active Record
-gem 'sqlite3'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -52,11 +52,13 @@ group :development  do
   gem 'binding_of_caller'
   gem 'rails_layout'
   gem 'faker'
+  gem 'sqlite3'
 end
 
 # used for heroku
 group :production, :staging do
   gem 'rails_12factor'
+  gem 'pg'
 end
 
 # Use ActiveModel has_secure_password
