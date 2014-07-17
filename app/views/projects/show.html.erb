@@ -1,5 +1,8 @@
+
 <%= render 'projects/project_links' %>
 
+
+<!-- Product Details -->
 
 <h1><%= @project.title %></h1>
 
@@ -11,21 +14,46 @@
 	<p>Description: <%= raw(@project.description) %></p>
 </div>
 
+<!-- Product Rewards -->
 <h3>Rewards</h3>
 <% @rewards.each do |reward| %>
 	<div class='reward'>
 		<p>Backers: <%= reward.pledges.count %></p>
 		<p><%= number_to_currency(reward.amount / 100) %></p>
 		<p><%= reward.description %></p>
+
 		<p><%= link_to "View Reward", project_reward_path(@project, reward), class: 'button tiny' %></p>
-	</div>	
-	<br>
-	<br>
+	</div>
+<% end %>		
 	<br>
 	<br>
 
+	<br>
+	<br>
 
-<% end %>
+<!-- Product Comments -->
+		
+	<div id="comments">
+		<%= render 'comments/comments'  %>
+	</div>
+
+
+	<h2>New Comment</h2>
+
+	<%= form_for [@project, Comment.new] do |f| %>
+	  <p>
+	    <%= f.label :body %><br />
+	    <%= f.text_area :body %>
+	  </p>
+	  <p><%= f.submit "Submit" %></p>
+	<% end %>
+
+
+	<br>
+	<br>
+
+	<!-- MapBox -->
+
 
 	<div data-lat="<%= @project.latitude %>" data-long = "<%= @project.longitude %>" data-title="<%= @project.title %>" data-description="<%= @project.description %>" id='map'>
 

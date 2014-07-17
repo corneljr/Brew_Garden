@@ -23,6 +23,8 @@ class ProjectsController < ApplicationController
 	def show
 		@project = Project.find(params[:id])
 		@rewards = @project.rewards
+		@commentable = find_commentable
+  	@comments = @project.comments
 	end
 
 	def new 
@@ -61,9 +63,18 @@ class ProjectsController < ApplicationController
 		@pledges = @project.pledges
 	end
 
-private
+	private
 	
 	def project_params
 		params.require(:project).permit(:title, :description, :end_date, :goal, rewards_attributes: [:amount, :description, :_destroy])
+	end
+
+	def find_commentable
+	  params.each do |name, value|
+	    if name =~ /(.+)_id$/
+	      return $1.classify.constantize.find(value)
+	    end
+	  end
+	  nil
 	end
 end
