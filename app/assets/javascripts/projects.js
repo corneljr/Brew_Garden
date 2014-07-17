@@ -1,4 +1,14 @@
 $(document).ready(function() {
+
+	 // hide "add reward button after it's clicked 5 times"
+  var rewardCount = 0;
+  $('#add-reward').click(function() {
+  			rewardCount++;
+  			if(rewardCount >= 5) {
+  					$(this).hide(); //could disable the button here
+  			}
+  })
+
 	// initalize for mapbox
 	var longitude = $('#map').data('long');
 	var latitude = $('#map').data('lat');
@@ -31,10 +41,6 @@ $(document).ready(function() {
 	    }
 	}).addTo(map);
 	
-	// center pin when pin is clicked
-  map.featureLayer.on('click', function(e) {
-      map.panTo(e.layer.getLatLng());
-  });
 
 	$('.sort').on('click', function(ev){
 		ev.preventDefault();
