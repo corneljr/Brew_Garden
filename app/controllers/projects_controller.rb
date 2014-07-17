@@ -4,10 +4,12 @@ class ProjectsController < ApplicationController
 
 	def index
 		type = params[:type]
-		@projects = if !type || type == 'all'
+		@projects = if (!type || type == 'all') || params[:q]
 			Project.all
-		else
+		elsif type
 			Project.where(category: params[:type])
+		else
+			Restaurant.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%")
 		end
 
 		@total_funding = Project.all.sum(:funded_amount)

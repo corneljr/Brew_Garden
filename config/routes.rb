@@ -16,5 +16,5 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  get 'projects/:project_id/backers', to: 'projects#backers', as: 'project_backers'
+  get 'search', to: 'projects#search', as: 'search'
 end

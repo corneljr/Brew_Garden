@@ -42,7 +42,7 @@ $(document).ready(function() {
 	}).addTo(map);
 	
 
-	$('.sort').on('click', function(ev){
+	$('.sort').on('submit', function(ev){
 		ev.preventDefault();
 		var text = ev.currentTarget.textContent
 
