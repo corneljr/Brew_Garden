@@ -19,6 +19,7 @@
 //= require foundation/foundation.js
 //= require foundation/foundation.topbar.js
 //= require foundation/foundation.reveal.js
+//= require foundation/foundation.alert.js
 //= require_tree .
 
 $(function() {
