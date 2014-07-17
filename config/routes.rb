@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'login' => 'sessions#new', :as => :login
+  post 'logout' => 'sessions#destroy', :as => :logout
+
   mount Ckeditor::Engine => '/ckeditor'
   resources :pledges
   resources :sessions, :only => [:new, :create, :destroy]

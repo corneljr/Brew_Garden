@@ -1,11 +1,9 @@
 class User < ActiveRecord::Base
-	has_secure_password
+  authenticates_with_sorcery!
 
-	validates :name, presence: true
-	validates :email, presence: true, uniqueness: true
-	validates :password, length: { in: 6..20 }, confirmation: true
+  validates :password, length: { minimum: 3 }
+  validates :password, confirmation: true
+  validates :password_confirmation, pressence: true
 
-	has_many :projects
-	has_many :pledges
-	has_many :comments, :as => :commentable
+  validates :email, uniqueness: true
 end
