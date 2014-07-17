@@ -17,6 +17,7 @@ class UpdatesController < ApplicationController
 		@project = Project.find(params[:project_id])
 		@update = @project.updates.build(update_params)
 		if @update.save
+			UpdateMailer.update_email(@project).deliver
 			redirect_to @project.user
 		else
 			render :new
