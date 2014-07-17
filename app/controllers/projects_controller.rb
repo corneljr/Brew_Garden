@@ -68,7 +68,7 @@ class ProjectsController < ApplicationController
 	private
 	
 	def project_params
-		params.require(:project).permit(:title, :description, :end_date, :goal, rewards_attributes: [:amount, :description, :_destroy])
+		params.require(:project).permit(:title, :description, :end_date, :goal, :image, rewards_attributes: [:amount, :description, :_destroy])
 	end
 
 	def find_commentable

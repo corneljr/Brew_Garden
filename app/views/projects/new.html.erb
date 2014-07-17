@@ -2,7 +2,7 @@
 	<p><%= message %></p>
 <% end %>
 
-<%= form_for (@project, html: {multipart: true}) do |f| %>
+<%= form_for @project, html: {multipart: true} do |f| %>
 
 		<%= f.text_field :title, placeholder: 'Title' %>
 		<%= f.file_field :image %>
@@ -22,7 +22,3 @@
 	</div>
 	<%= f.submit 'Submit', class:'button tiny' %>
 <% end %>
-<script type="text/javascript">
-
-
-</script>

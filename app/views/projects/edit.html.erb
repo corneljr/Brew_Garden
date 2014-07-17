@@ -1,16 +1,11 @@
 <%= form_for @project do |f| %>
-	<div>
+
 		<%= f.text_field :title, placeholder: 'Title' %>	
-	</div>
-	<div>
+		<%= f.file_field :image %>
+		<%= f.hidden_field :image_cache %>
 		<%= f.text_area :description, placeholder: 'Description' %>
-	</div>
-	<div>
 		<%= f.date_field :end_date %>
-	</div>
-	<div>
 		<%= f.number_field :goal, placeholder: 'Funding goal' %>
-	</div>
 
 	<h3>Rewards</h3>
 	<div class='rewards'>
