@@ -1,3 +1,9 @@
 <%# add navigation links to this file %>
-<li><a href="#">Sign Up!</a></li>
-<li><a href="#" data-reveal-id="login">Log In</a></li>
+ <% if current_user %>  
+  Logged in as <%= current_user.email %>.  
+  <%= link_to "Log out", logout_path %>  
+ <% else %>  
+  <li><%= link_to "Sign up", new_user_path %></li>
+  <li><%= link_to "Log in", login_path, data: { :'reveal-id' => 'login'}  %> </li>
+ <% end %>  
+
