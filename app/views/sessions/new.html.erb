@@ -13,5 +13,7 @@
     <%= check_box_tag :remember_me, 1, params[:remember_me] %>  
     <%= label_tag :remember_me %>  
   </div>  
-  <div class="actions"><%= submit_tag "Log in" %></div>  
+  <div class="actions"><%= submit_tag "Log in" %></div> 
+  <h1>Forgot Password?</h1>
+  <p><%= link_to 'Forgot Password?', new_password_reset_path  %></p>
 <% end %>  

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :password_resets, :only => [:create, :edit, :update, :new]
+
   get 'login' => 'sessions#new', :as => :login
-  post 'logout' => 'sessions#destroy', :as => :logout
+  get 'logout' => 'sessions#destroy', :as => :logout
 
   mount Ckeditor::Engine => '/ckeditor'
   resources :pledges
