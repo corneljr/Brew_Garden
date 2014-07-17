@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
 	belongs_to :user
 	has_many :rewards
 	has_many :pledges, through: :rewards
+	has_many :comments, :as => :commentable
 
 	validates :title, :description, :goal, :end_date, presence: :true
 	validate :date_check

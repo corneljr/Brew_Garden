@@ -22,3 +22,22 @@
 	<h4>You haven't backed any projects yet! Let's change that.</h4>
 	<%= link_to 'Discover Projects', projects_path %>
 <% end %>
+
+
+
+<!-- User Comments -->
+		
+	<div id="comments">
+		<%= render 'comments/comments'  %>
+	</div>
+
+
+	<h2>New Comment</h2>
+
+	<%= form_for [@user, Comment.new] do |f| %>
+	  <p>
+	    <%= f.label :body %><br />
+	    <%= f.text_area :body %>
+	  </p>
+	  <p><%= f.submit "Submit" %></p>
+	<% end %>

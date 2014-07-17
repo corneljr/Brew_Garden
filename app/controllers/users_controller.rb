@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
     @pledges = @user.pledges
     @projects = @user.projects
+    @comments = @user.comments
   end
 
   def destroy
