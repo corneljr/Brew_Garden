@@ -6,6 +6,7 @@ class UpdatesController < ApplicationController
 	end
 
 	def new
+		@project = Project.find(params[:project_id])
 		@update = Update.new
 	end
 
@@ -15,6 +16,11 @@ class UpdatesController < ApplicationController
 	def create
 		@project = Project.find(params[:project_id])
 		@update = @project.updates.build(update_params)
+		if @update.save
+			redirect_to @project.user
+		else
+			render :new
+		end
 	end
 
 	def destroy
