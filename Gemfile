@@ -45,6 +45,7 @@ gem 'faker'
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
 gem 'sorcery'
+gem 'simple_form'
 
 group :development  do
   gem 'spring'
