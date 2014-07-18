@@ -39,6 +39,10 @@ class ProjectsController < ApplicationController
 		@commentable = find_commentable
   	@comments = @project.comments
   	@comment = Comment.new
+
+  	if request.xhr? 
+  		render 'show', locals: @project
+  	end
 	end
 
 	def new 
@@ -72,6 +76,10 @@ class ProjectsController < ApplicationController
 	def backers
 		@project = Project.find(params[:project_id])
 		@pledges = @project.pledges
+
+		if request.xhr? 
+			render partial: 'backer', collection: @pledges
+		end
 	end
 
 	private

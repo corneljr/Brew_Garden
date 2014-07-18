@@ -8,6 +8,10 @@ class CommentsController < ApplicationController
   def index
   	 @commentable = find_commentable
   	 @comments = @commentable.comments
+
+     if request.xhr?
+      render @comments
+    end
   end
 
   def create
