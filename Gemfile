@@ -43,6 +43,7 @@ gem 'ckeditor', '4.0.4'
 gem 'faker'
 
 gem 'carrierwave'
+gem 'carrierwave-aws'
 gem 'rmagick', :require => 'RMagick'
 gem 'sorcery'
 gem 'simple_form'
