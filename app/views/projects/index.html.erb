@@ -14,26 +14,22 @@
 				<h3 class='category-title'>Most Funded</h3>
 				<%= render partial: 'project', collection: @most_funded %>
 			</div>
-			<div class='category-title'>
-				<h3>Newest Campaigns</h3>
+			<div>
+				<h3 class='category-title'>Newest Campaigns</h3>
 				<%= render partial: 'project', collection: @newest %>
 			</div>
-			<div class='category-title'>
-				<h3>Near Toronto</h3>
+			<div>
+				<h3 class='category-title'>Near Toronto</h3>
 				<%= render partial: 'project', collection: @near %>
 			</div>
 		</div>
 	</div>
 
 	<div class='large-2 columns'>
+		<div class='category-container'>
 		<h4 class='sorting-header'>Categories</h4>
-		<ul>
-			<li><%= link_to 'all', '#', class: 'sort' %></li>
-			<li><%= link_to 'pubs', '#', class: 'sort' %></li>
-			<li><%= link_to 'distillaries', '#', class: 'sort' %></li>
-			<li><%= link_to 'beers', '#', class: 'sort' %></li>
-			<li><%= link_to 'breweries', '#', class: 'sort' %></p></li>
-		</ul>
+			<%= render 'categories' %>
+		</div>
 	</div>
 </div>
 

@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   end
 
   get '/projects/:project_id/backers', to: 'projects#backers', as: 'project_backers'
+  get '/projects/category/:category', to: 'projects#category', as: 'project_category'
 end

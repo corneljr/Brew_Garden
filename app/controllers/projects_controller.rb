@@ -4,11 +4,7 @@ class ProjectsController < ApplicationController
 	before_filter :require_login, :only => [:new, :edit, :update, :destroy, :create]
 
 	def index
-		type = params[:type]
-		@projects = if type && type != 'all'
-			Project.where(category: type)
-		elsif params[:q]
-			Project.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%")
+		@projects = if params[:q]
 		else
 			Project.all
 		end
@@ -20,6 +16,15 @@ class ProjectsController < ApplicationController
 		respond_to do |format|
 			format.html
 			format.js
+		end
+	end
+
+	def category
+		@category = params[:category]
+		@projects = if @category = 'all'
+			Project.all
+		else
+			Project.where(category: @category)
 		end
 	end
 
