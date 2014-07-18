@@ -18,7 +18,7 @@ end
 end
 
 100.times do 
-	Reward.create(project_id: rand(1..20), amount: rand(1000..100000), description: Faker::Lorem.sentence)
+	Reward.create(project_id: rand(1..20), amount: rand(1000..100000), pledges_left: rand(1..4), description: Faker::Lorem.sentence)
 end
 
 10.times do 

@@ -38,6 +38,7 @@ class ProjectsController < ApplicationController
 		@commentable = find_commentable
   	@comments = @project.comments
   	@comment = Comment.new
+  	@project.user = current_user
 	end
 
 	def new 
@@ -47,6 +48,7 @@ class ProjectsController < ApplicationController
 
 	def create
 		@project = Project.new(project_params)
+
 		if @project.save
 			redirect_to @project
 		else
@@ -69,7 +71,6 @@ class ProjectsController < ApplicationController
 	end
 
 	def backers
-		@project = Project.find(params[:project_id])
 		@pledges = @project.pledges
 	end
 
@@ -80,7 +81,7 @@ class ProjectsController < ApplicationController
 	end
 	
 	def project_params
-		params.require(:project).permit(:title, :description, :end_date, :goal, :image, rewards_attributes: [:amount, :description, :_destroy])
+		params.require(:project).permit(:title, :description, :end_date, :goal, :image, rewards_attributes: [:amount, :description, :pledges_left, :_destroy])
 	end
 
 	def find_commentable
