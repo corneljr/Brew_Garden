@@ -104,11 +104,14 @@
 //project info links
 
 .project-info-link-item {
+	font-weight: bold;
+}
+
+.nav-list {
 	list-style: none;
 	display: inline;
 	margin-left: 10px;
 	margin-right: 10px;
-	font-weight: bold;
 }
 
 .project-info-link {
