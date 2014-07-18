@@ -1,0 +1,18 @@
+<div id="comments">
+	<% if @comments.present %>
+		<%= render @comments  %>
+	<% else %>
+		<h4>Be the first to comment!</h4>
+	<% end %>
+</div>
+
+
+<h2>New Comment</h2>
+
+<%= form_for [@commentable, @comment], remote: true do |f| %>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_field :body %>
+  </p>
+  <p><%= f.submit "Submit", class: 'button tiny' %></p>
+<% end %>

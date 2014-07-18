@@ -3,6 +3,10 @@ class UpdatesController < ApplicationController
 	def index 
 		@project = Project.find(params[:project_id])
 		@updates = @project.updates
+
+		if request.xhr?
+			render partial: 'update_list'
+		end
 	end
 
 	def new

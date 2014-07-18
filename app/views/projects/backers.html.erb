@@ -2,6 +2,6 @@
 
 <ul>
 <% @pledges.each do |pledge| %>
-	<li><%= pledge.user.name %></li>
+	<%= render partial: 'backer', collection: @pledges %>
 	<% end %>
 </ul>index

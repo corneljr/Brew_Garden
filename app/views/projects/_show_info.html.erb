@@ -1,0 +1,29 @@
+<div class='large-9 columns'>
+	<div class='project-container'>
+		<%#= image_tag @project.image.url %>
+		<%= image_tag "http://placehold.it/800x400", class: '' %>
+		<p><%= raw(@project.description) %></p>
+	</div>
+	</div>
+	<div class='large-3 columns'>
+		<div class='info-container-show'>
+			<p class='stat-text'><span class='stat-number'><%= @project.pledges.count %></span><br>backers</p>
+			<p class='stat-text'><span class='stat-number'><%= number_to_currency(@project.funded_amount / 100, precision: 0) %></span><br> pledged of <%= number_to_currency(@project.goal / 100, precision: 0) %> goal</p>
+			<p class='stat-text'><span class='stat-number'><%= @days_left %></span><br> days left </p>
+		</div>
+		<div class='reward-container'>
+			<h3>Rewards</h3>
+			<% @rewards.each do |reward| %>
+				<div class='reward'>
+					<p>Backers: <%= reward.pledges.count %></p>
+					<p><%= number_to_currency(reward.amount / 100, precision: 0) %></p>
+					<p><%= reward.description %></p>
+
+					<p><%= link_to "View Reward", project_reward_path(@project, reward), class: 'button tiny' %></p>
+				</div>
+			<% end %>
+		</div>
+	</div>
+
+	<div style="clear:both;">&nbsp;</div>
+</div>

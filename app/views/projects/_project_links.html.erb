@@ -1,8 +1,8 @@
 <div class='project-link-container'>
 	<ul class='project-info-link'>
-		<li class='project-info-link-item'><%= link_to 'home', @project %></li>
-		<li class='project-info-link-item'><%= link_to "updates (#{@project.updates.count})", project_updates_path(@project) %></li>
-		<li class='project-info-link-item'><%= link_to "backers (#{@project.pledges.count})", project_backers_path(@project) %></li>
-		<li class='project-info-link-item'><%= link_to "comments (#{@project.comments.count})", project_comments_path(@project) %></li>
+		<li class='nav-list'><span class='project-info-link-item'><%= link_to 'home', @project %></span></li>
+		<li class='nav-list'><span class='project-info-link-item'><%= link_to "updates", project_updates_path(@project) %></span>(<%= @project.updates.count %>)</li>
+		<li class='nav-list'><span class='project-info-link-item'><%= link_to "backers", project_backers_path(@project) %></span>(<%= @project.pledges.count %>)</li>
+		<li class='nav-list'><span class='project-info-link-item'><%= link_to "comments", project_comments_path(@project) %></span>(<%= @project.comments.count %>)</li>
 	</ul>
 </div>
