@@ -1,3 +1,29 @@
-// Place all the styles related to the projects controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.project-card {
+	width: 20%;
+	height: 350px;
+	background-color: #ecf0f1;
+	float: right;
+	margin: 20px;
+	border-radius: 10px;
+	border: 1px solid #bdc3c7;
+}
+
+.project-search-container {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.beer-image {
+	border-radius: 5px;
+	height: 175px;
+	width: 220px;
+	margin-left: 3px;
+	margin-top: 3px;
+}
+
+.project-title-index {
+	text-decoration: none;
+	color: black;
+	font-weight: bold;
+}
