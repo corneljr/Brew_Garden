@@ -4,6 +4,9 @@
 	padding-bottom: 50px;
 }
 
+.project-index {
+}
+
 .project-card {
 	width: 230px;
 	height: 450px;
@@ -76,6 +79,7 @@
 
 .category-title {
 	margin-left: 75px;
+	margin-top: 40px;
 	font-weight: bold;
 }
 
@@ -88,7 +92,7 @@
 }
 
 .catgeory-container {
-	right: 0;
+	position: absolute;
 }
 
 .search-results {

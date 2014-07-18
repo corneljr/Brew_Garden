@@ -59,7 +59,7 @@ main {
   @include twelve-columns;
   margin: 0;
   padding: 0;
-  background-color: white;
+  background-color: #f7fafa;
   }
 section {
   @extend .row;
@@ -67,7 +67,7 @@ section {
   }
 
 body {
-  background-color: white;
+  background-color: #f7fafa;
 }
 
 .beer-btn {
