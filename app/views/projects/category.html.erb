@@ -1,0 +1,16 @@
+<div class='project-category-container'>
+	<% if @category == 'all' %>
+		<h4 class='search-results'>Showing all <span class='category-show'><%= @projects.count %> </span>projects</h4>
+	<% else %>
+		<h4 class='search-results'>We found <%= @projects.count %> <span class='category-show'><%= @category.capitalize %></span> </h4>
+	<% end %>
+	<div class='large-10 columns'>
+		<%= render @projects %>
+	</div>
+	<div class='large-2 columns'>
+		<div class='category-container'>
+		<h4 class='sorting-header'>Categories</h4>
+			<%= render 'categories' %>
+		</div>
+	</div>
+</div>

@@ -76,6 +76,7 @@
 
 .category-title {
 	margin-left: 75px;
+	margin-top: 40px;
 	font-weight: bold;
 }
 
@@ -85,4 +86,81 @@
 
 .category-list {
 	list-style: none;
+}
+
+.catgeory-container {
+	position: absolute;
+}
+
+.search-results {
+	margin-left: 75px;
+	margin-top: 20px;
+}
+
+.category-show {
+	font-weight: bold;
+}
+
+//project info links
+
+.project-info-link-item {
+	list-style: none;
+	display: inline;
+	margin-left: 10px;
+	margin-right: 10px;
+	font-weight: bold;
+}
+
+.project-info-link {
+	margin-bottom: 0px;
+}
+
+//project show page
+
+.project-show-title {
+	font-weight: bold;
+}
+
+.project-show-container {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+	border: 1px solid #bdc3c7;
+	padding:10px;
+	border-radius: 10px;
+}
+
+.project-title-container {
+	width:70%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.project-link-container {
+	text-align: center;
+}
+
+.info-container {
+	width: 100%;
+	font-weight: bold;
+	margin-top: 30px;
+}
+
+.stat-number {
+	font-weight: bold;
+	font-size: 3rem;
+	margin-bottom: 5px;
+}
+
+.stat-text {
+	font-weight: bold;
+	line-height: 20px;
+}
+
+.main-image {
+	padding-bottom: 20px;
 }

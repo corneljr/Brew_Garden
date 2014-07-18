@@ -4,12 +4,16 @@
     <div class="logo">
       <a href="/"><%= image_tag("/img/logo.png", size: "115") %></a>
     </div>
+    <ul class="title-area">
+<<<<<<< HEAD
+      <li class="name"><%= link_to 'Home', root_path %></li>
+      <li class='discover'><%= link_to 'Discover', projects_path %></li>
+      <li class='create'><%= link_to 'Create', new_project_path %></li>
+=======
+>>>>>>> nav
+      <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+    </ul>
     <div class="top-bar-section">
-      <ul class="left" style="margin-left: 250px;">
-        <li><%= link_to 'Discover', projects_path %></li>
-        <li><%= link_to 'Create', new_project_path %></li>
-        <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-      </ul>
       <ul class="right">
         <%= render 'layouts/navigation_links' %>
       </ul>

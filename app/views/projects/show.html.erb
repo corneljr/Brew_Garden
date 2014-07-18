@@ -1,53 +1,50 @@
 
-<%= render 'projects/project_links' %>
+<!-- Project Details -->
 
-
-<!-- Product Details -->
-
-<h1><%= @project.title %></h1>
-
-<div class='project-container'>
-	<%= image_tag @project.image.url %>
-	<p>Owner: <%= link_to @project.user.name, @project.user %></p>
-	<p>Total Backers: <%= @project.pledges.count %></p>
-	<p>Goal: <%= number_to_currency(@project.goal / 100) %></p>
-	<p>Funded amount: <%= number_to_currency(@project.funded_amount / 100) %></p>
-	<p>Description: <%= raw(@project.description) %></p>
+<div class='project-title-container'>
+	<h2 class='project-show-title'><%= @project.title %></h2>
+	<h4 class='project-show-creator'>by <%= link_to @project.user.name, @project.user %></h4>
 </div>
 
-<!-- Product Rewards -->
-<h3>Rewards</h3>
-<% @rewards.each do |reward| %>
-	<div class='reward'>
-		<p>Backers: <%= reward.pledges.count %></p>
-		<p><%= number_to_currency(reward.amount / 100) %></p>
-		<p><%= reward.description %></p>
+<%= render 'projects/project_links' %>
 
-		<p><%= link_to "View Reward", project_reward_path(@project, reward), class: 'button tiny' %></p>
+<div class='project-show-container'>
+	<div class='large-9 columns'>
+		<div class='project-container'>
+			<%#= image_tag @project.image.url %>
+			<%= image_tag "http://placehold.it/800x400", class: '' %>
+			<p><%= raw(@project.description) %></p>
+		</div>
 	</div>
-<% end %>
-	<br>
-	<br>
+	<div class='large-3 columns'>
+		<div class='info-container'>
+			<p class='stat-text'><span class='stat-number'><%= @project.pledges.count %></span><br>backers</p>
+			<p class='stat-text'><span class='stat-number'><%= number_to_currency(@project.funded_amount / 100) %></span><br> pledged of <%= number_to_currency(@project.goal / 100) %> goal</p>
+			<p class='stat-text'><span class='stat-number'><%= @days_left %></span><br> days left </p>
+		</div>
+		<div class='reward-container'>
+			<h3>Rewards</h3>
+			<% @rewards.each do |reward| %>
+				<div class='reward'>
+					<p>Backers: <%= reward.pledges.count %></p>
+					<p><%= number_to_currency(reward.amount / 100) %></p>
+					<p><%= reward.description %></p>
 
-	<br>
-	<br>
-
-<!-- Product Comments -->
-
-	<div id="comments">
-		<%= render @comments  %>
+					<p><%= link_to "View Reward", project_reward_path(@project, reward), class: 'button tiny' %></p>
+				</div>
+			<% end %>
+		</div>
 	</div>
+	<br>
+	<br>
 
+	<br>
+	<br>
 
-	<h2>New Comment</h2>
+<!-- Project Comments -->
 
-	<%= form_for [@project, @comment], remote: true do |f| %>
-	  <p>
-	    <%= f.label :body %><br />
-	    <%= f.text_area :body %>
-	  </p>
-	  <p><%= f.submit "Submit" %></p>
-	<% end %>
+<div style="clear:both;">&nbsp;</div>
+</div>
 
 
 	<br>
