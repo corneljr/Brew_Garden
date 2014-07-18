@@ -9,6 +9,7 @@ class Project < ActiveRecord::Base
 
 
 	validates :title, :description, :goal, :end_date, presence: :true
+	validates :goal, numericality: { only_integer: true }
 	validate :date_check
 
 	geocoded_by :get_location
