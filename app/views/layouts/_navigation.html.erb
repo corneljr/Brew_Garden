@@ -1,8 +1,10 @@
 <%# navigation styled for Zurb Foundation 5 %>
-<div class="contain-to-grid sticky">
-  <nav class="top-bar" data-topbar data-options="sticky_on: large">
+<div class="sticky">
+  <nav class="top-bar" data-topbar data-options="sticky_on: medium">
+    <div class="logo">
+      <a href="/"><%= image_tag("/img/logo.png", size: "115") %></a>
+    </div>
     <ul class="title-area">
-      <li class="name"><%= link_to 'Home', root_path %></li>
       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
     </ul>
     <div class="top-bar-section">
