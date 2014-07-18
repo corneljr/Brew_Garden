@@ -8,15 +8,6 @@
 
 <%= render 'projects/project_links' %>
 
-<!-- Product Rewards -->
-<h3>Rewards</h3>
-<% @rewards.each do |reward| %>
-	<div class='reward'>
-		<p>Backers: <%= reward.pledges.count %></p>
-		<p>Backer limit: <%= reward.pledges_left %> left</p>
-		<p><%= number_to_currency(reward.amount / 100) %></p>
-		<p><%= reward.description %></p>
-
 
 <div class='project-show-container'>
 	<%= render 'show_info' %>
