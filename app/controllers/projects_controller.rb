@@ -4,11 +4,6 @@ class ProjectsController < ApplicationController
 	before_filter :require_login, :only => [:new, :edit, :update, :destroy, :create]
 
 	def index
-		@projects = if params[:q]
-		else
-			Project.all
-		end
-
 		@most_funded = Project.all.order('funded_amount DESC').limit(4)
 		@newest = Project.order('created_at DESC').limit(4)
 		@near = Project.near('Toronto, ontario, canada', 20).limit(4) 
@@ -21,10 +16,20 @@ class ProjectsController < ApplicationController
 
 	def category
 		@category = params[:category]
-		@projects = if @category = 'all'
-			Project.all
-		else
+		@projects = if @category && @category != 'all'
 			Project.where(category: @category)
+		else
+			Project.all
+		end
+	end
+
+	def search
+		@search = params[:q]
+		@projects = if @search
+			Project.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%")
+		else
+			@search = 'all'
+			Project.all
 		end
 	end
 

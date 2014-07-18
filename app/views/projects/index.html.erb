@@ -2,7 +2,7 @@
 
 	<div class='project-search-container'>
 		<h2 class='index-main-header'>Discover Projects</h2>
-		<%= form_tag '#', remote: true, class: 'search', method: 'get' do  %>
+		<%= form_tag project_search_path, class: 'search', method: 'get' do  %>
 			<%= text_field_tag :q, nil, placeholder: 'Search by name..' %>
 			<%= submit_tag "submit", class: 'button tiny'%>
 		<% end %>

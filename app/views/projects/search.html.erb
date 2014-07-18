@@ -1,0 +1,16 @@
+<div class='project-category-container'>
+	<% if @search == 'all' %>
+		<h4 class='search-results'>Showing all <span class='category-show'><%= @projects.count %></span>projects</h4>
+	<% else %>
+		<h4 class='search-results'>We found <%= pluralize(@projects.count, 'result') %> relating to <span class='category-show'>"<%= @search.capitalize %></span>"</h4>
+	<% end %>
+	<div class='large-10 columns'>
+		<%= render @projects %>
+	</div>
+	<div class='large-2 columns'>
+		<div class='category-container'>
+		<h4 class='sorting-header'>Categories</h4>
+			<%= render 'categories' %>
+		</div>
+	</div>
+</div>
