@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
   	@comment = Comment.new
 
   	if request.xhr? 
-  		render 'show', locals: @project
+  		render 'show'
   	end
 	end
 
