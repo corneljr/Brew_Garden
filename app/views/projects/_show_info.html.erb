@@ -8,7 +8,7 @@
 	<div class='large-3 columns'>
 		<div class='info-container'>
 			<p class='stat-text'><span class='stat-number'><%= @project.pledges.count %></span><br>backers</p>
-			<p class='stat-text'><span class='stat-number'><%= number_to_currency(@project.funded_amount / 100) %></span><br> pledged of <%= number_to_currency(@project.goal / 100) %> goal</p>
+			<p class='stat-text'><span class='stat-number'><%= number_to_currency(@project.funded_amount / 100, precision: 0) %></span><br> pledged of <%= number_to_currency(@project.goal / 100, precision: 0) %> goal</p>
 			<p class='stat-text'><span class='stat-number'><%= @days_left %></span><br> days left </p>
 		</div>
 		<div class='reward-container'>
@@ -16,7 +16,7 @@
 			<% @rewards.each do |reward| %>
 				<div class='reward'>
 					<p>Backers: <%= reward.pledges.count %></p>
-					<p><%= number_to_currency(reward.amount / 100) %></p>
+					<p><%= number_to_currency(reward.amount / 100, precision: 0) %></p>
 					<p><%= reward.description %></p>
 
 					<p><%= link_to "View Reward", project_reward_path(@project, reward), class: 'button tiny' %></p>

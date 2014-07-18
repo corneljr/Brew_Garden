@@ -1,0 +1,9 @@
+<% if @updates.present? %>
+	<% @updates.each do |update| %>
+		<h3><%= update.title %></h3>
+		<p><%= raw(update.body) %></p>
+	<% end %>
+<% else %>
+	<h3>No updates have been posted for this project yet</h3>
+<% end %>
+

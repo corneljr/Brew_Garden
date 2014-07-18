@@ -5,7 +5,7 @@ class UpdatesController < ApplicationController
 		@updates = @project.updates
 
 		if request.xhr?
-			render @updates
+			render partial: 'update_list'
 		end
 	end
 

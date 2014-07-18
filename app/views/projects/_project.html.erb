@@ -11,7 +11,7 @@
 			<p class='info-index'><span class='metric'><%= number_to_percentage(project.goal / project.funded_amount, precision: 0) %></span><br> funded</p>
 		</div>
 		<div class='info-container'>
-			<p class='info-index'><span class='metric'><%= number_to_currency(project.funded_amount / 100) %></span><br> pledged</p>
+			<p class='info-index'><span class='metric'><%= number_to_currency(project.funded_amount / 100, precision: 0) %></span><br> pledged</p>
 		</div>
 	</div>
 </div>

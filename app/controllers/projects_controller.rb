@@ -38,10 +38,9 @@ class ProjectsController < ApplicationController
 		@days_left = ((@project.end_date - Time.now)/(60 * 60 * 24)).round 
 		@commentable = find_commentable
   	@comments = @project.comments
-  	@comment = Comment.new
 
   	if request.xhr? 
-  		render 'show'
+  		render partial: 'show_info'
   	end
 	end
 
