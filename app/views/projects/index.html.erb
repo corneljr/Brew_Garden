@@ -9,14 +9,14 @@
 	<div class='project-index'>
 		<div class='large-10 columns'>
 			<div class='most_funded'>
-				<h1>Most Funded</h1>
+				<h1 class='category-title'>Most Funded</h1>
 				<%= render partial: 'project', collection: @most_funded %>
 			</div>
-			<div class='newest'>
+			<div class='category-title'>
 				<h1>Newest Campaigns</h1>
 				<%= render partial: 'project', collection: @newest %>
 			</div>
-			<div class='near'>
+			<div class='category-title'>
 				<h1>Near Toronto</h1>
 				<%= render partial: 'project', collection: @near %>
 			</div>

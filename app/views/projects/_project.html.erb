@@ -1,8 +1,18 @@
 <div class='project-card'>
 	<%= image_tag 'http://www.beerbasics.com/storage/BlueMoonLabel.jpg', class: 'beer-image' %>
 	<p class='project-title-index'><%= link_to project.title, project %></p>
-	<p class='project-creator-index'>By: <%= link_to project.user.name, project.user  %></p>
-	<p class='days-left-index'>Days Left: <%= ((project.end_date - Time.now)/(60 * 60 * 24)).round %></p>
-	<p class='funded-index'>Funded: <%= number_to_percentage(project.goal / project.funded_amount, precision: 0) %></p>
+	<p class='project-creator-index'>By: <%= project.user.name  %></p>
+	<p class='project-description-index'><%= truncate(project.description, length: 100) %></p>
+	<div class='stats'>
+		<div class='info-container'>
+			<p class='info-index'><span class='metric'><%= ((project.end_date - Time.now)/(60 * 60 * 24)).round %></span><br> days left</p>
+		</div>
+		<div class='info-container'>
+			<p class='info-index'><span class='metric'><%= number_to_percentage(project.goal / project.funded_amount, precision: 0) %></span><br> funded</p>
+		</div>
+		<div class='info-container'>
+			<p class='info-index'><span class='metric'><%= number_to_currency(project.funded_amount / 100) %></span><br> pledged</p>
+		</div>
+	</div>
 </div>
 

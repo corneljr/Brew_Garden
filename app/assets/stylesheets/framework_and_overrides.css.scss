@@ -23,6 +23,10 @@ a {
   color:black;
 }
 
+a:hover {
+  color:black
+}
+
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create mixins using Foundation classes
 @mixin twelve-columns {
