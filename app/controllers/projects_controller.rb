@@ -35,6 +35,7 @@ class ProjectsController < ApplicationController
 
 	def show
 		@rewards = @project.rewards
+		@days_left = ((@project.end_date - Time.now)/(60 * 60 * 24)).round 
 		@commentable = find_commentable
   	@comments = @project.comments
   	@comment = Comment.new

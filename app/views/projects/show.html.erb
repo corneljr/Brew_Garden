@@ -1,38 +1,46 @@
 
-<%= render 'projects/project_links' %>
+<!-- Project Details -->
 
-
-<!-- Product Details -->
-
-<h1><%= @project.title %></h1>
-
-<div class='project-container'>
-	<%= image_tag @project.image.url %>
-	<p>Owner: <%= link_to @project.user.name, @project.user %></p>
-	<p>Total Backers: <%= @project.pledges.count %></p>
-	<p>Goal: <%= number_to_currency(@project.goal / 100) %></p>
-	<p>Funded amount: <%= number_to_currency(@project.funded_amount / 100) %></p>
-	<p>Description: <%= raw(@project.description) %></p>
+<div class='project-title-container'>
+	<h2 class='project-show-title'><%= @project.title %></h2>
+	<h4 class='project-show-creator'>by <%= link_to @project.user.name, @project.user %></h4>
 </div>
 
-<!-- Product Rewards -->
-<h3>Rewards</h3>
-<% @rewards.each do |reward| %>
-	<div class='reward'>
-		<p>Backers: <%= reward.pledges.count %></p>
-		<p><%= number_to_currency(reward.amount / 100) %></p>
-		<p><%= reward.description %></p>
+<%= render 'projects/project_links' %>
 
-		<p><%= link_to "View Reward", project_reward_path(@project, reward), class: 'button tiny' %></p>
+<div class='project-show-container'>
+	<div class='large-9 columns'>
+		<div class='project-container'>
+			<%= image_tag @project.image.url %>
+			<p>Description: <%= raw(@project.description) %></p>
+		</div>
 	</div>
-<% end %>
+	<div class='large-3 columns'>
+		<div class='info-container'>
+			<p><%= @project.pledges.count %> backers</p>
+			<p><%= number_to_currency(@project.funded_amount / 100) %> pledged of <%= number_to_currency(@project.goal / 100) %> goal</p>
+			<p><%= @days_left %> days left </p>
+		</div>
+		<div class='reward-container'>
+			<h3>Rewards</h3>
+			<% @rewards.each do |reward| %>
+				<div class='reward'>
+					<p>Backers: <%= reward.pledges.count %></p>
+					<p><%= number_to_currency(reward.amount / 100) %></p>
+					<p><%= reward.description %></p>
+
+					<p><%= link_to "View Reward", project_reward_path(@project, reward), class: 'button tiny' %></p>
+				</div>
+			<% end %>
+		</div>
+	</div>
 	<br>
 	<br>
 
 	<br>
 	<br>
 
-<!-- Product Comments -->
+<!-- Project Comments -->
 
 	<div id="comments">
 		<%= render @comments  %>
@@ -48,6 +56,7 @@
 	  </p>
 	  <p><%= f.submit "Submit" %></p>
 	<% end %>
+</div>
 
 
 	<br>
