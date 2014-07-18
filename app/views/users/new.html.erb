@@ -1,6 +1,6 @@
-<h1>Sign Up</h1>  
+<h1 class="text-center">Sign Up</h1>  
   
-<%= simple_form_for @user do |f| %>  
+<%= form_for @user do |f| %>  
   <% if @user.errors.any? %>  
     <div class="error_messages">  
       <h2>Form is invalid</h2>  
@@ -12,16 +12,48 @@
     </div>  
   <% end %>  
   <div class="field">  
-    <%= f.label :email %>  
-    <%= f.text_field :email %>  
-  </div>  
-  <div class="field">  
-    <%= f.label :password %>  
-    <%= f.password_field :password %>  
-  </div>  
-  <div class="field">  
-    <%= f.label :password_confirmation %>  
-    <%= f.password_field :password_confirmation %>  
-  </div>  
-  <div class="actions"><%= f.submit %></div>  
-<% end %>  
+ <form>
+  <div class="row">
+    <div class="six mobile-one columns">
+      <label class="left inline"><%= f.label :name %></label>
+    </div>
+    <div class="six mobile-three columns">
+        <%= f.text_field :name %> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="six mobile-one columns">
+      <label class="left inline"><%= f.label :email %></label>
+    </div>
+    <div class="six mobile-three columns">
+        <%= f.text_field :email %> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="six mobile-one columns">
+      <label class="left inline"><%= f.label :password %> </label>
+    </div>
+    <div class="six mobile-three columns">
+        <%= f.password_field :password %>
+    </div>
+  </div>
+   <div class="row">
+    <div class="six mobile-one columns">
+      <label class="left inline"><%= f.label :password_confirmation %></label>
+    </div>
+    <div class="six mobile-three columns">
+        <%= f.text_field :password_confirmation %> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="six mobile-one columns">
+      <label class="left inline"><%= f.label :email %></label>
+    </div>
+    <div class="six mobile-three columns">
+        <%= f.text_field :email %> 
+    </div>
+        <%= f.submit 'Submit', class: 'beer-btn' %> 
+  </div>
+</form>
+
+<% end %> 
