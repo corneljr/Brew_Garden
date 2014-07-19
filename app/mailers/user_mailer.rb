@@ -9,15 +9,15 @@ class UserMailer < ActionMailer::Base
     mail to: user.email, subject: "Please reset password." 
   end
 
-   def update_email(project, update)
+ def update_email(project, update)
     @project = project
     @update = update
     project.pledges.each do |pledge|
       mail to: pledge.user.email, subject: "#{project.title} has posted an update!"
-    end
-   end
+  end
+ end
 
-   def welcome_email(user)
+  def welcome_email(user)
     @user = user
     mail(to: @user.email, subject: 'Welcome to the BREW GARDEN')
   end

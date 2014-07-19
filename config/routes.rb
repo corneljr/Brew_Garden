@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :password_resets, :only => [:create, :edit, :update, :new]
+  resources :password_resets
 
   get 'login' => 'sessions#new', :as => :login
   get 'logout' => 'sessions#destroy', :as => :logout
