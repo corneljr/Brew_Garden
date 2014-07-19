@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-	before_action :load_project, only: [:show, :update, :destroy, :edit]
+	before_action :load_project, only: [:show, :update, :destroy, :edit, :backers]
 	before_filter :require_login, :only => [:new, :edit, :update, :destroy, :create]
 
 	def index
