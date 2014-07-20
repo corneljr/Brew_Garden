@@ -77,8 +77,13 @@ class ProjectsController < ApplicationController
 		@project = Project.find(params[:project_id])
 		@pledges = @project.pledges
 
-		if request.xhr?
+<<<<<<< HEAD
+		if request.xhr? 
 			render partial: 'backer'
+=======
+		if request.xhr?
+			render partial: 'backer', collection: @pledges
+>>>>>>> create_edit
 		end
 	end
 
