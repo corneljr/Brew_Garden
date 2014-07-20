@@ -1,33 +1,32 @@
 <!-- Each reward -->
-<div class="small-12 panel">
+<div class="small-12 panel columns">
   <div class="row">
-    <div class="small-12">
-      <div class="row">
-        <div class="small-2 columns">
-          <%= f.label :amount, class: 'right inline' %>
-        </div>
-        <div class="small-10 columns">
-          <%= f.number_field :amount, placeholder: 'Reward amount' %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-2 columns">
-          <%= f.label :description, class: 'right inline' %>
-        </div>
-        <div class="small-10 columns">
-          <%= f.text_area :description, placeholder: 'Reward Description' %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="small-12 text-right" style="margin: 0 -0.5rem;">
-          <%= link_to_remove_association 'remove reward', f, class: "button alert tiny" %>
-        </div>
-      </div>
+    <div class="small-2 columns">
+      <%= f.label :amount, class: 'right inline' %>
+    </div>
+    <div class="small-10 columns">
+      <%= f.number_field :amount, placeholder: 'Reward amount' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-2 columns">
+      <%= f.label :description, class: 'right inline' %>
+    </div>
+    <div class="small-10 columns">
+      <%= f.text_area :description, placeholder: 'Reward Description' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-2 columns">
+      <%= f.label :pledges_left, 'Backers', class: 'right inline' %>
+    </div>
+    <div class="small-10 columns">
+      <%= f.text_field :pledges_left, placeholder: 'Max number of backers' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 columns text-right">
+      <%= link_to_remove_association 'remove reward', f, class: "button alert tiny" %>
     </div>
   </div>
 </div>
-<%= link_to_remove_association 'remove reward', f %>
-<div>
-	<%= f.text_area :pledges_left, placeholder: 'Max number of backers' %>
-</div>
-<%= link_to_remove_association 'remove reward', f %>
