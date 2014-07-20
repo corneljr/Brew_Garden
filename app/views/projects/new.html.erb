@@ -14,113 +14,132 @@
 	<hr>
 
 	<!-- Start Form -->
-	<div class="row">
-		<div class="small-8 columns">
-		  <div class="row">
-		  <!-- Form errors -->
-			  <% @project.errors.full_messages.each do |message| %>
-					<p><%= message %></p>
-				<% end %>
-        <div class="small-2 columns">
-          <%= f.label :image, class: 'right inline' %>
-        </div>
-        <div class="small-10 columns">
-          <%= f.file_field :image %>
-        </div>
-			</div>
-		  <div class="row">
-        <div class="small-2 columns">
-          <%= f.label :title, class: 'right inline' %>
-        </div>
-        <div class="small-10 columns">
-          <%= f.text_field :title, placeholder: 'Project title' %>
-        </div>
+	<div class="small-12 medium-9 large-9 columns">
+    <div class="row">
+      <!-- Form errors -->
+		  <% @project.errors.full_messages.each do |message| %>
+				<p><%= message %></p>
+			<% end %>
+      <div class="small-2 columns">
+        <%= f.label :image, class: 'right inline' %>
       </div>
-			<div class="row">
-        <div class="small-2 columns">
-          <%= f.label :location, class: 'right inline' %>
-        </div>
-        <div class="small-10 columns">
-          <%= f.text_field :location, placeholder: 'Address or Location' %>
-        </div>
+      <div class="small-10 columns">
+        <%= f.file_field :image %>
       </div>
-      <div class="row">
-        <div class="small-2 columns">
-          <%= f.label :category, class: 'right inline' %>
-        </div>
-        <div class="small-10 columns">
-          <%= f.select :category, options_for_select(['Brewpub', 'Contract Brewery', 'Craft Division', 'brewery']), prompt: 'Category' %>
-        </div>
+		</div>
+	  <div class="row">
+      <div class="small-2 columns">
+        <%= f.label :title, class: 'right inline' %>
       </div>
-      <div class="row">
-        <div class="small-2 columns">
-<%= f.label :description, class: 'right inline' %>
-        </div>
-        <div class="small-10 columns">
-					<%= f.text_area :description, placeholder: 'Description' %>
-        </div>
+      <div class="small-10 columns">
+        <%= f.text_field :title, maxlength: 20, placeholder: 'Project title' %>
       </div>
-      <div class="row">
-        <div class="small-2 columns">
-					<%= f.label :end_date, class: 'right inline' %>
-        </div>
-        <div class="small-10 columns">
-					<%= f.date_field :end_date %>
-        </div>
+    </div>
+		<div class="row">
+      <div class="small-2 columns">
+        <%= f.label :location, class: 'right inline' %>
       </div>
-      <div class="row">
-        <div class="small-2 columns">
-					<%= f.label :goal, class: 'right inline' %>
+      <div class="small-10 columns">
+        <%= f.text_field :location, placeholder: 'Address or Location' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-2 columns">
+        <%= f.label :category, class: 'right inline' %>
+      </div>
+      <div class="small-10 columns">
+        <%= f.select :category, options_for_select(['Brewpub', 'Contract Brewery', 'Craft Division', 'brewery']), prompt: 'Category' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-2 columns">
+        <%= f.label :description, class: 'right inline' %>
+      </div>
+      <div class="small-10 columns">
+				<%= f.text_area :description, placeholder: 'Description' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-2 columns">
+				<%= f.label :end_date, class: 'right inline' %>
+      </div>
+      <div class="small-10 columns">
+				<%= f.date_field :end_date %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-2 columns">
+				<%= f.label :goal, class: 'right inline' %>
+      </div>
+      <div class="small-10 columns">
+				<%= f.number_field :goal, placeholder: 'Funding goal' %>
+      </div>
+    </div>
+		<!-- Rewards -->
+    <div class="row">
+    	<div class="small-8 columns"><h4>Add your rewards</h4></div>
+			<hr>
+    </div>
+
+    <div class="small-12 columns">
+        <%= f.fields_for :rewards do |r| %>
+          <%= render 'reward_fields', :f => r %>
+        <% end %>
+        <div class="small-12">
+        <%= link_to_add_association 'add another reward', f, :rewards, class: "button success tiny" %>
         </div>
-        <div class="small-10 columns">
-					<%= f.number_field :goal, placeholder: 'Funding goal' %>
-        </div>
-      </div>
-			<!-- Rewards -->
-      <div class="row">
-      	<div class="small-8 columns"><h4>Add your rewards</h4></div>
-				<hr>
-      </div>
-      <div class="row">
-				<%= f.fields_for :rewards do |r| %>
-					<%= render 'reward_fields', :f => r %>
-				<% end %>
-			</div>
-			<div class="row">
-	      <%= link_to_add_association 'add another reward', f, :rewards, class: "button success tiny" %>
-      </div>
 		</div>
 
-		<!-- Display sample project -->
-		<div class="small-4 text-center columns">
-			<div class="small-12 project-card text-center radius">
-				<div class="preview-title" style="margin-bottom: 5px;"><h5>Your title</h5></div>
-				<img src="/img/logo03.jpg" style="opacity: .2;">
-				<p></p>
-				<div class="preview-description"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque temporibus molestiae error recusandae aut!</p></div>
-			</div>
-			<div class="small-12 text-center" style="margin-left: 30px;">
-				<%= f.submit 'Save', class:'button large' %>
-			</div>
-		</div>
 	</div>
+
+  <!-- Sample project panel -->
+  <div class="medium-3 large-3 columns">
+    <div class="small-12 medium-12 large-12 left columns">
+      <div class="project-panel">
+        <div class="panel-img">
+          <img src="/img/logo03.jpg" style="opacity: .2;">
+          <p class="text-right"><small>By: <%= current_user.email  %></small></p>
+        </div>
+        <div class="preview-title"><h1>Your title</h1></div>
+        <div class="preview-description"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque temporibus molestiae error recusandae aut!</p></div>
+        <p><br></p>
+        <div class="row">
+          <div class="small-12 columns">
+            <div class="progress-bar" data-funded="0"><div></div></div>
+          </div>
+          <div class='small-4 text-center columns'>
+            <div class='metric'>1</div>
+            <div class='metric-sub'>days left</div>
+          </div>
+          <div class='small-3 text-center columns'>
+            <div class='metric'>0%</div>
+            <div class='metric-sub'>funded</div>
+          </div>
+          <div class='small-5 text-center columns'>
+            <div class='metric'>$0.00</div>
+            <div class='metric-sub'>pledged</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="small-12 text-center columns">
+      <%= f.submit 'Save', class:'button large' %>
+    </div>
+  </div>
 
 </div>
 <% end %>
 
 <script>
 	$(document).ready(function() {
-
 		// Update project title in realtime
 		$('#project_title').bind('input', function() {
-				$('.preview-title h5').text($(this).val());
+				$('.preview-title h1').text($(this).val());
 		});
-
 		// Update project description in realtime
 		$('#project_description').bind('input', function() {
 				$('.preview-description p').text($(this).val());
 		});
-
   });
 </script>
 
