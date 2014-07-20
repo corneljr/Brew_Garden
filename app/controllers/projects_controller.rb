@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-	before_action :load_project, only: [:show, :update, :destroy, :edit, :backers]
+	before_action :load_project, only: [:show, :update, :destroy, :edit]
 	before_filter :require_login, :only => [:new, :edit, :update, :destroy, :create]
 
 	def index
@@ -74,6 +74,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def backers
+		@project = Project.find(params[:project_id])
 		@pledges = @project.pledges
 
 		if request.xhr? 
