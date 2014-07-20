@@ -1,1 +1,5 @@
-<li><%= backer.user.name %></li>
+<div class='project-backer-info'>
+	<%= image_tag("http://placehold.it/100x100") %>
+	<p class='project-backer-name'><%= backer.user.name %></p>
+	<p class='project-backer-count'><%= backer.user.pledges.count %></p>
+</div>
