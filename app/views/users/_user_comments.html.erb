@@ -1,4 +1,6 @@
 <% @user.comments.each do |comment| %>
-	<p class='user-comment-body'><%= comment.body %></p>
-	<p class='user-comment-project'><%= comment.commentable.title %></p>
+	<div class='comment-container'>
+		<p class='user-comment-body'><span class='quote'>&#8220;</span><%= comment.body %></p>
+		<p class='user-comment-project'><%= comment.created_at.strftime("%B %d, %Y") %> on <span class='comment-project'><%= link_to comment.commentable.title, comment.commentable %></span></p>
+	</div>
 <% end %>
