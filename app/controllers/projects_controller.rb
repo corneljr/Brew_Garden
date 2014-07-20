@@ -4,6 +4,9 @@ class ProjectsController < ApplicationController
 	before_filter :require_login, :only => [:new, :edit, :update, :destroy, :create]
 
 	def index
+		#location = request.location
+		#@near = Project.near(location, 20).limit(3)
+
 		@most_funded = Project.all.order('funded_amount DESC').limit(3)
 		@newest = Project.order('created_at DESC').limit(3)
 		@near = Project.near('Toronto, ontario, canada', 20).limit(3)
