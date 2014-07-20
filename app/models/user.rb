@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	has_many :projects
 	has_many :pledges
-	has_many :comments, as: :commentable
+	has_many :comments
 
 
   authenticates_with_sorcery!
