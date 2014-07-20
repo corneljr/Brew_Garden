@@ -173,13 +173,21 @@
 .project-backer-name {
 	font-weight: bold;
 	font-size: 1rem;
+	padding-top: 20px;
 }
 
-.project-backer.info {
+.project-backer-info {
 	border-bottom: 1px solid #828587;
+	height: 120px;
 }
 
 .project-backer-count {
 	color: #828587;
 	font-size: 0.9rem;
+	margin-bottom: 0px;
+}
+
+.user-image {
+	float: left;
+	margin: 10px;
 }
