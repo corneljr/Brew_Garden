@@ -8,17 +8,18 @@
 			<%= @user.description %>
 		</div>
 	</div>
-	<div class='user-project-container'>
-		<ul class='user-project-nav'>
-			<li><%= link_to 'Backed', '#', class: 'user-link' %>(<%= @user.pledges.count %>)</li>
-			<% if @user.projects.present? %>
-				<li><%= link_to 'Created', '#', class: 'user-link' %>(<%= @user.projects.count %></li>
-			<% end %>
-			<% if @user.comments.present? %>
-				<li><%= link_to 'Comments', '#', class: 'user-link' %>(<%= @user.comments.count %>)</li>
-			<% end %>
-		</ul>
-
+	<div class='user-projects-container'>
+		<div class='user-project-nav-container'>
+			<ul class='user-project-nav'>
+				<li class='user-project-nav-item'><%= link_to 'Backed', '#', class: 'user-link' %> (<%= @user.pledges.count %>)</li>
+				<% if @user.projects.present? %>
+					<li class='user-project-nav-item'><%= link_to 'Created', '#', class: 'user-link' %> (<%= @user.projects.count %>)</li>
+				<% end %>
+				<% if @user.comments.present? %>
+					<li class='user-project-nav-item'><%= link_to 'Comments', '#', class: 'user-link' %>(<%= @user.comments.count %>)</li>
+				<% end %>
+			</ul>
+		</div>
 		<div class='user-project-info'>
 			<%= render 'user_pledges' %>
 		</div>

@@ -1,0 +1,7 @@
+<% @user.projects.each do |project| %>
+	<%#= image_tag pledge.project.image.thumb.url %>
+	<div class='user-project-container'>
+		<a href="<%= project_path(project) %>"><%= image_tag 'http://placehold.it/200x200', class: 'user-project-image' %></a>
+		<figcaption class='project-caption'><%= link_to project.title, project %></figcapion>
+	</div>
+<% end %>
