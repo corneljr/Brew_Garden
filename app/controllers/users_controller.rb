@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :load_user, only: [:edit, :update, :show, :projects, :pledges]
+  before_action :load_user, only: [:edit, :update, :show, :projects, :pledges, :comments]
 
   def new
     @user = User.new
@@ -39,6 +39,12 @@ class UsersController < ApplicationController
   def projects
     if request.xhr?
       render partial: 'user_projects'
+    end
+  end
+
+  def comments
+    if request.xhr?
+      render partial: 'user_comments'
     end
   end
 

@@ -16,7 +16,7 @@
 					<li class='user-project-nav-item'><%= link_to 'Created', '#', class: 'user-link' %> (<%= @user.projects.count %>)</li>
 				<% end %>
 				<% if @user.comments.present? %>
-					<li class='user-project-nav-item'><%= link_to 'Comments', '#', class: 'user-link' %>(<%= @user.comments.count %>)</li>
+					<li class='user-project-nav-item'><%= link_to 'Comments', '#', class: 'user-link' %> (<%= @user.comments.count %>)</li>
 				<% end %>
 			</ul>
 		</div>
@@ -25,6 +25,10 @@
 				<%= render 'user_pledges' %>
 			<% elsif @user.projects.present? %>
 				<%= render 'user_projects' %>
+			<% elsif @user.comments.present? %>
+				<%= render 'user_comments' %>
+			<% else %>
+				<h4>There is no action to display for this user</h4>
 			<% end %>
 		</div>
 	</div>
