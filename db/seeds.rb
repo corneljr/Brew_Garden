@@ -10,7 +10,7 @@ categories = ['beers', 'pubs', 'distillaries', 'breweries']
 addresses = ['10 Sunray Street L1N 9B5 whitby', '130 Riviera Drive L3R 5M1 markham', '245 Queens Quay W. M5J 2K9 toronto', '384 Yonge Street L4N 2Z6 barrie', '75 Victoria Street M5C 2B1 toronto', '124 Ossington Avenue M6J 2Z5 toronto', '1000 Murray Ross Parkway M3J 2P3 toronto']
 
 100.times do
-	User.create(name: Faker::Name.name, email: Faker::Internet.email, password: 'password', password_confirmation: 'password')
+	User.create(name: Faker::Name.name, email: Faker::Internet.email, password: 'password', password_confirmation: 'password', description: Faker::Lorem.sentences(3).join(' '))
 end
 
 200.times do 
@@ -29,6 +29,10 @@ sleep(2)
 
 10.times do 
 	Project.create(user_id: rand(1..100), title: Faker::Company.catch_phrase, description: Faker::Lorem.paragraphs(10).join('<br><br>'), goal: rand(100000..500000), end_date: Date.today + rand(1..60).days, category: categories[rand(0..3)], location: addresses[rand(0..6)])
+end
+
+100.times do 
+	Comment.create(user_id: rand(1..100), body: Faker::Lorem.sentences(2).join(' '), commentable_id: rand(1..20), commentable_type: 'Project')
 end
 
 Project.all.each do |project|

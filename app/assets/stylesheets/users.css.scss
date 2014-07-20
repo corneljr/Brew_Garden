@@ -10,6 +10,20 @@
 	clear:both;
 }
 
+.profile-picture {
+	border-radius: 5px;
+	float: right;
+}
+
+.user-name {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.user-info-list {
+	list-style: none;
+}
+
 .user-project-nav {
 	list-style: none;
 	padding-top: 10px;

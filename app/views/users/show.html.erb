@@ -1,11 +1,13 @@
 <div class='user-container'>
 	<div class='user-info-container'>
 		<div class='user-image large-5 columns'>
-			<%= image_tag 'http://placehold.it/200x200' %>
+			<%= image_tag 'http://placehold.it/200x200', class: 'profile-picture' %>
 		</div>
 		<div class='user-info large-5 columns'>
-			<%= @user.name %>
-			<%= @user.description %>
+			<ul class='user-info-list'>
+			<li class='user-name'><%= @user.name %></li>
+			<li class='user-description'><%= @user.description %></li>
+			</ul>
 		</div>
 	</div>
 	<div class='user-projects-container'>
