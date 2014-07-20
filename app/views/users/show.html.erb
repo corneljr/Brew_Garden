@@ -1,18 +1,26 @@
 <div class='user-container'>
 	<div class='user-info-container'>
-		<%= image_tag 'http://placehold.it/350x150' %>
-		<%= @user.name %>
-		<%= @user.description %>
+		<div class='user-image large-5 columns'>
+			<%= image_tag 'http://placehold.it/200x200' %>
+		</div>
+		<div class='user-info large-5 columns'>
+			<%= @user.name %>
+			<%= @user.description %>
+		</div>
 	</div>
 	<div class='user-project-container'>
-		<ul>
-		<li><%= link_to 'Backed', '#', class: 'user-link' %>(<%= @user.pledges.count %>)</li>
-		<% if @user.projects.present? %>
-			<li><%= link_to 'Created', '#', class: 'user-link' %>(<%= @user.projects.count %></li>
-		<% end %>
-		<% if @user.comments.present? %>
-			<li><%= link_to 'Comments', '#', class: 'user-link' %>(<%= @user.comments.count %>)</li>
-		<% end %>
+		<ul class='user-project-nav'>
+			<li><%= link_to 'Backed', '#', class: 'user-link' %>(<%= @user.pledges.count %>)</li>
+			<% if @user.projects.present? %>
+				<li><%= link_to 'Created', '#', class: 'user-link' %>(<%= @user.projects.count %></li>
+			<% end %>
+			<% if @user.comments.present? %>
+				<li><%= link_to 'Comments', '#', class: 'user-link' %>(<%= @user.comments.count %>)</li>
+			<% end %>
 		</ul>
+
+		<div class='user-project-info'>
+			<%= render 'user_pledges' %>
+		</div>
 	</div>
 </div>
