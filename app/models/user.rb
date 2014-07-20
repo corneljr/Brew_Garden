@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
 
   validates :email, uniqueness: true
+
+  mount_uploader :avatar, AvatarUploader
 end
