@@ -8,7 +8,7 @@ $(document).ready( function() {
 
 		$.get(window.location.pathname + '/' + text)
 			.done(function(data){
-				$('.project-show-container').html(data)
+				$('.project-container').html(data)
 			});
 	});
 });

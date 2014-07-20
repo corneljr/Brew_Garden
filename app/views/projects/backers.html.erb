@@ -1,7 +1,11 @@
 <%= render 'projects/project_links' %>
 
-<ul>
-<% @pledges.each do |pledge| %>
-	<%= render partial: 'backer', collection: @pledges %>
-	<% end %>
-</ul>index
+<div class='large-9 columns'>
+	<% @pledges.each do |pledge| %>
+		<%= render partial: 'backer', collection: @pledges %>
+		<% end %>
+</div>
+<div class='large-3 columns'>
+	<%= render 'project_sidebar' %>
+</div>
+<div style="clear:both;">&nbsp;</div>

@@ -78,7 +78,7 @@ class ProjectsController < ApplicationController
 		@pledges = @project.pledges
 
 		if request.xhr? 
-			render partial: 'backer', collection: @pledges
+			render partial: 'backer'
 		end
 	end
 
