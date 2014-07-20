@@ -21,7 +21,11 @@
 			</ul>
 		</div>
 		<div class='user-project-info'>
-			<%= render 'user_pledges' %>
+			<% if @user.pledges.present? %>
+				<%= render 'user_pledges' %>
+			<% elsif @user.projects.present? %>
+				<%= render 'user_projects' %>
+			<% end %>
 		</div>
 	</div>
 </div>

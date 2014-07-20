@@ -1,4 +1,6 @@
 $(document).ready( function(){
+	$('.user-link').eq(0).css('font-weight', 'bold');
+
 	$('.user-link').on('click', function(ev){
 		ev.preventDefault();
 		var item = ev.currentTarget.textContent.toLowerCase();
