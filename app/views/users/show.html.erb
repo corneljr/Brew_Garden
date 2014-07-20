@@ -11,7 +11,9 @@
 	<div class='user-projects-container'>
 		<div class='user-project-nav-container'>
 			<ul class='user-project-nav'>
-				<li class='user-project-nav-item'><%= link_to 'Backed', '#', class: 'user-link' %> (<%= @user.pledges.count %>)</li>
+				<% if @user.pledges.present? %>
+					<li class='user-project-nav-item'><%= link_to 'Backed', '#', class: 'user-link' %> (<%= @user.pledges.count %>)</li>
+				<% end %>
 				<% if @user.projects.present? %>
 					<li class='user-project-nav-item'><%= link_to 'Created', '#', class: 'user-link' %> (<%= @user.projects.count %>)</li>
 				<% end %>

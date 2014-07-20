@@ -1,4 +1,4 @@
 <% @user.comments.each do |comment| %>
 	<p class='user-comment-body'><%= comment.body %></p>
-	<p class='user-comment-project'><%= comment.project %></p>
+	<p class='user-comment-project'><%= comment.commentable.title %></p>
 <% end %>
