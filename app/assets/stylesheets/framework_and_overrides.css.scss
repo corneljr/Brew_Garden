@@ -8,6 +8,7 @@ $h1-font-size: rem-calc(50);
 @import "foundation/components/grid";
 @import "foundation/components/type";
 @import "foundation/components/buttons";
+@import "foundation/components/button-groups";
 @import "foundation/components/forms";
 @import "foundation/components/panels";
 @import "foundation/components/reveal";
@@ -29,8 +30,7 @@ $h1-font-size: rem-calc(50);
     background-color: #FFF;
     padding: 10px 10px 0 10px;
     border-bottom: 1px solid #CCC;
-    small { color: #999; }
-  }
+    small { color: #999; } }
 
   .progress-bar {
     width: 100%;
@@ -79,6 +79,26 @@ $h1-font-size: rem-calc(50);
     $padding: 10px
   );
 }
+
+// center button-group
+.hnav {
+  transition: all 0.2s;
+  padding: 0 1px !important; }
+
+.hnav a {
+  margin-bottom: 0 !important;
+  background-color: #f2f2f2;
+  color: #333; }
+
+.hnav a:hover {
+  margin-bottom: 0 !important;
+  background-color: #f2f2f2;
+  color: #333; }
+
+.hnav:hover {
+  border-bottom: 5px solid rgb(65, 117, 5);
+  margin-bottom: -2px;
+  margin-top: -4px; }
 
 // override for the 'Home' navigation link
 .top-bar .name {
