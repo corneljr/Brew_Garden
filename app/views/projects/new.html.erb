@@ -20,6 +20,7 @@
 		  <% @project.errors.full_messages.each do |message| %>
 				<p><%= message %></p>
 			<% end %>
+
       <div class="small-2 columns">
         <%= f.label :image, class: 'right inline' %>
       </div>
@@ -49,6 +50,14 @@
       </div>
       <div class="small-10 columns">
         <%= f.select :category, options_for_select(['Brewpub', 'Contract Brewery', 'Craft Division', 'brewery']), prompt: 'Category' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-2 columns">
+        <%= f.label :short_blurb, class: 'right inline' %>
+      </div>
+      <div class="small-10 columns">
+        <%= f.text_area :short_blurb, placeholder: 'Short Blurb' %>
       </div>
     </div>
     <div class="row">
