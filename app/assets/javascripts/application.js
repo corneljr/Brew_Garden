@@ -25,4 +25,37 @@
 
 $(function() {
   $(document).foundation();
+
+  // Rollover logo
+  $('.logo').mouseover(function() {
+    $(this).addClass('animated tada');
+  });
+
+  // Rollout logo
+  $('.logo').mouseleave(function() {
+    $(this).removeClass('animated tada');
+  });
+
+  // Rollover featured
+  $('.project-logo').mouseover(function() {
+    $(this).addClass('animated pulse');
+  });
+
+  // Rollout featured
+  $('.project-logo').mouseleave(function() {
+    $(this).removeClass('animated pulse');
+  });
+
+  function progressDraw($element) {
+    for(x = 0; x < $element.length; ++x) {
+      _self = $element[x];
+      amount = $(_self).data('funded');
+      progressWidth = amount * $element.width() / 100;
+      $(_self).find('div').animate({ width: progressWidth }, 1500);
+    };
+  };
+
+  // Draws the progressBar over a collection
+  progressDraw($('.progress-bar'));
+
 });

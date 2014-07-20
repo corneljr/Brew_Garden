@@ -1,3 +1,6 @@
+$body-bg: #FFF !important;
+$h1-font-size: rem-calc(50);
+
 // import the CSS framework
 // @import "foundation";
 @import "foundation/components/grid";
@@ -7,8 +10,73 @@
 @import "foundation/components/panels";
 @import "foundation/components/reveal";
 @import "foundation/components/top-bar";
+@import "foundation/components/side-nav";
 @import "foundation/components/alert-boxes";
 @import "foundation/components/inline-lists";
+
+
+// Custom project panel mixin
+.project-panel {
+  $panel-bg: #F5F5F5;
+  border-radius: 8px;
+  min-height: 450px;
+
+  .panel-img {
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: #FFF;
+    padding: 10px 10px 0 10px;
+    border-bottom: 1px solid #CCC;
+    small { color: #999; }
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 12px;
+    border: 1px solid #999;
+    background-color: #DDD;
+    margin-top: 10px; }
+
+  .progress-bar div {
+    height: 100%;
+    color: #fff;
+    text-align: right;
+    background-image: url(/img/pbar.gif);
+    line-height: 22px; /* same as #progressBar height if we want text middle aligned */
+    width: 0; }
+
+  .metric {
+    margin: 10px 0 5px 0;
+    font-weight: bold;
+    font-size: 1.0rem; }
+
+  .metric-sub {
+    font-size: 0.7rem;  }
+
+  .stats-box {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 50px; }
+
+  p {
+    padding: 0;
+    margin: 0;
+    font-size: 0.8rem; }
+
+  h1 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px; }
+
+  img {
+    width: 195px;
+    max-height: 195px;
+    border-radius: 50%; }
+
+  @include panel(
+    $padding: 10px
+  );
+}
 
 // override for the 'Home' navigation link
 .top-bar .name {
@@ -27,6 +95,12 @@ a:hover {
   color:black
 }
 
+// Fixing some foundation stuff
+ul {
+  margin-left: 0 !important;
+}
+
+
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create mixins using Foundation classes
 @mixin twelve-columns {
@@ -38,6 +112,7 @@ a:hover {
   @extend .columns;
   @extend .text-center;
   }
+
 // create your own classes
 // to make views framework-neutral
 .column {
@@ -53,13 +128,14 @@ a:hover {
   @extend .button;
   @extend .radius;
   }
+
 // apply styles to HTML elements
 // to make views framework-neutral
 main {
   @include twelve-columns;
   margin: 0;
   padding: 0;
-  background-color: #f7fafa;
+  // background-color: #f7fafa;
   }
 section {
   @extend .row;
@@ -91,7 +167,7 @@ body {
   }
 }
 
-.redder {
+.test-red {
   border: 1px solid red;
 }
 
