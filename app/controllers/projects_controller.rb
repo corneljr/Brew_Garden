@@ -4,9 +4,9 @@ class ProjectsController < ApplicationController
 	before_filter :require_login, :only => [:new, :edit, :update, :destroy, :create]
 
 	def index
-		@most_funded = Project.all.order('funded_amount DESC').limit(4)
-		@newest = Project.order('created_at DESC').limit(4)
-		@near = Project.near('Toronto, ontario, canada', 20).limit(4) 
+		@most_funded = Project.all.order('funded_amount DESC').limit(3)
+		@newest = Project.order('created_at DESC').limit(3)
+		@near = Project.near('Toronto, ontario, canada', 20).limit(3)
 
 		respond_to do |format|
 			format.html
@@ -35,16 +35,16 @@ class ProjectsController < ApplicationController
 
 	def show
 		@rewards = @project.rewards
-		@days_left = ((@project.end_date - Time.now)/(60 * 60 * 24)).round 
+		@days_left = ((@project.end_date - Time.now)/(60 * 60 * 24)).round
 		@commentable = find_commentable
   	@comments = @project.comments
 
-  	if request.xhr? 
+  	if request.xhr?
   		render partial: 'show_info'
   	end
 	end
 
-	def new 
+	def new
 		@project = Project.new
 		@project.rewards.build
 	end
@@ -77,7 +77,7 @@ class ProjectsController < ApplicationController
 		@project = Project.find(params[:project_id])
 		@pledges = @project.pledges
 
-		if request.xhr? 
+		if request.xhr?
 			render partial: 'backer', collection: @pledges
 		end
 	end
@@ -87,7 +87,7 @@ class ProjectsController < ApplicationController
 	def load_project
 		@project = Project.find(params[:id])
 	end
-	
+
 	def project_params
 		params.require(:project).permit(:title, :description, :end_date, :goal, :image, rewards_attributes: [:amount, :description, :pledges_left, :_destroy])
 	end

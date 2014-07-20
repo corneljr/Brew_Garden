@@ -83,6 +83,7 @@
       $(this).removeClass('animated pulse');
     });
 
+    // takes a collection of .progress-bar divs and animates them
     function progressDraw($element) {
       for(x = 0; x < $element.length; ++x) {
         _self = $element[x];
@@ -92,8 +93,6 @@
       };
     };
 
-    // Draws the progressBar over a collection
-    progressDraw($('.progressBar'));
 
   });
   </script>
