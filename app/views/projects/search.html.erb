@@ -1,16 +1,53 @@
-<div class='project-category-container'>
-	<% if @search == 'all' %>
-		<h4 class='search-results'>Showing all <span class='category-show'><%= @projects.count %></span>projects</h4>
-	<% else %>
-		<h4 class='search-results'>We found <%= pluralize(@projects.count, 'result') %> relating to <span class='category-show'>"<%= @search.capitalize %></span>"</h4>
-	<% end %>
-	<div class='large-10 columns'>
-		<%= render @projects %>
+<!-- Spacer - need to delete -->
+<div class="row">
+	<div class="small-12 columns">
+		<p><br><br><br></p>
 	</div>
-	<div class='large-2 columns'>
-		<div class='category-container'>
-		<h4 class='sorting-header'>Categories</h4>
-			<%= render 'categories' %>
+</div>
+
+<!-- Page header -->
+<div class="row">
+	<div class="small-12 columns">
+		<% if @search == 'all' %>
+			<h4>Showing all <span ><%= @projects.count %></span>projects</h4>
+		<% else %>
+			<h4>We found <%= pluralize(@projects.count, 'result') %> relating to <span class='category-show'>"<%= @search.capitalize %></span>"</h4>
+		<% end %>
+	</div>
+</div>
+
+<div class="row">
+	<!-- Left column -->
+	<div class="small-12 medium-12 large-10 columns">
+		<!-- Search form -->
+		<div class="row">
+			<div class="small-12 columns">
+				<%= form_tag project_search_path, class: 'search', method: 'get' do  %>
+				<div class="row collapse">
+	        <div class="small-10 columns">
+	          <%= text_field_tag :q, nil, placeholder: "#{@search}" %>
+	        </div>
+	        <div class="small-2 columns">
+	          <%= submit_tag "search", class: 'button postfix'%>
+	        </div>
+	      </div>
+				<% end %>
+			</div>
 		</div>
+		<!-- Search results -->
+		<div class="row">
+			<div class="small-12 columns">
+				<h5><strong>Search results</strong></h5>
+				<hr>
+			</div>
+				<%= render @projects %>
+		</div>
+	</div>
+	<!-- Right column -->
+	<div class="show-for-medium-up medium-2 columns">
+		<h5><strong>Categories</strong></h5>
+		<ul class="side-nav">
+			<%= render 'categories' %>
+		</ul>
 	</div>
 </div>
