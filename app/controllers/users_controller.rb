@@ -1,20 +1,23 @@
 class UsersController < ApplicationController
+  before_action :load_user, only: [:edit, :update, :show]
+
   def new
     @user = User.new
   end
 
   def edit 
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     @user.update(user_params)
     if @user.save
       redirect_to @user
     else
       render :edit, notice: 'there was an error'
     end
+  end
+
+  def show
   end
 
   def create
@@ -31,5 +34,9 @@ class UsersController < ApplicationController
 
   def user_params
   	params.require(:user).permit(:email, :name, :password, :password_confirmation)
+  end
+
+  def load_user
+    @user = User.find(params[:id])
   end
 end
