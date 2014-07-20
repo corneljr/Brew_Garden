@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :pledges
   resources :sessions, :only => [:new, :create, :destroy]
 	resources :users do 
-    resources :comments
+    resources :comments, except: [:index]
   end
   root to: "welcome#index"
 
