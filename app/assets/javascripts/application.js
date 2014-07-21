@@ -23,8 +23,36 @@
 //= require foundation/foundation.alert.js
 //= require_tree .
 
-$(function() {
+$(document).ready(function() {
+
   $(document).foundation();
+
+  function progressDraw($element) {
+    for(x = 0; x < $element.length; ++x) {
+      _self = $element[x];
+      amount = $(_self).data('funded');
+      progressWidth = amount * $element.width() / 100;
+      $(_self).find('div').animate({ width: progressWidth }, 1500);
+      // $('.percent').text(Math.ceil(progressWidth/10)+"%");
+      // $('.percent').animate({ left: progressWidth }, 1500);
+    };
+  };
+
+  function progressMarker() {
+    amount = $('.progress-bar').data('funded');
+    progressWidth = amount * $('.progress-bar').width() / 100;
+    count = 0;
+    window.setInterval(function() {
+      // var count = 0;
+      amount = $('.progress-bar').data('funded');
+      if(count <= amount) {
+        $('.percent').text(count+"%");
+        ++count;
+      };
+    }, 50 );
+    // $('.percent').text(amount+"%");
+    $('.percent').animate({ left: progressWidth-10 }, 1500);
+  };
 
   // Rollover logo
   $('.logo').mouseover(function() {
@@ -46,16 +74,8 @@ $(function() {
     $(this).removeClass('animated pulse');
   });
 
-  function progressDraw($element) {
-    for(x = 0; x < $element.length; ++x) {
-      _self = $element[x];
-      amount = $(_self).data('funded');
-      progressWidth = amount * $element.width() / 100;
-      $(_self).find('div').animate({ width: progressWidth }, 1500);
-    };
-  };
-
   // Draws the progressBar over a collection
   progressDraw($('.progress-bar'));
+  progressMarker();
 
 });

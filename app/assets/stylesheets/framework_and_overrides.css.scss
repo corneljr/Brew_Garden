@@ -17,6 +17,47 @@ $h1-font-size: rem-calc(50);
 @import "foundation/components/alert-boxes";
 @import "foundation/components/inline-lists";
 
+// Custom project panel mixin
+.lg-project-panel {
+  background-color: #F5F5F5;
+  border-radius: 8px;
+  border: 1px solid rgb(65, 117, 5); }
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    border: 1px solid #999;
+    background-color: #DDD;
+    margin-top: 10px; }
+
+.progress-bar div {
+  height: 100%;
+  color: #fff;
+  text-align: right;
+  background-image: url(/img/pbar.gif);
+  line-height: 22px; /* same as #progressBar height if we want text middle aligned */
+  width: 0; }
+
+.bg-white {
+  background-color: #FFF; }
+
+.percent {
+  background-image: url('/img/beer.svg');
+  fill: #FFF;
+  background-size: 100%;
+  width: 60px;
+  height: 60px;
+  // float: left;
+  // border-radius: 50%;
+  padding: 32px 0 0 12px;
+  color: #FFF;
+  font-size: 0.8rem;
+  position: relative;
+  top: -40px; }
+
+#map {
+  width: 100%;
+  height: 300px; }
 
 // Custom project panel mixin
 .project-panel {
@@ -96,6 +137,11 @@ $h1-font-size: rem-calc(50);
   color: #333; }
 
 .hnav:hover {
+  border-bottom: 5px solid rgb(65, 117, 5);
+  margin-bottom: -2px;
+  margin-top: -4px; }
+
+.hnav-on {
   border-bottom: 5px solid rgb(65, 117, 5);
   margin-bottom: -2px;
   margin-top: -4px; }

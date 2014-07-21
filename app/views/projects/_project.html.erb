@@ -8,6 +8,7 @@
 		<p><%= truncate(project.description, length: 100) %></p>
 		<p><br></p>
 		<div class="row">
+			<!-- progress-bar -->
 			<div class="small-12 columns">
 				<div class="progress-bar" data-funded="<%= ((project.funded_amount.to_f / project.goal.to_f) * 100).round %>"><div></div></div>
 			</div>
