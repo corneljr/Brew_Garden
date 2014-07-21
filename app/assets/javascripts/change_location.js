@@ -1,7 +1,7 @@
 $(document).on('ready page:load', function(){
 	$('.change-location').on('click', function(ev){
 		ev.preventDefault();
-		$('.location-search').show();
+		$('.location-search').fadeIn();
 		$('.location-header').hide();
 	});
 
@@ -17,7 +17,8 @@ $(document).on('ready page:load', function(){
 		}).done(function(data){
 			$('.near-div').html(data)
 			$('.location-search').hide();
-			$('.location-header').show();
+			$('.location-header').fadeIn();
+			$('.see-all-near').attr('href', 'projects/all_near?q=' + search)
 			$('.location-title').text(' "' + search + '"');
 			});
 	});

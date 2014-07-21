@@ -60,7 +60,7 @@
 					</form>
 				</div>
 				<div class='location-header'>
-					<h5><strong>Near <span class='location-title'><%= @location %></span></strong> <%= link_to 'change location?', '#', class: 'change-location' %><span class='see-all'><%= link_to 'See all', '#' %></span></h5>
+					<h5><strong>Near <span class='location-title'><%= @location %></span></strong> <%= link_to 'change location?', '#', class: 'change-location' %><span class='see-all'><%= link_to 'See all', "/projects/all_near?q=#{@location}", class: 'see-all-near' %></span></h5>
 				</div>
 				<hr>
 			</div>

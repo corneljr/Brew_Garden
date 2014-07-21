@@ -1,0 +1,12 @@
+<div class='project-category-container'>
+		<h4 class='search-results'>Showing all <span class='category-show'><%= @projects.size %> </span>projects near <%= @location %></h4>
+	<div class='large-10 columns'>
+		<%= render @projects %>
+	</div>
+	<div class='large-2 columns'>
+		<div class='category-container'>
+		<h4 class='sorting-header'>Categories</h4>
+			<%= render 'categories' %>
+		</div>
+	</div>
+</div>
