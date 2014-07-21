@@ -92,6 +92,7 @@ Rails.application.configure do
     access_key_id:     ENV['AWS_ACCESS_KEY_ID'],
     secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
   }
+  end
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
@@ -105,5 +106,4 @@ Rails.application.configure do
     :domain               => ENV['smtp_domain'],
     :authentication       => 'plain'
   }
-  end
 end
