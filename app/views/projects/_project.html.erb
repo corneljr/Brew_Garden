@@ -5,9 +5,11 @@
 			<p class="text-right"><small>By: <%= project.user.name  %></small></p>
 		</div>
 		<h1><%= link_to truncate(project.title, length: 27), project %></h1>
-		<p><%= project.short_blurb %></p>
+		<!-- <p><%= project.short_blurb %></p> -->
+		<p><%= truncate(project.description, length: 125) %></p>
 		<p><br></p>
 		<div class="row">
+			<!-- progress-bar -->
 			<div class="small-12 columns">
 				<div class="progress-bar" data-funded="<%= ((project.funded_amount.to_f / project.goal.to_f) * 100).round %>"><div></div></div>
 			</div>
