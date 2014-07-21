@@ -1,34 +1,19 @@
 <div class='project-category-container'>
-	<% if @category == 'all' %>
-		<h4 class='search-results'>Showing all <span class='category-show'><%= @projects.count %> </span>projects</h4>
-	<% else %>
-		<h4 class='search-results'>We found <%= @projects.count %> <span class='category-show'><%= @category.capitalize %></span> </h4>
-	<% end %>
-	<div class='large-10 columns'>
-		<%= render @projects %>
-	</div>
-	<div class='large-2 columns'>
-		<div class='category-container'>
-		<h4 class='sorting-header'>Categories</h4>
-			<%= render 'categories' %>
-		</div>
-	</div>
-</div>
-
-<div class='row'>
-	<div class='project-category-container'>
-		<div class="row">
-			<div class="small-12 columns">
-				<h5>Showing <strong><%= @projects.count %></strong> results for <strong><%= @category.capitalize %></strong></h5>
-				<hr>
+	<div class='row'>
+		<div class='project-category-container'>
+			<div class="row">
+				<div class="small-12 columns">
+					<h5>Showing <strong><%= @projects.count %></strong> results for <strong><%= @category.capitalize %></strong></h5>
+					<hr>
+				</div>
+					<%= render @projects %>
 			</div>
-				<%= render @projects %>
 		</div>
-	</div>
-	<div class="show-for-medium-up medium-2 columns">
-		<h5><strong>Categories</strong></h5>
-		<ul class="side-nav">
-			<%= render 'categories' %>
-		</ul>
+		<div class="show-for-medium-up medium-2 columns">
+			<h5><strong>Categories</strong></h5>
+			<ul class="side-nav">
+				<%= render 'categories' %>
+			</ul>
+		</div>
 	</div>
 </div>
