@@ -101,7 +101,7 @@ Rails.application.configure do
     :address              => "smtp.mandrillapp.com",
     :port                 => 587,
     :enable_starttls_auto => true,
-    :username            => ENV['MANDRILL_USERNAME'],
+    :user_name            => ENV['MANDRILL_USERNAME'],
     :password             => ENV['MANDRILL_APIKEY'],
     :domain               => ENV['smtp_domain'],
     :authentication       => 'plain'
