@@ -76,6 +76,7 @@ video#bgvid {
   position: relative;
   top: -40px; }
 
+// mapbox
 #map {
   width: 100%;
   height: 300px; }
@@ -178,17 +179,14 @@ video#bgvid {
   padding: 0 15px; }
 
 a {
-  color:black;
-}
+  color:black; }
 
 a:hover {
-  color:black
-}
+  color:black; }
 
 // Fixing some foundation stuff
 ul {
-  margin-left: 0 !important;
-}
+  margin-left: 0 !important; }
 
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
@@ -236,6 +234,7 @@ body {
   background-color: #f7fafa;
 }
 
+// not in use right now
 .beer-btn {
   @include button-base;
   @include single-transition;
@@ -257,6 +256,7 @@ body {
   }
 }
 
+// for testing
 .test-red {
   border: 1px solid red;
 }
