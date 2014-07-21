@@ -1,5 +1,4 @@
 $body-bg: #FFF !important;
-$h1-font-size: rem-calc(50);
 .panel {
   border-radius: 8px; }
 
@@ -8,7 +7,6 @@ $h1-font-size: rem-calc(50);
 @import "foundation/components/grid";
 @import "foundation/components/type";
 @import "foundation/components/buttons";
-@import "foundation/components/button-groups";
 @import "foundation/components/forms";
 @import "foundation/components/panels";
 @import "foundation/components/reveal";
@@ -16,6 +14,34 @@ $h1-font-size: rem-calc(50);
 @import "foundation/components/side-nav";
 @import "foundation/components/alert-boxes";
 @import "foundation/components/inline-lists";
+
+// Video
+video#bgvid {
+  position: fixed;
+  // center: 0;
+  top: -15%;
+  width: 100%;
+  // max-height: 350px;
+  z-index: -100;
+  background: url(/img/logo01.png) no-repeat;
+  // background-size: cover;
+}
+.fade {
+  position: fixed;
+  top: -15%;
+  width: 100%;
+  z-index: -99;
+}
+.fade img {
+  width: 100%;
+}
+
+//
+.slider h1 {
+  font-family: 'Kaushan Script', cursive;
+  color: white;
+  font-size: 3.5em;
+  text-shadow: 1px 1px 10px rgba(0,0,0,0.7); }
 
 // Custom project panel mixin
 .lg-project-panel {
@@ -113,7 +139,7 @@ $h1-font-size: rem-calc(50);
 
   img {
     width: 195px;
-    max-height: 195px;
+    height: 195px;
     border-radius: 50%; }
 
   @include panel(
@@ -129,7 +155,8 @@ $h1-font-size: rem-calc(50);
 .hnav a {
   margin-bottom: 0 !important;
   background-color: #f2f2f2;
-  color: #333; }
+  color: #333;
+  font-weight: bold; }
 
 .hnav a:hover {
   margin-bottom: 0 !important;
@@ -137,14 +164,14 @@ $h1-font-size: rem-calc(50);
   color: #333; }
 
 .hnav:hover {
-  border-bottom: 5px solid rgb(65, 117, 5);
+  border-bottom: 2px solid rgb(65, 117, 5);
   margin-bottom: -2px;
-  margin-top: -4px; }
+  margin-top: -2px; }
 
 .hnav-on {
-  border-bottom: 5px solid rgb(65, 117, 5);
+  border-bottom: 2px solid rgb(65, 117, 5);
   margin-bottom: -2px;
-  margin-top: -4px; }
+  margin-top: -2px; }
 
 // override for the 'Home' navigation link
 .top-bar .name {
