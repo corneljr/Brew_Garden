@@ -9,6 +9,7 @@ $(document).ready( function() {
 		$.get(window.location.pathname + '/' + text)
 			.done(function(data){
 				$('.project-container').html(data)
+				$('.slider').slick();
 			});
 	});
 });
