@@ -1,5 +1,44 @@
+
+<div class="row">
+	<div class="small-12 columns">
+	<p><br><br><br></p>
+	</div>
+</div>
+
 <%= form_for [@project, @update] do |f| %>
-	<%= f.text_field :title, placeholder: 'title' %>
-	<%= f.text_area :body, placeholder: 'update', class: 'ckeditor' %>
-	<%= f.submit 'Post', class: 'button tiny' %>
+<div class="row">
+
+	<div class="small-12 columns">
+		<h3>Add Your Update Here</h3>
+	</div>
+
+	<hr>
+		<!-- Start Form -->
+	<div class="small-12 medium-9 large-9 columns">
+    <div class="row">
+      <!-- Form errors -->
+		  <% @update.errors.full_messages.each do |message| %>
+				<p><%= message %></p>
+			<% end %>
+				
+				<div class="small-2 columns">
+	        <%= f.label :title, class: 'right inline' %>
+	      </div>
+	      <div class="small-10 columns">
+	        <%= f.text_field :title, placeholder: 'title' %>
+	      </div>
+      </div>
+    <div class="row">
+      <div class="small-2 columns">
+        <%= f.label :body, class: 'right inline' %>
+      </div>
+      <div class="small-10 columns">
+        <%= f.text_area :body, placeholder: 'update', class: 'ckeditor' %>
+      </div>
+    </div>
+
+			<%= f.submit 'Post', class: 'button tiny' %>
+		
+	</div>
+</div>
 <% end %>
