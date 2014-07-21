@@ -5,7 +5,6 @@ gem 'rails', '4.1.1'
 
 # Use postgresql as the database for Active Record
 
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 
@@ -47,6 +46,7 @@ gem 'carrierwave-aws'
 gem 'rmagick', :require => 'RMagick'
 gem 'sorcery'
 gem 'simple_form'
+gem 'figaro'
 
 group :development  do
   gem 'spring'
