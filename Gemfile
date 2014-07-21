@@ -47,6 +47,7 @@ gem 'rmagick', :require => 'RMagick'
 gem 'sorcery'
 gem 'simple_form'
 gem 'figaro'
+gem 'bourbon'
 
 group :development  do
   gem 'spring'

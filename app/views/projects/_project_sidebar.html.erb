@@ -6,15 +6,32 @@
 
 </div>
 
-<div class="small-12 columns">
-	<h3>Rewards</h3>
+<div class="small-12 panel no-padding bg-white columns">
 	<% @rewards.each do |reward| %>
 	<%= link_to project_reward_path(@project, reward) do%>
-		<div class='reward'>
-			<p>Backers: <%= reward.pledges.count %></p>
-			<p><%= number_to_currency(reward.amount / 100, precision: 0) %></p>
-			<p><%= reward.description %></p>
+		<div class='reward-container'>
+			<div class="reward-description">
+				<p>Backers: <%= reward.pledges.count %></p>
+				<p><%= number_to_currency(reward.amount / 100, precision: 0) %></p>
+				<p><%= reward.description %></p>
+			</div>
+			<div class="reward-selector">
+				<h4>Select this reward</h4>
+			</div>
 		</div>
 		<% end %>
 	<% end %>
 </div>
+
+<style type="text/css">
+	
+.no-padding {
+	padding: 0;
+}
+</style>
+<script type="text/javascript">
+		$('.reward-container').on('mouseover', function() {
+					$(this).find('h4').addClass('animated tada');
+		});
+
+</script>
