@@ -100,9 +100,11 @@ class ProjectsController < ApplicationController
 	end
 
 	def most_funded
+		@projects = Project.order('created_at DESC')
 	end
 
 	def newest_projects
+		@projects = Project.order('funded_amount DESC')
 	end
 
 	def near_location
