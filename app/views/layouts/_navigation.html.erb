@@ -1,20 +1,24 @@
 <%# navigation styled for Zurb Foundation 5 %>
 <div class="sticky">
   <nav class="top-bar" data-topbar data-options="sticky_on: medium">
-    <div class="logo">
-      <a href="/"><%= image_tag("/img/logo.png", size: "115") %></a>
-    </div>
-    <div class="top-bar-section">
-      <ul class="left" style="margin-left: 250px;">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="/">Brewgarden.ca</a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+    <section class="top-bar-section">
+      <ul class="right">
         <li><%= link_to 'Discover', projects_path %></li>
         <li><%= link_to 'Create', new_project_path %></li>
-        <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-      </ul>
-      <ul class="right">
         <%= render 'layouts/navigation_links' %>
       </ul>
-    </div>
+    </section>
   </nav>
+</div>
+
+<div class="logo show-for-medium-up">
+  <a href="/"><%= image_tag("/img/logo.png", size: "115") %></a>
 </div>
 
 <div id="login" class="reveal-modal small radius" data-reveal>
