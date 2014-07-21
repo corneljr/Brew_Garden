@@ -1,12 +1,12 @@
 <div class="small-6 medium-3 large-3 hnav hnav-on columns">
-  <%= link_to "home", @project, class: 'button expand small' %>
+  <span class='project-info-link-item'><%= link_to "home", @project, class: 'button expand small' %></span>
 </div>
 <div class="small-6 medium-3 large-3 hnav columns">
-  <%= link_to "updates (#{@project.updates.count})", project_updates_path(@project), class: 'button expand small' %>
+  <span class='project-info-link-item'><%= link_to "updates", project_updates_path(@project), class: 'button expand small' %></span><%= @project.updates.count %>
 </div>
 <div class="small-6 medium-3 large-3 hnav columns">
-  <%= link_to "backers (#{@project.pledges.count})", project_backers_path(@project), class: 'button expand small' %>
+  <span class='project-info-link-item'><%= link_to "backers", project_backers_path(@project), class: 'button expand small' %></span><%= @project.pledges.count %>
 </div>
 <div class="small-6 medium-3 large-3 hnav columns">
-  <%= link_to "comments (#{@project.comments.count})", project_comments_path(@project), class: 'button expand small' %>
+  <span class='project-info-link-item'><%= link_to "comments", project_comments_path(@project), class: 'button expand small' %></span><%= @project.comments.count %>
 </div>
