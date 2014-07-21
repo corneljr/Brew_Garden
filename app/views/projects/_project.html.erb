@@ -10,8 +10,13 @@
 		<div class="row">
 			<!-- progress-bar -->
 			<div class="small-12 columns">
-				<div class="progress-bar" data-funded="<%= ((project.funded_amount.to_f / project.goal.to_f) * 100).round %>"><div></div></div>
-			</div>
+				<% if ((project.funded_amount.to_f / project.goal.to_f) * 100).round < 100 %>
+					<div class="progress-bar" data-funded="<%= ((project.funded_amount.to_f / project.goal.to_f) * 100).round %>"><div></div></div>
+					</div>
+				<% else %>
+					<div class="progress-bar" data-funded="101"><div></div></div>
+					</div>
+				<% end %>
 			<div class='small-4 text-center columns'>
 				<div class='metric'><%= ((project.end_date - Time.now)/(60 * 60 * 24)).round %></div>
 				<div class='metric-sub'>days left</div>
