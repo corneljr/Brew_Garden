@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
 	has_many :pledges
 	has_many :comments
 
-
   authenticates_with_sorcery!
 
   validates :password, length: { minimum: 3 }
@@ -12,5 +11,5 @@ class User < ActiveRecord::Base
 
   validates :email, uniqueness: true
 
-  mount_uploader :avatar, AvatarUploader
+  # mount_uploader :avatar, AvatarUploader
 end

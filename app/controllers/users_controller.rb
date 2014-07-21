@@ -9,11 +9,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    if @user.save
+    if @user.update(user_params)
       redirect_to @user
     else
-      render :edit, notice: 'there was an error'
+      render :edit
     end
   end
 
