@@ -92,5 +92,18 @@ Rails.application.configure do
     access_key_id:     ENV['AWS_ACCESS_KEY_ID'],
     secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
   }
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.mandrillapp.com",
+    :port                 => 587,
+    :enable_starttls_auto => true,
+    :user_name            => ENV['smtp_username'],
+    :password             => ENV['smtp_password'],
+    :domain               => ENV['smtp_domain'],
+    :authentication       => 'plain'
+  }
   end
 end
