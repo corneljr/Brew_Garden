@@ -15,11 +15,12 @@ $(document).on('ready page:load', function(){
 			dataType: 'html',
 			data: {'q': search}
 		}).done(function(data){
-			$('.near-div').html(data)
+			$('.near-div').html(data).fadeIn();
 			$('.location-search').hide();
 			$('.location-header').fadeIn();
 			$('.see-all-near').attr('href', 'projects/all_near?q=' + search)
 			$('.location-title').text(searchedLocation);
+			progressDraw($('.progress-bar'));
 			});
 	});
 });
