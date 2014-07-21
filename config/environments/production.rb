@@ -85,7 +85,7 @@ Rails.application.configure do
   config.storage    = :aws
   config.aws_bucket = ENV['S3_BUCKET_NAME']
   config.aws_acl    = :public_read
-  config.asset_host = 'http://aqueous-castle-7146.herokuapp.com/'
+  config.asset_host = 'http://brewgarden.herokuapp.com/'
   config.aws_authenticated_url_expiration = 60 * 60 * 24 * 365
 
   config.aws_credentials = {
@@ -101,8 +101,8 @@ Rails.application.configure do
     :address              => "smtp.mandrillapp.com",
     :port                 => 587,
     :enable_starttls_auto => true,
-    :user_name            => ENV['smtp_username'],
-    :password             => ENV['smtp_password'],
+    :username            => ENV['MANDRILL_USERNAME'],
+    :password             => ENV['MANDRILL_APIKEY'],
     :domain               => ENV['smtp_domain'],
     :authentication       => 'plain'
   }
