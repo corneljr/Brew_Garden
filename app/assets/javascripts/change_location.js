@@ -13,9 +13,11 @@ $(document).on('ready page:load', function(){
 			url: '/projects/location_search',
 			type: 'GET',
 			dataType: 'html',
-			data: search
+			data: {'q': search}
 		}).done(function(data){
-
+			$('.near-div').html(data)
+			$('.location-search').hide();
+			$('.location-header').show();
 			});
 	});
 });

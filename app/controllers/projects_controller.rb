@@ -86,7 +86,15 @@ class ProjectsController < ApplicationController
 	end
 
 	def location_search
+		@near = Project.near(params[:q], 50).limit(3)
 		binding.pry
+		unless @near.present? 
+			@near = Project.near('Toronto', 50).limit(3)
+		end
+
+		if request.xhr?
+			render partial: 'project', collection: @near
+		end
 	end
 
 	private
