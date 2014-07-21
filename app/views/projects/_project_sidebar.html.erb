@@ -9,12 +9,12 @@
 <div class="small-12 columns">
 	<h3>Rewards</h3>
 	<% @rewards.each do |reward| %>
+	<%= link_to project_reward_path(@project, reward) do%>
 		<div class='reward'>
 			<p>Backers: <%= reward.pledges.count %></p>
 			<p><%= number_to_currency(reward.amount / 100, precision: 0) %></p>
 			<p><%= reward.description %></p>
-
-			<p><%= link_to "View Reward", project_reward_path(@project, reward), class: 'button tiny' %></p>
 		</div>
+		<% end %>
 	<% end %>
 </div>
