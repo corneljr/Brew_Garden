@@ -1,4 +1,5 @@
 $body-bg: #FFF !important;
+
 .panel {
   border-radius: 8px; }
 
@@ -18,25 +19,19 @@ $body-bg: #FFF !important;
 // Video
 video#bgvid {
   position: fixed;
-  // center: 0;
   top: -15%;
   width: 100%;
-  // max-height: 350px;
   z-index: -100;
-  background: url(/img/logo01.png) no-repeat;
-  // background-size: cover;
-}
+  background: url(/img/logo01.png) no-repeat; }
 .fade {
   position: fixed;
   top: -15%;
   width: 100%;
-  z-index: -99;
-}
+  z-index: -99; }
 .fade img {
-  width: 100%;
-}
+  width: 100%; }
 
-//
+// welcome#index
 .slider h1 {
   font-family: 'Kaushan Script', cursive;
   color: white;
