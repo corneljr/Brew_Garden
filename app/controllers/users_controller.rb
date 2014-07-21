@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def edit 
+  def edit
   end
 
   def update
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # UserMailer.welcome_email(@user).deliver
+      UserMailer.welcome_email(@user).deliver
       user = login(params[:user][:email], params[:user][:password])
       binding.pry
       redirect_to root_url, :notice => "Signed up!"
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   end
 
   def pledges
-    if request.xhr? 
+    if request.xhr?
       render partial: 'user_pledges'
     end
   end
