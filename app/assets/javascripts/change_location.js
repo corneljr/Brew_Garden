@@ -19,7 +19,7 @@ $(document).on('ready page:load', function(){
 			$('.location-search').hide();
 			$('.location-header').fadeIn();
 			$('.see-all-near').attr('href', 'projects/all_near?q=' + search)
-			$('.location-title').text(' "' + search + '"');
+			$('.location-title').text(searchedLocation);
 			});
 	});
 });
