@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  get '/projects/location_search', to: 'projects#location_search'
+  
   get '/projects/:project_id/backers', to: 'projects#backers', as: 'project_backers'
   get '/search', to: 'projects#search', as: 'project_search'
   get '/projects/category/:category', to: 'projects#category', as: 'project_category'

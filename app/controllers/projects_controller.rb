@@ -85,6 +85,10 @@ class ProjectsController < ApplicationController
 		end
 	end
 
+	def location_search
+		binding.pry
+	end
+
 	private
 
 	def load_project
