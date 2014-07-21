@@ -7,10 +7,10 @@ class ProjectsController < ApplicationController
 		@most_funded = Project.all.order('funded_amount DESC').limit(3)
 		@newest = Project.order('created_at DESC').limit(3)
 		@near = if params[:longitude] && params[:latitude]
-			@location = Geocoder.search("#{params[:latitude]}, #{params[:longitude]}")[0].data['formatted_address']
+			@location = Geocoder.search("#{params[:latitude]}, #{params[:longitude]}").first.city
 			Project.near(@location, 20).limit(3)
 		else
-			@location = Geocoder.search("toronto")[0].data['formatted_address']
+			@location = Geocoder.search("toronto").first.city
 			Project.near(@location, 20).limit(3)
 		end
 
