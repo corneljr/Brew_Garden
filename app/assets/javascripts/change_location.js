@@ -18,7 +18,7 @@ $(document).on('ready page:load', function(){
 			$('.near-div').html(data)
 			$('.location-search').hide();
 			$('.location-header').show();
-			$('.location-title').text(' "' + search + ' "');
+			$('.location-title').text(' "' + search + '"');
 			});
 	});
 });

@@ -99,6 +99,15 @@ class ProjectsController < ApplicationController
 		end
 	end
 
+	def most_funded
+	end
+
+	def newest_projects
+	end
+
+	def near_location
+	end
+
 	private
 
 	def load_project
