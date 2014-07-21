@@ -110,7 +110,6 @@ class ProjectsController < ApplicationController
 	def near_location
 		@projects = Project.near(params[:q], 20)
 		@location = Geocoder.search(params[:q])[0].data['formatted_address']
-		binding.pry
 	end
 
 	private
