@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    binding.pry
     if @user.update(user_params)
       redirect_to @user
     else
