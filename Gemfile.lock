@@ -29,6 +29,14 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
+    bourbon (3.2.3)
+      sass (~> 3.2)
+      thor
     builder (3.2.2)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
@@ -204,6 +212,12 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
+<<<<<<< HEAD
+=======
+  better_errors
+  binding_of_caller
+  bourbon
+>>>>>>> master
   carrierwave
   ckeditor (= 4.0.4)
   cocoon
