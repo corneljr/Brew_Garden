@@ -20,7 +20,9 @@ $(document).on('ready page:load', function(){
 			$('.location-header').fadeIn();
 			$('.see-all-near').attr('href', 'projects/all_near?q=' + search)
 			$('.location-title').text(searchedLocation);
-			progressDraw($('.progress-bar'));
+
+			if ($('.progress-bar').length) progressDraw($('.progress-bar'));
+			
 			});
 	});
 });
