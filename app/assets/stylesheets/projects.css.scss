@@ -212,3 +212,42 @@
 	float: left;
 	margin: 10px;
 }
+
+
+@import "bourbon";
+
+.reward-container {
+	padding: 10px;
+  @include position(relative, 0 0 0 0);
+
+  background: #fafafa;
+  &:hover {
+    .reward-selector {
+      background: rgba(65,117,5, 0.7);
+      h4 {
+        @include transform(scale(1));
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.reward-selector {
+	padding: 0;
+  @include transition(background 300ms ease);
+  @include position(absolute, 0px 0px 0px 0px);
+  @include size(100% 100%);
+  z-index: 1;
+  background: transparent;
+  h4 {
+    @include position(absolute, 0px 0px 0px 0px);
+    @include transition(opacity 300ms ease, transform 300ms ease);
+    @include transform(scale(1.5));
+  	text-align: center;
+  	font-size: 1.2rem;
+    opacity: 0;
+    line-height: 12rem;
+    margin: 0;
+  	color: #fff;
+  }
+}
