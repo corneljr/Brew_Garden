@@ -35,17 +35,17 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
-  CarrierWave.configure do |config|
-    config.fog_credentials = {
-      provider: 'AWS', 
-      aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'], 
-      aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
-    }
+  # CarrierWave.configure do |config|
+  #   config.fog_credentials = {
+  #     provider: 'AWS', 
+  #     aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'], 
+  #     aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+  #   }
 
-  config.fog_directory = 'beergarden'
-  config.asset_host = 'http://brewgarden.herokuapp.com/'
-  config.fog_public = true
-  end
+  # config.fog_directory = 'beergarden'
+  # config.asset_host = 'http://brewgarden.herokuapp.com/'
+  # config.fog_public = true
+  # end
 
 
   config.action_mailer.perform_deliveries = true
