@@ -34,7 +34,9 @@
 		</div>
 		<!-- slider/description -->
 		<div class="small-12 medium-9 large-9 columns project-container">
-			<iframe width="640" height="360" src="//www.youtube.com/embed/M7lc1UVf-VE?feature=player_embedded&color=white" frameborder="0" allowfullscreen></iframe>
+			<% if @project.video_link %>
+				<iframe width="700" height="400" src="<%= @project.video_link %>" frameborder="0" allowfullscreen></iframe>
+			<% end %>
 			<%= render 'show_info' %>
 		</div>
 		<!-- sidebar -->

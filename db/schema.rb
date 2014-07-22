@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140720221133) do
+ActiveRecord::Schema.define(version: 20140722143444) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20140720221133) do
     t.integer  "user_id"
     t.string   "image"
     t.string   "short_blurb"
+    t.string   "video_link"
   end
 
   create_table "rewards", force: true do |t|
