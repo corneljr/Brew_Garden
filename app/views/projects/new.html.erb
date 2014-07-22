@@ -27,6 +27,13 @@
       <div class="small-10 columns">
         <%= f.file_field :image %>
       </div>
+      <div class="small-2 columns">
+        <%= f.label :slider_images, class: 'right inline' %>
+      </div>
+      <div class="small-10 columns">
+        <%= f.file_field :slider_images, multiple: true %>
+      </div>
+
 		</div>
 	  <div class="row">
       <div class="small-2 columns">

@@ -20,6 +20,7 @@ class Project < ActiveRecord::Base
 	accepts_nested_attributes_for :rewards, reject_if: :all_blank, allow_destroy: true
 
 	mount_uploader :image, ImageUploader
+	mount_uploader :slider_images, SliderImagesUploader
 
 	def date_check 
 		if end_date < Date.today

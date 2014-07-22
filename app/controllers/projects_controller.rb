@@ -57,6 +57,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def create
+		binding.pry
 		@project = Project.new(project_params)
 		@project.user = current_user
 		if @project.save
@@ -122,7 +123,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def project_params
-		params.require(:project).permit(:title, :description, :end_date, :goal, :image, rewards_attributes: [:amount, :description, :pledges_left, :_destroy])
+		params.require(:project).permit(:title, :description, :end_date, :goal, :image, :slider_images, :location, :category, :short_blurb, rewards_attributes: [:amount, :description, :pledges_left, :_destroy])
 	end
 
 	def find_commentable
