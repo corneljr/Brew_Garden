@@ -57,6 +57,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def create
+		binding.pry
 		@project = current_user.projects.build(project_params)
 		if @project.save
 			if params[:slider_images]
@@ -64,6 +65,7 @@ class ProjectsController < ApplicationController
 					@project.slider_images.create(slider_image: image)
 			end
 			redirect_to @project
+			end
 		else
 			render :new
 		end

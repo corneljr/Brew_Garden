@@ -31,7 +31,7 @@
         <%= f.label :slider_images, class: 'right inline' %>
       </div>
       <div class="small-10 columns">
-        <%= f.file_field :slider_images, multiple: true %>
+        <%= file_field_tag "slider_images[]", multiple: true %>
       </div>
 
 		</div>
