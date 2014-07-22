@@ -6,7 +6,7 @@ class UserMailer < ActionMailer::Base
     @url = edit_password_reset_url(user.reset_password_token)
     @greeting = "Hi"
 
-    mail to: user.email, subject: "Please reset password." 
+    mail to: user.email, subject: "Please reset password."
   end
 
  def update_email(project, update)
