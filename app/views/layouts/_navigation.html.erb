@@ -2,9 +2,7 @@
 <div class="sticky">
   <nav class="top-bar" data-topbar data-options="sticky_on: medium">
     <ul class="title-area">
-      <li class="name">
-        <h1><a href="/">Brewgarden.ca</a></h1>
-      </li>
+      <li class="name"></li>
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
     <section class="top-bar-section">
@@ -23,34 +21,33 @@
 
 <div id="login" class="reveal-modal small radius" data-reveal>
   <%= form_tag sessions_path do %>
-  <h3 class="text-center">Log in</h3>
-  <hr>
-  <div class="row">
-    <div class="small-12">
-      <div class="row">
-        <div class="small-3 columns">
-          <%= label_tag :email, nil, class: 'right inline'  %>
-        </div>
-        <div class="small-9 columns">
-          <%= text_field_tag :email  %>
-        </div>
+    <h3 class="text-center">Log in</h3>
+    <div class="row collapse">
+      <div class="small-2 columns">
+        <span class="prefix"><i class="fi-mail"></i></span>
       </div>
-      <div class="row">
-        <div class="small-3 columns">
-          <%= label_tag :password, nil, class: 'right inline'  %>
-        </div>
-        <div class="small-9 columns">
-          <%= password_field_tag :password  %>
-        </div>
+      <div class="small-10 columns email-field">
+        <%= text_field_tag :email, nil, placeholder: 'Your email' %>
       </div>
-      <div class="row">
-        <div class="small-12 text-center columns">
-          <%= submit_tag "Log in", class: 'button small radius' %>
-        </div>
+    </div>
+    <div class="row collapse">
+      <div class="small-2 columns ">
+        <span class="prefix"><i class="fi-lock"></i></span>
+      </div>
+      <div class="small-10 columns ">
+        <%= password_field_tag :password, nil, placeholder: 'Your password'  %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 text-center columns">
+        <%= submit_tag "Log in", class: 'button small radius' %>
+      </div>
+    </div>
+    <div class="row collapse">
+      <div class="small-12 columns text-center">
+        (Forgot your password <a href="#">click here</a>)
       </div>
     </div>
     <a class="close-reveal-modal">&#215;</a>
-    <% end %>
-  </div>
+  <% end %>
 </div>
-

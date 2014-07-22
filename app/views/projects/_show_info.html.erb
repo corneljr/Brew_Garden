@@ -12,6 +12,11 @@
     <div><img src="/img/teaser0<%= rand(1..4) %>.jpg"/></div>
   </div>
 </div>
+<!-- Facebook -->
+<div class="fb-share-button" data-href="/<%= projects_path(@project) %>" data-width="100"></div>
+
+<!-- Twitter -->
+<a href="https://twitter.com/share" class="twitter-share-button" data-related="jasoncosta" data-lang="en" data-size="large" data-count="none">Tweet</a>
 <hr>
 <p><%= raw(@project.description) %></p>
 
