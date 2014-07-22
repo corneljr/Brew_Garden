@@ -11,8 +11,8 @@
 	<%= link_to project_reward_path(@project, reward) do%>
 		<div class='reward-container'>
 			<div class="reward-description">
-				<p>Backers: <%= reward.pledges.count %></p>
-				<p><%= number_to_currency(reward.amount / 100, precision: 0) %></p>
+				<p><strong>Pledge <%= number_to_currency(reward.amount / 100, precision: 0) %> or more</strong></p>
+				<p><%= reward.pledges.count %> backers</p>
 				<p><%= reward.description %></p>
 			</div>
 			<div class="reward-selector">
