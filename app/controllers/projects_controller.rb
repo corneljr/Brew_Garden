@@ -62,7 +62,6 @@ class ProjectsController < ApplicationController
 		@project = current_user.projects.build(project_params)
 		if @project.save
 			redirect_to @project
-			end
 		else
 			render :new
 		end

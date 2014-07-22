@@ -20,13 +20,7 @@
 		  <% @project.errors.full_messages.each do |message| %>
 				<p><%= message %></p>
 			<% end %>
-
-      <div class="small-2 columns">
-        <%= f.label :image, class: 'right inline' %>
-      </div>
-      <div class="small-10 columns">
-        <%= f.file_field :image %>
-      </div>
+      
       <div class="small-12 columns">
         <%= f.fields_for :slider_images do |r| %>
           <%= render 'slider_image_fields', :f => r %>
