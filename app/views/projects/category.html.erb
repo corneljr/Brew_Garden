@@ -1,13 +1,23 @@
-<div class='project-category-container'>
-	<div class='project-category-container'>
-		<div class="row">
-			<div class="small-12 large-10 columns">
-				<h5>Showing <strong><%= @projects.count %></strong> results for <strong><%= @category.capitalize %></strong></h5>
-				<hr>
-				<%= render @projects %>
-			</div>
-		</div>
+<!-- Spacer - need to delete -->
+<div class="row">
+	<div class="small-12 columns">
+		<p><br><br><br></p>
 	</div>
+</div>
+
+<!-- Page header -->
+<div class="row">
+	<div class="small-12 columns">
+		<h5>Showing <strong><%= @projects.count %></strong> results for <strong><%= @category.capitalize %></strong></h5>
+	</div>
+</div>
+
+<div class="row">
+	<!-- Left column -->
+	<div class="small-12 medium-10 large-10 columns">
+		<%= render @projects %>
+	</div>
+	<!-- Right column -->
 	<div class="show-for-medium-up medium-2 columns">
 		<h5><strong>Categories</strong></h5>
 		<ul class="side-nav">
