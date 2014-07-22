@@ -45,7 +45,7 @@ class ProjectsController < ApplicationController
 		@days_left = ((@project.end_date - Time.now)/(60 * 60 * 24)).round
 		@commentable = find_commentable
   	@comments = @project.comments
-
+  	@end_date = date_format(@project.end_date)
   	if request.xhr?
   		render partial: 'show_info'
   	end
@@ -132,5 +132,9 @@ class ProjectsController < ApplicationController
 	    end
 	  end
 	  nil
+	end
+
+	def date_format(date)
+		date.strftime("%A") + ", " + date.strftime("%b") + " " + date.strftime("%d") + " " + date.strftime("%Y")
 	end
 end
