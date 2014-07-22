@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   root to: "welcome#index"
 
   resources :projects do
+    resources :slider_images, only: [:create]
     resources :updates
   	resources :rewards, only: [:create, :destroy, :update, :show] do
   		resources :pledges, only: [:create, :show]
