@@ -6,6 +6,7 @@ class Project < ActiveRecord::Base
 	has_many :pledges, through: :rewards
 	has_many :updates
 	has_many :comments, :as => :commentable
+	has_many :slider_images
 
 
 	validates :title, :description, :goal, :end_date, presence: :true
@@ -17,10 +18,10 @@ class Project < ActiveRecord::Base
 	geocoded_by :get_location
 	before_save :geocode
 
+	accepts_nested_attributes_for :slider_images, allow_destroy: true
 	accepts_nested_attributes_for :rewards, reject_if: :all_blank, allow_destroy: true
 
 	mount_uploader :image, ImageUploader
-	mount_uploader :slider_images, SliderImagesUploader
 
 	def date_check 
 		if end_date < Date.today
