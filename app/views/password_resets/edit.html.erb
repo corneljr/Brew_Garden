@@ -1,31 +1,69 @@
-<h1>Choose a new password</h1>
-<%= form_for @user, :url => password_reset_path(@user), :html => {:method => :put} do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<!-- Spacer - need to delete -->
+<div class="row">
+  <div class="small-12 columns">
+    <p><br><br><br></p>
+  </div>
+</div>
 
+<!-- Page header -->
+<div class="row">
+  <div class="small-12 text-center columns">
+    <h2>Choose a new password</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-10 medium-6 large-6 small-centered columns">
+  <%= form_for @user, :url => password_reset_path(@user), :html => {:method => :put} do |f| %>
+
+    <% if @user.errors.any? %>
+    <div class="small-12 columns error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
-  <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= @user.email %>
+    <div class="row collapse">
+      <div class="small-2 columns">
+        <span class="prefix"><i class="fi-mail"></i></span>
+      </div>
+      <div class="small-10 columns">
+        <%= text_field_tag :email, @user.email, disabled: true %>
+      </div>
+    </div>
+    <div class="row collapse">
+      <div class="small-2 columns">
+        <span class="prefix"><i class="fi-lock"></i></span>
+      </div>
+      <div class="small-10 columns">
+        <%= f.password_field :password %>
+      </div>
+    </div>
+    <div class="row collapse">
+      <div class="small-2 columns">
+        <span class="prefix"><i class="fi-lock"></i></span>
+      </div>
+      <div class="small-10 columns">
+        <%= f.password_field :password_confirmation %>
+      </div>
+    </div>
+    <div class="row collapse">
+      <div class="small-12 text-center columns">
+        <%= submit_tag "Submit", class: 'button'  %>
+      </div>
+    </div>
+
+  <%= hidden_field_tag :token, @token %>
+  <% end %>
   </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
-    <%= hidden_field_tag :token, @token %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+
+
+
+
+
+
