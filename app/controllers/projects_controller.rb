@@ -4,10 +4,11 @@ class ProjectsController < ApplicationController
 	before_filter :require_login, :only => [:new, :edit, :update, :destroy, :create]
 
 	def index
+		@request_location = request.location
 		@most_funded = Project.all.order('funded_amount DESC').limit(3)
 		@newest = Project.order('created_at DESC').limit(3)
-		@near = if params[:longitude] && params[:latitude]
-			@location = Geocoder.search("#{params[:latitude]}, #{params[:longitude]}").first.city
+		@near = if @request_location.city.length > 2
+			@location = @request_location.city
 			Project.near(@location, 20).limit(3)
 		else
 			@location = Geocoder.search("toronto").first.city
