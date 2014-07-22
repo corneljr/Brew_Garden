@@ -54,16 +54,13 @@ class ProjectsController < ApplicationController
 	def new
 		@project = Project.new
 		@project.rewards.build
+		@project.slider_images.build
 	end
 
 	def create
 		binding.pry
 		@project = current_user.projects.build(project_params)
 		if @project.save
-			if params[:slider_images]
-				params[:slider_images].each do |image|
-					@project.slider_images.create(slider_image: image)
-			end
 			redirect_to @project
 			end
 		else

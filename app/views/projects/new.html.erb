@@ -27,12 +27,14 @@
       <div class="small-10 columns">
         <%= f.file_field :image %>
       </div>
-      <div class="small-2 columns">
-        <%= f.label :slider_images, class: 'right inline' %>
-      </div>
-      <div class="small-10 columns">
-        <%= file_field_tag "slider_images[]", multiple: true %>
-      </div>
+      <div class="small-12 columns">
+        <%= f.fields_for :slider_images do |r| %>
+          <%= render 'slider_image_fields', :f => r %>
+        <% end %>
+        <div class="small-12">
+        <%= link_to_add_association 'add another image', f, :slider_images, class: "button success tiny" %>
+        </div>
+    </div>
 
 		</div>
 	  <div class="row">
