@@ -45,7 +45,6 @@ video#bgvid {
   line-height: 35px;
   color: #999; }
 
-
 // Custom project panel mixin
 .lg-project-panel {
   background-color: #F5F5F5;
@@ -88,6 +87,36 @@ video#bgvid {
 #map {
   width: 100%;
   height: 300px; }
+
+// top-bar nav styles, needs to be cleaned
+.top-bar {
+  background-color: rgba(65,117,5,0.9) !important; }
+.nav-search {
+  background-color: #244103 !important; }
+.dropdown {
+  background-color: #244103 !important; }
+.has-form {
+  background: none !important; }
+.top-bar-section ul li > a {
+  background: none !important; }
+.top-bar-section ul > li {
+  background: none !important; }
+.nav-search {
+  background-color: #244103 !important; }
+.top-bar-section ul li a:hover {
+  background-color: #244103 !important; }
+
+// Main logo
+.logo {
+  position: absolute;
+  top: 0;
+  left: 45%;
+  z-index: 999;
+  padding: 5px 0 0 10px; }
+
+// fix slider button hover
+.slider button:hover {
+  background: none !important; }
 
 // Custom project panel mixin
 .project-panel {
