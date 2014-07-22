@@ -57,10 +57,12 @@ class ProjectsController < ApplicationController
 	end
 
 	def create
-		binding.pry
-		@project = Project.new(project_params)
-		@project.user = current_user
+		@project = current_user.projects.build(project_params)
 		if @project.save
+			if params[:slider_images]
+				params[:slider_images].each do |image|
+					@project.slider_images.create(slider_image: image)
+			end
 			redirect_to @project
 		else
 			render :new
@@ -68,9 +70,16 @@ class ProjectsController < ApplicationController
 	end
 
 	def update
-		@project.update(project_params)
-		@project.save
-		redirect_to @project
+		if @project.update(project_params)
+			if params[:slider_images]
+				params[:slider_images].each do |image|
+					@project.photos.create(slider_image: image)
+				end
+			end
+			redirect_to @project
+		else
+			render :edit
+		end
 	end
 
 	def destroy
