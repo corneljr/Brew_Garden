@@ -88,7 +88,7 @@ Rails.application.configure do
       aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
     }
 
-  config.fog_directory = 'beergarden'
+  config.fog_directory = 'beergarden2'
   config.asset_host = 'http://brewgarden.herokuapp.com/'
   config.fog_public = true
   end
