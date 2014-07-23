@@ -7,11 +7,15 @@
 </div>
 
 
-<h2>New Comment</h2>
-<%= form_for [@commentable, @comment], remote: true do |f| %>
-  <p>
-    <%= f.text_field :body %>
-  </p>
-  <p><%= f.submit "Submit", class: 'button tiny' %></p>
-<% end %>
+	<h2>New Comment</h2>
 
+	<% if current_user &&  @project.pledges.where(user_id: current_user.id).present? %>
+	<%= form_for [@commentable, @comment], remote: true do |f| %>
+	  <p>
+	    <%= f.text_field :body %>
+	  </p>
+	  <p><%= f.submit "Submit", class: 'button tiny' %></p>
+	<% end %>
+	<% else %>
+		<p> Back project to comment.</p>
+	<% end %>

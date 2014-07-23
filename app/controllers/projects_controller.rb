@@ -143,6 +143,6 @@ class ProjectsController < ApplicationController
 	end
 
 	def date_format(date)
-		date.strftime("%A") + ", " + date.strftime("%b") + " " + date.strftime("%d") + " " + date.strftime("%Y")
+		date.strftime("%A, %b %d %Y")
 	end
 end
