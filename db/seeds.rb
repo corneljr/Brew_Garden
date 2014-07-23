@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-categories = ['brewpub', 'contractbrewery', 'microbrewery', 'nanobrewery']
+categories = ['Brew Pubs', 'Contract Breweries', 'Microbreweries', 'Nanobreweries']
 addresses = ['10 Sunray Street L1N 9B5 whitby', '130 Riviera Drive L3R 5M1 markham', '245 Queens Quay W. M5J 2K9 toronto', '384 Yonge Street L4N 2Z6 barrie', '75 Victoria Street M5C 2B1 toronto', '124 Ossington Avenue M6J 2Z5 toronto', '1000 Murray Ross Parkway M3J 2P3 toronto']
 
 100.times do
