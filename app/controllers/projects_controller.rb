@@ -114,12 +114,21 @@ class ProjectsController < ApplicationController
 		end
 	end
 
-	def most_funded
-		@projects = Project.order('created_at DESC')
-	end
+	def ordered
+		@order = params[:order]
+		@projects = if @order == 'Staff Picks'
+			Project.all.sample(9)
+		elsif @order == 'Most Funded'
+			Project.order('funded_amount DESC')
+		elsif @order == 'Recently Launched'
+			Project.order('created_at DESC')
+		else
+			Project.order('created_at ASC')
+		end
 
-	def newest_projects
-		@projects = Project.order('funded_amount DESC')
+		if request.xhr?
+			render partial: 'project', collection: @projects
+		end
 	end
 
 	def near_location

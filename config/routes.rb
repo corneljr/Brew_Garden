@@ -3,10 +3,7 @@ Rails.application.routes.draw do
   resources :password_resets
 
   get '/projects/location_search', to: 'projects#location_search'
-  get '/projects/most_funded', to: 'projects#most_funded', as: 'most_funded_projects'
-  get '/projects/newest', to: 'projects#newest_projects', as: 'newest_projects'
-  get '/projects/ending_soon', to: 'projects#ending_soon', as: 'ending_soon_projects'
-  get '/projects/staff_picks', to: 'projects#staff_picks', as: 'staff_picks_projects'
+  get '/projects/ordered/:order', to: 'projects#ordered', as: 'ordered_projects'
   get '/projects/all_near', to: 'projects#near_location'
 
   get 'login' => 'sessions#new', :as => :login
