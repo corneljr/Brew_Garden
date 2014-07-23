@@ -14,9 +14,16 @@
 		<p><%= link_to @project.user.name, @project.user  %></p>
 </div>
 
-<div class="small-12 panel no-padding bg-white columns">
+<div class="small-12 panel no-padding bg-white columns stripe-button-el">
 	<% @rewards.each do |reward| %>
-	<%= link_to project_reward_path(@project, reward) do%>
+
+		<%= form_tag project_reward_charges_path(@project, reward) do %>
+		  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+		          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+		          data-description="<%= reward.project.title %>"
+		          data-amount="<%= reward.amount %>"></script>
+		<% end %>
+
 		<div class='reward-container'>
 			<div class="reward-description">
 				<p><strong>Pledge <%= number_to_currency(reward.amount / 100, precision: 0) %> or more</strong></p>
@@ -27,7 +34,6 @@
 				<h4>Select this reward</h4>
 			</div>
 		</div>
-		<% end %>
 	<% end %>
 </div>
 

@@ -1,14 +1,12 @@
-<h1>Checkout</h1>
+<h3>Thanks for backing the project!</h3>
+<h4>Please provide shipping information for your reward!</h4>
 
-<%= form_tag project_reward_charges_path(@project, @reward) do %>
-  <article>
-    <label class="amount">
-      <span>Amount: <%= number_to_currency(@reward.amount / 100) %></span>
-    </label>
-  </article>
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="<%= @reward.project.title %>"
-          data-amount="<%= @reward.amount %>"></script>
+<%= form_for [@project, @reward, @pledge] do |f| %>
+	<%= f.text_field :address %>
+	<%= f.text_field :postal_code %>
+	<%= f.text_field :city %>
+	<%= f.text_field :province %>
+	<%= f.submit 'Finalize backing', class: 'button tiny'%>
 <% end %>
+
+

@@ -58,9 +58,9 @@ Rails.application.configure do
     :address              => "smtp.mandrillapp.com",
     :port                 => 587,
     :enable_starttls_auto => true,
-    :user_name            => ENV['smtp_username'],
-    :password             => ENV['smtp_password'],
-    :domain               => ENV['smtp_domain'],
+    :user_name            => Figaro.env.smtp_username,
+    :password             => Figaro.env.smtp_password,
+    :domain               => Figaro.env.smtp_domain,
     :authentication       => 'plain'
   }
 end

@@ -7,7 +7,12 @@ class PledgesController < ApplicationController
 
   def create
     @reward = Reward.find(params[:reward_id])
-  	@pledge = @reward.pledges.build(reward_id: @reward.id, user_id: current_user.id)
+    @project = Reward.find(params[:project_id])
+
+  	@pledge = @reward.pledges.build(pledge_params)
+    @pledge.user_id = current_user.id
+    @pledge.project_id = @project.id
+
     if pledge_check?
       redirect_to @reward.project, notice: "No more backers allowed."
     else
@@ -23,5 +28,9 @@ class PledgesController < ApplicationController
 
   def pledge_check?
     @reward.pledges_left == 0
+  end
+
+  def pledge_params
+    params.require(:pledge).permit(:address, :city, :postal_code, :province)
   end
 end
