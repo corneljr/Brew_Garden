@@ -68,7 +68,44 @@
     </div>
   </div>
 
-   <div id="map"></div>
+ 
+   <div data-lat="<%= @projects.first.latitude %>" data-long = "<%= @projects.first.longitude %>" data-geo='<%= @geojson %>' id="map"></div>
+
+   <%= javascript_tag do %> 
+   
+    var longitude = $('#map').data('long');
+    var latitude = $('#map').data('lat');
+    var geo = $('#map').data('geo');
+
+    var map = L.mapbox.map('map', 'dhurley99.ipn4bc66').setView([latitude, longitude], 13); 
+     <% @projects.each do |p| %>
+
+         L.mapbox.featureLayer({
+          // this feature is in the GeoJSON format: see geojson.org
+          // for the full specification
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            // coordinates here are in longitude, latitude order because
+            // x, y is the standard for GeoJSON and many formats
+            coordinates: [
+              <%= p.longitude %>,
+              <%= p.latitude  %>
+            ]
+          },
+          properties: {
+            title: "<%= p.title %>",
+            description: "<%= p.short_blurb %>",
+            // one can customize markers by adding simplestyle properties
+            // https://www.mapbox.com/foundations/an-open-platform/#simplestyle
+            'marker-size': 'large',
+            'marker-color': '#BE9A6B',
+            'marker-symbol': 'beer'
+          }
+        }).addTo(map);
+       
+     <% end %>
+   <% end %>
 
   <script>
   $(document).ready(function() {
@@ -102,7 +139,6 @@
         $(_self).find('div').animate({ width: progressWidth }, 1250);
       };
     };
-
 
   });
   </script>
