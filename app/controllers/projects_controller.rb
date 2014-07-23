@@ -29,7 +29,6 @@ class ProjectsController < ApplicationController
 			Project.all
 		end
 
-		binding.pry
 		if request.xhr?
 			render partial: 'project', collection: @projects
 		end

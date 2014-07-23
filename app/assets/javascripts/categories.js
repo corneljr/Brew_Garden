@@ -5,6 +5,7 @@ $(document).on('ready page:load', function(){
 		$.get('/projects/category/' + encodeURIComponent(text))
 			.done( function(data){
 				$('.category-container').html(data).fadeIn();
+				$('.category-title').text(text).fadeIn();
 			});
 	});
 });
