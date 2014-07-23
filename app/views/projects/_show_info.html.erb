@@ -20,4 +20,43 @@
 <hr>
 <p><%= raw(@project.description) %></p>
 
-<div data-lat="<%= @project.latitude %>" data-long = "<%= @project.longitude %>" data-title="<%= @project.title %>" data-description="<%= @project.description %>" id='map'></div>
+
+<!-- mapbox -->
+<div data-lat="<%= @project.latitude %>" data-long = "<%= @project.longitude %>" data-title="<%= @project.title %>" data-description="<%= @project.short_blurb %>" id='map'></div>
+
+<script type="text/javascript">
+
+      // initalize for mapbox
+    var longitude = $('#map').data('long');
+    var latitude = $('#map').data('lat');
+    var title = $('#map').data('title');
+    var short_blurb = $('#map').data('short_blurb');
+
+    // 12 is the zoom
+    var map = L.mapbox.map('map', 'dhurley99.ipn4bc66').setView([latitude, longitude], 13);
+  
+   L.mapbox.featureLayer({
+      // this feature is in the GeoJSON format: see geojson.org
+      // for the full specification
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        // coordinates here are in longitude, latitude order because
+        // x, y is the standard for GeoJSON and many formats
+        coordinates: [
+          longitude,
+          latitude
+        ]
+      },
+      properties: {
+        title: title,
+        description: short_blurb,
+        // one can customize markers by adding simplestyle properties
+        // https://www.mapbox.com/foundations/an-open-platform/#simplestyle
+        'marker-size': 'large',
+        'marker-color': '#BE9A6B',
+        'marker-symbol': 'beer'
+      }
+    }).addTo(map); 
+  
+</script>

@@ -22,6 +22,7 @@ class CommentsController < ApplicationController
   	@comments = @commentable.comments
 	  respond_to do |format|
       if @comment.save
+        format.html 
         format.js 
       else
         format.html { render 'projects/show', alert: 'There was an error.'  }
