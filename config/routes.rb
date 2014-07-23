@@ -21,9 +21,12 @@ Rails.application.routes.draw do
     resources :updates
   	resources :rewards, only: [:create, :destroy, :update, :show] do
   		resources :pledges, only: [:create, :show]
+      resources :charges, only: [:new, :create]
   	end
     resources :comments
   end
+
+  
   
   get '/projects/:project_id/backers', to: 'projects#backers', as: 'project_backers'
   get '/search', to: 'projects#search', as: 'project_search'
