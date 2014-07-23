@@ -23,7 +23,16 @@ class ProjectsController < ApplicationController
 
 	def category
 		@category = params[:category]
-		@projects = if @category && @category != 'all'
+
+		@projects = if @category == 'Staff Picks'
+			Project.all.sample(9)
+		elsif @category == 'Most Funded'
+			Project.order('funded_amount DESC')
+		elsif @category == 'Recently Launched'
+			Project.order('created_at DESC')
+		elsif @category == 'Ending Soon'
+			Project.order('created_at ASC')
+		elsif @category && @category != 'all'
 			Project.where(category: @category)
 		else
 			Project.all
@@ -111,23 +120,6 @@ class ProjectsController < ApplicationController
 
 		if request.xhr?
 			render partial: 'project', collection: @near
-		end
-	end
-
-	def ordered
-		@order = params[:order]
-		@projects = if @order == 'Staff Picks'
-			Project.all.sample(9)
-		elsif @order == 'Most Funded'
-			Project.order('funded_amount DESC')
-		elsif @order == 'Recently Launched'
-			Project.order('created_at DESC')
-		else
-			Project.order('created_at ASC')
-		end
-
-		if request.xhr?
-			render partial: 'project', collection: @projects
 		end
 	end
 

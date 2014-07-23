@@ -1,5 +1,16 @@
-<li><%= link_to 'all', project_category_path('all'), class: 'sort' %></li>
-<li><%= link_to 'Brew Pubs', project_category_path('Brew Pubs'), class: 'sort' %></li>
-<li><%= link_to 'Contract Breweries', project_category_path('Contract Breweries'), class: 'sort' %></li>
-<li><%= link_to 'Microbreweries', project_category_path('Microbreweries'), class: 'sort' %></li>
-<li><%= link_to 'Nanobreweries', project_category_path('Nanobreweries'), class: 'sort' %></li>
+<h5><strong>Sorting</strong></h5>
+<ul class="side-nav">
+	<li><%= link_to 'Staff Picks', project_category_path('Staff Picks'), class: 'sort' %></li>
+	<li><%= link_to 'Most Funded', project_category_path('Most Funded'), class: 'sort' %></li>
+	<li><%= link_to 'Recently Launched', project_category_path('Recently Launched'), class: 'sort' %></li>
+	<li><%= link_to 'Ending Soon', project_category_path('Ending Soon'), class: 'sort' %></li>
+</ul>
+
+<h5><strong>Categories</strong></h5>
+<ul class="side-nav">
+	<li><%= link_to 'all', project_category_path('all'), class: 'sort' %></li>
+	<li><%= link_to 'Brew Pubs', project_category_path('Brew Pubs'), class: 'sort' %></li>
+	<li><%= link_to 'Contract Breweries', project_category_path('Contract Breweries'), class: 'sort' %></li>
+	<li><%= link_to 'Microbreweries', project_category_path('Microbreweries'), class: 'sort' %></li>
+	<li><%= link_to 'Nanobreweries', project_category_path('Nanobreweries'), class: 'sort' %></li>
+</ul>

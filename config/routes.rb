@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :password_resets
 
   get '/projects/location_search', to: 'projects#location_search'
-  get '/projects/ordered/:order', to: 'projects#ordered', as: 'ordered_projects'
   get '/projects/all_near', to: 'projects#near_location'
 
   get 'login' => 'sessions#new', :as => :login
