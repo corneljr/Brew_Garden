@@ -71,6 +71,13 @@
 	</div>
 	<!-- Right column -->
 	<div class="show-for-medium-up medium-2 columns">
+		<h5><strong>Ordered</strong></h5>
+		<ul class="side-nav">
+			<li><%= link_to 'Staff Picks', project_category_path('#'), class: 'ordered' %></li>
+			<li><%= link_to 'Most Funded', project_category_path('most_funded'), class: 'ordered' %></li>
+			<li><%= link_to 'Recently Launched', project_category_path('newest'), class: 'ordered' %></li>
+			<li><%= link_to 'Ending Soon', project_category_path('#'), class: 'ordered' %></li>
+		</ul>
 		<h5><strong>Categories</strong></h5>
 		<ul class="side-nav">
 			<li><%= link_to 'all', project_category_path('all') %></li>
