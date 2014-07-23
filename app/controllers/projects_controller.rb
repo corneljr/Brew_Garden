@@ -38,6 +38,8 @@ class ProjectsController < ApplicationController
 			Project.all
 		end
 
+		@project_count = @projects.count
+
 		if request.xhr?
 			render partial: 'project', collection: @projects
 		end

@@ -8,7 +8,7 @@
 <!-- Page header -->
 <div class="row">
 	<div class="small-12 columns">
-		<h5>Showing <strong><%= @projects.count %></strong> results for <span class='category-title'><strong><%= @category.capitalize %></strong></span></h5>
+		<h5>Showing <span class='category-count'><strong><%= @project_count %></strong></span> results for <span class='category-title'><strong><%= @category.capitalize %></strong></span></h5>
 	</div>
 </div>
 
@@ -24,4 +24,3 @@
 			<%= render 'categories' %>
 	</div>
 </div>
-

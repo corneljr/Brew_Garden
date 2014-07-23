@@ -33,7 +33,7 @@
 		<!-- Most funded row -->
 		<div class="row">
 			<div class="small-12 columns">
-				<h5><strong>Most Funded</strong><span class='see-all'><%= link_to 'See all', most_funded_projects_path %></span></h5>
+				<h5><strong>Most Funded</strong><span class='see-all'><%= link_to 'See all', project_category_path('Most Funded') %></span></h5>
 				<hr>
 			</div>
 				<%= render partial: 'project', collection: @most_funded %>
@@ -41,7 +41,7 @@
 		<!-- Newest row -->
 		<div class="row">
 			<div class="small-12 columns">
-				<h5><strong>Newest Projects</strong><span class='see-all'><%= link_to 'See all', newest_projects_path %></span></h5>
+				<h5><strong>Recently Launched</strong><span class='see-all'><%= link_to 'See all', project_category_path('Recently Launched') %></span></h5>
 				<hr>
 			</div>
 				<%= render partial: 'project', collection: @newest %>
@@ -78,7 +78,7 @@
 			<li><%= link_to 'Recently Launched', project_category_path('Recently Launched') %></li>
 			<li><%= link_to 'Ending Soon', project_category_path('Ending Soon') %></li>
 		</ul>
-		
+
 		<h5><strong>Categories</strong></h5>
 		<ul class="side-nav">
 			<li><%= link_to 'all', project_category_path('all') %></li>
