@@ -5,7 +5,7 @@
 			<p class="text-right"><small>By: <%= project.user.name  %></small></p>
 		</div>
 		<div class='project-panel-description'>
-			<h1><%= link_to truncate(project.title, length: 27), project %></h1>
+			<h1><%= link_to project.title, project %></h1>
 			<p><%= project.short_blurb %></p> 
 			<p><br></p>
 		</div>
