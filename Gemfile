@@ -40,6 +40,7 @@ gem 'geocoder'
 gem 'ckeditor', '4.0.4'
 
 gem 'faker'
+gem 'twitter'
 
 gem 'carrierwave'
 gem 'fog'
