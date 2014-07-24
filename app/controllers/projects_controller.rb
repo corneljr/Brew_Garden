@@ -79,20 +79,14 @@ class ProjectsController < ApplicationController
 	end
 
 	def post
-		if true #validate project here somehow
-			@project.post_status = true
-			redirect_to @project
-		end
+		@project.post_status = true
+		binding.pry
+		redirect_to @project
 	end
 
 	def update
 		if @project.update(project_params)
-			if params[:slider_images]
-				params[:slider_images].each do |image|
-					@project.photos.create(slider_image: image)
-				end
-			end
-			redirect_to @project
+			redirect_to edit_project_path(@project)
 		else
 			render :edit
 		end

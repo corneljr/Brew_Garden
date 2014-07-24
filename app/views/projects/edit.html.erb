@@ -4,7 +4,7 @@
 	</div>
 </div>
 
-<%= form_for @project, html: {multipart: true} do |f| %>
+<%= form_for @project, class:'project-form', html: {multipart: true} do |f| %>
 <div class="row">
 
 	<div class="small-12 columns">
@@ -20,11 +20,15 @@
 		  <% @project.errors.full_messages.each do |message| %>
 				<p><%= message %></p>
 			<% end %>
-      <div class="small-2 columns">
-        <%= f.label :image, class: 'right inline' %>
-      </div>
-      <div class="small-10 columns">
-        <%= f.file_field :image %>
+      <div class="small-12 columns">
+
+        <%= f.fields_for :slider_images do |r| %>
+          <%= render 'slider_image_fields', :f => r %>
+        <% end %>
+
+        <div class="small-12">
+        <%= link_to_add_association 'add another image', f, :slider_images, class: "button success tiny" %>
+        </div>
       </div>
 		</div>
 	  <div class="row">
@@ -124,7 +128,8 @@
       </div>
     </div>
     <div class="small-12 text-center columns">
-      <%= f.submit 'Save', class:'button large' %>
+      <%= f.submit 'Save', disabled: true, class:'button large save' %>
+      <%= link_to 'Post', post_project_path(@project), class:'button large post' %>
     </div>
   </div>
 

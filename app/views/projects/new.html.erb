@@ -28,7 +28,7 @@
         <div class="small-12">
         <%= link_to_add_association 'add another image', f, :slider_images, class: "button success tiny" %>
         </div>
-    </div>
+      </div>
 
 		</div>
 	  <div class="row">
@@ -136,7 +136,7 @@
     </div>
     <div class="small-12 text-center columns">
       <%= f.submit 'Save', class:'button large' %>
-      <%- link_to 'Post', '#', class:'button large' %>
+      <%- link_to 'Post', '#', disabled: true, class:'button large' %>
     </div>
   </div>
 

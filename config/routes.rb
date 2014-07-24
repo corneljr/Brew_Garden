@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   end
   root to: "welcome#index"
 
+  get '/projects/:id/post', to: 'projects#post', as: 'post_project'
+  
   resources :projects do
     resources :slider_images, only: [:create]
     resources :updates
