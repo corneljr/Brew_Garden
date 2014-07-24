@@ -3,7 +3,7 @@
 // @import "foundation/components/buttons";
 
 .bg-white {
-  background-color: #FFF; }
+  background-color: #FFF !important; }
 
 .percent {
   background-image: url('/img/beer.svg');
@@ -11,8 +11,6 @@
   background-size: 100%;
   width: 60px;
   height: 60px;
-  // float: left;
-  // border-radius: 50%;
   padding: 32px 0 0 12px;
   color: #FFF;
   font-size: 0.8rem;

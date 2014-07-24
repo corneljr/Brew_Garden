@@ -1,4 +1,56 @@
-//project index page
+// project page modules
+
+.stat-panel {
+  border: 1px solid #DDD;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: white;
+  font-family: 'Lato';
+  p {
+    padding: 0;
+    margin-bottom: 0;
+  }
+  p > span {
+    font-size: 2.7em;
+    font-family: 'Oswald';
+    line-height: 1em;
+    }
+  }
+
+.owner-panel {
+  border: 1px solid #DDD;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: white;
+  font-family: 'Lato';
+  margin-bottom: 20px;
+  p {
+    padding: 0;
+    margin-bottom: 0;
+  }
+  p > span {
+    font-size: 2.7em;
+    font-family: 'Oswald';
+    line-height: 1em;
+    }
+  }
+
+.reward-panel {
+  border: 1px solid #DDD;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: white;
+  font-family: 'Lato';
+  p {
+    padding: 0;
+    margin-bottom: 0;
+  }
+  p > span {
+    font-size: 2.7em;
+    font-family: 'Oswald';
+    line-height: 1em;
+    }
+  }
 
 .index-main-header {
 	padding-bottom: 50px;
@@ -213,7 +265,7 @@
 	margin: 10px;
 }
 
-//project category page 
+//project category page
 
 .category-title {
 	margin-left: 0;

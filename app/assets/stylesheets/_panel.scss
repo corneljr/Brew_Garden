@@ -4,7 +4,7 @@
 
 // small-project panel mixin
 .project-panel {
-  $panel-bg: #F5F5F5;
+  backgrdound-color: #F5F5F5;
   border-radius: 8px;
   min-height: 450px;
 
@@ -68,7 +68,9 @@
 .lg-project-panel {
   background-color: #F5F5F5;
   border-radius: 8px;
-  border: 1px solid rgb(65, 117, 5); }
+  border: 1px solid rgba(65, 117, 5, 0.3);
+  -moz-box-shadow: 0 0 25px rgba(25,25,25,0.3);
+  -webkit-box-shadow: 0 0 25px rgba(25,25,25,0.3); }
 
 .progress-bar {
     width: 100%;
@@ -81,6 +83,7 @@
   height: 100%;
   color: #fff;
   text-align: right;
-  background-image: url(/img/pbar.gif);
+  background-color: #3d7423;
+  // background-image: url(/img/pbar.gif);
   line-height: 22px; /* same as #progressBar height if we want text middle aligned */
   width: 0; }

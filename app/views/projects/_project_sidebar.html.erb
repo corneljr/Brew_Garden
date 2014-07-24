@@ -1,30 +1,21 @@
-<div class="small-12 panel bg-white columns text-right">
-		<p class='stat-text'><span class='stat-number'><%= @project.pledges.count %></span><br>backers</p>
-		<p class='stat-text'><span class='stat-number'><%= number_to_currency(@project.funded_amount / 100, precision: 0) %></span><br> pledged of <%= number_to_currency(@project.goal / 100, precision: 0) %> goal</p>
-		<p class='stat-text'><span class='stat-number'><%= @days_left %></span><br> days left </p>
+<div class="small-12 stat-panel text-right">
+		<p><span><%= @project.pledges.count %></span><br>backers</p>
+		<hr>
+		<p><span><%= number_to_currency(@project.funded_amount / 100, precision: 0) %></span><br> pledged of <%= number_to_currency(@project.goal / 100, precision: 0) %> goal</p>
+		<hr>
+		<p><span><%= @days_left %></span><br> days left </p>
 </div>
 <p class="text-left" style='font-size:0.8rem;'>This project will only be funded if at least <%= number_to_currency(@project.goal / 100, precision: 0) %> CAD is pledged by <%= @end_date  %>. </p>
 
-<div class="small-12 panel project_owner text-center bg-white columns">
+<div class="small-12 owner-panel text-center">
 		<h6>Project by</h6>
 		<p><%= image_tag @project.user.avatar, size: '100x100' %></p>
 		<p><%= link_to @project.user.name, @project.user  %></p>
 </div>
 
-<div class="small-12 panel no-padding bg-white columns">
+<div class="small-12 reward-panel">
 	<%= render @rewards %>
 </div>
-
-<style type="text/css">
-	
-.no-padding {
-	padding: 0;
-}
-
-.project_owner {
-	background-color: rgba(65,117,5,0.5);
-}
-</style>
 
 <script>
 	$('.stripe-button-el > span').text('Select Reward')
