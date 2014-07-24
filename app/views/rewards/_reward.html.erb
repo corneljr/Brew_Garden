@@ -4,9 +4,6 @@
 		<p><%= pluralize(reward.pledges.count, 'backer') %></p>
 		<p><%= reward.description %></p>
 	</div>
-	<div class="reward-selector">
-		<h4>Select this reward</h4>
-	</div>
 
 	<%= form_tag project_reward_charges_path(@project, reward) do %>
 	  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
