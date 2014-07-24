@@ -15,9 +15,26 @@ class ProjectsController < ApplicationController
 			Project.near(@location, 20).limit(3)
 		end
 
+		@projects = Project.all
+		@geojson = Array.new
+    @projects.each do |project|
+  		@geojson << { type: 'Feature',
+		    geometry: {
+		      type: 'Point',
+		      coordinates: [project.longitude, project.latitude]
+		    },
+		    properties: {
+		      :'marker-color' => '#00607d',
+		      :'marker-symbol' => 'beer',
+		      :'marker-size' => 'medium'
+		    }
+		  }
+		end
+
 		respond_to do |format|
 			format.html
 			format.js
+			format.json { render json: @geojson}
 		end
 	end
 

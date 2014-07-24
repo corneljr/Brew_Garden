@@ -13,6 +13,7 @@
   </div>
 </div>
 <!-- Facebook -->
+<div id="fb-root"></div>
 <div class="fb-share-button" data-href="/<%= projects_path(@project) %>" data-width="100"></div>
 
 <!-- Twitter -->
@@ -36,13 +37,9 @@
     var map = L.mapbox.map('map', 'dhurley99.ipn4bc66').setView([latitude, longitude], 13);
   
    L.mapbox.featureLayer({
-      // this feature is in the GeoJSON format: see geojson.org
-      // for the full specification
       type: 'Feature',
       geometry: {
         type: 'Point',
-        // coordinates here are in longitude, latitude order because
-        // x, y is the standard for GeoJSON and many formats
         coordinates: [
           longitude,
           latitude
@@ -51,12 +48,11 @@
       properties: {
         title: title,
         description: short_blurb,
-        // one can customize markers by adding simplestyle properties
-        // https://www.mapbox.com/foundations/an-open-platform/#simplestyle
         'marker-size': 'large',
         'marker-color': '#BE9A6B',
         'marker-symbol': 'beer'
       }
     }).addTo(map); 
+    map.scrollWheelZoom.disable();
   
 </script>
