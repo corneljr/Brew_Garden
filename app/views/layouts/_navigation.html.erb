@@ -13,9 +13,9 @@
       <ul class="right">
         <li class="has-form">
           <div class="row collapse li-search">
-            <div class="small-2 columns li-small-text text-right">Find by: </div>
-            <div class="small-9 columns">
-              <input type="text" name="search" placeholder="Name, style, location...">
+            <div class="small-11 columns text-right">
+            <label for="search" class="search-label">Find by:</label>
+              <input type="text" name="search" id="nav-search" placeholder="Name, style, location...">
             </div>
             <div class="small-1 columns">
               <a href="#" class="nav-search button expand"><i class="fi-magnifying-glass"></i></a>
@@ -27,6 +27,21 @@
     </section>
   </nav>
 </div>
+
+<script>
+$(document).ready(function() {
+
+  $('#nav-search').focus(function(){
+    $(this).animate({ width: '75%' }, 250)
+      .animate({ opacity: '0.9' }, 150, 'linear');
+  });
+  $('#nav-search').blur(function(){
+    $(this).animate({ width: '40%' }, 100)
+      .animate({ opacity: '0.4' }, 100, 'linear');
+  });
+
+});
+</script>
 
 <div class="logo show-for-medium-up">
   <a href="/"><%= image_tag("/img/logo.png", size: "115") %></a>

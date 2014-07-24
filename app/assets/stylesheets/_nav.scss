@@ -23,7 +23,8 @@
 
 // top-bar nav styles, needs to be cleaned
 .top-bar {
-  background-color: rgba(36,65,3,0.7) !important; }
+  background-color: rgba(36,65,3,0.7) !important;
+  border-bottom: 2px solid rgba(255,255,255,0.2); }
 a.nav-search.button.expand {
   background-color: #4c6b33 !important; }
 .dropdown {
@@ -36,5 +37,15 @@ a.nav-search.button.expand {
   background: none !important; }
 .nav-search {
   background-color: #244103 !important; }
+#nav-search {
+  width: 40%;
+  opacity: 0.4;
+  float: right;
+  display: inline;}
+.search-label {
+  display: inline;
+  color: #AAA;
+  margin: 0 10px;
+  line-height: 2.7rem;}
 .top-bar-section ul li a:hover {
   background-color: #244103 !important; }
