@@ -12,3 +12,13 @@
 	          data-amount="<%= reward.amount %>"></script>
 	<% end %>
 </div>
+
+<%= javascript_tag do %>
+	window.current_user = <%= !session[:user_id] %>
+
+	if (window.current_user){
+		$('.stripe-button-el > span').text('log in to pledge');
+		$('.stripe-button-el').attr('disabled','disabled');
+	};
+
+<% end %>
