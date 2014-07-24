@@ -9,11 +9,13 @@ class Project < ActiveRecord::Base
 	has_many :slider_images
 
 
+
 	validates :title, :description, :goal, :end_date, presence: :true
 	validates :goal, numericality: { only_integer: true }
 	validate :date_check
 	validates :title, length: { maximum: 125 }
 	validates :short_blurb, length: { maximum: 200 }
+
 
 	geocoded_by :get_location
 	before_save :geocode
@@ -23,8 +25,8 @@ class Project < ActiveRecord::Base
 
 
 	def date_check 
-		if end_date < Date.today
-			errors.add(:end_date, "The date must be in the future you fool") 
+		if end_date && (end_date < Date.today)
+			errors.add(:end_date, "The date must be in the future") 
 		end
 	end 
 
@@ -33,10 +35,16 @@ class Project < ActiveRecord::Base
 	end
 
 	def days_left
-		days = self.end_date - Date.today
+		if self.end_date
+			days = self.end_date - Date.today
+		end
 	end
 
 	def get_location
 		self.location
+	end
+
+	def check_post_status
+		post_status
 	end
 end
