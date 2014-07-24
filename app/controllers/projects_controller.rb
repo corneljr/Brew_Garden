@@ -93,7 +93,7 @@ class ProjectsController < ApplicationController
 	def create
 		@project = current_user.projects.build(project_params)
 		if @project.save(validate: false)
-			redirect_to edit_project_path(@project), notice: 'save successful'	
+			redirect_to edit_project_path(@project), notice: 'save successful'
 		else
 			redirect_to edit_project_path(@project), notice: 'error'
 		end
@@ -110,7 +110,7 @@ class ProjectsController < ApplicationController
 
 	def update
 		if @project.save(validate: false)
-			redirect_to edit_project_path(@project), notice: 'save successful'	
+			redirect_to edit_project_path(@project), notice: 'save successful'
 		else
 			redirect_to edit_project_path(@project), notice: 'error'
 		end
@@ -136,7 +136,7 @@ class ProjectsController < ApplicationController
 	def location_search
 		@near = @projects.near(params[:q], 50).limit(3)
 		@location = Geocoder.search(params[:q])[0].data['formatted_address']
-		unless @near.present? 
+		unless @near.present?
 			@near = @projects.near('Toronto', 50).limit(3)
 			@location = 'Toronto'
 		end
