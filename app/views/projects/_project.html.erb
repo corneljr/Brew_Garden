@@ -4,7 +4,7 @@
 			<a href="<%= project_path(project) %>"><%= image_tag "/img/logo0#{rand(1..9)}.jpg", class: 'project-logo' %></a>
 			<p class="text-right"><small>By: <%= project.user.name  %></small></p>
 		</div>
-		<div class='project-panel-description'>
+		<div class='panel-text'>
 			<h1><%= link_to project.title, project %></h1>
 			<p><%= project.short_blurb %></p> 
 			<p><br></p>

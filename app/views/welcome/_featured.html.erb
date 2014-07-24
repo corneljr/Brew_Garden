@@ -4,14 +4,20 @@
       <a href="#"><%= image_tag "/img/logo0#{rand(1..9)}.jpg", class: 'project-logo' %></a>
       <p class="text-right"><small>By: <%= featured.user.name  %></small></p>
     </div>
-    <h1><%= link_to featured.title, featured %></h1>
-    <!-- <p><%= featured.short_blurb %></p> -->
-    <p><%= featured.short_blurb %></p>
-    <p><br></p>
+    <div class='panel-text'>
+      <h1><%= link_to featured.title, featured %></h1>
+      <!-- <p><%= featured.short_blurb %></p> -->
+      <p><%= featured.short_blurb %></p>
+      <p><br></p>
+    </div>
     <div class="row">
       <!-- progress-bar -->
       <div class="small-12 columns">
-        <div class="progress-bar" data-funded="<%= ((featured.funded_amount.to_f / featured.goal.to_f) * 100).round %>"><div></div></div>
+        <% if ((featured.funded_amount.to_f / featured.goal.to_f) * 100) < 100 %>
+         <div class="progress-bar" data-funded="<%= ((featured.funded_amount.to_f / featured.goal.to_f) * 100).round %>"><div></div></div>
+        <% else %>
+          <div class="progress-bar" data-funded="101"><div></div></div>
+        <% end %>
       </div>
       <div class='small-4 text-center columns'>
         <div class='metric'><%= ((featured.end_date - Time.now)/(60 * 60 * 24)).round %></div>
