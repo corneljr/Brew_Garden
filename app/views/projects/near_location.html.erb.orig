@@ -1,7 +1,14 @@
 <div class='project-category-container'>
+<<<<<<< HEAD
+	<div class="row">
+		<div class="small-12 columns">
+			<h5>Showing <span class='category-count'><strong><%= @projects.length %></strong></span> projects near <strong><%= @location %></strong></h5>
+		</div>
+=======
 		<h4 class='search-results'>Showing all <span class='category-show'><%= @projects.length %> </span>projects near <%= @location %></h4>
 	<div class='large-10 columns'>
 		<%= render @projects %>
+>>>>>>> signup
 	</div>
 
 	<div class='row'>
