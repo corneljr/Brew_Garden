@@ -29,5 +29,6 @@ class ChargesController < ApplicationController
 
 	def payment
 		 event_json = JSON.parse(request.body.read)
+		 Charge.transaction[:charge] = event_json
 	end
 end
