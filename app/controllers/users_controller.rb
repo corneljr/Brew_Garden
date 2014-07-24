@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.welcome_email(@user).deliver
       user = login(params[:user][:email], params[:user][:password])
-      redirect_to root_url, :notice => "Signed up!"
+      redirect_to projects_url, :notice => "Signed up!"
     else
       render :new
     end
