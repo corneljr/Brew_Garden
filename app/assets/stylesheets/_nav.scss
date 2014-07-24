@@ -1,0 +1,51 @@
+// navigation styling
+
+@import "foundation/components/top-bar";
+@import "foundation/components/side-nav";
+@import "foundation/components/inline-lists";
+
+// override for the 'Home' navigation link
+.top-bar section {
+  margin-top: 0; }
+
+.top-bar .name a {
+  font-weight: normal;
+  color: white;
+  padding: 0 15px; }
+
+// search stretch
+.li-search {
+  width: 340px !important }
+.li-small-text {
+  padding: 12px 5px 0 0 !important;
+  color: #DDD;
+  font-size: 0.8rem; }
+
+// top-bar nav styles, needs to be cleaned
+.top-bar {
+  background-color: rgba(36,65,3,0.7) !important;
+  border-bottom: 2px solid rgba(255,255,255,0.2); }
+a.nav-search.button.expand {
+  background-color: #4c6b33 !important; }
+.dropdown {
+  background-color: #244103 !important; }
+.has-form {
+  background: none !important; }
+.top-bar-section ul li > a {
+  background: none !important; }
+.top-bar-section ul > li {
+  background: none !important; }
+.nav-search {
+  background-color: #244103 !important; }
+#nav-search {
+  width: 40%;
+  opacity: 0.4;
+  float: right;
+  display: inline;}
+.search-label {
+  display: inline;
+  color: #AAA;
+  margin: 0 10px;
+  line-height: 2.7rem;}
+.top-bar-section ul li a:hover {
+  background-color: #244103 !important; }

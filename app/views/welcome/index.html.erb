@@ -1,46 +1,31 @@
-  <div class="fade"><img src="/img/fade2.png"></div>
-
-  <video autoplay loop poster="/img/logo01.png" id="bgvid">
-    <source src="/img/BeerPour.webm" type="video/webm">
-    <source src="/img/BeerPour.mp4" type="video/mp4">
-    <source src="/img/BeerPour.ogv" type="video/ogv">
-  </video>
-
   <div class="row">
     <div class="small-12">
-      <div class="slider" style="height: 350px;">
+      <div class="slider">
         <div>
-          <div style="margin: 75px 0 0 75px;">
-            <h1>Boxing Cat</h1>
-            <button class="small" style="margin-left: 35px;">Please fund me</button>
+          <div class="slide">
+          <h1>Boxing Cat</h1>
+          <button class="beer-btn-primary" style="margin-left: 35px;">Discover</button>
           </div>
         </div>
          <div>
-          <div style="margin: 75px 0 0 75px;">
+          <div class="slide">
             <h1>Some needy brewery</h1>
-            <button class="small" style="margin-left: 35px;">Please fund me</button>
+            <button class="small" style="margin-left: 35px;">Discover</button>
           </div>
         </div>
         <div>
-          <div style="margin: 75px 0 0 75px;">
+          <div class="slide">
             <h1>Some needy brewery</h1>
-            <button class="small" style="margin-left: 35px;">Please fund me</button>
+            <button class="small" style="margin-left: 35px;">Discover</button>
           </div>
         </div>
         <div>
-          <div style="margin: 75px 0 0 75px;">
+          <div class="slide">
             <h1>Some needy brewery</h1>
-            <button class="small" style="margin-left: 35px;">Please fund me</button>
+            <button class="small" style="margin-left: 35px;">Discover</button>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-
-
-  <div class="row">
-    <div class="large-12 columns">
-      <hr/>
     </div>
   </div>
 
@@ -49,7 +34,6 @@
     <%= render partial: "featured", collection: @most_funded %>
     </div>
   </div>
-  
 
   <div class="row">
     <div class="large-12 columns">
@@ -68,16 +52,16 @@
     </div>
   </div>
 
- 
+
    <div data-lat="<%= @projects.first.latitude %>" data-long = "<%= @projects.first.longitude %>" data-geo='<%= @geojson %>' id="map"></div>
 
-   <%= javascript_tag do %> 
-   
-    var longitude = $('#map').data('long');
+   <%= javascript_tag do %>
+
+    <!-- var longitude = $('#map').data('long');
     var latitude = $('#map').data('lat');
     var geo = $('#map').data('geo');
 
-    var map = L.mapbox.map('map', 'dhurley99.ipn4bc66').setView([latitude, longitude], 13); 
+    var map = L.mapbox.map('map', 'dhurley99.ipn4bc66').setView([latitude, longitude], 13);
      <% @projects.each do |p| %>
 
          L.mapbox.featureLayer({
@@ -102,8 +86,8 @@
             'marker-color': '#BE9A6B',
             'marker-symbol': 'beer'
           }
-        }).addTo(map);
-       
+        }).addTo(map); -->
+
      <% end %>
    <% end %>
 
