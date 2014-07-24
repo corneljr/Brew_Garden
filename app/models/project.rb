@@ -10,11 +10,11 @@ class Project < ActiveRecord::Base
 
 
 	with_options if: 'post_status' do |project|
-		project.validates :title, :description, :goal, :end_date, presence: :true
-		project.validates :goal, numericality: { only_integer: true }
-		project.validate :date_check
-		project.validates :title, length: { maximum: 125 }
-		project.validates :short_blurb, length: { maximum: 200 }
+		validates :title, :description, :goal, :end_date, presence: :true
+		validates :goal, numericality: { only_integer: true }
+		validate :date_check
+		validates :title, length: { maximum: 125 }
+		validates :short_blurb, length: { maximum: 200 }
 	end
 
 	geocoded_by :get_location
@@ -26,7 +26,7 @@ class Project < ActiveRecord::Base
 
 	def date_check 
 		if end_date < Date.today
-			errors.add(:end_date, "The date must be in the future you fool") 
+			errors.add(:end_date, "The date must be in the future") 
 		end
 	end 
 

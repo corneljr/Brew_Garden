@@ -79,7 +79,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def post
-		if true #something 
+		if true #validation check
 			@project.post_status = true
 			redirect_to @project
 		else
