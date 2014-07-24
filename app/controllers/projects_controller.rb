@@ -74,24 +74,28 @@ class ProjectsController < ApplicationController
 	end
 
 	def create
-		@project = current_user.projects.create(project_params)
-		redirect_to edit_project_path(@project)
+		@project = current_user.projects.build(project_params)
+		if @project.save(validate: false)
+			redirect_to edit_project_path(@project), notice: 'save successful'	
+		else
+			redirect_to edit_project_path(@project), notice: 'error'
+		end
 	end
 
 	def post
-		if true #validation check
-			@project.post_status = true
-			redirect_to @project
+		@project.post_status = true
+		if @project.save
+			redirect_to @project, notice: 'project posted'
 		else
 			render :edit
 		end
 	end
 
 	def update
-		if @project.update(project_params)
-			redirect_to edit_project_path(@project)
+		if @project.save(validate: false)
+			redirect_to edit_project_path(@project), notice: 'save successful'	
 		else
-			render :edit
+			redirect_to edit_project_path(@project), notice: 'error'
 		end
 	end
 
