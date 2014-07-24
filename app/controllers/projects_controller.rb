@@ -79,9 +79,12 @@ class ProjectsController < ApplicationController
 	end
 
 	def post
-		@project.post_status = true
-		binding.pry
-		redirect_to @project
+		if true #something 
+			@project.post_status = true
+			redirect_to @project
+		else
+			render :edit
+		end
 	end
 
 	def update
