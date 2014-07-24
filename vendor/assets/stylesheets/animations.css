@@ -1,7 +1,3 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 // Animations, move this to a separate file
 .animated {
   -webkit-animation-duration: 1s;
@@ -118,5 +114,3 @@
   -webkit-animation-name: pulse;
   animation-name: pulse;
 }
-
-
