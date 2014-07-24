@@ -1,18 +1,19 @@
 class ProjectsController < ApplicationController
 
+	before_action :load_posted_projects, only: [:index, :category, :search, :location_search, :near_location]
 	before_action :load_project, only: [:show, :update, :destroy, :edit]
 	before_filter :require_login, :only => [:new, :edit, :update, :destroy, :create]
 
 	def index
 		@request_location = request.location
-		@most_funded = Project.all.order('funded_amount DESC').limit(3)
-		@newest = Project.order('created_at DESC').limit(3)
+		@most_funded = @projects.order('funded_amount DESC').limit(3)
+		@newest = @projects.order('created_at DESC').limit(3)
 		@near = if @request_location.city.length > 2
 			@location = @request_location.city
-			Project.near(@location, 20).limit(3)
+			@projects.near(@location, 20).limit(3)
 		else
 			@location = Geocoder.search("toronto").first.city
-			Project.near(@location, 20).limit(3)
+			@projects.near(@location, 20).limit(3)
 		end
 
 		respond_to do |format|
@@ -25,17 +26,17 @@ class ProjectsController < ApplicationController
 		@category = params[:category]
 
 		@projects = if @category == 'Staff Picks'
-			Project.all.sample(9)
+			@projects.sample(9)
 		elsif @category == 'Most Funded'
-			Project.order('funded_amount DESC')
+			@projects.order('funded_amount DESC')
 		elsif @category == 'Recently Launched'
-			Project.order('created_at DESC')
+			@projects.order('created_at DESC')
 		elsif @category == 'Ending Soon'
-			Project.order('created_at ASC')
+			@projects.order('created_at ASC')
 		elsif @category && @category != 'all'
-			Project.where(category: @category)
+			@projects.where(category: @category)
 		else
-			Project.all
+			@projects
 		end
 
 		@project_count = @projects.count
@@ -48,10 +49,10 @@ class ProjectsController < ApplicationController
 	def search
 		@search = params[:q]
 		@projects = if @search
-			Project.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%")
+			@projects.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%")
 		else
 			@search = 'all'
-			Project.all
+			@projects
 		end
 	end
 
@@ -113,10 +114,10 @@ class ProjectsController < ApplicationController
 	end
 
 	def location_search
-		@near = Project.near(params[:q], 50).limit(3)
+		@near = @projects.near(params[:q], 50).limit(3)
 		@location = Geocoder.search(params[:q])[0].data['formatted_address']
 		unless @near.present? 
-			@near = Project.near('Toronto', 50).limit(3)
+			@near = @projects.near('Toronto', 50).limit(3)
 			@location = 'Toronto'
 		end
 
@@ -126,7 +127,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def near_location
-		@projects = Project.near(params[:q], 20)
+		@projects = @projects.near(params[:q], 20)
 		@location = Geocoder.search(params[:q])[0].data['formatted_address']
 	end
 
@@ -134,6 +135,10 @@ class ProjectsController < ApplicationController
 
 	def load_project
 		@project = Project.find(params[:id])
+	end
+
+	def load_posted_projects
+		@projects = Project.where(post_status: true)
 	end
 
 	def project_params
