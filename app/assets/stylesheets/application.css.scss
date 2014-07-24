@@ -14,3 +14,17 @@
  *= require_self
  */
 
+// Base rules
+@import "_base";
+
+// Layout rules - layout components
+@import "_panel";
+@import "_forms";
+@import "_nav";
+
+// Module rules - page componenets
+@import "_welcome";
+@import "_buttons";
+
+// Theme rules - vendor, etc
+@import "slick";

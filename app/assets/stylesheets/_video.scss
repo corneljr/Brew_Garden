@@ -1,0 +1,15 @@
+// HTML5 video styles
+
+video#bgvid {
+  position: fixed;
+  top: -15%;
+  width: 100%;
+  z-index: -100;
+  background: url(/img/logo01.png) no-repeat; }
+.fade {
+  position: fixed;
+  top: -15%;
+  width: 100%;
+  z-index: -99; }
+.fade img {
+  width: 100%; }

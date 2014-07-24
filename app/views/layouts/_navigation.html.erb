@@ -1,4 +1,3 @@
-<%# navigation styled for Zurb Foundation 5 %>
 <div class="sticky">
   <nav class="top-bar" data-topbar data-options="sticky_on: medium">
     <ul class="title-area">
@@ -6,23 +5,25 @@
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
     <section class="top-bar-section">
-      <ul class="left">
-        <li class="has-form">
-          <div class="row collapse">
-            <div class="large-8 small-9 columns">
-              <input type="text" placeholder="Search...">
-            </div>
-            <div class="large-4 small-3 columns">
-              <a href="#" class="nav-search button expand"><i class="fi-magnifying-glass"></i></a>
-            </div>
-          </div>
-        </li>
-      </ul>
       <ul class="right">
         <li><%= link_to 'Discover', projects_path %></li>
         <li><%= link_to 'Create', new_project_path %></li>
         <%= render 'layouts/navigation_links' %>
       </ul>
+      <ul class="right">
+        <li class="has-form">
+          <div class="row collapse li-search">
+            <div class="small-2 columns li-small-text text-right">Find by: </div>
+            <div class="small-9 columns">
+              <input type="text" name="search" placeholder="Name, style, location...">
+            </div>
+            <div class="small-1 columns">
+              <a href="#" class="nav-search button expand"><i class="fi-magnifying-glass"></i></a>
+            </div>
+          </div>
+        </li>
+      </ul>
+
     </section>
   </nav>
 </div>
