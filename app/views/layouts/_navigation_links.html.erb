@@ -1,11 +1,23 @@
 <%# add navigation links to this file %>
 <% if current_user %>
-  <li><%= link_to "Log out", logout_path %></li>
+	<li class="has-dropdown"><a href="">You &nbsp;</a>
+	  <ul class="dropdown">
+	  	<li><%= link_to "Profile", user_path(current_user) %></li>
+	  	<li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
+	  	<li><%= link_to "Log out", logout_path %></li>
+	  	<% if current_user.projects.present? %>
+	  		<li><strong>Your projects</strong></li>
+	  		<% current_user.projects.each do |project| %>
+	  			<%= link_to truncate(project.title, length: 20), project  %>
+				<% end %>
+			<% end %>
+	  </ul>
+	</li>
 <% else %>
-<li class="has-dropdown"><a href="">You &nbsp;</a>
-  <ul class="dropdown">
-    <li><%= link_to "Sign up", new_user_path %></li>
-    <li><%= link_to "Log in", login_path, data: { :'reveal-id' => 'login'}  %> </li>
-  </ul>
-</li>
+	<li class="has-dropdown"><a href="">You &nbsp;</a>
+	  <ul class="dropdown">
+	    <li><%= link_to "Sign up", new_user_path %></li>
+	    <li><%= link_to "Log in", login_path, data: { :'reveal-id' => 'login'}  %> </li>
+	  </ul>
+	</li>
 <% end %>
