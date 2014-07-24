@@ -1,5 +1,4 @@
-
-<%= image_tag "http://placehold.it/100x100", class: 'user-image' %>
-<p class='project-backer-count'><%= comment.body  %></p>
+<%= image_tag comment.user.avatar, size: '100x100', class: 'user-image' %>
+<p class='project-backer-count'><span style='font-size:4rem;' >&#8220;</span><%= comment.body  %></p>
 <p class='project-backer-name'>Comment by: <%= comment.user.name %></p>
 <hr>
