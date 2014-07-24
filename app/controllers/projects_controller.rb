@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
 	before_action :load_posted_projects, only: [:index, :category, :search, :location_search, :near_location]
-	before_action :load_project, only: [:show, :update, :destroy, :edit]
+	before_action :load_project, only: [:show, :update, :destroy, :edit, :post]
 	before_filter :require_login, :only => [:new, :edit, :update, :destroy, :create]
 
 	def index
@@ -74,12 +74,14 @@ class ProjectsController < ApplicationController
 	end
 
 	def create
-		binding.pry
-		@project = current_user.projects.build(project_params)
-		if @project.save
+		@project = current_user.projects.create(project_params)
+		redirect_to edit_project_path(@project)
+	end
+
+	def post
+		if true #validate project here somehow
+			@project.post_status = true
 			redirect_to @project
-		else
-			render :new
 		end
 	end
 
