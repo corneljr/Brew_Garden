@@ -9,11 +9,13 @@ class Project < ActiveRecord::Base
 	has_many :slider_images
 
 
-	validates :title, :description, :goal, :end_date, presence: :true
-	validates :goal, numericality: { only_integer: true }
-	validate :date_check
-	validates :title, length: { maximum: 125 }
-	validates :short_blurb, length: { maximum: 200 }
+	with_options if: 'post_status' do |project|
+		project.validates :title, :description, :goal, :end_date, presence: :true
+		project.validates :goal, numericality: { only_integer: true }
+		project.validate :date_check
+		project.validates :title, length: { maximum: 125 }
+		project.validates :short_blurb, length: { maximum: 200 }
+	end
 
 	geocoded_by :get_location
 	before_save :geocode
