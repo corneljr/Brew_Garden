@@ -5,7 +5,7 @@ $(document).ready( function() {
 		 $(this).parent().addClass('hnav-on');
 		
 		var text = ev.currentTarget.textContent
-		var attr = text.split(" ")[1];
+		var attr = text.split(" ")[0];
 
 
 		if (text === 'home'){
