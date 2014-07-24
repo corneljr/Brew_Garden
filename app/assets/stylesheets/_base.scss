@@ -1,12 +1,28 @@
 // base styles
 
 // global overides here
-// $primary-color: #FFF;
-$body-font-family: 'Lato';
+$body-font-family: 'Lato', sans-serif;
+// $body-font-family: 'Open Sans', sans-serif;
+// $body-font-family: 'Gentium Book Basic', serif;
 $side-nav-link-color: #AAA;
-h2, h5 {
-  color: white !important; }
-// $body-bg: #FFF !important;
+$primary-color: #333;
+$secondary-color: #3d7423;
+$side-nav-link-color-active: #3d7423;
+$side-nav-link-color-hover: #3d7423;
+
+// $header-font-family: Verdana;
+$side-nav-link-color: #999;
+
+h2 {
+  color: #333 !important;
+  font-family: 'Oswald' !important;
+  font-weight: bold !important;
+  margin-bottom: 20px !important; }
+
+h5 {
+  color: #333 !important;
+  font-family: 'Roboto' !important;
+  letter-spacing: 0.001em; }
 
 // foundation for some core elements
 @import "foundation/components/grid";

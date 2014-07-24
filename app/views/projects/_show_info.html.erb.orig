@@ -51,11 +51,12 @@
         'marker-color': '#BE9A6B',
         'marker-symbol': 'beer'
       }
-    }).addTo(map); 
-  
-    }).addTo(map);
-
+<<<<<<< HEAD
     }).addTo(map); 
     map.scrollWheelZoom.disable();
   
+=======
+    }).addTo(map);
+
+>>>>>>> styling
 </script>

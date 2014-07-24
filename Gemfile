@@ -49,8 +49,10 @@ gem 'sorcery'
 gem 'simple_form'
 gem 'figaro'
 gem 'mandrill-api'
+gem 'neat'
 gem 'bourbon'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 
 
 group :development  do

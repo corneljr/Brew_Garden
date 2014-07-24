@@ -7,11 +7,14 @@
 // override for the 'Home' navigation link
 .top-bar section {
   margin-top: 0; }
-
 .top-bar .name a {
   font-weight: normal;
   color: white;
   padding: 0 15px; }
+
+.side-nav li a:hover {
+  background: rgba(255,255,255,0.9) !important;
+}
 
 // search stretch
 .li-search {
@@ -23,8 +26,8 @@
 
 // top-bar nav styles, needs to be cleaned
 .top-bar {
-  background-color: rgba(36,65,3,0.7) !important;
-  border-bottom: 2px solid rgba(255,255,255,0.2); }
+  background-color: rgba(36,65,3,0.9) !important;
+  border-bottom: 2px solid rgba(255,255,255,0.7); }
 a.nav-search.button.expand {
   background-color: #4c6b33 !important; }
 .dropdown {
@@ -39,12 +42,12 @@ a.nav-search.button.expand {
   background-color: #244103 !important; }
 #nav-search {
   width: 40%;
-  opacity: 0.4;
+  opacity: 0.9;
   float: right;
   display: inline;}
 .search-label {
   display: inline;
-  color: #AAA;
+  color: #DDD;
   margin: 0 10px;
   line-height: 2.7rem;}
 .top-bar-section ul li a:hover {
