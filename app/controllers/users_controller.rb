@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
   before_action :load_user, only: [:edit, :update, :show, :projects, :pledges, :comments]
+  before_action :require_login, only: [:edit, :update]
 
   def new
     @user = User.new
   end
 
   def edit
+    if current_user != @user
+      redirect_to projects_path, alert: 'Whooaaaaaaaaa, not your profile bud.'
+    end
   end
 
   def update

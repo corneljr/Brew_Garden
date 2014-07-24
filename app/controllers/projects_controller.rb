@@ -121,6 +121,9 @@ class ProjectsController < ApplicationController
 	end
 
 	def edit
+		if current_user != @project.user
+			redirect_to projects_path, alert: 'Whooaaaaaaaa, not your project bud.'
+		end
 		@rewards = @project.rewards
 	end
 

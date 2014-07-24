@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :password_resets
 
+  post '/charges/payment', to: 'charges#payment'
   get '/projects/location_search', to: 'projects#location_search'
   get '/projects/all_near', to: 'projects#near_location'
 

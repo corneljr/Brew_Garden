@@ -17,7 +17,7 @@ class ChargesController < ApplicationController
 	    :amount      => @amount,
 	    :description => @project.title,
 	    :currency    => 'cad',
-	    :capture => false
+	    :capture => true
   	)
 
   	redirect_to project_reward_path(@project, @reward)
@@ -25,5 +25,9 @@ class ChargesController < ApplicationController
 		rescue Stripe::CardError => e
 		  	flash[:error] = e.message
 		  	redirect_to project_reward_path(@project)
+	end
+
+	def payment
+		 event_json = JSON.parse(request.body.read)
 	end
 end
