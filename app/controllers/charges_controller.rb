@@ -20,7 +20,7 @@ class ChargesController < ApplicationController
 	    :capture => true
   	)
 
-  	redirect_to project_reward_path(@project, @reward)
+  	redirect_to project_path(@project)
 
 		rescue Stripe::CardError => e
 		  	flash[:error] = e.message

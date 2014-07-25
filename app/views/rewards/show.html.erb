@@ -1,12 +1,56 @@
-<h3>Thanks for backing the project!</h3>
-<h4>Please provide shipping information for your reward!</h4>
+<div style='width:50%;margin-left:auto;margin-right:auto;'>
+	<%= form_tag project_reward_charges_path(@project, @reward), id: 'payment-form' %>
+	  <span class="payment-errors"></span>
+	   <%= number_field_tag :card_number, nil, placeholder: 'Card Number', data: {stripe: 'number'} %>
+	   <%= number_field_tag :cvc, nil, placeholder: 'CVC', size: 2, data: {stripe: 'cvc'} %>
+	   <%= number_field_tag :exp_month, nil, placeholder: 'MM', size: 2, data: {stripe: 'exp-month'} %>
+	   <%= number_field_tag :exp_year, nil, placeholder: 'YYYY', size: 4, data: {stripe: 'exp-year'} %>
+	   <%= submit_tag 'submit', class: 'button tiny' %>
+
 
 <%= form_for [@project, @reward, @pledge] do |f| %>
-	<%= f.text_field :address %>
-	<%= f.text_field :postal_code %>
-	<%= f.text_field :city %>
-	<%= f.text_field :province %>
+	<%= f.text_field :address, placeholder: 'Address' %>
+	<%= f.text_field :postal_code, placeholder: 'Postal Code'%>
+	<%= f.text_field :city, placeholder: 'City'%>
+	<%= f.text_field :province, placeholder: 'Province'%>
 	<%= f.submit 'Finalize backing', class: 'button tiny'%>
 <% end %>
 
+</div>
 
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+<script>
+	Stripe.setPublishableKey('pk_test_4SPUMHwKi43qwO7iC1VZLKSi')
+
+	jQuery(function($) {
+	  $('#payment-form').submit(function(event) {
+	    var $form = $(this);
+
+	    // Disable the submit button to prevent repeated clicks
+	    $form.find('button').prop('disabled', true);
+
+	    Stripe.card.createToken($form, stripeResponseHandler);
+
+	    // Prevent the form from submitting with the default action
+	    return false;
+	  });
+	});
+
+	function stripeResponseHandler(status, response) {
+  var $form = $('#payment-form');
+
+  if (response.error) {
+    // Show the errors on the form
+    $form.find('.payment-errors').text(response.error.message);
+    $form.find('button').prop('disabled', false);
+  } else {
+    // response contains id and card, which contains additional card details
+    var token = response.id;
+    // Insert the token into the form so it gets submitted to the server
+    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+    // and submit
+    $form.get(0).submit();
+  }
+};
+</script>
