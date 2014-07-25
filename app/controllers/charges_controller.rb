@@ -1,5 +1,5 @@
 class ChargesController < ApplicationController
-	before_action :require_login
+	before_action :require_login, only: [:create]
 
 	def create
 		@email = params[:stripeEmail]
@@ -30,5 +30,6 @@ class ChargesController < ApplicationController
 	def payment
 		 event_json = JSON.parse(request.body.read)
 		 Charge.transaction[:charge] = event_json
+		 render status: 200
 	end
 end
