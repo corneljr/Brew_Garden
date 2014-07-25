@@ -5,17 +5,6 @@
 	</div>
 </div>
 
-<!-- Page header -->
-<div class="row">
-	<div class="small-12 columns">
-		<% if @search == 'all' %>
-			<h4>Showing all <span ><%= @project_count %></span>projects</h4>
-		<% else %>
-			<h4>We found <%= pluralize(@results.count, 'result') %> relating to <span class='category-show'>"<%= @search.capitalize %></span>"</h4>
-		<% end %>
-	</div>
-</div>
-
 <div class="row">
 	<!-- Left column -->
 	<div class="small-12 medium-12 large-10 columns">
@@ -34,6 +23,16 @@
 				<% end %>
 			</div>
 		</div>
+
+		<div class="row">
+			<div class="small-12 columns results-title">
+				<% if @location_results.present? %>
+					<h4>We found <%= pluralize(@location_results.length, 'project') %> near <%= @location %></h4>
+				<% else %>
+					<h4>We found <%= pluralize(@results.count, 'result') %> relating to "<%= @search.capitalize %>"</h4>
+				<% end %>
+			</div>
+		</div>
 		<!-- Search results -->
 		<div class="row">
 			<div class="small-12 columns">
@@ -41,6 +40,7 @@
 				<hr>
 			</div>
 			<div class='category-container'>
+				<%= render partial: 'project', collection: @location_results %>
 				<%= render partial: 'project', collection: @results %>
 			</div>
 		</div>
