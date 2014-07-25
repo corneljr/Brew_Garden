@@ -9,9 +9,9 @@
 <div class="row">
 	<div class="small-12 columns">
 		<% if @search == 'all' %>
-			<h4>Showing all <span ><%= @projects.count %></span>projects</h4>
+			<h4>Showing all <span ><%= @project_count %></span>projects</h4>
 		<% else %>
-			<h4>We found <%= pluralize(@projects.count, 'result') %> relating to <span class='category-show'>"<%= @search.capitalize %></span>"</h4>
+			<h4>We found <%= pluralize(@results.count, 'result') %> relating to <span class='category-show'>"<%= @search.capitalize %></span>"</h4>
 		<% end %>
 	</div>
 </div>
@@ -40,7 +40,9 @@
 				<h5><strong>Search results</strong></h5>
 				<hr>
 			</div>
+			<div class='category-container'>
 				<%= render partial: 'project', collection: @results %>
+			</div>
 		</div>
 	</div>
 	<!-- Right column -->

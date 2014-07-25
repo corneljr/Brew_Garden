@@ -69,6 +69,7 @@ class ProjectsController < ApplicationController
 		@results = @results.push(@projects.where("LOWER(category) LIKE LOWER(?)", "%#{@search}%"))
 		@results = @results.push(@projects.near(@search, 30))
 		@results = @results.flatten
+		@project_count = @results.count
 	end
 
 	def show
