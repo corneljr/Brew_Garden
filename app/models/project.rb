@@ -44,7 +44,11 @@ class Project < ActiveRecord::Base
 		self.location
 	end
 
-	def update_currency
+	def update_currency_for_save
 		self.goal *= 100
+	end
+
+	def update_currency_for_display
+		self.goal /= 100
 	end
 end
