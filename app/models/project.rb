@@ -23,6 +23,9 @@ class Project < ActiveRecord::Base
 	accepts_nested_attributes_for :slider_images, allow_destroy: true
 	accepts_nested_attributes_for :rewards, reject_if: :all_blank, allow_destroy: true
 
+	before_save :convert_reward_currency
+
+
 
 	def date_check 
 		if end_date && (end_date < Date.today)
@@ -46,5 +49,12 @@ class Project < ActiveRecord::Base
 
 	def update_currency_for_save
 		self.goal *= 100
+	end
+
+	def convert_reward_currency
+		self.rewards.each do |reward|
+			reward.amount *= 100
+			reward.save
+		end
 	end
 end
