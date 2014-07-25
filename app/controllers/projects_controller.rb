@@ -65,12 +65,10 @@ class ProjectsController < ApplicationController
 
 	def search
 		@search = params[:q]
-		@projects = if @search
-			@projects.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%")
-		else
-			@search = 'all'
-			@projects
-		end
+		@results = @projects.where("LOWER(title) LIKE LOWER(?)", "%#{@search}%")
+		@results = @results.push(@projects.where("LOWER(category) LIKE LOWER(?)", "%#{@search}%"))
+		@results = @results.push(@projects.near(@search, 30))
+		@results = @results.flatten
 	end
 
 	def show
