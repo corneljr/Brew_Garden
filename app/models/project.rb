@@ -44,7 +44,7 @@ class Project < ActiveRecord::Base
 		self.location
 	end
 
-	def check_post_status
-		post_status
+	def update_currency
+		self.goal *= 100
 	end
 end

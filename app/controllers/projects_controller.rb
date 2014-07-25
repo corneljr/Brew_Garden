@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
 
 	before_action :load_posted_projects, only: [:index, :category, :search, :location_search, :near_location]
 	before_action :load_project, only: [:show, :update, :destroy, :edit, :post]
-	before_filter :require_login, :only => [:new, :edit, :update, :destroy, :create]
+	before_filter :require_login, only: [:new, :edit, :update, :destroy, :create]
 
 	def index
 		@request_location = request.location
@@ -68,7 +68,7 @@ class ProjectsController < ApplicationController
 
 		@results = @projects.where("LOWER(title) LIKE LOWER(?)", "%#{@search}%")
 		@results = @results.push(@projects.where("LOWER(category) LIKE LOWER(?)", "%#{@search}%"))
-		@results = @results.flatten
+		@results = @results.flatten.uniq
 		@location_results = @projects.near(@search, 30)
 
 		@project_count = @results.count
@@ -109,6 +109,7 @@ class ProjectsController < ApplicationController
 
 	def create
 		@project = current_user.projects.build(project_params)
+		@project.update_currency
 		if @project.save(validate: false)
 			redirect_to edit_project_path(@project), notice: 'save successful'
 		else
@@ -126,6 +127,8 @@ class ProjectsController < ApplicationController
 	end
 
 	def update
+		@project.assign_attributes(project_params)
+		@project.update_currency
 		if @project.save(validate: false)
 			redirect_to edit_project_path(@project), notice: 'save successful'
 		else
@@ -177,7 +180,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def project_params
-		params.require(:project).permit(:title, :description, :end_date, :goal, :image, :slider_images, :location, :category, :short_blurb, rewards_attributes: [:amount, :description, :pledges_left, :_destroy])
+		params.require(:project).permit(:title, :description, :end_date, :image, :goal, :slider_images, :location, :category, :short_blurb, rewards_attributes: [:amount, :description, :pledges_left, :_destroy])
 	end
 
 	def find_commentable
@@ -192,4 +195,5 @@ class ProjectsController < ApplicationController
 	def date_format(date)
 		date.strftime("%A, %b %d %Y")
 	end
+
 end
