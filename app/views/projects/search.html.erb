@@ -11,7 +11,7 @@
 		<!-- Search form -->
 		<div class="row">
 			<div class="small-12 columns">
-				<%= form_tag project_search_path, class: 'search', method: 'get' do  %>
+				<%= form_tag project_search_path, class: 'search', id: 'search-form', method: 'get' do  %>
 				<div class="row collapse">
 	        <div class="small-10 columns">
 	          <%= text_field_tag :q, nil, placeholder: "#{@search}", class: 'search-input' %>

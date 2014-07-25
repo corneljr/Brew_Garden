@@ -68,12 +68,20 @@ class ProjectsController < ApplicationController
 		@results = @projects.where("LOWER(title) LIKE LOWER(?)", "%#{@search}%")
 		@results = @results.push(@projects.where("LOWER(category) LIKE LOWER(?)", "%#{@search}%"))
 		@results = @results.flatten
+		@project_count = @results.count
+		@location_results = @projects.near(@search, 30)
 
-		if @location_results = @projects.near(@search, 30)
+		if @location_results.present?
 			@location = Geocoder.search(@search).first.city
 		end
+
+		if request.xhr? && @location_results.present?
+			render partial: 'project', collection: @location_results
+		elsif request.xhr?
+			render partial: 'project', collection: @results
+		end
+
 		
-		@project_count = @results.count
 	end
 
 	def show
