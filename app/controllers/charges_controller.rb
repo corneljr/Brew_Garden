@@ -29,7 +29,7 @@ class ChargesController < ApplicationController
 
 	def payment
 		 event_json = JSON.parse(request.body.read)
-		 Charge.transaction[:charge] = event_json
+		 Charge.new(transaction: event_json)
 		 render status: 200
 	end
 end
