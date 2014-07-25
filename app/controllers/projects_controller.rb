@@ -118,7 +118,6 @@ class ProjectsController < ApplicationController
 	end
 
 	def post
-		@project.update_currency_for_save
 		@project.post_status = true
 		if @project.save
 			redirect_to @project, notice: 'project posted'

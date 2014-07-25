@@ -5,12 +5,6 @@
 	  	<li><%= link_to "Profile", user_path(current_user) %></li>
 	  	<li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
 	  	<li><%= link_to "Log out", logout_path %></li>
-	  	<% if current_user.projects.present? %>
-	  		<li><strong>Your projects</strong></li>
-	  		<% current_user.projects.each do |project| %>
-	  			<%= link_to truncate(project.title, length: 20), project  %>
-				<% end %>
-			<% end %>
 	  </ul>
 	</li>
 <% else %>
