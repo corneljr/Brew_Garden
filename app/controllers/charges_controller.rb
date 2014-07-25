@@ -26,10 +26,4 @@ class ChargesController < ApplicationController
 		  	flash[:error] = e.message
 		  	redirect_to project_reward_path(@project)
 	end
-
-	def payment
-		 event_json = JSON.parse(request.body.read)
-		 Charge.new(transaction: event_json)
-		 render status: 200
-	end
 end

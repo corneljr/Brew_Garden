@@ -11,13 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140724235038) do
-
-  create_table "charges", force: true do |t|
-    t.text     "transaction"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20140725004121) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
