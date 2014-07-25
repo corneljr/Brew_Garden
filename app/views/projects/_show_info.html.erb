@@ -22,40 +22,40 @@
 <p><%= raw(@project.description) %></p>
 
 <!-- mapbox -->
-<div data-lat="<%= @project.latitude %>" data-long = "<%= @project.longitude %>" data-title="<%= @project.title %>" data-description="<%= @project.short_blurb %>" id='map'></div>
+<!-- <div data-lat="<%= @project.latitude %>" data-long = "<%= @project.longitude %>" data-title="<%= @project.title %>" data-description="<%= @project.short_blurb %>" id='map'></div> -->
 
 <script type="text/javascript">
 
-    // initalize for mapbox
-    var longitude = $('#map').data('long');
-    var latitude = $('#map').data('lat');
-    var title = $('#map').data('title');
-    var short_blurb = $('#map').data('short_blurb');
+   //  // initalize for mapbox
+   //  var longitude = $('#map').data('long');
+   //  var latitude = $('#map').data('lat');
+   //  var title = $('#map').data('title');
+   //  var short_blurb = $('#map').data('short_blurb');
 
-    // 12 is the zoom
-    var map = L.mapbox.map('map', 'dhurley99.ipn4bc66').setView([latitude, longitude], 13);
+   //  // 12 is the zoom
+   //  var map = L.mapbox.map('map', 'dhurley99.ipn4bc66').setView([latitude, longitude], 13);
 
-   L.mapbox.featureLayer({
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [
-          longitude,
-          latitude
-        ]
-      },
-      properties: {
-        title: title,
-        description: short_blurb,
-        'marker-size': 'large',
-        'marker-color': '#BE9A6B',
-        'marker-symbol': 'beer'
-      }
-    }).addTo(map); 
+   // L.mapbox.featureLayer({
+   //    type: 'Feature',
+   //    geometry: {
+   //      type: 'Point',
+   //      coordinates: [
+   //        longitude,
+   //        latitude
+   //      ]
+   //    },
+   //    properties: {
+   //      title: title,
+   //      description: short_blurb,
+   //      'marker-size': 'large',
+   //      'marker-color': '#BE9A6B',
+   //      'marker-symbol': 'beer'
+   //    }
+   //  }).addTo(map); 
   
-    }).addTo(map);
+   //  }).addTo(map);
 
-    }).addTo(map); 
-    map.scrollWheelZoom.disable();
+   //  }).addTo(map); 
+   //  map.scrollWheelZoom.disable();
   
 </script>

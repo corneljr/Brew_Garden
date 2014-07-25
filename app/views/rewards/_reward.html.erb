@@ -1,6 +1,6 @@
 <div class='reward-container'>
 	<div class="reward-description">
-		<p><strong>Pledge <%= number_to_currency(reward.amount / 100, precision: 0) %> or more</strong></p>
+		<p><strong>Pledge <%= number_to_currency(reward.amount, precision: 0) %></strong></p>
 		<p><%= pluralize(reward.pledges.count, 'backer') %></p>
 		<p><%= reward.description %></p>
 	</div>
