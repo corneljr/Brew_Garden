@@ -109,7 +109,7 @@ class ProjectsController < ApplicationController
 
 	def create
 		@project = current_user.projects.build(project_params)
-		@project.update_currency
+		@project.update_currency_for_save
 		if @project.save(validate: false)
 			redirect_to edit_project_path(@project), notice: 'save successful'
 		else
@@ -118,6 +118,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def post
+		@project.update_currency_for_save
 		@project.post_status = true
 		if @project.save
 			redirect_to @project, notice: 'project posted'
@@ -128,7 +129,7 @@ class ProjectsController < ApplicationController
 
 	def update
 		@project.assign_attributes(project_params)
-		@project.update_currency
+		@project.update_currency_for_save
 		if @project.save(validate: false)
 			redirect_to edit_project_path(@project), notice: 'save successful'
 		else
@@ -141,6 +142,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def edit
+		@project.update_currency_for_display
 		if current_user != @project.user
 			redirect_to projects_path, alert: 'Whooaaaaaaaa, not your project bud.'
 		end
