@@ -8,6 +8,7 @@ class RewardsController < ApplicationController
   end
 
   def create
+    binding.pry
     @project = Project.find(params[:project_id])
   	@reward = @project.rewards.build(reward_params) 
     @reward.update_currency_for_save
