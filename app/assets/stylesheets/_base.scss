@@ -60,8 +60,17 @@ section {
   width: 100%;
   height: 260px; }
 
-// alert box
+// error message
+.error_messages {
+  color: red !important;
+  h2 { 
+    font-family: 'Lato';
+    font-size: 1.5rem;
+    color: red !important;
+    margin-bottom: 5px !important; }
+}
 
+// alert box
 .alert-box.success {
   background-color: #43ac6a;
   opacity: 0.9 !important;
