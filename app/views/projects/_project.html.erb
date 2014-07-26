@@ -20,7 +20,7 @@
 					</div>
 				<% end %>
 			<div class='small-4 text-center columns'>
-				<div class='metric'><%= ((project.end_date - Time.now)/(60 * 60 * 24)).round %></div>
+				<div class='metric'><%= project.days_left %></div>
 				<div class='metric-sub'>days left</div>
 			</div>
 			<div class='small-3 text-center columns'>

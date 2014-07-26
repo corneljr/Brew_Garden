@@ -3,7 +3,7 @@
 		<hr>
 		<p><span><%= number_to_currency(@project.funded_amount / 100, precision: 0) %></span><br> pledged of <%= number_to_currency(@project.goal / 100, precision: 0) %> goal</p>
 		<hr>
-		<p><span><%= @days_left %></span><br> days left </p>
+		<p><span><%= @project.days_left %></span><br> days left </p>
 </div>
 <p class="text-left" style='font-size:0.8rem;'>This project will only be funded if at least <%= number_to_currency(@project.goal / 100, precision: 0) %> CAD is pledged by <%= @end_date  %>. </p>
 
