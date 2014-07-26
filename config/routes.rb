@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   root to: "welcome#index"
 
   get '/projects/:id/post', to: 'projects#post', as: 'post_project'
+  get 'projects/past', to: 'projects#past_projects', as: 'past_projects'
   
   resources :projects do
     resources :slider_images, only: [:create]

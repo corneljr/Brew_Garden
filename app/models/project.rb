@@ -1,5 +1,8 @@
 class Project < ActiveRecord::Base
 	scope :most_funded, -> { pledges.order('')}
+	scope :current_projects, -> { where("end_date >= ?", Date.today) }
+	scope :past_projects, -> { where("end_date < ?", Date.today) }
+
 
 	belongs_to :user
 	has_many :rewards
@@ -23,9 +26,6 @@ class Project < ActiveRecord::Base
 	accepts_nested_attributes_for :slider_images, allow_destroy: true
 	accepts_nested_attributes_for :rewards, reject_if: :all_blank, allow_destroy: true
 
-	before_save :convert_reward_currency
-
-
 
 	def date_check 
 		if end_date && (end_date < Date.today)
@@ -38,9 +38,12 @@ class Project < ActiveRecord::Base
 	end
 
 	def days_left
-		if self.end_date
-			days = self.end_date - Date.today
+		if ((self.end_date - Time.now)/(60 * 60 * 24)) > 0
+			days_left = ((self.end_date - Time.now)/(60 * 60 * 24)).round
+		else
+			days_left = 0
 		end
+		days_left
 	end
 
 	def get_location
@@ -49,12 +52,10 @@ class Project < ActiveRecord::Base
 
 	def update_currency_for_save
 		self.goal *= 100
-	end
 
-	def convert_reward_currency
 		self.rewards.each do |reward|
 			reward.amount *= 100
-			reward.save
 		end
+		self.save
 	end
 end
