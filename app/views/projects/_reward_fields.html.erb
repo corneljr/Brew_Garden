@@ -24,6 +24,14 @@
     </div>
   </div>
   <div class="row">
+    <div class="small-2 columns">
+      <%= f.label :shipping, 'Do you require shipping?', class: 'right inline' %>
+    </div>
+    <div class="small-10 columns">
+      <%= f.check_box :shipping %>
+    </div>
+  </div>
+  <div class="row">
     <div class="small-12 columns text-right">
       <%= link_to_remove_association 'remove reward', f, class: "button tiny" %>
     </div>
