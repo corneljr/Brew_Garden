@@ -1,5 +1,4 @@
 class ProjectsController < ApplicationController
-
 	before_action :load_posted_projects, only: [:index, :category, :search, :location_search, :near_location]
 	before_action :load_project, only: [:show, :update, :destroy, :edit, :post]
 	before_filter :require_login, only: [:new, :edit, :update, :destroy, :create]
@@ -168,6 +167,10 @@ class ProjectsController < ApplicationController
 		end
 	end
 
+	def past_projects
+		@projects = Project.where(post_status: true).past_projects
+	end
+
 	private
 
 	def load_project
@@ -175,7 +178,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def load_posted_projects
-		@projects = Project.where(post_status: true).select {|project| project.end_date >= Date.today}
+		@projects = Project.where(post_status: true).current_projects
 	end
 
 	def project_params

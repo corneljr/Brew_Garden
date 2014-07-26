@@ -1,5 +1,8 @@
 class Project < ActiveRecord::Base
 	scope :most_funded, -> { pledges.order('')}
+	scope :current_projects, -> { where("end_date >= ?", Date.today) }
+	scope :past_projects, -> { where("end_date < ?", Date.today) }
+
 
 	belongs_to :user
 	has_many :rewards
