@@ -32,5 +32,8 @@ module BrewGarden
     # For Foundation 5
     config.assets.precompile += %w( vendor/modernizr )
 
+    # make sure to load the lib folder
+    config.autoload_paths += %W(#{config.root}/lib)
+
   end
 end
