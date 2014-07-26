@@ -116,8 +116,8 @@ class ProjectsController < ApplicationController
 
 	def post
 		@project.post_status = true
-		@project.update_currency_for_save
 		if @project.save
+			@project.update_currency_for_save
 			redirect_to @project, notice: 'project posted'
 		else
 			render :edit
