@@ -3,6 +3,8 @@ class Reward < ActiveRecord::Base
 	has_many :pledges
 
 	validates :pledges_left, numericality: { only_integer: true }
+
+	validates :shipping, inclusion: { in: [true, false] }
 	
 	def add_backer
     self.pledges_left -= 1

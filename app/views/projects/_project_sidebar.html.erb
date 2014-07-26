@@ -15,7 +15,6 @@
 
 
 <div class="small-12 reward-panel">
-	<h6>Twitter</h6>
 	
 	<!-- Twitter -->
 	<p class="text-center"><a href="https://twitter.com/intent/tweet" class="twitter-share-button" data-text="this is example text" data-hashtags="craftbrew, brew"></a></p>
@@ -23,15 +22,15 @@
   <br>
   <hr>
 
-	<h6>Facebook</h6>
+<!-- <h6>Facebook</h6>
 	
-	<!-- Facebook -->
+	
 	<p class="text-center"><div id="fb-root"></div></p>
 	<div class="fb-share-button" data-href="/<%= projects_path(@project) %>" data-width="100"></div>
 	<br>
 	<h7>Support by sharing this promotion over Facebook.</h7>
-	<hr>
-	<hr>
+	<hr> -->
+
 
 	<%= render @rewards %>
 </div>
@@ -55,4 +54,6 @@
   });
   
 });
+
+	// window.FB.Event.subscribe('edge.create', function(){ alert('whta');})
 </script>
