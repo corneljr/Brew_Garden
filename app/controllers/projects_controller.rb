@@ -175,7 +175,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def load_posted_projects
-		@projects = Project.where(post_status: true)
+		@projects = Project.where(post_status: true).select {|project| project.end_date >= Date.today}
 	end
 
 	def project_params
