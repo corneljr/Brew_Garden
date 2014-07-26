@@ -46,7 +46,7 @@ Rails.application.configure do
     }
 
   config.fog_directory = 'beergarden'
-  config.asset_host = 'http://brewgarden.herokuapp.com/'
+  config.asset_host = 'beergarden.s3.amazonaws.com'
   config.fog_public = true
   end
 
