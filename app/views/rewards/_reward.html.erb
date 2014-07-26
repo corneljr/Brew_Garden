@@ -1,17 +1,27 @@
-<div class='reward-container'>
-	<div class="reward-description">
-		<p><strong>Pledge <%= number_to_currency(reward.amount, precision: 0) %></strong></p>
-		<p><%= pluralize(reward.pledges.count, 'backer') %></p>
-		<p><%= reward.description %></p>
-	</div>
+<% if reward.project.end_date > Date.today %>
+	<div class='reward-container'>
+		<div class="reward-description">
+			<p><strong>Pledge <%= number_to_currency(reward.amount, precision: 0) %></strong></p>
+			<p><%= pluralize(reward.pledges.count, 'backer') %></p>
+			<p><%= reward.description %></p>
+		</div>
 
-	<%= form_tag project_reward_charges_path(@project, reward) do %>
-	  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-      data-description="<%= reward.project.title %>"
-      data-amount="<%= reward.amount %>"></script>
-	<% end %>
-</div>
+		<%= form_tag project_reward_charges_path(@project, reward) do %>
+		  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+	      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+	      data-description="<%= reward.project.title %>"
+	      data-amount="<%= reward.amount %>"></script>
+		<% end %>
+	</div>
+<% else %>
+	<div class='reward-container'>
+		<div class="reward-description">
+			<p><strong>Pledge <%= number_to_currency(reward.amount, precision: 0) %></strong></p>
+			<p><%= pluralize(reward.pledges.count, 'backer') %></p>
+			<p><%= reward.description %></p>
+		</div>
+	</div>
+<% end %>
 
 <%= javascript_tag do %>
 
