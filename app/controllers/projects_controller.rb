@@ -91,7 +91,13 @@ class ProjectsController < ApplicationController
 
 	def show
 		@rewards = @project.rewards
-		@days_left = ((@project.end_date - Time.now)/(60 * 60 * 24)).round
+		
+		if ((@project.end_date - Time.now)/(60 * 60 * 24)).round > 0
+			@days_left = ((@project.end_date - Time.now)/(60 * 60 * 24)).round
+		else
+			@days_left = 0
+		end
+
 		@commentable = find_commentable
   	@comments = @project.comments
   	@end_date = date_format(@project.end_date)
