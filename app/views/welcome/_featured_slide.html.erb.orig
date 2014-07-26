@@ -1,0 +1,36 @@
+<div>
+  <div class="slider-home">
+    <div class="small-9 columns">
+<<<<<<< HEAD
+      <h2>Are you a beer lover?</h2>
+      <p>Check out our many projects, support craft breweries, and get some awesome rewards!</p>
+      <%= link_to 'Discover Projects', projects_path, class: 'beer-btn-primary' %>
+=======
+      <h2><%= featured_slide.title %></h2>
+      <p><%= featured_slide.short_blurb %></p>
+      <p>The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.</p>
+      <button class="beer-btn-primary">Discover</button>
+>>>>>>> rake-mailer
+    </div>
+    <div class="small-3 text-right columns">
+      <div class="slider-img">
+        <img src="/img/brewpub.jpg" height="300" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="slider-home">
+    <div class="small-9 columns">
+      <h2>Are you a brewery?</h2>
+      <p>We know how hard it can be to reach customers with the loaded craft beer market. Our platform provides a free and easy way to get your name out there and raise some valuable capital!</p>
+      <%= link_to 'Create a project!', new_project_path, class: 'beer-btn-primary' %>
+    </div>
+    <div class="small-3 text-right columns">
+      <div class="slider-img">
+        <img src="/img/brewpub.jpg" height="300" alt="">
+      </div>
+    </div>
+  </div>
+</div>

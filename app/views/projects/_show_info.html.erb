@@ -1,61 +1,6 @@
 <div class="slider">
-  <div>
-    <div><img src="/img/teaser0<%= rand(1..4) %>.jpg" style="height: 350px" /></div>
-  </div>
-  <div>
-    <div><img src="/img/teaser0<%= rand(1..4) %>.jpg" style="height: 350px" /></div>
-  </div>
-  <div>
-    <div><img src="/img/teaser0<%= rand(1..4) %>.jpg" style="height: 350px" /></div>
-  </div>
-  <div>
-    <div><img src="/img/teaser0<%= rand(1..4) %>.jpg" style="height: 350px" /></div>
-  </div>
+  <%= render 'slider' %>
 </div>
-<!-- Facebook -->
-<div id="fb-root"></div>
-<div class="fb-share-button" data-href="/<%= projects_path(@project) %>" data-width="100"></div>
 
-<!-- Twitter -->
-<a href="https://twitter.com/share" class="twitter-share-button" data-related="jasoncosta" data-lang="en" data-size="large" data-count="none">Tweet</a>
 <hr>
 <p><%= raw(@project.description) %></p>
-
-<!-- mapbox -->
-<div data-lat="<%= @project.latitude %>" data-long = "<%= @project.longitude %>" data-title="<%= @project.title %>" data-description="<%= @project.short_blurb %>" id='map'></div>
-
-<script type="text/javascript">
-
-    // initalize for mapbox
-    var longitude = $('#map').data('long');
-    var latitude = $('#map').data('lat');
-    var title = $('#map').data('title');
-    var short_blurb = $('#map').data('short_blurb');
-
-    // 12 is the zoom
-    var map = L.mapbox.map('map', 'dhurley99.ipn4bc66').setView([latitude, longitude], 13);
-
-   L.mapbox.featureLayer({
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [
-          longitude,
-          latitude
-        ]
-      },
-      properties: {
-        title: title,
-        description: short_blurb,
-        'marker-size': 'large',
-        'marker-color': '#BE9A6B',
-        'marker-symbol': 'beer'
-      }
-    }).addTo(map); 
-  
-    }).addTo(map);
-
-    }).addTo(map); 
-    map.scrollWheelZoom.disable();
-  
-</script>

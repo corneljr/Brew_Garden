@@ -1,11 +1,13 @@
 class SessionsController < ApplicationController
-   def new  
+  def new 
+    session[:previous_page] = request.env['HTTP_REFERER'] 
   end  
     
-  def create  
+  def create 
     user = login(params[:email], params[:password], params[:remember_me])  
-    if user  
-      redirect_back_or_to root_url, notice: "Logged in!"  
+    if user
+      url = session[:previous_page] || root_url 
+      redirect_to url, notice: "Logged in!"  
     else  
       flash.now[:alert] = "Email or password was invalid." 
       render 'new'

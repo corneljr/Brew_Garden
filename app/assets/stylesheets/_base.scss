@@ -57,11 +57,26 @@ section {
 
 // mapbox
 #map, #map2 {
+  
+  position: relative;
+  bottom: 70px;
   width: 100%;
-  height: 260px; }
+  height: 335px;
+  z-index: -1; 
+
+}
+
+// error message
+.error_messages {
+  color: red !important;
+  h2 { 
+    font-family: 'Lato';
+    font-size: 1.5rem;
+    color: red !important;
+    margin-bottom: 5px !important; }
+}
 
 // alert box
-
 .alert-box.success {
   background-color: #43ac6a;
   opacity: 0.9 !important;

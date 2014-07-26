@@ -18,7 +18,7 @@ $(document).on('ready page:load', function(){
 			$('.near-div').html(data).fadeIn();
 			$('.location-search').hide();
 			$('.location-header').fadeIn();
-			$('.see-all-near').attr('href', 'projects/all_near?q=' + search)
+			$('.see-all-near').attr('href', '/search?q=' + search)
 			$('.location-title').text(searchedLocation);
 
 			if ($('.progress-bar').length) progressDraw($('.progress-bar'));

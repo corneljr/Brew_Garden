@@ -3,7 +3,7 @@
 		<hr>
 		<p><span><%= number_to_currency(@project.funded_amount / 100, precision: 0) %></span><br> pledged of <%= number_to_currency(@project.goal / 100, precision: 0) %> goal</p>
 		<hr>
-		<p><span><%= @days_left %></span><br> days left </p>
+		<p><span><%= @project.days_left %></span><br> days left </p>
 </div>
 <p class="text-left" style='font-size:0.8rem;'>This project will only be funded if at least <%= number_to_currency(@project.goal / 100, precision: 0) %> CAD is pledged by <%= @end_date  %>. </p>
 
@@ -13,10 +13,46 @@
 		<p><%= link_to @project.user.name, @project.user  %></p>
 </div>
 
+
 <div class="small-12 reward-panel">
+	<h6>Twitter</h6>
+	
+	<!-- Twitter -->
+	<p class="text-center"><a href="https://twitter.com/intent/tweet" class="twitter-share-button" data-text="this is example text" data-hashtags="craftbrew, brew"></a></p>
+	<h7 class="yo">Support by sharing this promotion over Twitter.</h7>
+  <br>
+  <hr>
+
+	<h6>Facebook</h6>
+	
+	<!-- Facebook -->
+	<p class="text-center"><div id="fb-root"></div></p>
+	<div class="fb-share-button" data-href="/<%= projects_path(@project) %>" data-width="100"></div>
+	<br>
+	<h7>Support by sharing this promotion over Facebook.</h7>
+	<hr>
+	<hr>
+
 	<%= render @rewards %>
 </div>
 
 <script>
-	$('.stripe-button-el > span').text('Select Reward')
+	$('.stripe-button-el > span').text('Select Reward');
+</script>
+<script type="text/javascript">
+	window.twttr = (function (d,s,id) {
+	  var t, js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+	  js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+	  return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+	}(document, "script", "twitter-wjs"));
+ 
+
+	twttr.ready(function (twttr) {
+  // Now bind our custom intent events
+  twttr.events.bind('tweet', function() {
+  	alert('you tweeted');
+  });
+  
+});
 </script>

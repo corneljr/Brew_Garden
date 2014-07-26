@@ -1,8 +1,7 @@
 class ProjectsController < ApplicationController
-
 	before_action :load_posted_projects, only: [:index, :category, :search, :location_search, :near_location]
 	before_action :load_project, only: [:show, :update, :destroy, :edit, :post]
-	before_filter :require_login, :only => [:new, :edit, :update, :destroy, :create]
+	before_filter :require_login, only: [:new, :edit, :update, :destroy, :create]
 
 	def index
 		@request_location = request.location
@@ -65,17 +64,33 @@ class ProjectsController < ApplicationController
 
 	def search
 		@search = params[:q]
-		@projects = if @search
-			@projects.where("LOWER(title) LIKE LOWER(?)", "%#{params[:q]}%")
-		else
-			@search = 'all'
-			@projects
+
+		@results = @projects.where("LOWER(title) LIKE LOWER(?)", "%#{@search}%")
+		@results = @results.push(@projects.where("LOWER(category) LIKE LOWER(?)", "%#{@search}%"))
+		@results = @results.flatten.uniq
+		@location_results = @projects.near(@search, 30)
+
+		@project_count = @results.count
+
+		if @location_results.present?
+			@location = Geocoder.search(@search).first.city
 		end
+
+		if @search.length == 0
+			@results = @projects
+			@search = 'all'
+		end
+
+		if request.xhr? && @location_results.present?
+			render partial: 'project', collection: @location_results
+		elsif request.xhr?
+			render partial: 'project', collection: @results
+		end
+		
 	end
 
 	def show
 		@rewards = @project.rewards
-		@days_left = ((@project.end_date - Time.now)/(60 * 60 * 24)).round
 		@commentable = find_commentable
   	@comments = @project.comments
   	@end_date = date_format(@project.end_date)
@@ -102,13 +117,15 @@ class ProjectsController < ApplicationController
 	def post
 		@project.post_status = true
 		if @project.save
+			@project.update_currency_for_save
 			redirect_to @project, notice: 'project posted'
 		else
 			render :edit
 		end
-	end
+	end 
 
 	def update
+		@project.assign_attributes(project_params)
 		if @project.save(validate: false)
 			redirect_to edit_project_path(@project), notice: 'save successful'
 		else
@@ -149,9 +166,8 @@ class ProjectsController < ApplicationController
 		end
 	end
 
-	def near_location
-		@projects = @projects.near(params[:q], 20)
-		@location = Geocoder.search(params[:q])[0].data['formatted_address']
+	def past_projects
+		@projects = Project.where(post_status: true).past_projects
 	end
 
 	private
@@ -161,11 +177,11 @@ class ProjectsController < ApplicationController
 	end
 
 	def load_posted_projects
-		@projects = Project.where(post_status: true)
+		@projects = Project.where(post_status: true).current_projects
 	end
 
 	def project_params
-		params.require(:project).permit(:title, :description, :end_date, :goal, :image, :slider_images, :location, :category, :short_blurb, rewards_attributes: [:amount, :description, :pledges_left, :_destroy])
+		params.require(:project).permit(:title, :description, :end_date, :image, :goal, :slider_images, :location, :category, :short_blurb, rewards_attributes: [:id, :amount, :description, :pledges_left, :_destroy])
 	end
 
 	def find_commentable
@@ -180,4 +196,5 @@ class ProjectsController < ApplicationController
 	def date_format(date)
 		date.strftime("%A, %b %d %Y")
 	end
+
 end

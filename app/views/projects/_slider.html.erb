@@ -1,0 +1,20 @@
+<% if @project.slider_images.present? %>
+	<% @project.slider_images.each do |slider_image|%>
+		<div>
+		  <div><%= link_to slider_image.slider_images.profile.url %></div>
+		</div>
+	<% end %>
+<% else %>
+	<div>
+    <div><img src="/img/teaser0<%= rand(1..4) %>.jpg" style="height: 350px" /></div>
+  </div>
+  <div>
+    <div><img src="/img/teaser0<%= rand(1..4) %>.jpg" style="height: 350px" /></div>
+  </div>
+  <div>
+    <div><img src="/img/teaser0<%= rand(1..4) %>.jpg" style="height: 350px" /></div>
+  </div>
+  <div>
+    <div><img src="/img/teaser0<%= rand(1..4) %>.jpg" style="height: 350px" /></div>
+  </div>
+<% end %>

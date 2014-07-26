@@ -1,5 +1,8 @@
 class Project < ActiveRecord::Base
 	scope :most_funded, -> { pledges.order('')}
+	scope :current_projects, -> { where("end_date >= ?", Date.today) }
+	scope :past_projects, -> { where("end_date < ?", Date.today) }
+
 
 	belongs_to :user
 	has_many :rewards
@@ -35,16 +38,24 @@ class Project < ActiveRecord::Base
 	end
 
 	def days_left
-		if self.end_date
-			days = self.end_date - Date.today
+		if ((self.end_date - Time.now)/(60 * 60 * 24)) > 0
+			days_left = ((self.end_date - Time.now)/(60 * 60 * 24)).round
+		else
+			days_left = 0
 		end
+		days_left
 	end
 
 	def get_location
 		self.location
 	end
 
-	def check_post_status
-		post_status
+	def update_currency_for_save
+		self.goal *= 100
+
+		self.rewards.each do |reward|
+			reward.amount *= 100
+		end
+		self.save
 	end
 end
