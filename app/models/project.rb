@@ -24,7 +24,7 @@ class Project < ActiveRecord::Base
 	before_save :geocode
 
 	accepts_nested_attributes_for :slider_images, allow_destroy: true
-	accepts_nested_attributes_for :rewards, reject_if: :all_blank, allow_destroy: true
+	accepts_nested_attributes_for :rewards, reject_if: proc { |attributes| attributes["amount"].blank? || attributes["description"].blank? }, allow_destroy: true
 
 
 	def date_check 
