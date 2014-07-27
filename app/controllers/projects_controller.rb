@@ -118,6 +118,7 @@ class ProjectsController < ApplicationController
 		@project.post_status = true
 		if @project.save
 			@project.update_currency_for_save
+			@project.update_video_link
 			redirect_to @project, notice: 'project posted'
 		else
 			render :edit
@@ -182,7 +183,7 @@ class ProjectsController < ApplicationController
 
 	def project_params
 
-		params.require(:project).permit(:title, :description, :end_date, :image, :goal, :location, :category, :short_blurb, rewards_attributes: [:id, :amount, :description, :pledges_left, :_destroy, :shipping], slider_images_attributes: [:id, :slider_image])
+		params.require(:project).permit(:title, :video_link, :description, :end_date, :image, :goal, :location, :category, :short_blurb, rewards_attributes: [:id, :amount, :description, :pledges_left, :_destroy, :shipping], slider_images_attributes: [:id, :slider_image])
 	end
 
 	def find_commentable

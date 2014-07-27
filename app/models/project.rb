@@ -58,4 +58,13 @@ class Project < ActiveRecord::Base
 		end
 		self.save
 	end
+
+	def update_video_link
+		if self.video_link
+			split_link = self.video_link.split('watch')
+			link = split_link.join('embed/watch')
+			self.video_link = link
+			self.save
+		end
+	end
 end
