@@ -13,11 +13,12 @@ class Project < ActiveRecord::Base
 
 
 
-	validates :title, :description, :goal, :end_date, presence: :true
+	validates :title, :description, :goal, :end_date, presence: true
 	validates :goal, numericality: { only_integer: true }
 	validate :date_check
 	validates :title, length: { maximum: 125 }
-	validates :short_blurb, length: { maximum: 200 }
+	validates :short_blurb, length: { maximum: 200 }, presence: true
+	validates :video_link, format: { with: /youtube/, message: 'must be uploaded to youtube'}
 
 
 	geocoded_by :get_location
