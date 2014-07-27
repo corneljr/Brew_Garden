@@ -1,5 +1,3 @@
-<% binding.pry %>
-
 <% if reward.project.end_date > Date.today %>
 	<div class='reward-container'>
 		<div class="reward-description">
@@ -7,13 +5,7 @@
 			<p><%= pluralize(reward.pledges.count, 'backer') %></p>
 			<p><%= reward.description %></p>
 		</div>
-
-		<%= form_tag project_reward_charges_path(@project, reward) do %>
-		  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-	      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-	      data-description="<%= reward.project.title %>"
-	      data-amount="<%= reward.amount %>"></script>
-		<% end %>
+		<%= link_to 'select reward', project_reward_path(reward.project, reward), class: 'button'  %>
 	</div>
 <% else %>
 	<div class='reward-container'>
