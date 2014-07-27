@@ -34,6 +34,6 @@ Project.all.each do |project|
 	project.save
 end
 
-20.times do |n|
+(1..20).each do |n|
 	SliderImage.create(project_id: n)
 end

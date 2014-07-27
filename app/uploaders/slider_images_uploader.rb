@@ -18,7 +18,7 @@ class SliderImagesUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    ActionController::Base.helpers.asset_path("img/" + "teaser0" + rand(1..4).to_s)
+    ActionController::Base.helpers.asset_path("img/" + "logo0" + rand(1..9).to_s + '.jpg')
   end
 
   # Process files as they are uploaded:
