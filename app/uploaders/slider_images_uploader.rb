@@ -18,7 +18,7 @@ class SliderImagesUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    ActionController::Base.helpers.asset_path("img/" + "teaser0" + rand(1..4))
+    ActionController::Base.helpers.asset_path("img/" + "teaser0" + rand(1..4).to_s)
   end
 
   # Process files as they are uploaded:
@@ -31,6 +31,10 @@ class SliderImagesUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:
   version :profile do
     process :resize_to_fit => [1000, 500]
+  end
+
+  version :card do
+    process :resize_to_fit => [200, 200]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

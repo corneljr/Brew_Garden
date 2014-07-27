@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
 
 	belongs_to :user
 	has_many :rewards
-	has_many :pledges, through: :rewards
+	has_many :pledges
 	has_many :updates
 	has_many :comments, :as => :commentable
 	has_many :slider_images
@@ -35,7 +35,11 @@ class Project < ActiveRecord::Base
 	end 
 
 	def update_funded_amount
-		self.funded_amount = self.pledges.sum(:amount)
+		amount = 0
+		self.pledges.each do |pledge|
+			amount += pledge.reward.amount
+		end
+		self.funded_amount = amount
 	end
 
 	def days_left

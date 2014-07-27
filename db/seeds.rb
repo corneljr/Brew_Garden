@@ -21,14 +21,8 @@ end
 	Reward.create(project_id: rand(1..20), amount: rand(10000..100000), pledges_left: rand(1..4), description: Faker::Lorem.sentence, shipping: rand > 0.5 ? true : false)
 end
 
-10.times do 
-	Project.create(user_id: rand(1..100), title: Faker::Company.catch_phrase, short_blurb: Faker::Lorem.sentences(2).join(' '), description: Faker::Lorem.paragraphs(10).join('<br><br>'), goal: rand(100000..5000000), end_date: Date.today + rand(1..60).days, category: categories[rand(0..3)], location: addresses[rand(0..6)], post_status: true)
-end
-
-sleep(2)
-
-10.times do 
-	Project.create(user_id: rand(1..100), title: Faker::Company.catch_phrase, short_blurb: Faker::Lorem.sentences(2).join(' '), description: Faker::Lorem.paragraphs(10).join('<br><br>'), goal: rand(100000..5000000), end_date: Date.today + rand(1..60).days, category: categories[rand(0..3)], location: addresses[rand(0..6)], post_status: true)
+20.times do 
+	Project.create(user_id: rand(1..100), title: Faker::Company.catch_phrase, short_blurb: Faker::Lorem.sentences(2).join(' '), description: Faker::Lorem.paragraphs(10).join('<br><br>'), goal: rand(100000..5000000), end_date: Date.today + rand(1..60).days, category: categories[rand(0..3)], location: addresses[rand(0..6)], post_status: true, video_link: 'https://www.youtube.com/embed/watch?v=ETnlrYq7btE')
 end
 
 100.times do 
@@ -38,4 +32,8 @@ end
 Project.all.each do |project|
 	project.update_funded_amount
 	project.save
+end
+
+20.times do |n|
+	SliderImage.create(project_id: n)
 end
