@@ -19,53 +19,53 @@
 	   <%= number_field_tag :cvc, nil, placeholder: 'CVC', size: 2, data: {stripe: 'cvc'} %>
 	   <%= number_field_tag :exp_month, nil, placeholder: 'MM', size: 2, data: {stripe: 'exp-month'} %>
 	   <%= number_field_tag :exp_year, nil, placeholder: 'YYYY', size: 4, data: {stripe: 'exp-year'} %>
-	   <%= submit_tag 'submit', class: 'button tiny' %>
 
-  <% if @reward.shipping %>   
-  <div class="row">
-  <div class="small-10 medium-6 large-6 small-centered columns">
-    <%= form_for [@project, @reward, @pledge] do |f| %>
-    <div class="row collapse">
-      <div class="small-2 columns">
-        <span class="prefix"><i class="fi-home"></i></span>
-      </div>
-      <div class="small-10 columns">
-        <%= f.text_field :address, placeholder: 'Your street address' %>
-      </div>
-    </div>
-    <div class="row collapse">
-      <div class="small-2 columns">
-        <span class="prefix"><i class="fi-address-book"></i></span>
-      </div>
-      <div class="small-10 columns">
-        <%= f.text_field :postal_code, placeholder: 'Your postal' %>
-      </div>
-    </div>
-    <div class="row collapse">
-      <div class="small-2 columns">
-        <span class="prefix"><i class="fi-graph-bar"></i></span>
-      </div>
-      <div class="small-10 columns">
-        <%= f.text_field :city, placeholder: 'Your city' %>
-      </div>
-    </div>
-    <div class="row collapse">
-      <div class="small-2 columns">
-        <span class="prefix"><i class="fi-mountains"></i></span>
-      </div>
-      <div class="small-10 columns">
-        <%= f.select :province, options_for_select(['Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Nova Scotia', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan', 'Northwest Territories', 'Nunavut', 'Yukon']), prompt: 'Select your province' %>
-      </div>
-    </div>
-    <div class="row collapse">
-      <div class="small-12 text-center columns">
-        <%= f.submit "Claim your reward", class: 'button'  %>
+    <% if @reward.shipping %>   
+      <div class="row">
+      <div class="small-10 medium-6 large-6 small-centered columns">
+        <div class="row collapse">
+          <div class="small-2 columns">
+            <span class="prefix"><i class="fi-home"></i></span>
+          </div>
+          <div class="small-10 columns">
+            <%= text_field_tag :address, nil, placeholder: 'Your street address' %>
+          </div>
+        </div>
+        <div class="row collapse">
+          <div class="small-2 columns">
+            <span class="prefix"><i class="fi-address-book"></i></span>
+          </div>
+          <div class="small-10 columns">
+            <%= text_field_tag :postal_code, nil, placeholder: 'Your postal code' %>
+          </div>
+        </div>
+        <div class="row collapse">
+          <div class="small-2 columns">
+            <span class="prefix"><i class="fi-graph-bar"></i></span>
+          </div>
+          <div class="small-10 columns">
+            <%= text_field_tag :city, nil, placeholder: 'Your city' %>
+          </div>
+        </div>
+        <div class="row collapse">
+          <div class="small-2 columns">
+            <span class="prefix"><i class="fi-mountains"></i></span>
+          </div>
+          <div class="small-10 columns">
+            <%= select_tag :province, options_for_select(['Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Nova Scotia', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan', 'Northwest Territories', 'Nunavut', 'Yukon']), prompt: 'Select your province' %>
+          </div>
+        </div>
+        <div class="row collapse">
+          <div class="small-12 text-center columns">
+            <%= submit_tag "Claim your reward", class: 'button'  %>
+          </div>
+        </div>
       </div>
     </div>
     <% end %>
-  </div>
-</div>
-<% end %>
+
+
+
 </div>
 
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>

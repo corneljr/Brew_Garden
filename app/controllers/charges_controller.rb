@@ -20,7 +20,9 @@ class ChargesController < ApplicationController
 	    :capture => true
   	)
 
-  	redirect_to project_path(@project)
+  	@reward.pledges.create(user_id: current_user.id, project_id: @project.id, address: params[:address], postal_code: params[:postal_code], city: params[:city], province: params[:province])
+
+  	redirect_to project_path(@project), notice: 'Project successfully backed!'
 
 		rescue Stripe::CardError => e
 		  	flash[:error] = e.message
