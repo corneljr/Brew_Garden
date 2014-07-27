@@ -1,7 +1,7 @@
 <% if @project.slider_images.present? %>
 	<% @project.slider_images.each do |slider_image|%>
 		<div>
-		  <div><%= image_tag slider_image.slider_image.url %></div>
+		  <div><%= image_tag slider_image.slider_image.profile.url %></div>
 		</div>
 	<% end %>
 <% else %>

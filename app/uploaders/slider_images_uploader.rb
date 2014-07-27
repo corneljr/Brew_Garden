@@ -30,7 +30,7 @@ class SliderImagesUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :profile do
-    process :resize_to_fit => [700, 400]
+    process :resize_to_fit => [800, 500]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
