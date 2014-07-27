@@ -89,7 +89,6 @@ Rails.application.configure do
     }
 
   config.fog_directory = 'beergarden2'
-  config.asset_host = 'http://brewgarden.herokuapp.com/'
   config.fog_public = true
   end
 
