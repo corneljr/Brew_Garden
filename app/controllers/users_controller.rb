@@ -21,6 +21,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @projects = @user.projects.where(post_status: true)
+    @saved_projects = @user.projects.where(post_status: false)
   end
 
   def create

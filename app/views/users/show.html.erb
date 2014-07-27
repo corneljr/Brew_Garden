@@ -15,6 +15,17 @@
 				</ul>
 			</div>
 		</div>
+		<% if @user == current_user %>
+			<div class='saved-projects'>
+				<h6>Your saved projects</h6>
+				<ul>
+					<% @saved_projects.each do |project| %>
+						<li><%= link_to project.title, project %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+		
 	</div>
 	<div class='user-projects-container'>
 		<div class='user-project-nav-container'>
