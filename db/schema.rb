@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140726202318) do
+ActiveRecord::Schema.define(version: 20140728182230) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20140726202318) do
   create_table "projects", force: true do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "end_date"
     t.integer  "goal"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -50,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140726202318) do
     t.string   "short_blurb"
     t.string   "video_link"
     t.boolean  "post_status",   default: false
+    t.integer  "days_left"
   end
 
   create_table "rewards", force: true do |t|
