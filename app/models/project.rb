@@ -13,7 +13,7 @@ class Project < ActiveRecord::Base
 
 
 
-	validates :title, :description, :goal, :end_date, presence: true
+	validates :title, :description, :goal, :days_left, presence: true
 	validates :goal, numericality: { only_integer: true }
 	validates :title, length: { maximum: 125 }
 	validates :short_blurb, length: { maximum: 200 }, presence: true
