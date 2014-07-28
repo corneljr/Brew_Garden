@@ -42,9 +42,7 @@
         <%= f.label 'Project Logo', class: 'right inline' %>
       </div>
       <div class="small-10 columns">
-        <%= f.fields_for :logo do |r| %>
-          <%= render 'logo_fields', :f => r %>
-        <% end %>
+        <%= f.file_field :logo %>
       </div>
     </div>
 

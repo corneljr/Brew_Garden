@@ -25,17 +25,30 @@
 		  <% @project.errors.full_messages.each do |message| %>
 				<p class='error_messages'><%= message %></p>
 			<% end %>
-      <div class="small-12 columns">
 
-        <%= f.fields_for :slider_images do |r| %>
-          <%= render 'slider_image_fields', :f => r %>
-        <% end %>
-
-        <div class="small-12">
-        <%= link_to_add_association 'add another image', f, :slider_images, class: "button success tiny" %>
+      <div class='row'>
+        <div class='small-2 columns'>
+          <%= f.label 'Project Logo', class: 'right inline' %>
+        </div>
+        <div class="small-10 columns">
+          <%= f.file_field :logo %>
         </div>
       </div>
-		</div>
+   
+      <div class='row'>
+        <div class='small-2 columns'>
+          <%= f.label 'Project Images', class: 'right inline' %>
+        </div>
+        <div class="small-10 columns">
+          <%= f.fields_for :slider_images do |r| %>
+            <%= render 'slider_image_fields', :f => r %>
+          <% end %>
+          <div class="small-12">
+          <%= link_to_add_association 'add another image', f, :slider_images, class: "button success tiny" %>
+          </div>
+        </div>
+      </div>
+      
     <div class="row">
       <div class="small-2 columns">
         <%= f.label :video_link, class: 'right inline' %>
@@ -86,7 +99,7 @@
     </div>
     <div class="row">
       <div class="small-2 columns">
-				<%= f.label :days_left, 'Length of Campaign' class: 'right inline' %>
+				<%= f.label :days_left, 'Length of Campaign', class: 'right inline' %>
       </div>
       <div class="small-10 columns">
 				<%= f.date_field :days_left %>
