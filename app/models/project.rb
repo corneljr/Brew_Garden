@@ -3,7 +3,6 @@ class Project < ActiveRecord::Base
 	scope :current_projects, -> { where("days_left > ?", 0) }
 	scope :past_projects, -> { where("days_left == ?", 0) }
 
-
 	belongs_to :user
 	has_many :rewards, dependent: :destroy
 	has_many :pledges
@@ -11,21 +10,17 @@ class Project < ActiveRecord::Base
 	has_many :comments, :as => :commentable
 	has_many :slider_images, dependent: :destroy
 
-
-
-	validates :title, :description, :goal, :days_left, presence: true
+	validates :title, :logo, :description, :goal, :days_left, presence: true
 	validates :goal, numericality: { only_integer: true }
 	validates :title, length: { maximum: 125 }
 	validates :short_blurb, length: { maximum: 200 }, presence: true
 	validates :video_link, format: { with: /youtube/, message: 'must be uploaded to youtube'}
-
 
 	geocoded_by :get_location
 	before_save :geocode
 	mount_uploader :logo, LogoUploader
 
 	accepts_nested_attributes_for :slider_images, allow_destroy: true
-	accepts_nested_attributes_for :logo, allow_destroy: true
 	accepts_nested_attributes_for :rewards, reject_if: proc { |attributes| attributes["amount"].blank? || attributes["description"].blank? }, allow_destroy: true
 
 	def update_funded_amount
