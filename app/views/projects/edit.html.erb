@@ -23,7 +23,7 @@
     <div class="row">
       <!-- Form errors -->
 		  <% @project.errors.full_messages.each do |message| %>
-				<p><%= message %></p>
+				<p class='error_messages'><%= message %></p>
 			<% end %>
       <div class="small-12 columns">
 
