@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
 		elsif @category == 'Recently Launched'
 			@projects.order('created_at DESC')
 		elsif @category == 'Ending Soon'
-			@projects.order('created_at ASC')
+			@projects.order('days_left ASC')
 		elsif @category && @category != 'all'
 			@projects.where(category: @category)
 		else

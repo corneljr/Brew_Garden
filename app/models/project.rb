@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
 	scope :most_funded, -> { pledges.order('') }
 	scope :current_projects, -> { where("days_left > ?", 0) }
-	scope :past_projects, -> { where("end_date == ?", 0) }
+	scope :past_projects, -> { where("days_left == ?", 0) }
 
 
 	belongs_to :user
