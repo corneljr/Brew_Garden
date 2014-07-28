@@ -4,26 +4,16 @@
       <li class="name"></li>
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
-    <section class="top-bar-section">
-      <ul class="right">
-        <li><%= link_to 'Discover', projects_path %></li>
-        <li><%= link_to 'Create', new_project_path %></li>
-        <%= render 'layouts/navigation_links' %>
-      </ul>
-      <ul class="right">
-        <li class="has-form">
-          <div class="row collapse li-search">
-            <div class="small-11 columns text-right">
-            <label for="search" class="search-label">Find by:</label>
-              <input type="text" name="search" id="nav-search" placeholder="Name, style, location...">
-            </div>
-            <div class="small-1 columns">
-              <a href="#" class="nav-search button expand"><i class="fi-magnifying-glass"></i></a>
-            </div>
-          </div>
-        </li>
-      </ul>
-
+    <section class="top-bar-section row">
+      <div class="large-12 columns">
+        <ul class="padding-right">
+            <li><%= link_to 'Discover', projects_path %></li>
+            <li><%= link_to 'Create', new_project_path %></li>
+        </ul>
+        <ul class="right">
+          <%= render 'layouts/navigation_links' %>
+        </ul>
+      </div>
     </section>
   </nav>
 </div>
