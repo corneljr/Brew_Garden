@@ -39,6 +39,17 @@
 
     <div class='row'>
       <div class='small-2 columns'>
+        <%= f.label 'Project Logo', class: 'right inline' %>
+      </div>
+      <div class="small-10 columns">
+        <%= f.fields_for :logo do |r| %>
+          <%= render 'logo_fields', :f => r %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class='row'>
+      <div class='small-2 columns'>
         <%= f.label 'Project Images', class: 'right inline' %>
       </div>
       <div class="small-10 columns">

@@ -22,8 +22,10 @@ class Project < ActiveRecord::Base
 
 	geocoded_by :get_location
 	before_save :geocode
+	mount_uploader :logo, LogoUploader
 
 	accepts_nested_attributes_for :slider_images, allow_destroy: true
+	accepts_nested_attributes_for :logo, allow_destroy: true
 	accepts_nested_attributes_for :rewards, reject_if: proc { |attributes| attributes["amount"].blank? || attributes["description"].blank? }, allow_destroy: true
 
 	def update_funded_amount
