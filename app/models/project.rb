@@ -15,7 +15,6 @@ class Project < ActiveRecord::Base
 	validates :title, length: { maximum: 125 }
 	validates :short_blurb, length: { maximum: 200 }, presence: true
 	validates :video_link, format: { with: /youtube/, message: 'must be uploaded to youtube'}
-	validates_associated :slider_image
 
 	geocoded_by :get_location
 	before_save :geocode
