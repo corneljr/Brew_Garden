@@ -15,7 +15,6 @@ class Project < ActiveRecord::Base
 
 	validates :title, :description, :goal, :end_date, presence: true
 	validates :goal, numericality: { only_integer: true }
-	validate :date_check
 	validates :title, length: { maximum: 125 }
 	validates :short_blurb, length: { maximum: 200 }, presence: true
 	validates :video_link, format: { with: /youtube/, message: 'must be uploaded to youtube'}
@@ -27,28 +26,12 @@ class Project < ActiveRecord::Base
 	accepts_nested_attributes_for :slider_images, allow_destroy: true
 	accepts_nested_attributes_for :rewards, reject_if: proc { |attributes| attributes["amount"].blank? || attributes["description"].blank? }, allow_destroy: true
 
-
-	def date_check 
-		if end_date && (end_date < Date.today)
-			errors.add(:end_date, "The date must be in the future") 
-		end
-	end 
-
 	def update_funded_amount
 		amount = 0
 		self.pledges.each do |pledge|
 			amount += pledge.reward.amount
 		end
 		self.funded_amount = amount
-	end
-
-	def days_left
-		if ((self.end_date - Time.now)/(60 * 60 * 24)) > 0
-			days_left = ((self.end_date - Time.now)/(60 * 60 * 24)).round
-		else
-			days_left = 0
-		end
-		days_left
 	end
 
 	def get_location

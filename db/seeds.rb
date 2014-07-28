@@ -22,7 +22,7 @@ end
 end
 
 20.times do 
-	Project.create(user_id: rand(1..100), title: Faker::Company.catch_phrase, short_blurb: Faker::Lorem.sentences(2).join(' '), description: Faker::Lorem.paragraphs(10).join('<br><br>'), goal: rand(100000..5000000), end_date: Date.today + rand(1..60).days, category: categories[rand(0..3)], location: addresses[rand(0..6)], post_status: true, video_link: 'https://www.youtube.com/embed/watch?v=ETnlrYq7btE')
+	Project.create(user_id: rand(1..100), title: Faker::Company.catch_phrase, short_blurb: Faker::Lorem.sentences(2).join(' '), description: Faker::Lorem.paragraphs(10).join('<br><br>'), goal: rand(100000..5000000), end_date: rand(20..60), category: categories[rand(0..3)], location: addresses[rand(0..6)], post_status: true, video_link: 'https://www.youtube.com/embed/watch?v=ETnlrYq7btE')
 end
 
 100.times do 
