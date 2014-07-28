@@ -13,6 +13,16 @@ $side-nav-link-color-hover: #3d7423;
 // $header-font-family: Verdana;
 $side-nav-link-color: #999;
 
+
+// use some foundation core elements
+@import "foundation/components/grid";
+@import "foundation/components/type";
+@import "foundation/components/reveal";
+@import "foundation/components/visibility";
+@import "foundation/components/alert-boxes";
+
+
+// overwrite some headers
 h2 {
   color: #333 !important;
   font-family: 'Oswald' !important;
@@ -24,12 +34,6 @@ h5 {
   font-family: 'Roboto' !important;
   letter-spacing: 0.001em; }
 
-// foundation for some core elements
-@import "foundation/components/grid";
-@import "foundation/components/type";
-@import "foundation/components/reveal";
-@import "foundation/components/visibility";
-@import "foundation/components/alert-boxes";
 
 // Main logo
 .logo {
@@ -57,23 +61,28 @@ section {
 
 // mapbox
 #map, #map2 {
-  
+
   position: relative;
   bottom: 70px;
   width: 100%;
   height: 335px;
-  z-index: -1; 
+  z-index: -1;
 
 }
 
-// error message
+// error messages
 .error_messages {
   color: red !important;
-  h2 { 
+  h2 {
     font-family: 'Lato';
     font-size: 1.5rem;
     color: red !important;
     margin-bottom: 5px !important; }
+}
+
+// footer text
+footer p {
+  font-size: 0.8rem !important;
 }
 
 // alert box
