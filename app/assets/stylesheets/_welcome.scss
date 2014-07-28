@@ -18,7 +18,8 @@
   height: 784px;
   width: 100%;
   z-index: -999;
-  background-image: url(/img/bg03.jpg);
+  background-image: url(/img/bg-welcome.jpg);
+  background-position: top center;
   background-repeat: no-repeat; }
 
 .home-bg {
@@ -27,9 +28,9 @@
   height: 784px;
   width: 100%;
   z-index: -999;
-  // background-image: url(/img/bg03.jpg);
-  background-image: url(/img/bg04.jpg);
-  background-repeat: no-repeat; }
+  background-image: url(/img/bg-home.jpg);
+  background-position: top center;
+  background-repeat: repeat-x; }
 
 // slider styles
 .slider {
