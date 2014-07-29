@@ -2,6 +2,7 @@ class Project < ActiveRecord::Base
 	scope :most_funded, -> { pledges.order('') }
 	scope :current_projects, -> { where("days_left > ?", 0) }
 	scope :past_projects, -> { where("days_left == ?", 0) }
+	scope :newest_project, -> { where("post_status == ?", true).order(updated_at: :desc).limit(1) }
 
 	belongs_to :user
 	has_many :rewards, dependent: :destroy
