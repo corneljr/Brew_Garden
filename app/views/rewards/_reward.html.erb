@@ -17,23 +17,17 @@
 		<hr>
 	<% end %>
 <% else %>
+<%= link_to new_session_path do %>
 	<div class='reward-container'>
 		<div class="reward-description">
 			<p><strong>Pledge <%= number_to_currency(reward.amount / 100, precision: 0) %></strong></p>
 			<p><%= pluralize(reward.pledges.count, 'backer') %></p>
 			<p><%= reward.description %></p>
 		</div>
+		<div class="reward-selector">
+				<h4>Log in to pledge</h4>
+			</div>
 	</div>
+<% end %>	
 	<hr>
-<% end %>
-
-<%= javascript_tag do %>
-
-	window.current_user = <%= !session[:user_id] %>
-
-	if (window.current_user){
-		$('.stripe-button-el').hide();
-		$('.reward-description').last().append('<p><strong>Please log in to pledge</strong></p>')
-	};
-
 <% end %>
