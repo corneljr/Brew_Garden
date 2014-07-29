@@ -12,6 +12,7 @@
 <!-- Page header -->
 <div class="row">
   <div class="small-12 text-center columns">
+    <p class="text-left"><%= link_to @user do %><i class="fi-compass"></i> Back <% end %></p>
     <h2>Edit Profile</h2>
   </div>
 </div>
@@ -31,17 +32,21 @@
     <% end %>
     <div class="row collapse">
       <div class="small-2 columns">
+        <br>
         <span class="prefix"><i class="fi-torso"></i></span>
       </div>
-      <div class="small-10 columns">
+      <div class="helper-msg small-10 columns">
+        <span class="helpers">Choose an awesome user name.</span>
         <%= f.text_field :name, placeholder: current_user.name %>
       </div>
     </div>
     <div class="row collapse">
       <div class="small-2 columns">
+        <br>
         <span class="prefix"><i class="fi-mail"></i></span>
       </div>
-      <div class="small-10 columns">
+      <div class="helper-msg small-10 columns">
+        <span class="helpers">We promise not to spam you!</span>
         <%= f.text_field :email, placeholder: current_user.email %>
       </div>
     </div>
@@ -63,9 +68,11 @@
     </div>
     <div class="row collapse">
       <div class="small-2 columns">
+        <br>
         <span class="prefix"><i class="fi-paperclip"></i></span>
       </div>
-      <div class="small-10 columns">
+      <div class="helper-msg small-10 columns">
+        <span class="helpers">Choose your profile pic.</span>
         <%= f.file_field :avatar %>
       </div>
     </div>

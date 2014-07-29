@@ -23,10 +23,12 @@ $(document).ready( function(){
         $('.days-left').text($(this).val());
   });
 
-  $('.helper-msg').on('input', 'input', function() {
+  $('.helper-msg').on('focus', 'input', function() {
+    $('.helpers').animate({ 'opacity':'0'}, 200);
   	$(this).parent('.helper-msg').find('.helpers').animate({ 'opacity':'0.8'}, 800);
   });
-  $('.helper-msg').on('input', 'textarea', function() {
+  $('.helper-msg').on('focus', 'textarea', function() {
+    $('.helpers').animate({ 'opacity':'0'}, 200);
   	$(this).parent('.helper-msg').find('.helpers').animate({ 'opacity':'0.8'}, 800);
   });
 
