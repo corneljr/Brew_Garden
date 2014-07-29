@@ -3,5 +3,29 @@ $(document).ready( function(){
 		$('.save').removeAttr('disabled')
 		$('.post').attr('disabled','disabled')
   });	
+	// Update project title in realtime
+	$('#project_title').bind('input', function() {
+			$('.preview-title h1').text($(this).val());
+	});
+	// Update project description in realtime
+	$('#project_short_blurb').bind('input', function() {
+			$('.preview-description p').text($(this).val());
+	});
+
+  $('#project_days_left').bind('input', function() {
+        $('.days-left').text($(this).val());
+  });
+
+  $('.helper-msg').on('input', 'input', function() {
+  	$(this).parent('.helper-msg').find('.helpers').animate({ 'opacity':'0.8'}, 800);
+  });
+  $('.helper-msg').on('input', 'textarea', function() {
+  	$(this).parent('.helper-msg').find('.helpers').animate({ 'opacity':'0.8'}, 800);
+  });
+
+  $('iframe').on('input', function() {
+  			alert('what');
+  });
+
 });
  
