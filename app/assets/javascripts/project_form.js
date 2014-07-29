@@ -3,7 +3,14 @@ $(document).ready( function(){
 		$('.save').removeAttr('disabled')
 		$('.post').attr('disabled','disabled')
   });	
-	// Update project title in realtime
+	// Update project title in realtime 
+  var title = $('#project_title').val();
+  $('.preview-title h1').text(title)
+
+  var shortBlurb = $('#project_short_blurb').val();
+  $('.preview-description p').text(shortBlurb);
+
+
 	$('#project_title').bind('input', function() {
 			$('.preview-title h1').text($(this).val());
 	});
