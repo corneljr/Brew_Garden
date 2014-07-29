@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728191114) do
+ActiveRecord::Schema.define(version: 20140729195806) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20140728191114) do
     t.boolean  "post_status",   default: false
     t.integer  "days_left"
     t.string   "logo"
+    t.string   "tmsg"
+    t.string   "hashtags"
   end
 
   create_table "rewards", force: true do |t|
