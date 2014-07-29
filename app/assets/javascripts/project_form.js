@@ -31,7 +31,7 @@ $(document).ready( function(){
   });
 
   $('iframe').on('input', function() {
-  			alert('what');
+  	alert('what');
   });
 
   $(".logo-input").change(function(){

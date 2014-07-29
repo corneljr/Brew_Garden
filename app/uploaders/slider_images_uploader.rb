@@ -30,7 +30,7 @@ class SliderImagesUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :profile do
-    process :resize_to_fit => [1000, 500]
+    process :resize_to_fit => [800, 350]
   end
 
   version :card do
