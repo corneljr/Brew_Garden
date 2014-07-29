@@ -148,6 +148,37 @@
 				<%= f.number_field :goal, placeholder: 'Funding goal', min: 1000  %>
       </div>
     </div>
+
+    <div class="row">
+        <div class="small-8 columns"><h4>Twitter reward</h4></div>
+        <hr>
+    </div>
+
+    <div class='reward-container'>
+      <div class="row">
+        <div class="small-2 columns">
+          <br>
+          <%= f.label :tmsg, 'Message', class: 'right inline' %>
+        </div>
+        <div class="helper-msg small-10 columns">
+          <span class="helpers">Choose a message for your tweet.</span>
+          <%= f.text_field :tmsg %>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-2 columns">
+          <br>
+          <%= f.label :hashtags, 'Hashtags', class: 'right inline' %>
+        </div>
+        <div class="helper-msg small-10 columns">
+          <span class="helpers">Pick some hashtags. Seperate each with a comma.</span>
+          <%= f.text_field :hashtags %>
+
+        </div>
+      </div>
+    </div>
+
 		<!-- Rewards -->
     <div class="row">
     	<div class="small-8 columns"><h4>Add your rewards</h4></div>
