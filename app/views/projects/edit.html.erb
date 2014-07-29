@@ -103,7 +103,7 @@
   				<%= f.label :days_left, 'Length of Campaign', class: 'right inline' %>
         </div>
         <div class="small-10 columns">
-  				<%= f.number_field :days_left %>
+  				<%= f.number_field :days_left, in: 20..60 %>
         </div>
       </div>
       <div class="row">
@@ -111,7 +111,7 @@
   				<%= f.label :goal, class: 'right inline' %>
         </div>
         <div class="small-10 columns">
-  				<%= f.number_field :goal, placeholder: 'Funding goal' %>
+  				<%= f.number_field :goal, placeholder: 'Funding goal', min: 1000 %>
         </div>
       </div>
 

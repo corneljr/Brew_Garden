@@ -1,10 +1,10 @@
 <div class="small-12 panel columns">
   <div class="row">
     <div class="small-2 columns">
-      <%= f.label :amount, class: 'right inline' %>
+      <%= f.label :amount, 'Required Pledge Amount', class: 'right inline' %>
     </div>
     <div class="small-10 columns">
-      <%= f.number_field :amount, placeholder: 'Reward amount' %>
+      <%= f.number_field :amount, placeholder: 'Reward amount', min: '1' %>
     </div>
   </div>
   <div class="row">
@@ -20,12 +20,12 @@
       <%= f.label :pledges_left, 'Backers', class: 'right inline' %>
     </div>
     <div class="small-10 columns">
-      <%= f.text_field :pledges_left, placeholder: 'Max number of backers' %>
+      <%= f.number_field :pledges_left, placeholder: 'Max number of backers', min: 1 %>
     </div>
   </div>
   <div class="row">
     <div class="small-2 columns">
-      <%= f.label :shipping, 'Do you require shipping?', class: 'right inline' %>
+      <%= f.label :shipping, 'Does this reward require shipping?', class: 'right inline' %>
     </div>
     <div class="small-10 columns">
       <%= f.check_box :shipping %>
