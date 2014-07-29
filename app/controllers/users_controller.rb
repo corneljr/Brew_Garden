@@ -57,7 +57,6 @@ class UsersController < ApplicationController
   end
 
   def upload_image
-    binding.pry
     @user.avatar = params[:avatar]
     @user.save(validate: false)
     redirect_to @user
