@@ -127,7 +127,8 @@
       </div>
       <div class="helper-msg small-10 columns">
         <span class="helpers">We recommend 30 days but its up to you how long your promotion lasts.</span>
-				<%= f.number_field :days_left %>
+				<%= f.number_field :days_left, in: 20..60  %>
+
       </div>
     </div>
     <div class="row">
@@ -137,7 +138,7 @@
       </div>
       <div class="helper-msg small-10 columns">
         <span class="helpers">Every promotion has a goal. Let us know yours.</span>
-				<%= f.number_field :goal, placeholder: 'Funding goal' %>
+				<%= f.number_field :goal, placeholder: 'Funding goal', min: 1000  %>
       </div>
     </div>
 		<!-- Rewards -->

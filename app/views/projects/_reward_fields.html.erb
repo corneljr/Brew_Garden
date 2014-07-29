@@ -6,7 +6,8 @@
     </div>
     <div class="helper-msg small-10 columns">
       <span class="helpers">How much does a person have to pledge to recieve a reward.</span>
-      <%= f.number_field :amount, placeholder: 'Reward amount' %>
+      <%= f.number_field :amount, placeholder: 'Reward amount', min: 1 %>
+
     </div>
   </div>
   <div class="row">
@@ -24,14 +25,18 @@
       <br>
       <%= f.label :pledges_left, 'Backers', class: 'right inline' %>
     </div>
+  <div class="row">
+    <div class="small-2 columns">
+      <%= f.label :shipping, 'Does this reward require shipping?', class: 'right inline' %>
+
     <div class="helper-msg small-10 columns">
       <span class="helpers">How many rewards are available?</span>
-      <%= f.text_field :pledges_left, placeholder: 'Max number of backers' %>
+      <%= f.text_field :pledges_left, placeholder: 'Max number of backers', min: 1 %>
+
     </div>
   </div>
   <div class="row">
     <div class="small-6 columns">
-
       <%= f.label :shipping, 'Do this reward require shipping?', class: 'right inline' %>
     </div>
     <div class="small-6 columns">
