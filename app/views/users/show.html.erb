@@ -16,6 +16,12 @@
 			</div>
 		</div>
 		<% if @user == current_user %>
+			<div class='upload-image'>
+				<%= form_tag user_upload_image_path(@user), multipart: true do  %>
+					<%= file_field_tag :avatar, class: 'avatar-upload' %>
+					<%= submit_tag 'upload image' %>
+				<% end %>
+			</div>
 			<div class='saved-projects'>
 				<h6>Your saved projects</h6>
 				<ul>

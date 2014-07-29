@@ -58,6 +58,7 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 group :development  do
   gem 'spring'
   gem 'pry-rails'
+  gem 'pry-byebug'
   gem 'quiet_assets'
   # gem 'better_errors'
   # gem 'binding_of_caller'

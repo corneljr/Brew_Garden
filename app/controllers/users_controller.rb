@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :load_user, only: [:edit, :update, :show, :projects, :pledges, :comments]
+  before_action :load_user, only: [:edit, :update, :show, :projects, :pledges, :comments, :upload_image]
   before_action :require_login, only: [:edit, :update]
 
   def new
@@ -54,6 +54,13 @@ class UsersController < ApplicationController
     if request.xhr?
       render partial: 'user_comments'
     end
+  end
+
+  def upload_image
+    binding.pry
+    @user.avatar = params[:avatar]
+    @user.save(validate: false)
+    redirect_to @user
   end
 
   private

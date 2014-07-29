@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get '/search', to: 'projects#search', as: 'project_search'
   get '/projects/category/:category', to: 'projects#category', as: 'project_category'
 
+  post '/users/:id/upload_image', to: 'users#upload_image', as: 'user_upload_image'
   get '/users/:id/backed', to: 'users#pledges', as: 'user_pledges'
   get '/users/:id/created', to: 'users#projects', as: 'user_projects'
   get '/users/:id/comments', to: 'users#comments'
