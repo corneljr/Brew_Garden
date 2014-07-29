@@ -21,4 +21,9 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail(to: @user.email, subject: 'Welcome to the BREW GARDEN')
   end
+
+  def contact_us_email(info)
+    @info = info
+    mail(to: 'contact@brewgarden.ca', subject: 'Inquiry at Brewgarden.ca')
+  end
 end
