@@ -66,7 +66,7 @@
         <%= f.label :video_link, class: 'right inline' %>
       </div>
       <div class="helper-msg small-10 columns">
-        <span class="helpers">ookkkkk</span>
+        <span class="helpers">This is very important! Paste a Youtube link here.</span>
         <%= f.text_field :video_link, placeholder: 'Project Video Link' %>
       </div>
     </div>
@@ -77,7 +77,7 @@
         <%= f.label :title, class: 'right inline' %>
       </div>
       <div class="helper-msg small-10 columns">
-        <span class="helpers">ookkkkk</span>
+        <span class="helpers">Come up with something catchy. Make this short and sweet.</span>
         <%= f.text_field :title, maxlength: 50, placeholder: 'Project title' %>
       </div>
     </div>
@@ -88,7 +88,7 @@
         <%= f.label :location, class: 'right inline' %>
       </div>
       <div class="helper-msg small-10 columns">
-        <span class="helpers">ookkkkk</span>
+        <span class="helpers">Choose either brewery or event location.</span>
         <%= f.text_field :location, placeholder: 'Address or Location' %>
       </div>
     </div>
@@ -110,7 +110,7 @@
         <%= f.label :short_blurb, class: 'right inline' %>
       </div>
       <div class="helper-msg small-10 columns">
-        <span class="helpers">ookkkkk</span>
+        <span class="helpers">Why is this promotion important?</span>
         <%= f.text_area :short_blurb, placeholder: 'Short Blurb' %>
       </div>
     </div>
@@ -132,8 +132,9 @@
 				<%= f.label :days_left, 'Length of Campaign', class: 'right inline' %>
       </div>
       <div class="helper-msg small-10 columns">
-        <span class="helpers">ookkkkk</span>
-				<%= f.number_field :days_left, in: 20..60 %>
+        <span class="helpers">We recommend 30 days but its up to you how long your promotion lasts.</span>
+				<%= f.number_field :days_left, in: 20..60  %>
+
       </div>
     </div>
 
@@ -143,8 +144,8 @@
 				<%= f.label :goal, class: 'right inline' %>
       </div>
       <div class="helper-msg small-10 columns">
-        <span class="helpers">ookkkkk</span>
-				<%= f.number_field :goal, placeholder: 'Funding goal', min: 1000 %>
+        <span class="helpers">Every promotion has a goal. Let us know yours.</span>
+				<%= f.number_field :goal, placeholder: 'Funding goal', min: 1000  %>
       </div>
     </div>
 		<!-- Rewards -->
