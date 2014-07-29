@@ -5,7 +5,7 @@
 // small-project panel mixin
 .project-panel {
   backgrdound-color: #F5F5F5;
-  border-radius: 8px;
+  // border-radius: 8px;
   min-height: 450px;
 
   .panel-img {
@@ -60,7 +60,8 @@
   img {
     width: 195px;
     height: 195px;
-    border-radius: 50%; }
+    // border-radius: 50%; 
+  }
 
   @include panel(
     $padding: 10px
