@@ -90,7 +90,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
-		@rewards = @project.rewards
+		@rewards = @project.rewards.order('amount asc')
 		@commentable = find_commentable
   	@comments = @project.comments
   	@end_date = date_format(Date.today + @project.days_left.days)

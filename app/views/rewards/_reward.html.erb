@@ -1,16 +1,20 @@
 <% if reward.project.days_left > 0 && current_user %>
-	<%= link_to project_reward_path(reward.project, reward) do %><div class='reward-container'>
-		<div class="reward-description">
-			<h4 class="text-center"><strong>Pledge <%= number_to_currency(reward.amount / 100, precision: 0) %></strong></h4>
-			<hr>
-			<h5><%= pluralize(reward.pledges.count, 'backer') %></h5>
-			<p><%= reward.description %></p>
-			
+	<%= link_to project_reward_path(reward.project, reward) do %>
+		<div class='reward-container'>
+			<div class="reward-description">
+				<h6 class="text-left"><strong>Pledge <%= number_to_currency(reward.amount / 100, precision: 0) %></strong></h6>
+				<br>
+				<h7><strong><i class='fi-torsos'></i> <%= pluralize(reward.pledges.count, 'backer') %></strong></h7>
+				<br>
+				<br>
+				<p><%= reward.description %></p>
+				
+			</div>
+			<div class="reward-selector">
+				<h4>Select this reward</h4>
+			</div>
 		</div>
-		<div class="reward-selector">
-			<h4>Select this reward</h4>
-		</div>
-	</div>
+		<hr>
 	<% end %>
 <% else %>
 	<div class='reward-container'>
@@ -20,6 +24,7 @@
 			<p><%= reward.description %></p>
 		</div>
 	</div>
+	<hr>
 <% end %>
 
 <%= javascript_tag do %>

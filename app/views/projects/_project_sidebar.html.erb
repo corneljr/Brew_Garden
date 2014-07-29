@@ -17,27 +17,17 @@
 <div class="small-12 reward-panel">
 	
 	<!-- Twitter -->
-	<p class="text-center"><a href="https://twitter.com/intent/tweet" class="twitter-share-button" data-text="this is example text" data-hashtags="craftbrew, brew"></a></p>
-	<h7 class="yo">Support by sharing this promotion over Twitter.</h7>
-  <br>
-  <hr>
-
-<!-- <h6>Facebook</h6>
-	
-	
-	<p class="text-center"><div id="fb-root"></div></p>
-	<div class="fb-share-button" data-href="/<%= projects_path(@project) %>" data-width="100"></div>
+	<div class='reward-container'>
+		<div class='reward-description'>
+			<p class="text-center"><a href="https://twitter.com/intent/tweet" class="twitter-share-button" data-text="this is example text" data-hashtags="craftbrew, brew"></a></p>
+			<h7 class="yo">Support by sharing this promotion over Twitter.</h7>
+		</div>
+	</div>
 	<br>
-	<h7>Support by sharing this promotion over Facebook.</h7>
-	<hr> -->
-
 
 	<%= render @rewards %>
 </div>
 
-<script>
-	$('.stripe-button-el > span').text('Select Reward');
-</script>
 <script type="text/javascript">
 	window.twttr = (function (d,s,id) {
 	  var t, js, fjs = d.getElementsByTagName(s)[0];
