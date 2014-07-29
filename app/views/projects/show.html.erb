@@ -14,7 +14,7 @@
 	<div class="small-12 columns text-center">
 		<h2><strong><%= @project.title %></strong></h2>
 		<h5>by <%= link_to @project.user.name, @project.user %></h5>
-		<p class='project-cagegory-location'><i class='fi-price-tag'></i><%= @project.category %> &nbsp; <i class='fi-target-two'></i><%= @location %></p>
+		<p class='project-category-location'><i class='fi-price-tag'></i> <%= link_to @project.category, project_category_path(@project.category) %> &nbsp; <i class='fi-compass'></i> <%= link_to @location, "/search?q=#{@location}" %></p>
 		<hr>
 	</div>
 </div>
