@@ -1,5 +1,9 @@
 // project page modules
 
+.project-category-location {
+	color: #828587;
+}
+
 .stat-panel {
   border: 1px solid #DDD;
   padding: 15px;
@@ -102,6 +106,7 @@
 
 .change-location {
 	font-size: 0.9rem;
+	text-decoration: underline;
 }
 
 .project-creator-index {
@@ -271,7 +276,6 @@
 @import "bourbon";
 
 .reward-container {
-	border: 1px solid #3d7423;
 	padding: 15px;
 	height: 12rem;
   @include position(relative, 0 0 0 0);

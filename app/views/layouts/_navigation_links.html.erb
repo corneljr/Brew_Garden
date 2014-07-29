@@ -8,8 +8,7 @@
 	  </ul>
 	</li>
 <% else %>
-	<li class="has-dropdown"><a href="#">You &nbsp;</a>
-	  <ul class="dropdown">
+	  <ul class="">
 	    <li><%= link_to "Sign up", new_user_path %></li>
 	    <li><%= link_to "Log in", login_path, data: { :'reveal-id' => 'login'}  %> </li>
 	  </ul>
