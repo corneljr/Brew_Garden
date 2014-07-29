@@ -106,7 +106,10 @@
 
 .change-location {
 	font-size: 0.9rem;
-	text-decoration: underline;
+
+	&:hover {
+		text-decoration: underline;
+	}
 }
 
 .project-creator-index {
