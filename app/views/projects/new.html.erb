@@ -42,7 +42,7 @@
         <%= f.label 'Project Logo', class: 'right inline' %>
       </div>
       <div class="small-10 columns">
-        <%= f.file_field :logo %>
+        <%= f.file_field :logo, class: 'logo-input' %>
       </div>
     </div>
 
@@ -168,7 +168,7 @@
     <div class="small-12 medium-12 large-12 left columns">
       <div class="project-panel">
         <div class="panel-img">
-          <%= image_tag("/img/logo.png", size: "115") %>
+          <%= image_tag "/img/logo.png", size: "115", class: 'preview-logo' %>
           <p class="text-right"><small>By: <%= current_user.name  %></small></p>
         </div>
         <div class="preview-title"><h1>Your title</h1></div>
