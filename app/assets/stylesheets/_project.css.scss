@@ -308,12 +308,19 @@
     line-height: 12rem;
     margin: 0;
   	color: #fff;
+  	z-index: -10;
   }
 }
 
 .helpers {
-
   opacity: 0;
   color: #3d7423;
-
 } 
+
+#custom-tweet-button a {
+    display: block;
+    padding: 80px;
+    background: url('https://twitter.com/favicons/favicon.ico') 1px center no-repeat;
+    background-size: cover;
+    border: 1px solid white;
+  }
