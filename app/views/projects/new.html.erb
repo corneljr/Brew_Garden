@@ -42,7 +42,7 @@
         <%= f.label 'Project Logo', class: 'right inline' %>
       </div>
       <div class="small-10 columns">
-        <%= f.file_field :logo %>
+        <%= f.file_field :logo, class: 'logo-input' %>
       </div>
     </div>
 
@@ -70,6 +70,7 @@
         <%= f.text_field :video_link, placeholder: 'Project Video Link' %>
       </div>
     </div>
+
 	  <div class="row">
       <div class="small-2 columns">
         <br>
@@ -80,6 +81,7 @@
         <%= f.text_field :title, maxlength: 50, placeholder: 'Project title' %>
       </div>
     </div>
+
 		<div class="row">
       <div class="small-2 columns">
         <br>
@@ -90,6 +92,7 @@
         <%= f.text_field :location, placeholder: 'Address or Location' %>
       </div>
     </div>
+
     <div class="row">
       <div class="small-2 columns">
         <br>
@@ -100,6 +103,7 @@
         <%= f.select :category, options_for_select(['Brewpub', 'Contract Brewery', 'Craft Division', 'brewery']), prompt: 'Category' %>
       </div>
     </div>
+
     <div class="row">
       <div class="small-2 columns">
         <br>
@@ -110,6 +114,7 @@
         <%= f.text_area :short_blurb, placeholder: 'Short Blurb' %>
       </div>
     </div>
+
     <div class="row">
       <div class="small-2 columns">
         <br>
@@ -120,6 +125,7 @@
 				<%= f.text_area :description, placeholder: 'Description', class: 'ckeditor' %>
       </div>
     </div>
+
     <div class="row">
       <div class="small-2 columns">
         <br>
@@ -131,6 +137,7 @@
 
       </div>
     </div>
+
     <div class="row">
       <div class="small-2 columns">
         <br>
@@ -147,14 +154,11 @@
 			<hr>
     </div>
 
-    <div class="small-12 columns">
-      <%= f.fields_for :rewards do |r| %>
-        <%= render 'reward_fields', :f => r %>
-      <% end %>
-      <div class="small-12">
-      <%= link_to_add_association 'add another reward', f, :rewards, class: "button success tiny" %>
-      </div>
-		</div>
+    <%= f.fields_for :rewards do |r| %>
+      <%= render 'reward_fields', :f => r %>
+    <% end %>
+
+    <%= link_to_add_association 'add another reward', f, :rewards, class: "button success tiny" %>
 
 	</div>
 
@@ -163,7 +167,7 @@
     <div class="small-12 medium-12 large-12 left columns">
       <div class="project-panel">
         <div class="panel-img">
-          <%= image_tag("/img/logo.png", size: "115") %>
+          <%= image_tag "/img/logo.png", size: "115", class: 'preview-logo' %>
           <p class="text-right"><small>By: <%= current_user.name  %></small></p>
         </div>
         <div class="preview-title"><h1>Your title</h1></div>
@@ -193,9 +197,8 @@
       <%= link_to 'Post', '#', disabled: true, class:'button large' %>
     </div>
   </div>
-
-</div>
 <% end %>
+</div>
 
 
 

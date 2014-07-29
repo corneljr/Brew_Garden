@@ -31,7 +31,7 @@
             <%= f.label 'Project Logo', class: 'right inline' %>
           </div>
           <div class="small-10 columns">
-            <%= f.file_field :logo %>
+            <%= f.file_field :logo, class: 'logo-input' %>
           </div>
         </div>
       </div>
@@ -148,7 +148,7 @@
       <div class="small-12 medium-12 large-12 left columns">
         <div class="project-panel">
           <div class="panel-img">
-            <img src="/img/logo03.jpg" style="opacity: .2;">
+            <%= image_tag @project.logo.card.url, class: 'preview-logo' %>
             <p class="text-right"><small>By: <%= current_user.email  %></small></p>
           </div>
           <div class="preview-title"><h1>Your title</h1></div>
