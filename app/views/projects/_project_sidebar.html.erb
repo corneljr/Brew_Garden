@@ -19,9 +19,9 @@
 	<!-- Twitter -->
 	<div class='reward-container'>
 		<div class='reward-description'>
-			Pledge a Tweet! 
-			<div id="custom-tweet-button">
-			  <a  class='project-logo'  href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fbrewgarden.ca%2Fprojects%2F&text=support%20your%20brewery%20with%20a%20creative%20tweet" data-text="this is example text" data-hashtags="craftbrew, brew"></a>
+			<strong>Pledge a Tweet!</strong> 
+			<div id="custom-tweet-button" data-user="<%= current_user.email %>">
+			  <a  class='project-logo'  href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fbrewgarden.ca%2Fprojects%2F<%= @project.id %>&text=support%20your%20brewery%20with%20a%20creative%20tweet&hashtags=brewgarden,boob"></a>
 			</div>	
 		</div>
 	</div>
@@ -40,12 +40,13 @@
  
 
 	twttr.ready(function (twttr) {
-  // Now bind our custom intent events
-  twttr.events.bind('tweet', function() {
-  	alert('you tweeted');
-  });
+	  // Now bind our custom intent events
+	  twttr.events.bind('tweet', function(data) {
+	  	console.log(data);
+	  	alert('you tweeted');
+	  	var user = $('#custom-tweet-button').data('user');
+	  	alert(user);
+	  });
   
-});
-
-	// window.FB.Event.subscribe('edge.create', function(){ alert('whta');})
+	});
 </script>
