@@ -27,12 +27,12 @@
 }
 
 .btn-red {
-  @include button (simple, #3d7423);
+  @include button (simple, #d10000);
   @include transition (all 0.2s ease-out);
   font-family: 'Lato';
-  font-size: 1.1em;
+  font-size: 0.9rem;
   font-weight: bold;
-  padding: 15px;
+  padding: 10px;
   -moz-box-shadow: 0 0px 8px rgba(255,255,255,0.4);
   -webkit-box-shadow: 0 0px 8px rgba(255,255,255,0.4);
   &:hover{

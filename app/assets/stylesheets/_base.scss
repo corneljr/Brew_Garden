@@ -22,13 +22,17 @@ $side-nav-link-color: #999;
 // overwrite some headers
 h2 {
   color: #333 !important;
-  font-family: 'Oswald' !important;
-  font-weight: bold !important;
+  font-family: 'Merriweather', cursive;
+  font-weight: bold;
   margin-bottom: 20px !important; }
+
+h3 {
+  font-family: 'Merriweather';
+  font-weight: bold; }
 
 h5 {
   color: #333 !important;
-  font-family: 'Roboto' !important;
+  font-family: 'Merriweather' !important;
   letter-spacing: 0.001em; }
 
 
