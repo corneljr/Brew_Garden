@@ -1,34 +1,47 @@
 <div class="small-12 panel columns">
   <div class="row">
     <div class="small-2 columns">
-      <%= f.label :amount, 'Required Pledge Amount', class: 'right inline' %>
+      <br>
+      <%= f.label :amount, class: 'right inline' %>
     </div>
-    <div class="small-10 columns">
-      <%= f.number_field :amount, placeholder: 'Reward amount', min: '1' %>
+    <div class="helper-msg small-10 columns">
+      <span class="helpers">ookkkkk</span>
+      <%= f.number_field :amount, placeholder: 'Reward amount', min: 1 %>
     </div>
   </div>
   <div class="row">
     <div class="small-2 columns">
+      <br>
       <%= f.label :description, class: 'right inline' %>
     </div>
-    <div class="small-10 columns">
+    <div class="helper-msg small-10 columns">
+      <span class="helpers">ookkkkk</span>
       <%= f.text_area :description, placeholder: 'Reward Description' %>
     </div>
   </div>
   <div class="row">
     <div class="small-2 columns">
+      <br>
       <%= f.label :pledges_left, 'Backers', class: 'right inline' %>
     </div>
-    <div class="small-10 columns">
-      <%= f.number_field :pledges_left, placeholder: 'Max number of backers', min: 1 %>
-    </div>
-  </div>
   <div class="row">
     <div class="small-2 columns">
       <%= f.label :shipping, 'Does this reward require shipping?', class: 'right inline' %>
+
+    <div class="helper-msg small-10 columns">
+      <span class="helpers">ookkkkk</span>
+      <%= f.text_field :pledges_left, placeholder: 'Max number of backers', min: 1 %>
     </div>
-    <div class="small-10 columns">
+  </div>
+  <div class="row">
+    <div class="small-6 columns">
+      <%= f.label :shipping, 'Do this reward require shipping?', class: 'right inline' %>
+    </div>
+    <div class="small-6 columns">
+      <br>
       <%= f.check_box :shipping %>
+      <br>
+       <span class="helpers">ookkkkk</span>
     </div>
   </div>
   <div class="row">
