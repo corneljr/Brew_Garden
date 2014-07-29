@@ -45,12 +45,13 @@
   <h2>Contact Us</h2>
   <div class="row">
     <div class="small-10 medium-10 large-10 small-centered columns">
+      <%= form_tag({controller: 'welcome', action: 'contact'}, method: :post) do %>
       <div class="row collapse">
         <div class="small-2 columns">
           <span class="prefix"><i class="fi-torso"></i></span>
         </div>
         <div class="small-10 columns">
-          <%= text_field :name, :name, placeholder: 'Your name' %>
+          <%= text_field :contact, :name, placeholder: 'Your name' %>
         </div>
       </div>
       <div class="row collapse">
@@ -58,7 +59,7 @@
           <span class="prefix"><i class="fi-mail"></i></span>
         </div>
         <div class="small-10 columns">
-          <%= text_field :email, :email, placeholder: 'Your email' %>
+          <%= text_field :contact, :email, placeholder: 'Your email' %>
         </div>
       </div>
       <div class="row collapse">
@@ -66,7 +67,7 @@
           <span class="prefix"><i class="fi-comment-quotes"></i></span>
         </div>
         <div class="small-10 columns">
-          <%= text_area :message, :message, rows: 5, placeholder: 'Your message' %>
+          <%= text_area :contact, :message, rows: 5, placeholder: 'Your message' %>
         </div>
       </div>
       <div class="row collapse">
@@ -74,6 +75,7 @@
           <%= submit_tag "Submit", class: 'button'  %>
         </div>
       </div>
+      <% end %>
     </div>
   </div>
   <a class="close-reveal-modal">&#215;</a>
