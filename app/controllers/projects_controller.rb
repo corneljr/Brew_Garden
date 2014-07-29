@@ -64,9 +64,17 @@ class ProjectsController < ApplicationController
 
 	def search
 		@search = params[:q]
+		@results = []
 
-		@results = @projects.where("LOWER(title) LIKE LOWER(?)", "%#{@search}%")
-		@results = @results.push(@projects.where("LOWER(category) LIKE LOWER(?)", "%#{@search}%"))
+		@users = User.where("LOWER(name) LIKE LOWER(?)", "%#{@search}%")
+		if @users.present?
+			@users.each do |user|
+				@results << user.projects.where(post_status: true)
+			end
+		end
+
+		@results.push(@projects.where("LOWER(title) LIKE LOWER(?)", "%#{@search}%"))
+		@results.push(@projects.where("LOWER(category) LIKE LOWER(?)", "%#{@search}%"))
 		@results = @results.flatten.uniq
 		@location_results = @projects.near(@search, 30)
 
