@@ -154,13 +154,12 @@
 			<hr>
     </div>
 
-      <%= f.fields_for :rewards do |r| %>
-        <%= render 'reward_fields', :f => r %>
-      <% end %>
+    <%= f.fields_for :rewards do |r| %>
+      <%= render 'reward_fields', :f => r %>
+    <% end %>
 
-      <%= link_to_add_association 'add another reward', f, :rewards, class: "button success tiny" %>
-      </div>
-		</div>
+    <%= link_to_add_association 'add another reward', f, :rewards, class: "button success tiny" %>
+
 	</div>
 
   <!-- Sample project panel -->
