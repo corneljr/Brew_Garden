@@ -95,6 +95,7 @@ class ProjectsController < ApplicationController
   	@comments = @project.comments
   	@location = Geocoder.search(@project.location).first.city
   	@end_date = date_format(Date.today + @project.days_left.days)
+
   	if request.xhr?
   		render partial: 'show_info'
   	end

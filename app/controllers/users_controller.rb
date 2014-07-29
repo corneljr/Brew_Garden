@@ -23,6 +23,8 @@ class UsersController < ApplicationController
   def show
     @projects = @user.projects.where(post_status: true)
     @saved_projects = @user.projects.where(post_status: false)
+    @comments = @user.comments
+    @pledges = @user.pledges
   end
 
   def create

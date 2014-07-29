@@ -30,24 +30,24 @@
 	<div class='user-projects-container'>
 		<div class='user-project-nav-container'>
 			<ul class='user-project-nav'>
-				<% if @user.pledges.present? %>
-					<li class='user-project-nav-item'><%= link_to 'Backed', '#', class: 'user-link' %> (<%= @user.pledges.count %>)</li>
+				<% if @pledges.present? %>
+					<li class='user-project-nav-item'><%= link_to 'Backed', '#', class: 'user-link' %> (<%= @pledges.count %>)</li>
 				<% end %>
-				<% if @user.projects.present? %>
-					<li class='user-project-nav-item'><%= link_to 'Created', '#', class: 'user-link' %> (<%= @user.projects.count %>)</li>
+				<% if @projects.present? %>
+					<li class='user-project-nav-item'><%= link_to 'Created', '#', class: 'user-link' %> (<%= @projects.count %>)</li>
 				<% end %>
-				<% if @user.comments.present? %>
-					<li class='user-project-nav-item'><%= link_to 'Comments', '#', class: 'user-link' %> (<%= @user.comments.count %>)</li>
+				<% if @comments.present? %>
+					<li class='user-project-nav-item'><%= link_to 'Comments', '#', class: 'user-link' %> (<%= @comments.count %>)</li>
 				<% end %>
 			</ul>
 		</div>
 		<div class='user-project-info'>
 			<% if @user.pledges.present? %>
-				<%= render 'user_pledges' %>
+				<%= render partial: 'user_pledges', collection: @pledges %>
 			<% elsif @user.projects.present? %>
-				<%= render 'user_projects' %>
+				<%= render partial: 'user_projects' %>
 			<% elsif @user.comments.present? %>
-				<%= render 'user_comments' %>
+				<%= render partial: 'user_comments', collection: @comments %>
 			<% else %>
 				<h4>There is no action to display for this user</h4>
 			<% end %>

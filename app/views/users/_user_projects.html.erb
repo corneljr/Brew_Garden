@@ -1,7 +1,8 @@
-<% @user.projects.each do |project| %>
-	<%#= image_tag pledge.project.image.thumb.url %>
+<% @projects.each do |project| %>
 	<div class='user-project-container'>
-		<a href="<%= project_path(project) %>"><%= image_tag project.logo.card.url, class: 'user-project-image' %></a>
+		<%= link_to project_path(project) do %>
+			<%= image_tag project.logo.card.url, class: 'user-project-image' %>
+		<% end %>
 		<figcaption class='project-caption'><%= link_to project.title, project %></figcapion>
 	</div>
 <% end %>
