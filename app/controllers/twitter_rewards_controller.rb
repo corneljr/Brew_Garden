@@ -1,0 +1,3 @@
+class TwitterRewardsController < ApplicationController
+
+end

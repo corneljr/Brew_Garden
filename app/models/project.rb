@@ -6,13 +6,14 @@ class Project < ActiveRecord::Base
 
 	belongs_to :user
 	has_many :rewards, dependent: :destroy
+	has_one :twitter_reward, dependent: :destroy
 	has_many :pledges
 	has_many :updates
 	has_many :comments, :as => :commentable
 	has_many :slider_images, dependent: :destroy
 
-	validates :title, :description, :category, :goal, :days_left, presence: true
-	validates :logo, presence: true
+	validates :title, :description, :location, :category, :goal, :days_left, presence: true
+	# validates :logo, presence: true
 	validates :goal, numericality: { only_integer: true }
 	validates :title, length: { maximum: 125 }
 	validates :short_blurb, length: { maximum: 200 }, presence: true
@@ -24,6 +25,7 @@ class Project < ActiveRecord::Base
 
 	accepts_nested_attributes_for :slider_images, allow_destroy: true
 	accepts_nested_attributes_for :rewards, reject_if: proc { |attributes| attributes["amount"].blank? || attributes["description"].blank? }, allow_destroy: true
+	accepts_nested_attributes_for :twitter_reward, allow_destroy: true
 
 	def update_funded_amount
 		amount = 0
@@ -58,13 +60,5 @@ class Project < ActiveRecord::Base
 			
 			self.save
 		end
-	end
-
-	def update_hashtags
-		self.hashtags.gsub(" ", "") if self.hashtags
-	end
-
-	def twitter_msg
-		URI.encode(self.tmsg) if self.tmsg
 	end
 end

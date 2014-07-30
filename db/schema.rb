@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140730205524) do
     t.string   "postal_code"
     t.string   "city"
     t.string   "province"
+    t.integer  "twitter_reward_id"
   end
 
   create_table "projects", force: true do |t|
@@ -52,7 +53,6 @@ ActiveRecord::Schema.define(version: 20140730205524) do
     t.integer  "days_left"
     t.string   "logo"
     t.string   "tmsg"
-    t.string   "hashtags"
   end
 
   create_table "rewards", force: true do |t|
@@ -68,6 +68,14 @@ ActiveRecord::Schema.define(version: 20140730205524) do
   create_table "slider_images", force: true do |t|
     t.integer  "project_id"
     t.string   "slider_image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "twitter_rewards", force: true do |t|
+    t.integer  "project_id"
+    t.string   "message"
+    t.string   "hashtags"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

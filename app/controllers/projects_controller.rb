@@ -98,6 +98,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def show
+		@twitter_reward = @project.twitter_reward
 		@rewards = @project.rewards.order('amount asc')
 		@commentable = find_commentable
   	@comments = @project.comments
