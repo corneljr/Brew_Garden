@@ -63,7 +63,7 @@
         <%= f.label :video_link, class: 'right inline' %>
       </div>
       <div class="helper-msg small-9 columns">
-        <span class="helpers">This is very important! Paste a Youtube link here.</span>
+        <span class="helpers">Paste a Youtube link to your video here. This is a very important aspect of your campaign!</span>
         <%= f.text_field :video_link, placeholder: 'Project Video Link' %>
       </div>
     </div>
@@ -73,7 +73,7 @@
         <%= f.label :title, class: 'right inline' %>
       </div>
       <div class="helper-msg small-9 columns">
-        <span class="helpers">Come up with something catchy. Make this short and sweet.</span>
+        <span class="helpers">This is the title for your campaign. What are you raising money for?</span>
         <%= f.text_field :title, maxlength: 50, placeholder: 'Project title' %>
       </div>
     </div>
@@ -83,7 +83,7 @@
         <%= f.label :location, class: 'right inline' %>
       </div>
       <div class="helper-msg small-9 columns">
-        <span class="helpers">Choose either brewery or event location.</span>
+        <span class="helpers">Where are you located?</span>
         <%= f.text_field :location, placeholder: 'Address or Location' %>
       </div>
     </div>
@@ -103,14 +103,14 @@
         <%= f.label :short_blurb, class: 'right inline' %>
       </div>
       <div class="helper-msg small-9 columns">
-        <span class="helpers">Why is this promotion important?</span>
+        <span class="helpers">This is a brief project explanation for your project card.</span>
         <%= f.text_area :short_blurb, placeholder: 'Short Blurb' %>
       </div>
     </div>
     <div class="row">
       <div class="small-3 columns">
         <br>
-        <%= f.label :description, class: 'right inline' %>
+        <%= f.label :description, 'Project Description', class: 'right inline' %>
       </div>
       <div class="helper-msg small-9 columns" style="margin-bottom: 1em;">
         <span class="helpers">ookkkkk</span>
@@ -123,7 +123,7 @@
 				<%= f.label :days_left, 'Length of Campaign', class: 'right inline' %>
       </div>
       <div class="helper-msg small-9 columns">
-        <span class="helpers">We recommend 30 days but its up to you how long your promotion lasts.</span>
+        <span class="helpers">We recommend at least 30 days but anywhere between 20 and 60 days is allowed.</span>
 				<%= f.number_field :days_left, in: 20..60  %>
       </div>
     </div>
@@ -133,7 +133,7 @@
 				<%= f.label :goal, class: 'right inline' %>
       </div>
       <div class="helper-msg small-9 columns">
-        <span class="helpers">Every promotion has a goal. Let us know yours.</span>
+        <span class="helpers">How much money are you looking to raise?</span>
 				<%= f.number_field :goal, placeholder: 'Funding goal', min: 1000  %>
       </div>
     </div>
@@ -166,7 +166,7 @@
               <%= f.label :tmsg, 'Message', class: 'right inline' %>
             </div>
             <div class="helper-msg small-10 columns">
-              <span class="helpers">Choose a message for your tweet.</span>
+              <span class="helpers">What do you want the tweets to say?</span>
               <%= f.text_field :tmsg %>
             </div>
           </div>
