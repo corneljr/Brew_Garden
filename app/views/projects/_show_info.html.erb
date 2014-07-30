@@ -1,10 +1,21 @@
 <% if @project.video_link %>
 	<iframe width="700" height="400" src="<%= @project.video_link %>" frameborder="0" allowfullscreen></iframe>
 <% end %>
-			
+
 <div class="slider">
   <%= render 'slider' %>
 </div>
 
 <hr>
 <p><%= raw(@project.description) %></p>
+
+<p></p>
+<h4><%= @project.short_blurb %></h4>
+
+<hr>
+<p><%= raw(@project.description) %></p>
+<hr>
+
+<div class="slider-project">
+  <%= render 'slider' %>
+</div>
