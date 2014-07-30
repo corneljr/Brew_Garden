@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  post '/projects/:project_id/rewards/:twitter_reward_id/twitter_reward', to: 'projects#tweet', as: 'twitter_pledge'
+  post '/projects/:project_id/rewards/:twitter_reward_id/twitter_reward', to: 'pledges#tweet', as: 'twitter_pledge'
   get '/projects/:project_id/backers', to: 'projects#backers', as: 'project_backers'
   get '/search', to: 'projects#search', as: 'project_search'
   get '/projects/category/:category', to: 'projects#category', as: 'project_category'

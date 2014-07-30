@@ -28,9 +28,9 @@ class PledgesController < ApplicationController
     @project = Project.find(params[:project_id])
     @twitter_reward = TwitterReward.find(params[:twitter_reward_id])
     if request.xhr?
-      binding.pry
       @pledge = @twitter_reward.pledges.create(user_id: current_user.id, project_id: @project.id)
     end
+    redirect_to @project
   end
 
   private
