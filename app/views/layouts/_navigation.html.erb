@@ -2,14 +2,16 @@
   <nav class="top-bar" data-topbar data-options="sticky_on: medium">
     <ul class="title-area">
       <li class="name"></li>
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      <li class="toggle-topbar menu-icon">
+        <a href="#"><span>Menu</span></a>
+      </li>
     </ul>
     <section class="top-bar-section row">
       <div class="large-12 columns">
-        <ul class="padding-right">
-            <li><%= link_to 'Discover', projects_path, class: '' %></li>
-            <li><%= link_to 'Create', new_project_path %></li>
-        </ul>
+      <div class="medium-push-2 left">
+        <button class="btn-light-green-nav" href="/projects">Discover</button>
+        <button class="btn-light-green-nav" href="/projects/new">Create</button>
+        </div>
         <ul class="right">
           <%= render 'layouts/navigation_links' %>
         </ul>
@@ -17,21 +19,6 @@
     </section>
   </nav>
 </div>
-
-<script>
-$(document).ready(function() {
-
-  $('#nav-search').focus(function(){
-    $(this).animate({ width: '75%' }, 250)
-      .animate({ opacity: '1' }, 150, 'linear');
-  });
-  $('#nav-search').blur(function(){
-    $(this).animate({ width: '40%' }, 100)
-      .animate({ opacity: '0.8' }, 100, 'linear');
-  });
-
-});
-</script>
 
 <div class="logo show-for-medium-up">
   <a href="/"><%= image_tag("/img/logo.png", size: "115") %></a>

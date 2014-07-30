@@ -1,22 +1,26 @@
 // project page modules
 
 .project-category-location {
-	color: #828587;
-}
+	color: #828587; }
 
 .preview-description {
-	height: 100px;
-}
+	height: 100px; }
 
 .project-preview {
-	position: fixed;
-}
+	position: fixed; }
 
 .remove-link {
   font-size: 0.7rem;
   text-decoration: underline;
-  color: #333;
-}
+  color: #333; }
+
+.remove-link-top {
+  font-size: 0.7rem;
+  text-decoration: underline;
+  margin-top: -40px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  color: #333; }
 
 .stat-panel {
   border: 1px solid #DDD;

@@ -2,12 +2,8 @@
 
 @import "foundation/components/top-bar";
 @import "foundation/components/side-nav";
-@import "foundation/components/inline-lists";
+// @import "foundation/components/inline-lists";
 
-// override for the 'Home' navigation link
-.top-bar {
-  padding-left: 160px;
-}
 .top-bar section {
   margin-top: 0; }
 .top-bar .name a {
@@ -16,8 +12,7 @@
   padding: 0 15px; }
 
 .side-nav li a:hover {
-  background: rgba(255,255,255,0.9) !important;
-}
+  background: rgba(255,255,255,0.9) !important; }
 
 // search stretch
 .li-search {
