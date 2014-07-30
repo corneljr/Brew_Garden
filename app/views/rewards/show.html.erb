@@ -17,8 +17,8 @@
 	  <span class="payment-errors"></span>
 	   <%= number_field_tag :card_number, nil, placeholder: 'Card Number', data: {stripe: 'number'} %>
 	   <%= number_field_tag :cvc, nil, placeholder: 'CVC', size: 2, data: {stripe: 'cvc'} %>
-	   <%= number_field_tag :exp_month, nil, placeholder: 'MM', size: 2, data: {stripe: 'exp-month'} %>
-	   <%= number_field_tag :exp_year, nil, placeholder: 'YYYY', size: 4, data: {stripe: 'exp-year'} %>
+	   <%= number_field_tag :exp_month, nil, placeholder: 'MM', size: 2, data: {stripe: 'exp-month'}, in: 1..12 %>
+	   <%= number_field_tag :exp_year, nil, placeholder: 'YYYY', size: 4, data: {stripe: 'exp-year'}, in: 2014..2030 %>
 
     <% if @reward.shipping %>   
       <div class="row">
