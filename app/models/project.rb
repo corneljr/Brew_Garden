@@ -11,8 +11,8 @@ class Project < ActiveRecord::Base
 	has_many :comments, :as => :commentable
 	has_many :slider_images, dependent: :destroy
 
-	validates :title, :description, :goal, :days_left, presence: true
-	# validates :logo, presence: true
+	validates :title, :description, :category, :goal, :days_left, presence: true
+	validates :logo, presence: true
 	validates :goal, numericality: { only_integer: true }
 	validates :title, length: { maximum: 125 }
 	validates :short_blurb, length: { maximum: 200 }, presence: true
