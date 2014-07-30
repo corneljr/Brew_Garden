@@ -13,13 +13,50 @@
 </div>
 
 <div style='width:50%;margin-left:auto;margin-right:auto;'>
+  <h4>Payment Information</h4>
 	<%= form_tag project_reward_charges_path(@project, @reward), id: 'payment-form' %>
 	  <span class="payment-errors"></span>
-	   <%= number_field_tag :card_number, nil, placeholder: 'Card Number', data: {stripe: 'number'} %>
-	   <%= number_field_tag :cvc, nil, placeholder: 'CVC', size: 2, data: {stripe: 'cvc'} %>
-	   <%= number_field_tag :exp_month, nil, placeholder: 'MM', size: 2, data: {stripe: 'exp-month'}, in: 1..12 %>
-	   <%= number_field_tag :exp_year, nil, placeholder: 'YYYY', size: 4, data: {stripe: 'exp-year'}, in: 2014..2030 %>
+     <div class="row">
+      <div class="small-3 columns">
+        <br>
+        <br>
+        <%= label_tag 'card_number', nil, class: 'right inline' %>
+      </div>
+      <div class="helper-msg small-9 columns">
+        <span class="helpers">We accept Visa and Mastercard. All payments are processed using Stripe.</span>
+        <%= number_field_tag :card_number, nil, placeholder: 'Card Number', data: {stripe: 'number'} %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-3 columns">
+        <%= label_tag :cvc, nil, class: 'right inline' %>
+      </div>
+      <div class="helper-msg small-9 columns">
+       <!--  <span class="helpers">This is the title for your campaign. What are you raising money for?</span> -->
+        <%= number_field_tag :cvc, nil, placeholder: 'CVC', size: 2, data: {stripe: 'cvc'} %>
+      </div>
+    </div>
+	   <div class="row">
+      <div class="small-3 columns">
+        <%= label_tag :exp_month, nil, class: 'right inline' %>
+      </div>
+      <div class="helper-msg small-9 columns">
+      <!--   <span class="helpers">This is the title for your campaign. What are you raising money for?</span> -->
+        <%= number_field_tag :exp_month, nil, placeholder: 'MM', size: 2, data: {stripe: 'exp-month'}, in: 1..12 %>
+      </div>
+    </div>
+	   <div class="row">
+      <div class="small-3 columns">
+        <%= label_tag :exp_year, nil, class: 'right inline' %>
+      </div>
+      <div class="helper-msg small-9 columns">
+      <!--   <span class="helpers">This is the title for your campaign. What are you raising money for?</span> -->
+        <%= number_field_tag :exp_year, nil, placeholder: 'YYYY', size: 4, data: {stripe: 'exp-year'}, in: 2014..2030 %>
+      </div>
+    </div>
 
+
+    <h4>Shipping Information</h4>
     <% if @reward.shipping %>   
       <div class="row">
       <div class="small-10 medium-6 large-6 small-centered columns">
