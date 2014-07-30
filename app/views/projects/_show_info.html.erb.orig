@@ -3,6 +3,11 @@
 	<iframe width="700" height="400" src="<%= @project.video_link %>" frameborder="0" allowfullscreen></iframe>
 
 <% end %>
+<<<<<<< HEAD
+
+<div class="slider">
+  <%= render 'slider' %>
+</div>
 
 <hr>
 <p><%= raw(@project.description) %></p>
@@ -12,8 +17,17 @@
 
 <hr>
 <p><%= raw(@project.description) %></p>
+=======
+
+<hr>
+<p><%= raw(@project.description) %></p>
+>>>>>>> master
 <hr>
 
 <div class="slider-project">
   <%= render 'slider' %>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> master
