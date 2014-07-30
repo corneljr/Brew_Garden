@@ -7,7 +7,6 @@
     <div class="helper-msg small-10 columns">
       <span class="helpers">How much does a person have to pledge to recieve a reward.</span>
       <%= f.number_field :amount, placeholder: 'Reward amount', min: 1 %>
-
     </div>
   </div>
   <div class="row">
@@ -25,11 +24,9 @@
       <br>
       <%= f.label :pledges_left, 'Backers', class: 'right inline' %>
     </div>
-
     <div class="helper-msg small-10 columns">
       <span class="helpers">How many rewards are available?</span>
       <%= f.text_field :pledges_left, placeholder: 'Max number of backers', min: 1 %>
-
     </div>
   </div>
   <div class="row">
@@ -45,7 +42,7 @@
   </div>
   <div class="row">
     <div class="small-12 columns text-right">
-      <%= link_to_remove_association 'remove reward', f, class: "button tiny" %>
+      <%= link_to_remove_association 'remove reward', f, class: "remove-link" %>
     </div>
   </div>
 </div>

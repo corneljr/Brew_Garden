@@ -12,6 +12,12 @@
 	position: fixed;
 }
 
+.remove-link {
+  font-size: 0.7rem;
+  text-decoration: underline;
+  color: #333;
+}
+
 .stat-panel {
   border: 1px solid #DDD;
   padding: 15px;
@@ -303,7 +309,7 @@
 }
 
 .reward-selector {
-	
+
   @include transition(background 300ms ease);
   @include position(absolute, 0px 0px 0px 0px);
   @include size(100% 100%);
@@ -326,7 +332,7 @@
 .helpers {
   opacity: 0;
   color: #3d7423;
-} 
+}
 
 #custom-tweet-button a {
     display: block;

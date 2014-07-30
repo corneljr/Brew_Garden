@@ -58,6 +58,30 @@
   }
 }
 
+
+.btn-light-green-sm:before {
+  content: "+";
+  font-size: 0.7rem;
+  margin: 0 7px 0 0;
+  padding-top: 15px;
+  line-height: 5px;
+}
+
+.btn-light-green-sm {
+  @include button (simple, #56943a);
+  @include transition (all 0.2s ease-out);
+  font-family: 'Lato';
+  font-size: 0.6em;
+  font-weight: bold;
+  padding: 6px 10px 6px 6px;
+  &:hover{
+    @include transition (all 0.2s ease-out);
+    color: white;
+    -moz-box-shadow: 0 0px 12px rgba(0,0,0,0.2) !important;
+    -webkit-box-shadow: 0 0px 12px rgba(0,0,0,0.2) !important;
+  }
+}
+
 .btn-gold {
   @include button (simple, #ffd800);
   font-family: 'Lato';

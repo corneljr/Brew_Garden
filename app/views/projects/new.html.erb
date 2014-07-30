@@ -35,102 +35,104 @@
       <% end %>
     </div>
     <div class='row'>
-      <div class='small-2 columns'>
+      <div class='small-3 columns'>
         <%= f.label 'Project Logo', class: 'right inline' %>
       </div>
-      <div class="small-10 columns">
-        <%= f.file_field :logo, class: 'logo-input' %>
+      <div class="small-9 columns">
+        <div class="small-12 columns">
+          <%= f.file_field :logo, class: 'logo-input' %>
+        </div>
       </div>
     </div>
     <div class='row'>
-      <div class='small-2 columns'>
+      <div class='small-3 columns'>
         <%= f.label 'Project Images', class: 'right inline' %>
       </div>
-      <div class="small-10 columns">
+      <div class="small-9 columns">
         <%= f.fields_for :slider_images do |r| %>
           <%= render 'slider_image_fields', :f => r %>
         <% end %>
-        <div class="small-12">
-        <%= link_to_add_association 'add another image', f, :slider_images, class: "button success tiny" %>
+        <div class="small-12 columns">
+          <%= link_to_add_association 'add another image', f, :slider_images, class: "btn-light-green-sm" %>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="small-2 columns">
+      <div class="small-3 columns">
         <br>
         <%= f.label :video_link, class: 'right inline' %>
       </div>
-      <div class="helper-msg small-10 columns">
+      <div class="helper-msg small-9 columns">
         <span class="helpers">This is very important! Paste a Youtube link here.</span>
         <%= f.text_field :video_link, placeholder: 'Project Video Link' %>
       </div>
     </div>
 	  <div class="row">
-      <div class="small-2 columns">
+      <div class="small-3 columns">
         <br>
         <%= f.label :title, class: 'right inline' %>
       </div>
-      <div class="helper-msg small-10 columns">
+      <div class="helper-msg small-9 columns">
         <span class="helpers">Come up with something catchy. Make this short and sweet.</span>
         <%= f.text_field :title, maxlength: 50, placeholder: 'Project title' %>
       </div>
     </div>
 		<div class="row">
-      <div class="small-2 columns">
+      <div class="small-3 columns">
         <br>
         <%= f.label :location, class: 'right inline' %>
       </div>
-      <div class="helper-msg small-10 columns">
+      <div class="helper-msg small-9 columns">
         <span class="helpers">Choose either brewery or event location.</span>
         <%= f.text_field :location, placeholder: 'Address or Location' %>
       </div>
     </div>
     <div class="row">
-      <div class="small-2 columns">
+      <div class="small-3 columns">
         <br>
         <%= f.label :category, class: 'right inline' %>
       </div>
-      <div class="helper-msg small-10 columns">
+      <div class="helper-msg small-9 columns">
         <span class="helpers">ookkkkk</span>
         <%= f.select :category, options_for_select(['Brewpub', 'Contract Brewery', 'Craft Division', 'brewery']), prompt: 'Category' %>
       </div>
     </div>
     <div class="row">
-      <div class="small-2 columns">
+      <div class="small-3 columns">
         <br>
         <%= f.label :short_blurb, class: 'right inline' %>
       </div>
-      <div class="helper-msg small-10 columns">
+      <div class="helper-msg small-9 columns">
         <span class="helpers">Why is this promotion important?</span>
         <%= f.text_area :short_blurb, placeholder: 'Short Blurb' %>
       </div>
     </div>
     <div class="row">
-      <div class="small-2 columns">
+      <div class="small-3 columns">
         <br>
         <%= f.label :description, class: 'right inline' %>
       </div>
-      <div class="helper-msg small-10 columns" style="margin-bottom: 1em;">
+      <div class="helper-msg small-9 columns" style="margin-bottom: 1em;">
         <span class="helpers">ookkkkk</span>
 				<%= f.text_area :description, placeholder: 'Description', class: 'ckeditor' %>
       </div>
     </div>
     <div class="row">
-      <div class="small-2 columns">
+      <div class="small-3 columns">
         <br>
 				<%= f.label :days_left, 'Length of Campaign', class: 'right inline' %>
       </div>
-      <div class="helper-msg small-10 columns">
+      <div class="helper-msg small-9 columns">
         <span class="helpers">We recommend 30 days but its up to you how long your promotion lasts.</span>
 				<%= f.number_field :days_left, in: 20..60  %>
       </div>
     </div>
     <div class="row">
-      <div class="small-2 columns">
+      <div class="small-3 columns">
         <br>
 				<%= f.label :goal, class: 'right inline' %>
       </div>
-      <div class="helper-msg small-10 columns">
+      <div class="helper-msg small-9 columns">
         <span class="helpers">Every promotion has a goal. Let us know yours.</span>
 				<%= f.number_field :goal, placeholder: 'Funding goal', min: 1000  %>
       </div>
@@ -139,7 +141,7 @@
       <div class="small-8 columns"><h4>Twitter reward</h4></div>
       <hr>
     </div>
-    <div class='reward-container'>
+    <div class="small-12 columns panel">
       <div class="row">
         <div class="small-2 columns">
           <br>
@@ -170,7 +172,7 @@
       <%= f.fields_for :rewards do |r| %>
         <%= render 'reward_fields', :f => r %>
       <% end %>
-      <%= link_to_add_association 'add another reward', f, :rewards, class: "button success tiny" %>
+      <%= link_to_add_association 'add another reward', f, :rewards, class: "btn-light-green-sm" %>
     </div>
 	</div>
 
