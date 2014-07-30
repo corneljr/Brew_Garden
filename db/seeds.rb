@@ -19,17 +19,12 @@ Project.create(
   description: 'As for our name, at the turn of the 20th century, Toronto earned the moniker Hogtown for its role in the processing of livestock, particularly the processing and packaging of pork. Toronto has come a long way since then and is now one of the most vibrant global cities, a cultural melting pot with unbelievable tolerance of race, creed and sexual orientation. What Toronto should not continue to tolerate is limited, indistinguishable beer choices from massive foreign-owned breweries.',
   goal: rand(100000..5000000),
   days_left: rand(20..60),
-  category: categories[rand(0..3)],
-  location: addresses[rand(0..6)],
+  category: 1,
+  location: 1,
   post_status: true,
-  logo: '/img/hogtown-logo.png'
+  logo: '/img/hogtown-logo.png',
   video_link: 'https://www.youtube.com/watch?v=0lxglqlyxck'
   )
-
-Project.all.each do |project|
-  project.update_funded_amount
-  project.save
-end
 
 # 100.times do
 # 	User.create(name: Faker::Name.name, email: Faker::Internet.email, password: 'password', password_confirmation: 'password', description: Faker::Lorem.sentences(3).join(' '))
@@ -55,6 +50,11 @@ end
 # 	project.update_funded_amount
 # 	project.save
 # end
+
+Project.all.each do |project|
+  project.update_funded_amount
+  project.save
+end
 
 (1..20).each do |n|
 	SliderImage.create(project_id: n)
