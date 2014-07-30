@@ -1,5 +1,10 @@
 // project page modules
 
+
+// slider
+.slider-project {
+  border-radius: 8px; }
+
 .project-category-location {
 	color: #828587; }
 
@@ -341,6 +346,5 @@
 #custom-tweet-button a {
     display: block;
     padding: 80px;
-    background: url('https://twitter.com/favicons/favicon.ico') 1px center no-repeat;
-    background-size: cover;
+    background: url('twitter.jpeg') 1px center no-repeat;
   }

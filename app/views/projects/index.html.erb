@@ -25,7 +25,7 @@
 				<%= form_tag project_search_path, class: 'search', method: 'get' do  %>
 				<div class="row collapse">
 	        <div class="small-10 columns">
-	          <%= text_field_tag :q, nil, placeholder: "Search for..." %>
+	          <%= text_field_tag :q, nil, placeholder: "Search by project name, location, owner, whatever!" %>
 	        </div>
 	        <div class="small-2 columns">
 	          <%= submit_tag "search", class: 'button secondary postfix'%>
