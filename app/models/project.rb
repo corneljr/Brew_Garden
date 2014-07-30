@@ -48,8 +48,9 @@ class Project < ActiveRecord::Base
 
 	def update_video_link
 		if self.video_link
-			split_link = self.video_link.split('watch')
-			link = split_link.join('embed/watch')
+			binding.pry
+			split_link = self.video_link.split('watch?v=')
+			link = split_link.join('embed/')
 			self.video_link = link
 
 			if self.video_link =~ /^www/
