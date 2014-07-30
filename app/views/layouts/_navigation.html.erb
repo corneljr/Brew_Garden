@@ -9,8 +9,8 @@
     <section class="top-bar-section row">
       <div class="large-12 columns">
       <div class="medium-push-2 left">
-        <button class="btn-light-green-nav" href="/projects">Discover</button>
-        <button class="btn-light-green-nav" href="/projects/new">Create</button>
+        <%= link_to 'Discover', projects_path, class: 'btn-light-green-nav' %>
+        <%= link_to 'Create', new_project_path, class: 'btn-light-green-nav' %>
         </div>
         <ul class="right">
           <%= render 'layouts/navigation_links' %>
