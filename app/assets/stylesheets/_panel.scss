@@ -1,13 +1,6 @@
 // styles for panels and callouts
 @import "foundation/components/panels";
 
-// fixed panel create/edit
-// .fixed {
-//   position: fixed;
-//   top: 0px;
-//   right: 20px;
-// }
-
 // small-project panel mixin
 .project-panel {
   backgrdound-color: #F5F5F5;
@@ -16,8 +9,7 @@
   transition: all 0.2s;
   &:hover {
     -moz-box-shadow: 0 0px 20px rgba(0,0,0,0.2) !important;
-    -webkit-box-shadow: 0 0px 20px rgba(0,0,0,0.2) !important;
-  }
+    -webkit-box-shadow: 0 0px 20px rgba(0,0,0,0.2) !important; }
 
   .panel-img {
     text-align: center;
