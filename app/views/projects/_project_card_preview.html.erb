@@ -2,7 +2,7 @@
 <div class="project-panel">
 
   <div class="panel-img">
-    <%= image_tag "/img/logo.png", size: "115", class: 'preview-logo' %>
+    <%= image_tag @project.logo.card.url, size: "115", class: 'preview-logo' %>
     <p class="text-right"><small>By: <%= current_user.name  %></small></p>
   </div>
   <div class="preview-title"><h1>Your title</h1></div>
