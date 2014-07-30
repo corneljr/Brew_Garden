@@ -1,6 +1,6 @@
 <% if reward.project.days_left > 0 && current_user %>
 	<%= link_to project_reward_path(reward.project, reward) do %>
-		<div class='reward-container'>
+		<div class="reward-container panel">
 			<div class="reward-description">
 				<h6 class="text-left"><strong>Pledge <%= number_to_currency(reward.amount / 100, precision: 0) %></strong></h6>
 				<br>
@@ -8,7 +8,7 @@
 				<br>
 				<br>
 				<p><%= reward.description %></p>
-				
+
 			</div>
 			<div class="reward-selector">
 				<h4>Select this reward</h4>
@@ -28,6 +28,6 @@
 				<h4>Log in to pledge</h4>
 			</div>
 	</div>
-<% end %>	
+<% end %>
 	<hr>
 <% end %>
