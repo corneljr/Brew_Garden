@@ -22,7 +22,7 @@ end
 end
 
 20.times do 
-	Project.create(user_id: rand(1..100), title: Faker::Company.catch_phrase, short_blurb: Faker::Lorem.sentences(2).join(' '), description: Faker::Lorem.paragraphs(10).join('<br><br>'), goal: rand(100000..5000000), days_left: rand(20..60), category: categories[rand(0..3)], location: addresses[rand(0..6)], post_status: true, video_link: 'https://www.youtube.com/embed/watch?v=ETnlrYq7btE')
+	@project = Project.create(title: Faker::Company.name, description: Faker::Lorem.paragraphs(5).join('<br><br>'), goal: rand(100000..1000000), category: categories.sample, location: addresses.sample, user_id: rand(1..100), short_blurb: Faker::Lorem.sentences(2).join(' '), video_link: 'www.youtube.com/watch?v=KpKy6KAHaTQ', post_status: true, days_left: rand(20..60))
 end
 
 100.times do 
@@ -31,6 +31,7 @@ end
 
 Project.all.each do |project|
 	project.update_funded_amount
+	project.update_video_link
 	project.save
 end
 
