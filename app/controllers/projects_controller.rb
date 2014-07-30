@@ -102,7 +102,6 @@ class ProjectsController < ApplicationController
 		@commentable = find_commentable
   	@comments = @project.comments
   	@location = Geocoder.search(@project.location).first.city
-  	binding.pry
   	@end_date = date_format(Date.today + @project.days_left.days)
 
   	if request.xhr?
