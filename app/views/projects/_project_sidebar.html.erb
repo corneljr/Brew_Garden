@@ -14,15 +14,15 @@
 </div>
 
 
-<div class="small-12 reward-panel">
+<div class="small-12">
 
 	<!-- Twitter -->
-	<div class='reward-container'>
+	<div class="reward-container panel">
 		<div class='reward-description'>
 			<strong>Pledge a Tweet!</strong>
 			<% if current_user %>
 				<div id="custom-tweet-button" data-user="<%= current_user.email %>">
-				  <a  class='project-logo'  href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fbrewgarden.ca%2Fprojects%2F<%= @project.id %>&text=<%= @project.twitter_msg %>&hashtags=<%= @project.update_hashtags %>"></a>
+				  <a class='project-logo'  href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fbrewgarden.ca%2Fprojects%2F<%= @project.id %>&text=<%= @project.twitter_msg %>&hashtags=<%= @project.update_hashtags %>"></a>
 				</div>
 			<% end %>
 		</div>

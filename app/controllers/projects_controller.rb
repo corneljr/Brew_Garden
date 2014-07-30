@@ -94,7 +94,7 @@ class ProjectsController < ApplicationController
 		elsif request.xhr?
 			render partial: 'project', collection: @results
 		end
-		
+
 	end
 
 	def show
@@ -133,7 +133,7 @@ class ProjectsController < ApplicationController
 		else
 			render :edit
 		end
-	end 
+	end
 
 	def update
 		@project.assign_attributes(project_params)
