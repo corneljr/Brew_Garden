@@ -127,7 +127,6 @@ class ProjectsController < ApplicationController
 	def post
 		@project.post_status = true
 		if @project.save
-			binding.pry
 			@project.update_currency_for_save
 			@project.update_video_link
 			redirect_to @project, notice: 'project posted'
