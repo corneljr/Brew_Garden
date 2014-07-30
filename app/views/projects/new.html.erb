@@ -186,7 +186,7 @@
   </div>
 
   <!-- Sample project panel -->
-  <div class="show-for-medium-up medium-4 large-4 text-center columns">
+  <div class="show-for-medium-up fixed-pos medium-4 large-4 text-center columns">
     <%= render 'project_card_preview' %>
     <p>This will not post your project, only save it.</p>
     <div class='save'>
@@ -194,6 +194,19 @@
     </div>
   </div>
 </div>
+<script>
+$(document).ready(function() {
+  $(window).scroll(function(e){
+    el = $('.fixed-pos');
+    if ($(this).scrollTop() > 200 && el.css('position') != 'fixed'){
+      el.css({'position': 'fixed', 'right': '15px', 'top': '0px'});
+    }
+    if ($(this).scrollTop() < 200 && el.css('position') == 'fixed'){
+      $(el).css({'position': 'static', 'top': '0px'});
+    }
+  });
+});
+</script>
 <% end %>
 
 
