@@ -3,7 +3,7 @@ $(document).ready( function() {
 		ev.preventDefault();
 		$('.project-info-link-item').parent().removeClass('hnav-on');
 		 $(this).parent().addClass('hnav-on');
-		
+
 		var text = ev.currentTarget.textContent
 		var attr = text.split(" ")[0];
 
@@ -18,4 +18,9 @@ $(document).ready( function() {
 				$('.slider').slick();
 			});
 	});
+	$('.slider-project').slick({
+    dots: true,
+    speed: 500,
+    autoplay: false
+  });
 });

@@ -8,9 +8,16 @@
 <p class="text-left" style='font-size:0.8rem;'>This project will only be funded if at least <%= number_to_currency(@project.goal / 100, precision: 0) %> CAD is pledged by <%= @end_date  %>. </p>
 
 <div class="small-12 owner-panel text-center">
+<<<<<<< HEAD
+		<h6>Project by</h6>
+		<p><%= image_tag @project.user.avatar, size: '100x100' %></p>
+		<p><i class="fi-twitter"></i></p>
+		<p><%= link_to @project.user.name, @project.user  %></p>
+=======
 	<h6>Project by</h6>
 	<p><%= image_tag @project.logo, size: '100x100' %></p>
 	<p><%= link_to @project.user.name, @project.user  %></p>
+>>>>>>> project/show
 </div>
 
 
