@@ -61,12 +61,4 @@ class Project < ActiveRecord::Base
 			self.save
 		end
 	end
-
-	def update_hashtags
-		self.hashtags.gsub(" ", "") if self.hashtags
-	end
-
-	def twitter_msg
-		URI.encode(self.tmsg) if self.tmsg
-	end
 end
