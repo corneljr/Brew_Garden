@@ -1,1 +1,4 @@
-<%= f.file_field :slider_image %>
+<div class='nested-fields'>
+	<%= f.file_field :slider_image %>
+	<%= link_to_remove_association 'remove image', f, class: "button tiny" %>
+</div>

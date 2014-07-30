@@ -1,0 +1,28 @@
+<p>Project Preview</p>
+<div class="project-panel">
+
+  <div class="panel-img">
+    <%= image_tag "/img/logo.png", size: "115", class: 'preview-logo' %>
+    <p class="text-right"><small>By: <%= current_user.name  %></small></p>
+  </div>
+  <div class="preview-title"><h1>Your title</h1></div>
+  <div class="preview-description"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque temporibus molestiae error recusandae aut!</p></div>
+  <p><br></p>
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="progress-bar" data-funded="0"><div></div></div>
+    </div>
+    <div class='small-4 text-center columns'>
+      <div class='days-left metric'>0</div>
+      <div class='metric-sub'>days left</div>
+    </div>
+    <div class='small-3 text-center columns'>
+      <div class='metric'>0%</div>
+      <div class='metric-sub'>funded</div>
+    </div>
+    <div class='small-5 text-center columns'>
+      <div class='metric'>$0.00</div>
+      <div class='metric-sub'>pledged</div>
+    </div>
+  </div>
+</div>
