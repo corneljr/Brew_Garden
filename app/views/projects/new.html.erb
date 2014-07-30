@@ -163,22 +163,24 @@
           <div class="row">
             <div class="small-2 columns">
               <br>
-              <%= f.label :tmsg, 'Message', class: 'right inline' %>
+              <%= f.fields_for :twitter_reward do |r| %>
+                <%= r.label :message, 'Message', class: 'right inline' %>
             </div>
             <div class="helper-msg small-10 columns">
               <span class="helpers">What do you want the tweets to say?</span>
-              <%= f.text_field :tmsg %>
+              <%= r.text_field :message %>
             </div>
           </div>
           <div class="row">
             <div class="small-2 columns">
               <br>
-              <%= f.label :hashtags, 'Hashtags', class: 'right inline' %>
+              <%= r.label :hashtags, 'Hashtags', class: 'right inline' %>
             </div>
             <div class="helper-msg small-10 columns">
               <span class="helpers">Pick some hashtags. Seperate each with a comma.</span>
-              <%= f.text_field :hashtags %>
+              <%= r.text_field :hashtags %>
             </div>
+            <% end %>
           </div>
         </div>
       </div>

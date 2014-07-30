@@ -44,8 +44,10 @@
 	twttr.ready(function (twttr) {
 	  // Now bind our custom intent events
 	  twttr.events.bind('tweet', function(data) {
-	  	console.log(data);
-	  	alert('you tweeted');
+	  	$.post("<%= twitter_pledge_path(@project, @twitter_reward) %>")
+	  		.done( function(data){
+	  			console.log(data)
+	  		});
 	  });
 
 	});

@@ -7,7 +7,7 @@ class PledgesController < ApplicationController
 
   def create
     @reward = Reward.find(params[:reward_id])
-    @project = Reward.find(params[:project_id])
+    @project = Project.find(params[:project_id])
 
   	@pledge = @reward.pledges.build(pledge_params)
     @pledge.user_id = current_user.id
@@ -22,6 +22,15 @@ class PledgesController < ApplicationController
       @reward.save
       redirect_to @reward.project
   	end
+  end
+
+  def tweet
+    @project = Project.find(params[:project_id])
+    @twitter_reward = TwitterReward.find(params[:twitter_reward_id])
+    if request.xhr?
+      binding.pry
+      @pledge = @twitter_reward.pledges.create(user_id: current_user.id, project_id: @project.id)
+    end
   end
 
   private

@@ -47,6 +47,7 @@ end
 end
 
 Project.all.each do |project|
+	TwitterReward.create(message: "I'm supporting craft beer!", hashtags: "beer, craftbeer", project_id: project.id)
 	project.update_funded_amount
 	project.update_video_link
 	project.save

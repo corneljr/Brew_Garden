@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'twitter_rewards/create'
+
   resources :password_resets
 
   get '/projects/location_search', to: 'projects#location_search'
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
   resources :projects do
     resources :slider_images, only: [:create]
     resources :updates
+    resources :twitter_rewards, only: [:create]
   	resources :rewards, only: [:create, :destroy, :update, :show] do
   		resources :pledges, only: [:create, :show]
       resources :charges, only: [:new, :create]
@@ -28,6 +31,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  post '/projects/:project_id/rewards/:twitter_reward_id/twitter_reward', to: 'projects#tweet', as: 'twitter_pledge'
   get '/projects/:project_id/backers', to: 'projects#backers', as: 'project_backers'
   get '/search', to: 'projects#search', as: 'project_search'
   get '/projects/category/:category', to: 'projects#category', as: 'project_category'
