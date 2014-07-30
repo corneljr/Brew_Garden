@@ -2,8 +2,6 @@
 
 // global overides here
 $body-font-family: 'Lato', sans-serif;
-// $body-font-family: 'Open Sans', sans-serif;
-// $body-font-family: 'Gentium Book Basic', serif;
 $side-nav-link-color: #AAA;
 $primary-color: #333;
 $secondary-color: #3d7423;
@@ -18,25 +16,7 @@ $side-nav-link-color: #999;
 @import "foundation/components/visibility";
 @import "foundation/components/alert-boxes";
 
-
-// overwrite some headers
-h2 {
-  color: #333 !important;
-  font-family: 'Merriweather', cursive;
-  font-weight: bold;
-  margin-bottom: 20px !important; }
-
-h3 {
-  font-family: 'Merriweather';
-  font-weight: bold; }
-
-h5 {
-  color: #333 !important;
-  font-family: 'Merriweather' !important;
-  letter-spacing: 0.001em; }
-
-
-// Main logo
+// Main logo position
 .logo {
   position: fixed;
   top: 0;
@@ -76,10 +56,6 @@ section {
     margin-bottom: 5px !important; }
 }
 
-// footer text
-footer p {
-  font-size: 0.8rem !important; }
-
 // alert box
 .alert-box.success {
   background-color: #43ac6a;
@@ -92,5 +68,3 @@ footer p {
 // red border for testing
 .test-red {
   border: 1px solid red; }
-
-
