@@ -344,7 +344,16 @@
 }
 
 #custom-tweet-button a {
-    display: block;
-    padding: 80px;
-    background: url('twitter.jpeg') 1px center no-repeat;
-  }
+  display: block;
+  padding: 80px;
+  background: url('twitter.jpeg') 1px center no-repeat;
+}
+
+.creater-commenter {
+	background-color: #3d7423;
+	padding: 5px;
+	color: white;
+	border-radius: 10px;
+}
+
+  

@@ -9,7 +9,7 @@
 
 	<h2>New Comment</h2>
 
-	<% if current_user &&  @project.pledges.where(user_id: current_user.id).present? %>
+	<% if current_user && (@project.pledges.where(user_id: current_user.id).present? || (@project.user == current_user)) %>
 	<%= form_for [@commentable, @comment], remote: true do |f| %>
 	  <p>
 	    <%= f.text_field :body %>

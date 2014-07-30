@@ -1,4 +1,19 @@
-<%= image_tag comment.user.avatar, size: '100x100', class: 'user-image' %>
-<p class='project-backer-count'><span style='font-size:4rem;' >&#8220;</span><%= comment.body  %></p>
-<p class='project-backer-name'>Comment by: <%= comment.user.name %></p>
-<hr>
+<div class="row">
+	<div class='small-3 columns'>
+		<%= image_tag comment.user.avatar, size: '100x100', class: 'user-image' %>
+	</div>
+	<div class='small-9 columns'>
+		<% if current_user == @project.user %>
+			<p class='project-backer-name'><span class="creater-commenter"><i class="fi-torso"></i><small> Project Creator</small></span> <%= comment.user.name %></p>
+			<p class='project-backer-count'><%= comment.body  %></p>
+		<% else %>
+			<p class='project-backer-name'><%= comment.user.name %></p>
+			<p class='project-backer-count'><%= comment.body  %></p>
+		<% end %>
+	</div>
+		<hr>
+</div>
+
+<style type="text/css">
+
+</style>
