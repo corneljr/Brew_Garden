@@ -9,8 +9,10 @@
     <section class="top-bar-section row">
       <div class="large-12 columns">
       <div class="medium-push-2 left">
-        <%= link_to 'Discover', projects_path %>
-        <%= link_to 'Create', new_project_path %>
+        <ul>
+          <li><%= link_to 'Discover', projects_path %></li>
+          <li><%= link_to 'Create', new_project_path %></li>
+        </ul>
         </div>
         <ul class="right">
           <%= render 'layouts/navigation_links' %>
