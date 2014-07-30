@@ -1,16 +1,10 @@
 <% if @project.video_link %>
 	<iframe width="700" height="400" src="<%= @project.video_link %>" frameborder="0" allowfullscreen></iframe>
-  <iframe width="100%" height="350" src="<%= @project.video_link %>" frameborder="0" allowfullscreen></iframe>
-	<iframe width="700" height="400" src="https://www.youtube.com/embed/watch?v=keJqMYEl3c0" frameborder="0" allowfullscreen></iframe>
 <% end %>
 
 <hr>
 <p><%= raw(@project.description) %></p>
 <hr>
-
-<h4><%= @project.short_blurb %></h4>
-
-<p><%= raw(@project.description) %></p>
 
 <div class="slider-project">
   <%= render 'slider' %>
