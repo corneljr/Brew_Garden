@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   get '/users/:id/backed', to: 'users#pledges', as: 'user_pledges'
   get '/users/:id/created', to: 'users#projects', as: 'user_projects'
   get '/users/:id/comments', to: 'users#comments'
+  get '/users/:id/saved', to: 'users#saved'
 
   post '/contact', to: 'welcome#contact', as: 'welcome_contact'
   root to: 'welcome#index'

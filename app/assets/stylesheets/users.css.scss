@@ -10,7 +10,7 @@
 	height: 350px;
 	background-color: #f7fafa;
 	border-bottom: 1px solid #d9d9de;
-	padding-top: 100px;
+	padding-top: 30px;
 }
 
 .user-projects-container {
@@ -77,6 +77,9 @@
 
 .comment-container {
 	background-color: #f7fafa;
+}
+.comment-container p {
+	margin : 0;
 }
 
 .user-comment-body {
