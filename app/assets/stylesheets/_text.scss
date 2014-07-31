@@ -14,12 +14,12 @@ h3 {
 h4 {
   font-family: 'Merriweather';
   font-size: 1.3rem;
+  line-height: 1.2rem !important;
   font-weight: bold;
   small {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-family: 'Lato';
-    font-weight: 100;
-  }
+    font-weight: 100; }
 }
 
 h5 {
@@ -29,4 +29,3 @@ h5 {
 
 footer p {
   font-size: 0.8rem !important; }
-

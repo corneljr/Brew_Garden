@@ -86,62 +86,7 @@
     }
   }
 
-.reward-description {
-  overflow: hidden;
-  padding: 15px;
-  h1 {
-    margin-top: -35px;
-    font-size: 1.5rem;
-    color: #999; }
-  p {
-    font-size: 0.8rem;  }
-  .twitter {
-    font-size: 20em;
-    margin: -75px 0;
-    height: 250px;
-    padding: 10px 0 0 45px;
-    -ms-transform: rotate(-25deg); /* IE 9 */
-    -webkit-transform: rotate(-25deg); /* Chrome, Safari, Opera */
-    transform: rotate(-25deg);
-    color: #E5E5E5;
-  }
-  .tag-green {
-    color: white;
-    strong {
-      font-size: 1.1rem; }
-    background-color: #669f4b;
-    padding: 3px 0 7px 0;
-    position: relative;
-    text-align: center;
-    font-size: 0.9rem;
-    width: 90%;
-    top: -15px;
-    right: -45%;
-    -moz-box-shadow: 0 3px 1px rgba(0,0,0,0.1) !important;
-    -webkit-box-shadow: 0 3px 1px rgba(0,0,0,0.1) !important;
-    -ms-transform: rotate(25deg); /* IE 9 */
-    -webkit-transform: rotate(25deg); /* Chrome, Safari, Opera */
-    transform: rotate(25deg);
-  }
-  .tag-gold {
-    color: #333;
-    strong {
-      font-size: 1.1rem; }
-    background-color: #EBEA56;
-    padding: 3px 0 7px 0;
-    position: relative;
-    text-align: center;
-    font-size: 0.9rem;
-    width: 90%;
-    top: -15px;
-    right: -45%;
-    -moz-box-shadow: 0 3px 9px rgba(0,0,0,0.1) !important;
-    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,0.1) !important;
-    -ms-transform: rotate(25deg); /* IE 9 */
-    -webkit-transform: rotate(25deg); /* Chrome, Safari, Opera */
-    transform: rotate(25deg);
-  }
-}
+
 
 .index-main-header {
 	padding-bottom: 50px; }
@@ -364,11 +309,13 @@
 	height: 12rem;
   @include position(relative, 0 0 0 0);
   background: #fafafa;
+  // h4 {
+  //   @include transform(rotateX(90deg) translateZ(1em)); }
   &:hover {
     .reward-selector {
       background: rgba(65,117,5, 0.7);
       h4 {
-        @include transform(scale(1));
+        @include transform(rotateX(5deg) scale(1.15));
         opacity: 1;
       }
     }
@@ -382,9 +329,9 @@
   z-index: 1;
   background: transparent;
   h4 {
-    @include position(absolute, 0px 0px 0px 0px);
-    @include transition(opacity 300ms ease, transform 300ms ease);
-    @include transform(scale(1.5));
+    @include position(absolute, 80px 0px 0px 0px);
+    @include transition(opacity 200ms ease, transform 400ms ease);
+    @include transform(rotateX(180deg) scale(0.5));
   	text-align: center;
   	font-size: 1.2rem;
     opacity: 0;
@@ -392,6 +339,69 @@
     margin: 0;
   	color: #fff;
   	z-index: -10;
+  }
+}
+
+.reward-description {
+  overflow: hidden;
+  padding: 15px;
+  h1 {
+    margin-top: -35px;
+    font-size: 1.5rem;
+    color: #999; }
+  h2 {
+    font-size: 1.2rem;
+    color: #999 !important;
+    margin-top: 5px; }
+  p {
+    font-size: 0.8rem; }
+  .tweet-backers {
+    color: #999; }
+  .twitter {
+    font-size: 20em;
+    margin: -75px 0;
+    height: 250px;
+    padding: 10px 0 0 45px;
+    -ms-transform: rotate(-25deg); /* IE 9 */
+    -webkit-transform: rotate(-25deg); /* Chrome, Safari, Opera */
+    transform: rotate(-25deg);
+    color: #E5E5E5;
+  }
+  .tag-green {
+    color: white;
+    strong {
+      font-size: 1.1rem; }
+    background-color: #669f4b;
+    padding: 3px 0 7px 0;
+    position: relative;
+    text-align: center;
+    font-size: 0.9rem;
+    width: 90%;
+    top: -15px;
+    right: -45%;
+    -moz-box-shadow: 0 3px 1px rgba(0,0,0,0.1) !important;
+    -webkit-box-shadow: 0 3px 1px rgba(0,0,0,0.1) !important;
+    -ms-transform: rotate(25deg); /* IE 9 */
+    -webkit-transform: rotate(25deg); /* Chrome, Safari, Opera */
+    transform: rotate(25deg);
+  }
+  .tag-gold {
+    color: #333;
+    strong {
+      font-size: 1.1rem; }
+    background-color: #EBEA56;
+    padding: 3px 0 7px 0;
+    position: relative;
+    text-align: center;
+    font-size: 0.9rem;
+    width: 90%;
+    top: -15px;
+    right: -45%;
+    -moz-box-shadow: 0 3px 9px rgba(0,0,0,0.1) !important;
+    -webkit-box-shadow: 0 3px 9px rgba(0,0,0,0.1) !important;
+    -ms-transform: rotate(25deg); /* IE 9 */
+    -webkit-transform: rotate(25deg); /* Chrome, Safari, Opera */
+    transform: rotate(25deg);
   }
 }
 
