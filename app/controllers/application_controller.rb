@@ -20,4 +20,13 @@ class ApplicationController < ActionController::Base
   	end
   end
   helper_method :current_user
+
+  rescue_from ActiveRecord::RecordNotFound,
+              ActionController::RoutingError,
+              ActionController::UnknownController,
+              ActionController::UnknownAction,
+              ActionController::MethodNotAllowed do |exception|
+
+    redirect_to projects_path
+  end
 end
