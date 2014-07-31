@@ -114,7 +114,7 @@ class ProjectsController < ApplicationController
 		@project = Project.new
 		@project.rewards.build
 		@project.slider_images.build
-		@twitter_reward = TwitterReward.new(project_id: @project.id)
+		@twitter_reward = TwitterReward.new
 	end
 
 	def create
@@ -151,13 +151,6 @@ class ProjectsController < ApplicationController
 	end
 
 	def edit
-
-		if @project.twitter_reward
-			@twitter_reward = @project.twitter_reward
-		else
-			@twitter_reward = TwitterReward.new(project_id: @project.id)
-		end
-
 		if current_user != @project.user
 			redirect_to projects_path, alert: 'Whooaaaaaaaa, not your project bud.'
 		end
@@ -202,7 +195,7 @@ class ProjectsController < ApplicationController
 
 	def project_params
 
-		params.require(:project).permit(:title, :video_link, :description, :days_left, :image, :logo, :goal, :location, :category, :short_blurb, :tmsg, :hashtags, rewards_attributes: [:id, :amount, :description, :pledges_left, :_destroy, :shipping], slider_images_attributes: [:id, :slider_image])
+		params.require(:project).permit(:title, :video_link, :description, :days_left, :image, :logo, :goal, :location, :category, :short_blurb, :tmsg, :hashtags, rewards_attributes: [:id, :amount, :description, :pledges_left, :_destroy, :shipping], slider_images_attributes: [:id, :slider_image], twitter_reward_attributes: [:id, :message, :hashtags])
 	end
 
 	def find_commentable
