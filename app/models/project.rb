@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
 
 	belongs_to :user
 	has_many :rewards, dependent: :destroy
-	has_one :twitter_reward, dependent: :destroy
+	has_one :twitter_reward
 	has_many :pledges
 	has_many :updates
 	has_many :comments, :as => :commentable

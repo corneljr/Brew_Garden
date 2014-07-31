@@ -114,6 +114,7 @@ class ProjectsController < ApplicationController
 		@project = Project.new
 		@project.rewards.build
 		@project.slider_images.build
+		@twitter_reward = TwitterReward.new(project_id: @project.id)
 	end
 
 	def create
@@ -150,6 +151,13 @@ class ProjectsController < ApplicationController
 	end
 
 	def edit
+
+		if @project.twitter_reward
+			@twitter_reward = @project.twitter_reward
+		else
+			@twitter_reward = TwitterReward.new(project_id: @project.id)
+		end
+
 		if current_user != @project.user
 			redirect_to projects_path, alert: 'Whooaaaaaaaa, not your project bud.'
 		end
