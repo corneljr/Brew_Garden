@@ -4,10 +4,8 @@
 	<p><span><%= number_to_currency(@project.funded_amount / 100, precision: 0) %></span><br> pledged of <%= number_to_currency(@project.goal / 100, precision: 0) %> goal</p>
 	<hr>
 	<p><span><%= @project.days_left %></span><br> days left</p>
-</div>
-<p><h4 class="text-center"><small>This project will only be funded if at least <%= number_to_currency(@project.goal / 100, precision: 0) %> CAD is pledged by <%= @end_date  %>.</small></h4><br></p>
-
-<div class="small-12 owner-panel text-center">
+	<hr>
+	<div  class="text-center">
 	<h6>Presented by</h6>
 	<p><%= image_tag @project.logo %></p>
 	<p><%= link_to @project.user.name, @project.user  %></p>
@@ -23,8 +21,9 @@
 				<i class="fi-social-twitter"></i>Twiiter
 		<% end %>
 	</p>
+	</div>
 </div>
-
+<hr>
 <div class="small-12">
 	<!-- Twitter -->
 	<div class="reward-container panel">
@@ -44,7 +43,8 @@
 			<% end %>
 		</div>
 	</div>
-	<br>
+	<hr>
+
 	<%= render @rewards %>
 </div>
 
