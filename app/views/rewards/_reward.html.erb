@@ -17,9 +17,11 @@
 		</div>
 		<hr>
 	<% end %>
-<% else %>
-<%= link_to '#', data: { :'reveal-id' => 'login'} do %>
-	<div class="reward-container">
+<% elsif reward.project.days_left == 0  %>
+	<div class="reward-container panel">
+		<div class="reward-expired">
+			<h4>Project has expired</h4>
+		</div>
 		<div class="reward-description">
 			<% if reward.pledges.count > 0 %>
 				<div class="tag-gold"><strong><%= reward.pledges.count %></strong><br>Backers</div>
@@ -29,9 +31,23 @@
 			<h1><strong>Pledge <%= number_to_currency(reward.amount / 100, precision: 0) %></strong></h1>
 			<p><%= reward.description %></p>
 		</div>
-		<div class="reward-selector">
-			<h4>Log in to pledge</h4>
-		</div>
 	</div>
-<% end %>
+	<hr>
+<% else %>
+	<%= link_to '#', data: { :'reveal-id' => 'login'} do %>
+		<div class="reward-container">
+			<div class="reward-description">
+				<% if reward.pledges.count > 0 %>
+					<div class="tag-gold"><strong><%= reward.pledges.count %></strong><br>Backers</div>
+				<% else %>
+					<div class="tag-green"><strong><%= reward.pledges.count %></strong><br>Backers</div>
+				<% end %>
+				<h1><strong>Pledge <%= number_to_currency(reward.amount / 100, precision: 0) %></strong></h1>
+				<p><%= reward.description %></p>
+			</div>
+			<div class="reward-selector">
+				<h4>Log in to pledge</h4>
+			</div>
+		</div>
+	<% end %>
 <% end %>
