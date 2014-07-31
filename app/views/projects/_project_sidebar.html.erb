@@ -27,23 +27,23 @@
 
 
 <div class="small-12">
-
 	<!-- Twitter -->
 	<div class="reward-container panel">
-		<div class="reward-description">
+		<div class="reward-description" style="overflow: hidden;">
 			<strong>Pledge a Tweet!</strong>
 			<br><br>
+
 			<strong><i class='fi-torsos'></i><span class="tweet-backers"><%= pluralize(@project.twitter_reward.pledges.count,'backer') %></span></strong>
 			<% if current_user %>
-				<div class="">
-				  <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fbrewgarden.ca%2Fprojects%2F<%= @project.id %>&text=<%= @project.twitter_reward.encode_message %>&hashtags=<%= @project.twitter_reward.update_hashtags %>"><i class="fi-social-twitter"></i> test</a>
+				<a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fbrewgarden.ca%2Fprojects%2F<%= @project.id %>&text=<%= @project.twitter_reward.encode_message %>&hashtags=<%= @project.twitter_reward.update_hashtags %>">
+					<div class="reward-selector"><h4>Pledge a Tweet!</h4></div>
+				</a>
+				<div style="font-size: 20em; margin: -65px 0; height: 250px; padding-left: 20px; color: #E5E5E5;">
+				  <i class="fi-social-twitter"></i>
 				</div>
 			<% else %>
 				<p>Please log in to tweet</p>
 			<% end %>
-			<div class="reward-selector">
-				<h4>Pledge a Tweet!</h4>
-			</div>
 		</div>
 	</div>
 	<br>
