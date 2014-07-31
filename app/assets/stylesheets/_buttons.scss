@@ -67,12 +67,31 @@
   font-family: 'Lato';
   font-size: 0.6em;
   font-weight: bold;
-  padding: 6px 10px 6px 6px;
+  padding: 4px 10px 6px 6px;
   &:hover{
     @include transition (all 0.2s ease-out);
     color: white;
     -moz-box-shadow: 0 0px 12px rgba(0,0,0,0.2) !important;
     -webkit-box-shadow: 0 0px 12px rgba(0,0,0,0.2) !important; }
+}
+
+.btn-social-sm {
+  @include button (simple, #EEE);
+  @include transition (all 0.2s ease-out);
+  color: #666;
+  font-family: 'Lato';
+  font-size: 0.8rem;
+  line-height: 20px;
+  padding: 0 10px;
+  i {
+    position: relative;
+    top: 2px;
+    margin-right: 5px;
+    font-size: 1.2rem;
+  }
+  &:hover {
+    color: #555;
+  }
 }
 
 .btn-light-green-nav {

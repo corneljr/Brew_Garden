@@ -14,7 +14,13 @@ h3 {
 h4 {
   font-family: 'Merriweather';
   font-size: 1.3rem;
-  font-weight: bold; }
+  font-weight: bold;
+  small {
+    font-size: 0.7rem;
+    font-family: 'Lato';
+    font-weight: 100;
+  }
+}
 
 h5 {
   color: #333 !important;

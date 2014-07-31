@@ -44,6 +44,14 @@
     }
   }
 
+.owner-link {
+  padding: 5px;
+  border: 1px solid #CCC;
+  background-color: #EEE;
+  margin: 25px 0 10px 0;
+  border-radius: 8px;
+}
+
 .owner-panel {
   border: 1px solid #DDD;
   padding: 15px;
@@ -345,7 +353,6 @@
 
 #custom-tweet-button a {
   display: block;
-  padding: 80px;
   background: url('twitter.jpeg') 1px center no-repeat;
 }
 
@@ -356,4 +363,4 @@
 	border-radius: 10px;
 }
 
-  
+
