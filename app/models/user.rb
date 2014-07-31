@@ -14,6 +14,17 @@ class User < ActiveRecord::Base
 
 
   mount_uploader :avatar, AvatarUploader
+
+  def has_backed?(project)
+    to_return = false
+    project.pledges.each do |pledge|
+      if pledge.user_id == self.id
+        to_return = true
+      end
+    end
+
+    to_return
+  end
 end
 
 # class EmailValidator < ActiveModel::EachValidator

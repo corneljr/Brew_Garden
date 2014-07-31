@@ -1,8 +1,10 @@
 <div class="small-12 medium-4 large-4 left columns">
 	<div class="project-panel">
+		<% if current_user.has_backed?(project) %>
 		<div class="tag">
-			limited
+			backed
 		</div>
+		<% end %>
 		<div class="panel-img">
 			<a href="<%= project_path(project) %>"><%= image_tag project.logo.card.url, class: 'project-logo' %></a>
 			<p class="text-right"><small>By: <%= project.user.name  %></small></p>
