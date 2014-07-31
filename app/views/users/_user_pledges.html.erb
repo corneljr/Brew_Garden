@@ -1,6 +1,9 @@
-<%= if pledge.project.post_status == true %>
+<% @pledges.each do |pledge| %>
 	<div class='user-project-container'>
-		<a href="<%= project_path(pledge.project) %>"><%= image_tag pledge.project.logo.card.url, class: 'user-project-image' %></a>
+		<%= link_to project_path(pledge.project) do %>
+			<%= image_tag pledge.project.logo.card.url, class: 'user-project-image' %>
+		<% end %>
 		<figcaption class='project-caption'><%= link_to pledge.project.title, pledge.project %></figcapion>
 	</div>
 <% end %>
+

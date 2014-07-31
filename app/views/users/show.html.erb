@@ -48,11 +48,11 @@
 		</div>
 		<div class='user-project-info'>
 			<% if @user.pledges.present? %>
-				<%= render partial: 'user_pledges', collection: @pledges %>
+				<%= render partial: 'user_pledges' %>
 			<% elsif @user.projects.present? %>
 				<%= render partial: 'user_projects' %>
 			<% elsif @user.comments.present? %>
-				<%= render partial: 'user_comments', collection: @comments %>
+				<%= render partial: 'user_comments'%>
 			<% else %>
 				<h4>There is no action to display for this user</h4>
 			<% end %>

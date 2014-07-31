@@ -39,18 +39,21 @@ class UsersController < ApplicationController
   end
 
   def pledges
+    @pledges = @user.pledges
     if request.xhr?
       render partial: 'user_pledges'
     end
   end
 
   def projects
+    @projects = @user.projects
     if request.xhr?
       render partial: 'user_projects'
     end
   end
 
   def comments
+    @comments = @user.comments
     if request.xhr?
       render partial: 'user_comments'
     end
