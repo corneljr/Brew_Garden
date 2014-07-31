@@ -407,19 +407,18 @@
 
 .helpers {
   opacity: 0;
-  color: #3d7423;
-}
-
-#custom-tweet-button a {
-  display: block;
-  background: url('twitter.jpeg') 1px center no-repeat;
-}
+  color: #3d7423; }
 
 .creater-commenter {
 	background-color: #3d7423;
 	padding: 5px;
 	color: white;
-	border-radius: 10px;
+	border-radius: 10px; }
+
+.save {
+  p {
+    font-size: 0.8rem;
+    color: #666;
+    margin: -15px 0 10px 0;
+  }
 }
-
-
