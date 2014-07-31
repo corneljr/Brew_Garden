@@ -11,7 +11,7 @@
 				<h1><strong>Pledge <%= number_to_currency(reward.amount / 100, precision: 0) %></strong></h1>
 				<p><%= reward.description %></p>
 			</div>
-			<form action="" method="POST">
+			<form action="<%= project_reward_charges_path(reward.project, reward) %>" method="POST">
 			  <script
 			    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 			    data-key="pk_test_4SPUMHwKi43qwO7iC1VZLKSi"
