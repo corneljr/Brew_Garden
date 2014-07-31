@@ -4,27 +4,38 @@
 	<p><span><%= number_to_currency(@project.funded_amount / 100, precision: 0) %></span><br> pledged of <%= number_to_currency(@project.goal / 100, precision: 0) %> goal</p>
 	<hr>
 	<p><span><%= @project.days_left %></span><br> days left</p>
-</div>
-<p><h4 class="text-center"><small>This project will only be funded if at least <%= number_to_currency(@project.goal / 100, precision: 0) %> CAD is pledged by <%= @end_date  %>.</small></h4><br></p>
+	<hr>
 
-<div class="small-12 owner-panel text-center">
-	<h6>Presented by</h6>
-	<p><%= image_tag @project.logo %></p>
-	<p><%= link_to @project.user.name, @project.user  %></p>
-	<div class="owner-link">
-		<%=  link_to 'needtofixthis', @project.user.website %>
+	<div  class="text-center">
+		<h6>Presented by</h6>
+		<p><%= link_to image_tag(@project.logo), @project.user %></p>
+		<p><%= link_to @project.user.name, @project.user  %></p>
+
+		<% if @project.user.website %>
+		<div class="owner-link">
+			<%=  link_to 'what', @project.user.website %>
+		</div>
+		<% end %>
+		
+		<% if @project.user.facebook %>
+		<p>
+			<%= link_to @project.user.facebook, class: 'btn-social-sm' do %>
+					<i class="fi-social-facebook"></i>Facebook
+			<% end %>
+		<% end %>	
+
+			&nbsp;
+
+		<% if @project.user.twitter %>	
+			<%= link_to @project.user.twitter, class: 'btn-social-sm' do %>
+					<i class="fi-social-twitter"></i>Twiiter
+			<% end %>
+		</p>	
+		<% end %>	
+
 	</div>
-	<p>
-		<%= link_to @project.user.facebook, class: 'btn-social-sm' do %>
-				<i class="fi-social-facebook"></i>Facebook
-		<% end %>
-		&nbsp;
-		<%= link_to @project.user.twitter, class: 'btn-social-sm' do %>
-				<i class="fi-social-twitter"></i>Twiiter
-		<% end %>
-	</p>
 </div>
-
+<hr>
 <div class="small-12">
 	<!-- Twitter -->
 	<div class="reward-container panel">
@@ -45,7 +56,8 @@
 			<% end %>
 		</div>
 	</div>
-	<br>
+	<hr>
+
 	<%= render @rewards %>
 </div>
 
