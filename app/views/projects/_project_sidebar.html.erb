@@ -11,8 +11,18 @@
 	<h6>Presented by</h6>
 	<p><%= image_tag @project.logo %></p>
 	<p><%= link_to @project.user.name, @project.user  %></p>
-	<div class="owner-link"><a href="#" target="_blank">www.hogtown.ca</a></div>
-	<p><a class="btn-social-sm"><i class="fi-social-facebook"></i> Facebook</a> &nbsp; <a class="btn-social-sm"><i class="fi-social-twitter"></i> Twitter</a></p>
+	<div class="owner-link">
+		<%=  link_to 'needtofixthis', @project.user.website %>
+	</div>
+	<p>  
+		<%= link_to @project.user.facebook, class: 'btn-social-sm' do %>
+				<i class="fi-social-facebook"></i>Facebook
+		<% end %>
+		&nbsp;
+		<%= link_to @project.user.twitter, class: 'btn-social-sm' do %>
+				<i class="fi-social-twitter"></i>Twiiter
+		<% end %>
+	</p>
 </div>
 
 
