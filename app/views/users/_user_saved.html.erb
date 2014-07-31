@@ -1,0 +1,7 @@
+<h6>Your saved projects</h6>
+<ul>
+	<% @saved_projects.each do |project| %>
+		<li><%= link_to project.title, project %></li>
+	<% end %>
+</ul>
+

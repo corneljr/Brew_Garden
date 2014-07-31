@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :load_user, only: [:edit, :update, :show, :projects, :pledges, :comments, :upload_image]
+  before_action :load_user, only: [:edit, :update, :show, :projects, :pledges, :comments, :upload_image, :saved]
   before_action :require_login, only: [:edit, :update]
 
   def new
@@ -21,8 +21,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @projects = @user.projects.where(post_status: true)
     @saved_projects = @user.projects.where(post_status: false)
+    @projects = @user.projects.where(post_status: true)
     @comments = @user.comments
     @pledges = @user.pledges
   end
@@ -56,6 +56,14 @@ class UsersController < ApplicationController
     @comments = @user.comments
     if request.xhr?
       render partial: 'user_comments'
+    end
+  end
+
+  def saved
+
+     @saved_projects = @user.projects.where(post_status: false)
+     if request.xhr?
+      render partial: 'user_saved'
     end
   end
 

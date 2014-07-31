@@ -6,7 +6,8 @@ $(document).ready( function(){
 		var item = ev.currentTarget.textContent.toLowerCase();
 		$('.user-link').css('font-weight', 'normal');
 		$(this).css('font-weight', 'bold');
-
+		console.log(item);
+		console.log(window.location.pathname + '/' + item)
 		$.get(window.location.pathname + '/' + item)
 			.done( function(data){
 				$('.user-project-info').html(data)
