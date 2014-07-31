@@ -14,7 +14,7 @@
 	<div class="owner-link">
 		<%=  link_to 'needtofixthis', @project.user.website %>
 	</div>
-	<p>  
+	<p>
 		<%= link_to @project.user.facebook, class: 'btn-social-sm' do %>
 				<i class="fi-social-facebook"></i>Facebook
 		<% end %>
@@ -36,7 +36,7 @@
 				<a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fbrewgarden.ca%2Fprojects%2F<%= @project.id %>&text=<%= @project.twitter_reward.encode_message %>&hashtags=<%= @project.twitter_reward.update_hashtags %>">
 					<div class="reward-selector"><h4>Pledge a Tweet!</h4></div>
 				</a>
-				<div style="font-size: 20em; margin: -65px 0; height: 250px; padding-left: 20px; color: #E5E5E5;">
+				<div class="twitter">
 				  <i class="fi-social-twitter"></i>
 				</div>
 			<% else %>

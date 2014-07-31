@@ -2,11 +2,12 @@
 	<%= link_to project_reward_path(reward.project, reward) do %>
 		<div class="reward-container panel">
 			<div class="reward-description">
-				<h6 class="text-left"><strong>Pledge <%= number_to_currency(reward.amount / 100, precision: 0) %></strong></h6>
-				<br>
-				<strong><i class='fi-torsos'></i> <%= pluralize(reward.pledges.count, 'backer') %></strong>
-				<br>
-				<br>
+				<% if reward.pledges.count > 0 %>
+					<div class="tag-gold"><strong><%= reward.pledges.count %></strong><br>Backers</div>
+				<% else %>
+					<div class="tag-green"><strong><%= reward.pledges.count %></strong><br>Backers</div>
+				<% end %>
+				<h1><strong>Pledge <%= number_to_currency(reward.amount / 100, precision: 0) %></strong></h1>
 				<p><%= reward.description %></p>
 			</div>
 			<div class="reward-selector">
@@ -17,15 +18,15 @@
 	<% end %>
 <% else %>
 <%= link_to new_session_path do %>
-	<div class='reward-container'>
+	<div class="reward-container">
 		<div class="reward-description">
 			<p><strong>Pledge <%= number_to_currency(reward.amount/100, precision: 0) %></strong></p>
 			<p><%= pluralize(reward.pledges.count, 'backer') %></p>
 			<p><%= reward.description %></p>
 		</div>
 		<div class="reward-selector">
-				<h4>Log in to pledge</h4>
-			</div>
+			<h4>Log in to pledge</h4>
+		</div>
 	</div>
 <% end %>
 <hr>
