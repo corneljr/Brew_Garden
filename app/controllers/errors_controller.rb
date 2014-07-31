@@ -1,6 +1,6 @@
 class ErrorsController < ApplicationController
 
 	def catch_404
-		redirect_to projects_path
+		raise ActionController::RoutingError.new('Page Not Found')
 	end
 end
