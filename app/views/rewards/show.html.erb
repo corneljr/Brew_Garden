@@ -1,3 +1,7 @@
+<div class="home-bg">
+  <!-- placeholder for video? -->
+</div>
+
 <!-- Spacer - need to delete -->
 <div class="row">
   <div class="small-12 columns">
@@ -8,106 +12,61 @@
 <!-- Page header -->
 <div class="row">
   <div class="small-12 text-center columns">
-    <h2>Please enter your information to back the project!</h2>
+    <h2>Last step!</h2>
   </div>
 </div>
 
-<div style='width:50%;margin-left:auto;margin-right:auto;'>
-  <h4>Payment Information</h4>
-	<%= form_tag project_reward_charges_path(@project, @reward), id: 'payment-form' %>
-	  <span class="payment-errors"></span>
-     <div class="row">
-      <div class="small-3 columns">
-        <br>
-        <br>
-        <%= label_tag 'card_number', nil, class: 'right inline' %>
+<div class="row">
+  <div class="small-10 medium-6 large-6 small-centered columns">
+    <p>This reward requires shipping information for the project owner.  We will only share this information once the project when the project is complete and only with the project owner.</p>
+    <%= form_tag project_reward_charges_path(@project, @reward), id: 'payment-form' %>
+    <div class="row collapse">
+      <span class="payment-errors"></span>
+      <div class="small-2 columns">
+        <span class="prefix"><i class="fi-torso"></i></span>
       </div>
-      <div class="helper-msg small-9 columns">
-        <span class="helpers">We accept Visa and Mastercard. All payments are processed using Stripe.</span>
-        <%= number_field_tag :card_number, nil, placeholder: 'Card Number', data: {stripe: 'number'} %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="small-3 columns">
-        <%= label_tag :cvc, nil, class: 'right inline' %>
-      </div>
-      <div class="helper-msg small-9 columns">
-       <!--  <span class="helpers">This is the title for your campaign. What are you raising money for?</span> -->
-        <%= number_field_tag :cvc, nil, placeholder: 'CVC', size: 2, data: {stripe: 'cvc'} %>
-      </div>
-    </div>
-	   <div class="row">
-      <div class="small-3 columns">
-        <%= label_tag :exp_month, nil, class: 'right inline' %>
-      </div>
-      <div class="helper-msg small-9 columns">
-      <!--   <span class="helpers">This is the title for your campaign. What are you raising money for?</span> -->
-        <%= number_field_tag :exp_month, nil, placeholder: 'MM', size: 2, data: {stripe: 'exp-month'}, in: 1..12 %>
-      </div>
-    </div>
-	   <div class="row">
-      <div class="small-3 columns">
-        <%= label_tag :exp_year, nil, class: 'right inline' %>
-      </div>
-      <div class="helper-msg small-9 columns">
-      <!--   <span class="helpers">This is the title for your campaign. What are you raising money for?</span> -->
-        <%= number_field_tag :exp_year, nil, placeholder: 'YYYY', size: 4, data: {stripe: 'exp-year'}, in: 2014..2030 %>
+      <div class="small-10 columns">
+        <%= text_field_tag :address, nil, placeholder: 'Your street address' %>
       </div>
     </div>
 
-
-    
-    <% if @reward.shipping %> 
-      <h4>Shipping Information</h4>  
-      <div class="row">
-      <div class="small-10 medium-6 large-6 small-centered columns">
-        <div class="row collapse">
-          <div class="small-2 columns">
-            <span class="prefix"><i class="fi-home"></i></span>
-          </div>
-          <div class="small-10 columns">
-            <%= text_field_tag :address, nil, placeholder: 'Your street address' %>
-          </div>
-        </div>
-        <div class="row collapse">
-          <div class="small-2 columns">
-            <span class="prefix"><i class="fi-address-book"></i></span>
-          </div>
-          <div class="small-10 columns">
-            <%= text_field_tag :postal_code, nil, placeholder: 'Your postal code' %>
-          </div>
-        </div>
-        <div class="row collapse">
-          <div class="small-2 columns">
-            <span class="prefix"><i class="fi-graph-bar"></i></span>
-          </div>
-          <div class="small-10 columns">
-            <%= text_field_tag :city, nil, placeholder: 'Your city' %>
-          </div>
-        </div>
-        <div class="row collapse">
-          <div class="small-2 columns">
-            <span class="prefix"><i class="fi-mountains"></i></span>
-          </div>
-          <div class="small-10 columns">
-            <%= select_tag :province, options_for_select(['Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Nova Scotia', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan', 'Northwest Territories', 'Nunavut', 'Yukon']), prompt: 'Select your province' %>
-          </div>
-        </div>
-        <div class="row collapse">
-          <div class="small-12 text-center columns">
-            <%= submit_tag "Claim your reward", class: 'button'  %>
-          </div>
-        </div>
+    <div class="row collapse">
+      <div class="small-2 columns">
+        <span class="prefix"><i class="fi-torso"></i></span>
+      </div>
+      <div class="small-10 columns">
+        <%= text_field_tag :postal_code, nil, placeholder: 'Your postal code' %>
       </div>
     </div>
-    <% end %>
 
+    <div class="row collapse">
+      <div class="small-2 columns">
+        <span class="prefix"><i class="fi-torso"></i></span>
+      </div>
+      <div class="small-10 columns">
+        <%= text_field_tag :city, nil, placeholder: 'Your city' %>
+      </div>
+    </div>
 
+    <div class="row collapse">
+      <div class="small-2 columns">
+        <span class="prefix"><i class="fi-torso"></i></span>
+      </div>
+      <div class="small-10 columns">
+        <%= select_tag :province, options_for_select(['Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Nova Scotia', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan', 'Northwest Territories', 'Nunavut', 'Yukon']), prompt: 'Select your province' %>
+      </div>
+    </div>
 
+    <div class="row collapse">
+      <div class="small-12 columns text-center">
+        <%= submit_tag "Submit", class: 'button'  %>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-
 <script>
 	Stripe.setPublishableKey('pk_test_4SPUMHwKi43qwO7iC1VZLKSi')
 
