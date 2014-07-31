@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :updates
     resources :twitter_rewards, only: [:create]
   	resources :rewards, only: [:create, :destroy, :update] do
-  		resources :pledges, only: [:create, :show, :edit]
+  		resources :pledges, only: [:create, :show, :edit, :update]
       resources :charges, only: [:new, :create]
   	end
     resources :comments

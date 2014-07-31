@@ -11,16 +11,16 @@
 				<h1><strong>Pledge <%= number_to_currency(reward.amount / 100, precision: 0) %></strong></h1>
 				<p><%= reward.description %></p>
 			</div>
-			<form action="<%= project_reward_charges_path(reward.project, reward) %>" method="POST">
+			<%= form_tag project_reward_charges_path(reward.project, reward) do %>
 			  <script
 			    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 			    data-key="pk_test_4SPUMHwKi43qwO7iC1VZLKSi"
-			    data-amount="2000"
+			    data-amount="<%= reward.amount %>"
 			    data-name="Pledge <%= number_to_currency(reward.amount / 100) %>"
 			    data-description="<%= reward.description %>"
 			    data-image="<%= reward.project.logo.url %>">
 			  </script>
-			</form>
+			<% end %>
 		<!-- 	<div class="reward-selector">
 				<h4>Select this reward</h4>
 			</div> -->

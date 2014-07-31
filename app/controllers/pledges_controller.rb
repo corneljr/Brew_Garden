@@ -25,6 +25,8 @@ class PledgesController < ApplicationController
   end
 
   def edit
+    @project = Project.find(params[:project_id])
+    @reward = Reward.find(params[:reward_id])
     @pledge = Pledge.find(params[:id])
   end
 
@@ -35,6 +37,14 @@ class PledgesController < ApplicationController
       @twitter_reward.pledges.create(user_id: current_user.id, project_id: @project.id)
       render partial: 'tweet_update'
     end
+  end
+
+  def update
+    @project = Project.find params[:project_id]
+    @pledge = Pledge.find(params[:id])
+    @pledge.update(pledge_params)
+    @pledge.save
+    redirect_to @project, notice: 'Project successfully backed!'
   end
 
   private
