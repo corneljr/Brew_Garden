@@ -24,8 +24,8 @@ Rails.application.routes.draw do
     resources :slider_images, only: [:create]
     resources :updates
     resources :twitter_rewards, only: [:create]
-  	resources :rewards, only: [:create, :destroy, :update, :show] do
-  		resources :pledges, only: [:create, :show]
+  	resources :rewards, only: [:create, :destroy, :update] do
+  		resources :pledges, only: [:create, :show, :edit, :update]
       resources :charges, only: [:new, :create]
   	end
     resources :comments
@@ -44,7 +44,7 @@ Rails.application.routes.draw do
 
   post '/contact', to: 'welcome#contact', as: 'welcome_contact'
   root to: 'welcome#index'
-  
-  match "*path", to: "errors#catch_404", via: :all
+
+  # match "*path", to: "errors#catch_404", via: :all
 
 end

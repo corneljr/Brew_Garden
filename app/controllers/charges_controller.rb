@@ -20,7 +20,13 @@ class ChargesController < ApplicationController
 	    :capture => true
   	)
 
-  	redirect_to project_path(@project), notice: 'Project successfully backed!'
+  	@pledge = @reward.pledges.create(user_id: current_user.id, project_id: @project.id)
+
+  	if @reward.shipping
+  		redirect_to edit_project_reward_pledge_path(@project, @reward, @pledge)
+  	else
+  		redirect_to project_path(@project), notice: 'Project successfully backed!'
+  	end
 
 		rescue Stripe::CardError => e
 		  	flash[:error] = e.message

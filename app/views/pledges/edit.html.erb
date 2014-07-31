@@ -16,17 +16,18 @@
   </div>
 </div>
 
+<%= form_for [@project,@reward,@pledge] do |f| %>
 <div class="row">
   <div class="small-10 medium-6 large-6 small-centered columns">
     <p>This reward requires shipping information for the project owner.  We will only share this information once the project when the project is complete and only with the project owner.</p>
-    <%= form_tag project_reward_charges_path(@project, @reward), id: 'payment-form' %>
+
     <div class="row collapse">
       <span class="payment-errors"></span>
       <div class="small-2 columns">
         <span class="prefix"><i class="fi-torso"></i></span>
       </div>
       <div class="small-10 columns">
-        <%= text_field_tag :address, nil, placeholder: 'Your street address' %>
+        <%= f.text_field :address, placeholder: 'Your street address' %>
       </div>
     </div>
 
@@ -35,7 +36,7 @@
         <span class="prefix"><i class="fi-torso"></i></span>
       </div>
       <div class="small-10 columns">
-        <%= text_field_tag :postal_code, nil, placeholder: 'Your postal code' %>
+        <%= f.text_field :postal_code, placeholder: 'Your postal code' %>
       </div>
     </div>
 
@@ -44,7 +45,7 @@
         <span class="prefix"><i class="fi-torso"></i></span>
       </div>
       <div class="small-10 columns">
-        <%= text_field_tag :city, nil, placeholder: 'Your city' %>
+        <%= f.text_field :city, placeholder: 'Your city' %>
       </div>
     </div>
 
@@ -53,20 +54,16 @@
         <span class="prefix"><i class="fi-torso"></i></span>
       </div>
       <div class="small-10 columns">
-        <%= select_tag :province, options_for_select(['Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Nova Scotia', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan', 'Northwest Territories', 'Nunavut', 'Yukon']), prompt: 'Select your province' %>
+        <%= f.select :province, options_for_select(['Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Nova Scotia', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan', 'Northwest Territories', 'Nunavut', 'Yukon']), prompt: 'Select your province' %>
       </div>
     </div>
 
     <div class="row collapse">
       <div class="small-12 columns text-center">
-        <%= submit_tag "Submit", class: 'button'  %>
+        <%= f.submit "Submit", class: 'button'  %>
       </div>
     </div>
 
   </div>
 </div>
-
-
-
-
-
+<% end %>
