@@ -43,5 +43,6 @@ Rails.application.routes.draw do
 
   post '/contact', to: 'welcome#contact', as: 'welcome_contact'
   root to: 'welcome#index'
+  match "*path", to: "errors#catch_404", via: :all
 
 end
