@@ -13,7 +13,7 @@
 	<p><%= link_to image_tag(@project.logo), @project.user %></p>
 	<p><%= link_to @project.user.name, @project.user  %></p>
 
-	<% if @project.user.website.length > 1 %>
+	<% if @project.user.website && @project.user.website.length > 1 %>
 		<div class="owner-link">
 			<%= link_to @project.user.website %>
 		</div>
