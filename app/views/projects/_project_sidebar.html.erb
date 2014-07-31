@@ -4,38 +4,40 @@
 	<p><span><%= number_to_currency(@project.funded_amount / 100, precision: 0) %></span><br> pledged of <%= number_to_currency(@project.goal / 100, precision: 0) %> goal</p>
 	<hr>
 	<p><span><%= @project.days_left %></span><br> days left</p>
-	<hr>
-
-	<div  class="text-center">
-		<h6>Presented by</h6>
-		<p><%= link_to image_tag(@project.logo), @project.user %></p>
-		<p><%= link_to @project.user.name, @project.user  %></p>
-
-		<% if @project.user.website %>
-		<div class="owner-link">
-			<%=  link_to 'what', @project.user.website %>
-		</div>
-		<% end %>
-		
-		<% if @project.user.facebook %>
-		<p>
-			<%= link_to @project.user.facebook, class: 'btn-social-sm' do %>
-					<i class="fi-social-facebook"></i>Facebook
-			<% end %>
-		<% end %>	
-
-			&nbsp;
-
-		<% if @project.user.twitter %>	
-			<%= link_to @project.user.twitter, class: 'btn-social-sm' do %>
-					<i class="fi-social-twitter"></i>Twiiter
-			<% end %>
-		</p>	
-		<% end %>	
-
-	</div>
 </div>
+
+<p></p>
+
+<div class="small-12 owner-panel text-center">
+	<h6>Presented by</h6>
+	<p><%= link_to image_tag(@project.logo), @project.user %></p>
+	<p><%= link_to @project.user.name, @project.user  %></p>
+
+	<% if @project.user.website %>
+		<div class="owner-link">
+			<%= link_to 'what', @project.user.website %>
+		</div>
+	<% end %>
+
+	<% if @project.user.facebook %>
+		<p>
+		<%= link_to @project.user.facebook, class: 'btn-social-sm' do %>
+			<i class="fi-social-facebook"></i>Facebook
+		<% end %>
+	<% end %>
+
+	&nbsp;
+
+	<% if @project.user.twitter %>
+		<%= link_to @project.user.twitter, class: 'btn-social-sm' do %>
+			<i class="fi-social-twitter"></i>Twiiter
+		<% end %>
+		</p>
+	<% end %>
+</div>
+
 <hr>
+
 <div class="small-12">
 	<!-- Twitter -->
 	<div class="reward-container panel">
@@ -52,12 +54,16 @@
 				  <i class="fi-social-twitter"></i>
 				</div>
 			<% else %>
-				<p>Please log in to tweet</p>
+				<a href="#" data-reveal-id="login">
+					<div class="reward-selector"><h4>Log in to Tweet!</h4></div>
+				</a>
+				<div class="twitter">
+				  <i class="fi-social-twitter"></i>
+				</div>
 			<% end %>
 		</div>
 	</div>
-	<hr>
-
+	<!-- Rewards -->
 	<%= render @rewards %>
 </div>
 
