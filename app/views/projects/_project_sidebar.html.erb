@@ -15,14 +15,12 @@
 	<p><a class="btn-social-sm"><i class="fi-social-facebook"></i> Facebook</a> &nbsp; <a class="btn-social-sm"><i class="fi-social-twitter"></i> Twitter</a></p>
 </div>
 
-
 <div class="small-12">
 	<!-- Twitter -->
 	<div class="reward-container panel">
 		<div class="reward-description" style="overflow: hidden;">
 			<strong>Pledge a Tweet!</strong>
 			<br><br>
-
 			<strong><i class='fi-torsos'></i><span class="tweet-backers"><%= pluralize(@project.twitter_reward.pledges.count,'backer') %></span></strong>
 			<% if current_user %>
 				<a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fbrewgarden.ca%2Fprojects%2F<%= @project.id %>&text=<%= @project.twitter_reward.encode_message %>&hashtags=<%= @project.twitter_reward.update_hashtags %>">
@@ -48,7 +46,6 @@
 	  return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
 	}(document, "script", "twitter-wjs"));
 
-
 	twttr.ready(function (twttr) {
 	  // Now bind our custom intent events
 	  twttr.events.bind('tweet', function(data) {
@@ -58,6 +55,5 @@
 	  			$('.tweet-backers').text(data);
 	  		});
 	  });
-
 	});
 </script>
