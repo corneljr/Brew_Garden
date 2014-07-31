@@ -24,6 +24,10 @@ class PledgesController < ApplicationController
   	end
   end
 
+  def edit
+    @pledge = Pledge.find(params[:id])
+  end
+
   def tweet
     @project = Project.find(params[:project_id])
     @twitter_reward = TwitterReward.find(params[:twitter_reward_id])
