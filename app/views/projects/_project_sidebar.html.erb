@@ -13,9 +13,9 @@
 	<p><%= link_to image_tag(@project.logo), @project.user %></p>
 	<p><%= link_to @project.user.name, @project.user  %></p>
 
-	<% if @project.user.website %>
+	<% if @project.user.website.length > 1 %>
 		<div class="owner-link">
-			<%= link_to 'what', @project.user.website %>
+			<%= link_to @project.user.website %>
 		</div>
 	<% end %>
 
