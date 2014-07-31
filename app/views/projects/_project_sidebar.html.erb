@@ -86,3 +86,27 @@
 	  });
 	});
 </script>
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script>
+  var handler = StripeCheckout.configure({
+    key: 'pk_test_4SPUMHwKi43qwO7iC1VZLKSi',
+    image: '/square-image.png',
+    token: function(token) {
+      // $.post('/projects/<%= @project.id %>/rewards/:reward_id/charges');
+    }
+  });
+
+  $(document).ready(function() {
+    $('.stripe').on('click', function(e) {
+      amount = $(this).data('amount');
+      desc = $(this).data('stripe-desc');
+      console.log(amount);
+      handler.open({
+        name: '<%= @project.title %>',
+        description: desc,
+        amount: amount
+      });
+      e.preventDefault();
+    });
+  });
+</script>
