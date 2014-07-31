@@ -20,4 +20,9 @@ class ApplicationController < ActionController::Base
   	end
   end
   helper_method :current_user
+
+  rescue_from ActionController::RoutingError do |exception|
+    render 'public/404'
+  end
+
 end

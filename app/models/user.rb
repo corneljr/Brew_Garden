@@ -8,10 +8,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 3 }
   validates :password, confirmation: true
   validates :password_confirmation, presence: true
-
   validates :email, uniqueness: true
-  # validates :email, presence: true, email: true
-
 
   mount_uploader :avatar, AvatarUploader
 
@@ -26,11 +23,3 @@ class User < ActiveRecord::Base
     to_return
   end
 end
-
-# class EmailValidator < ActiveModel::EachValidator
-#   def validate_each(record, attribute, value)
-#     unless value =~ /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-#       record.errors[attribute] << (options[:message] || "is not an email")
-#     end
-#   end
-# end
