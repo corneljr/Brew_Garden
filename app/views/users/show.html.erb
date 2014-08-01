@@ -9,13 +9,13 @@
 			<% if @user == current_user %>
 				<div class='upload-image small-10 medium-6 large-6 small-centered columns'>
 					<%= image_tag @user.avatar.profile.url %>
-		
+
 					<%= form_tag user_upload_image_path(@user), multipart: true do  %>
 						<%= file_field_tag :avatar, class: 'avatar-upload' %>
 					<p class="text-center"><%= submit_tag 'upload image' %></p>
-				
+
 			</div>
-		<% end %>	
+		<% end %>
 			<style type="text/css">
 					.upload-image {
 						width:35%;
