@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @saved_projects = @user.projects.where(post_status: false)
     @projects = @user.projects.where(post_status: true)
     @comments = @user.comments
-    @pledges = @user.pledges
+    @pledges = Project.find(@user.pledges.pluck(:project_id).uniq)
   end
 
   def create
@@ -39,14 +39,15 @@ class UsersController < ApplicationController
   end
 
   def pledges
-    @pledges = @user.pledges
+    @pledges = Project.find(@user.pledges.pluck(:project_id).uniq)
+
     if request.xhr?
       render partial: 'user_pledges'
     end
   end
 
   def projects
-    @projects = @user.projects
+    @projects = @user.projects.where(post_status: true)
     if request.xhr?
       render partial: 'user_projects'
     end
@@ -60,7 +61,6 @@ class UsersController < ApplicationController
   end
 
   def saved
-
      @saved_projects = @user.projects.where(post_status: false)
      if request.xhr?
       render partial: 'user_saved'

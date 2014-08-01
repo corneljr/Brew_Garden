@@ -55,6 +55,45 @@
   color: white; }
 
 .slider-img {
-  padding: 5px;
-  border-radius: 5px;
-  background-color: white; }
+  padding: 5px; }
+
+
+.project-panel-home {
+  background-color: transparent;
+  border-radius: 8px;
+  transition: all 0.2s;
+  &:hover {
+    -moz-box-shadow: 0 0px 20px rgba(0,0,0,0.2) !important;
+    -webkit-box-shadow: 0 0px 20px rgba(0,0,0,0.2) !important; }
+
+  .panel-img {
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: #FFF;
+    padding: 10px 10px 0 10px;
+    border-bottom: 1px solid #CCC;
+    -moz-box-shadow: 0 0px 10px rgba(0,0,0,0.4) !important;
+    -webkit-box-shadow: 0 0px 10px rgba(0,0,0,0.4) !important;
+    small { color: #999; }
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+    font-size: 0.8rem; }
+
+  h1 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 5px; }
+
+  img {
+    width: 195px;
+    height: 195px;
+    // border-radius: 50%;
+  }
+
+  @include panel(
+    $padding: 10px
+  );
+}
