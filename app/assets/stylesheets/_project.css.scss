@@ -4,6 +4,32 @@
 .slider-project {
   border-radius: 8px; }
 
+// center button-group
+.hnav {
+  transition: all 0.2s;
+  padding: 0 1px !important; }
+
+.hnav a {
+  margin-bottom: 0 !important;
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold; }
+
+.hnav a:hover {
+  margin-bottom: 0 !important;
+  background-color: #f2f2f2;
+  color: #333; }
+
+.hnav:hover {
+  border-bottom: 2px solid rgb(65, 117, 5);
+  margin-bottom: -2px;
+  margin-top: -2px; }
+
+.hnav-on {
+  border-bottom: 2px solid rgb(65, 117, 5);
+  margin-bottom: -2px;
+  margin-top: -2px; }
+
 .project-category-location {
 	color: #828587; }
 
@@ -205,6 +231,9 @@
 
 .project-info-link-item {
 	font-weight: bold;
+  a {
+    color: white !important;
+  }
 }
 
 .nav-list {

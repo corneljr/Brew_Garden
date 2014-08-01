@@ -93,6 +93,7 @@
     key: '<%= Figaro.env.stripe_public_key %>',
     image: '<%= @project.logo.url %>',
     token: function(token) {
+      // _self = $('.stripe.is-striped').first();
       $.ajax({
       	url: '/projects/<%= @project.id %>/rewards/' + $('.stripe.is-striped').first().data('reward-id') +'/charges',
       	type: 'POST',
@@ -102,7 +103,7 @@
     		if (response.shipping) {
     			window.location.href = response.url
     		} else {
-    			//something
+    			// console.log(_self);
     		};
     	});
     }
