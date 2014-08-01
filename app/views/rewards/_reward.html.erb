@@ -1,4 +1,3 @@
-<hr>
 <% if reward.project.days_left > 0 && current_user %>
   <%= link_to "#", class: 'stripe', data: { :'stripe-desc' => reward.description, :'amount' => reward.amount, :'reward-id' => reward.id }  do %>
 		<div class="reward-container panel">
