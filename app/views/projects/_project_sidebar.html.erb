@@ -86,3 +86,50 @@
 	  });
 	});
 </script>
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script>
+
+  var handler = StripeCheckout.configure({
+    key: 'pk_test_4SPUMHwKi43qwO7iC1VZLKSi',
+    image: '<%= @project.logo.url %>',
+    token: function(token) {
+      $.ajax({
+      	url: '/projects/<%= @project.id %>/rewards/' + $('.stripe.is-striped').first().data('reward-id') +'/charges',
+      	type: 'POST',
+      	data: token,
+      	dataType: 'json'
+    	}).done( function(response){
+    		if (response.shipping) {
+    			window.location.href = response.url
+    		} else {
+    			//something
+    		};
+    	});
+    }
+  });
+
+  $(document).ready(function() {
+    $('.stripe').on('click', function(e) {
+    	var self = $(this);
+
+      amount = $(this).data('amount');
+      desc = $(this).data('stripe-desc');
+      console.log(amount);
+      handler.open({
+        name: '<%= @project.title %>',
+        description: desc,
+        amount: amount,
+        opened: function() {
+        	self.addClass('is-striped');
+        },
+        closed: function() {
+        	self.addClass('is-striped');
+        }
+      });
+
+      e.preventDefault();
+
+      // self.data('reward_id', )
+    });
+  });
+</script>
