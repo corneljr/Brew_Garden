@@ -270,6 +270,9 @@
 
 .see-all {
 	float:right;
+  &:hover{
+    text-decoration: underline;
+  }
 }
 
 //project backers page
