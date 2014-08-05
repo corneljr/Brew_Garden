@@ -114,11 +114,12 @@
 
   $(document).ready(function() {
     $('.stripe').on('click', function(e) {
+    	e.preventDefault();
+    	
     	var self = $(this);
 
       amount = $(this).data('amount');
       desc = $(this).data('stripe-desc');
-      console.log(amount);
       handler.open({
         name: '<%= @project.title %>',
         description: desc,
@@ -130,8 +131,6 @@
         	self.addClass('is-striped');
         }
       });
-
-      e.preventDefault();
 
       // self.data('reward_id', )
     });
