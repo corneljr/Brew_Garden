@@ -31,18 +31,14 @@
       <% end %>
       <div class="row collapse">
         <div class="small-2 columns">
-          <br>
-          <br>
-          <span class="prefix"><i class="fi-torso"></i></span>
+          <span class="prefix"><i class="fi-mail"></i></span>
         </div>
         <div class="helper-msg small-10 columns">
-          <span class="helpers">This can be either your name or your brewery/company name.</span>
-          <%= f.text_field :name, placeholder: 'Your name' %>
+          <%= f.input :type, collection: [['Which option represents you best?', ''], ['Brewer', 'Brewer'], ['Funder', 'Funder']], selected: (@user.type? ? (@user.type === 'Brewer' ? 'Brewer' : 'Funder') : '' ), label: false, hint: false, error: false %>
         </div>
       </div>
       <div class="row collapse">
         <div class="small-2 columns">
-          <br>
           <span class="prefix"><i class="fi-mail"></i></span>
         </div>
         <div class="helper-msg small-10 columns">

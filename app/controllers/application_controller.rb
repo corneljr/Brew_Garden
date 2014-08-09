@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     @project = Project.find(params[:project_id]) if params[:project_id]
   end
 
-  private 
+  private
 
   def current_user
   	@current_user ||= User.find(session[:user_id]) if session[:user_id]
