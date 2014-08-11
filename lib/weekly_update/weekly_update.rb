@@ -6,8 +6,8 @@ module WeeklyUpdate
       @weekly_project_pledge_totals = Reward.where(project_id: weekly_funded_projects).group('project_id').sum('amount')
     end
 
-    def printme
-      puts @weekly_project_pledge_totals 
+    def send_weekly_mail
+      puts @weekly_project_pledge_totals
     end
 
   end

@@ -35,9 +35,9 @@
 		<div class="small-12 columns">
 			<br>
 			<% if ((@project.funded_amount.to_f / @project.goal.to_f) * 100) < 100 %>
-				<div class="progress-bar" data-funded="<%= ((@project.funded_amount.to_f / @project.goal.to_f) * 100).round %>"><div class="progress-div"></div></div>
+			<!-- 	<div class="progress-bar" data-funded="<%#= ((@project.funded_amount.to_f / @project.goal.to_f) * 100).round %>"><div class="progress-div"></div></div> -->
 			<% else %>
-				<div class="progress-bar" data-funded="100"><div class="progress-div"></div></div>
+				<!-- <div class="progress-bar" data-funded="100"><div class="progress-div"></div></div> -->
 			<% end %>
 			<!-- <div class='percent'></div> -->
 			<p></p>

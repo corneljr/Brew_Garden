@@ -1,6 +1,6 @@
 <div class="small-12 medium-4 large-4 left columns">
 	<div class="project-panel">
-		<% if current_user.has_backed?(project) %>
+		<% if current_user && current_user.has_backed?(project) %>
 		<div class="tag">
 			backed
 		</div>

@@ -1,12 +1,11 @@
-<hr>
 <% if reward.project.days_left > 0 && current_user %>
-  <%= link_to "#", class: 'stripe', data: { :'stripe-desc' => reward.description, :'amount' => reward.amount }  do %>
+  <%= link_to "#", class: 'stripe', data: { :'stripe-desc' => reward.description, :'amount' => reward.amount, :'reward-id' => reward.id }  do %>
 		<div class="reward-container panel">
 			<div class="reward-description">
-				<% if reward.pledges.count > 0 %>
-					<div class="tag-gold"><strong><%= reward.pledges.count %></strong><br>Backers</div>
+				<% if current_user && current_user.pledges.pluck(:reward_id).include?(reward.id) %>
+					<div class="tag-green"><br><strong>Backed<strong></div>
 				<% else %>
-					<div class="tag-green"><strong><%= reward.pledges.count %></strong><br>Backers</div>
+					<div class="tag-gold"><strong><span class='backers-count'><%= reward.pledges.count %></span></strong><br>Backers</div>
 				<% end %>
 				<h1><strong>Pledge <%= number_to_currency(reward.amount / 100, precision: 0) %></strong></h1>
 				<p><%= reward.description %></p>
