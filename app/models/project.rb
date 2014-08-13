@@ -17,7 +17,7 @@ class Project < ActiveRecord::Base
 	validates :goal, numericality: { only_integer: true }
 	validates :title, length: { maximum: 125 }
 	validates :short_blurb, length: { maximum: 200 }, presence: true
-	validates :video_link, format: { with: /www.youtube.com/, message: 'must be uploaded to youtube'}
+	validates :video_link, format: { with: /www\.youtube\.com/, message: 'must be uploaded to youtube'}
 
 	geocoded_by :get_location
 	before_save :geocode

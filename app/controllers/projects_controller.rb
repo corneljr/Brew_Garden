@@ -194,7 +194,6 @@ class ProjectsController < ApplicationController
 	end
 
 	def project_params
-
 		params.require(:project).permit(:title, :video_link, :description, :days_left, :image, :logo, :goal, :location, :category, :short_blurb, :tmsg, :hashtags, rewards_attributes: [:id, :amount, :description, :pledges_left, :_destroy, :shipping], slider_images_attributes: [:id, :slider_image], twitter_reward_attributes: [:id, :message, :hashtags])
 	end
 
