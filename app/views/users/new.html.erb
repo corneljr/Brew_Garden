@@ -18,7 +18,7 @@
 
 <div class="row">
   <div class="small-10 medium-6 large-6 small-centered columns">
-    <%= simple_form_for @user do |f| %>
+    <%= form_for @user do |f| %>
       <% if @user.errors.any? %>
         <div class="error_messages">
           <h2>Form is invalid</h2>

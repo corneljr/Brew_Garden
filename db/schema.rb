@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20140731181146) do
     t.string   "facebook"
     t.string   "twitter"
     t.string   "website"
+    t.boolean  "brewery"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

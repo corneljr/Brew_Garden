@@ -1,6 +1,6 @@
 <% @comments.each do |comment| %>
 	<div class='comment-container'>
-		<p><span class='quote'></span><%= comment.body %></p>
+		<p><%= comment.body %></p>
 		<p><%= comment.created_at.strftime("%B %d, %Y") %> on <%= link_to comment.commentable.title, comment.commentable %></p>
 	</div>
 <% end %>
