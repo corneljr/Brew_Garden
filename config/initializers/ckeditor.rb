@@ -1,3 +1,5 @@
+# config/initializers/ckeditor.rb
+
 if Object.const_defined?("Ckeditor")
   Ckeditor.setup do |config|
 

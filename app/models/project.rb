@@ -48,6 +48,13 @@ class Project < ActiveRecord::Base
 		self.save
 	end
 
+	def self.update_days_left 
+		self.all.each do |project| 
+			if project.days_left > 0
+				project.days_left - 1
+			end
+	end
+
 	def update_video_link
 		if self.video_link
 			split_link = self.video_link.split('watch?v=')
